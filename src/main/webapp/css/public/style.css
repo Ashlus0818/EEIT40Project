@@ -1147,7 +1147,7 @@ article.post-list-small:after {
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background-image: url('images/public/xoan.jpg');
+	background-image: url('/myapp/images/public/xoan.jpg');
 }
 
 article.post-list-small:last-of-type:after {
@@ -1157,7 +1157,7 @@ article.post-list-small:last-of-type:after {
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background-image: url('images/public/xoan.jpg');
+	background-image: url('/myapp/images/public/xoan.jpg');
 }
 
 article.post-list .featured-post:before {
@@ -1360,7 +1360,7 @@ article.post-list .content-post {
 	right: 0;
 	width: 73px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -1372,7 +1372,7 @@ article.post-list .content-post {
 	left: 0;
 	width: 73px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -1400,7 +1400,7 @@ article.post-list .content-post {
 	left: 0;
 	width: 100%;
 	height: 1px;
-	background-image: url(images/public/dot.jpg);
+	background-image: url(/myapp/images/public/dot.jpg);
 }
 
 .main-blog-right .sidebar .sidebar-inner .widget-recent .thumb-new:last-of-type:after {
@@ -1485,7 +1485,7 @@ article.post-list .content-post {
 }
 
 .main-blog-right .sidebar .sidebar-inner .widget-categories .thumb-new-banner {
-	background-image: url(images/public/banner.jpg);
+	background-image: url(/myapp/images/public/banner.jpg);
 	height: 386px;
 	margin-top: 43px;
 	position: relative;
@@ -1545,7 +1545,7 @@ article.post-list .content-post {
 
 footer.style1 {
 	margin-top: 100px;
-	background-image: url(images/public/footer.jpg);
+	background-image: url(/myapp/images/public/footer.jpg);
 	height: 445px;
 	max-height: 445px;
 }
@@ -3026,7 +3026,7 @@ footer.style1 .footer-widgets .widget-text span {
 	right: 0;
 	width: 73px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -3038,7 +3038,7 @@ footer.style1 .footer-widgets .widget-text span {
 	left: 0;
 	width: 73px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -3140,7 +3140,7 @@ footer.style1 .footer-widgets .widget-text span {
 }
 
 .main-blog-details .sidebar .sidebar-inner .widget-categories .thumb-new-banner {
-	background-image: url(images/public/banner.jpg);
+	background-image: url(/myapp/images/public/banner.jpg);
 	height: 386px;
 	margin-top: 43px;
 	position: relative;
@@ -3754,7 +3754,7 @@ footer.style1 .footer-widgets .widget-text span {
 	right: 0;
 	width: 50px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -3766,7 +3766,7 @@ footer.style1 .footer-widgets .widget-text span {
 	left: 0;
 	width: 50px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -3787,7 +3787,7 @@ footer.style1 .footer-widgets .widget-text span {
 	right: 0;
 	width: 60px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -3799,7 +3799,7 @@ footer.style1 .footer-widgets .widget-text span {
 	left: 0;
 	width: 60px;
 	height: 4px;
-	background-image: url('images/public/nga.jpg');
+	background-image: url('/myapp/images/public/nga.jpg');
 	z-index: -1;
 }
 
@@ -4081,7 +4081,7 @@ footer.style1 .footer-widgets .widget-text span {
 
 .flat-deal-of-the-week.style1 {
 	padding: 106px 0 100px 0;
-	background-image: url(images/public/footer.jpg);
+	background-image: url(/myapp/images/public/footer.jpg);
 } 
 
 .flat-deal-week {
@@ -4126,7 +4126,7 @@ footer.style1 .footer-widgets .widget-text span {
 
 .flat-event.style1 {
     padding: 105px 0 108px 0;
-    background-image: url(images/public/homepage37.png);
+    background-image: url(/myapp/images/public/homepage37.png);
     height: 800px;
 }
 
@@ -4161,7 +4161,7 @@ footer.style1 .footer-widgets .widget-text span {
     left: -86px;
     width: 73px;
     height: 4px;
-    background: url(images/public/homepage41.png);
+    background: url(/myapp/images/public/homepage41.png);
     z-index: 1;
 }
 
@@ -4173,7 +4173,7 @@ footer.style1 .footer-widgets .widget-text span {
     right: -86px;  
     width: 73px;
     height: 4px;
-    background: url(images/public/homepage42.png);
+    background: url(/myapp/images/public/homepage42.png);
     z-index: 1;
 }
 
@@ -4305,7 +4305,7 @@ footer.style1 .footer-widgets .widget-text span {
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background-image: url(images/public/homepage45.png);
+	background-image: url(/myapp/images/public/homepage45.png);
 }
 
 .flat-new-latest.style1 .content-box ul li:last-of-type:after {
@@ -4652,7 +4652,7 @@ header.style2 .review a i:hover {
 
  .flat-deal-of-the-week.style2 {
 	padding: 106px 0 102px 0;
-	background-image: url(images/public/homepage141.png);
+	background-image: url(/myapp/images/public/homepage141.png);
 }
 
  .flat-deal-of-the-week.style2 .elm-btn {
@@ -4683,7 +4683,7 @@ header.style2 .review a i:hover {
 
 .flat-top-products {
 	padding: 100px 0 56px;
-	background-image: url(images/public/homepage52.png);
+	background-image: url(/myapp/images/public/homepage52.png);
 }
 
 .flat-top-products .products-image {
@@ -4830,7 +4830,7 @@ header.style2 .review a i:hover {
 
 .flat-banner {
 	padding:106px 0 122px 0;
-	background-image: url(images/public/homepage54.png);
+	background-image: url(/myapp/images/public/homepage54.png);
 	text-align: center;
 }
 
@@ -4883,7 +4883,7 @@ header.style2 .review a i:hover {
 
 .flat-new-latest.style2 {
 	padding: 103px 0 101px;
-	background-image: url(images/public/footer.jpg);
+	background-image: url(/myapp/images/public/footer.jpg);
 }
 
 .flat-new-latest.style2 .featured-post {
@@ -5446,7 +5446,7 @@ body.bg-boxed {
 
 .flat-deal-of-the-week.style3 {
 	padding: 94px 0 91px 0;
-	background-image: url(images/public/homepage71.png);
+	background-image: url(/myapp/images/public/homepage71.png);
 	text-align: center;
 }
 
@@ -5489,7 +5489,7 @@ body.bg-boxed {
 
 .flat-new-latest.style3 .content-post {
      padding: 30px;
-    background-image: url(images/public/homepage72.png);
+    background-image: url(/myapp/images/public/homepage72.png);
     margin-bottom: 30px;
 }
 
@@ -5578,7 +5578,7 @@ body.bg-boxed {
 /* footer.style3 */
 
 footer.style3 {
-	background-image: url(images/public/footer.jpg);
+	background-image: url(/myapp/images/public/footer.jpg);
 	height: 445px;
 	max-height: 445px;
 }
@@ -5712,7 +5712,7 @@ footer.style3 .footer-widgets .widget-text span {
 }
 
 .main-homepage-4 .slider-style4 {
-	background-image: url(images/public/footer.jpg);
+	background-image: url(/myapp/images/public/footer.jpg);
 	padding: 87px 0 272px 0;
 }
 
@@ -5844,7 +5844,7 @@ footer.style3 .footer-widgets .widget-text span {
 .flat-our-product.style4 {
 	margin-top: 22px;
 	padding: 80px 0 76px 0;
-	background-image: url(images/public/homepage78.png);
+	background-image: url(/myapp/images/public/homepage78.png);
 	text-align: left;
 }
 
@@ -6144,7 +6144,7 @@ footer.style3 .footer-widgets .widget-text span {
 	bottom: 26px;
 	width: 414px;
 	height: 6px;
-    background-image: url(images/public/homepage89.png);
+    background-image: url(/myapp/images/public/homepage89.png);
 }
 
 .flat-our-product .our-product-title h1:after {
@@ -6154,7 +6154,7 @@ footer.style3 .footer-widgets .widget-text span {
 	bottom: 26px;
 	width: 414px;
 	height: 6px;
-    background-image: url(images/public/homepage89.png);
+    background-image: url(/myapp/images/public/homepage89.png);
 }
 
 .flat-our-product .our-product-content {
@@ -6182,7 +6182,7 @@ footer.style3 .footer-widgets .widget-text span {
 
 .flat-deal-of-the-week.style5 {
 	padding: 95px 0 113px;
-	background-image: url(images/public/homepage97.png);
+	background-image: url(/myapp/images/public/homepage97.png);
 }
 
 .flat-deal-of-the-week.style5 h1 a {
@@ -6259,7 +6259,7 @@ footer.style3 .footer-widgets .widget-text span {
 	bottom: 26px;
 	width: 464px;
 	height: 6px;
-    background-image: url(images/public/homepage89.png);
+    background-image: url(/myapp/images/public/homepage89.png);
 }
 
 .flat-new-latest.style5 .new-latest-title h1:after {
@@ -6269,7 +6269,7 @@ footer.style3 .footer-widgets .widget-text span {
 	bottom: 26px;
 	width: 464px;
 	height: 6px;
-    background-image: url(images/public/homepage89.png);
+    background-image: url(/myapp/images/public/homepage89.png);
 }
 
 .flat-new-latest.style5  .post {
@@ -6479,7 +6479,7 @@ transition: all 1s ease;
 }
 
 .flat-our-website {
-	background-image: url(images/public/homepage110.png);
+	background-image: url(/myapp/images/public/homepage110.png);
 	height: 527px;
 	padding: 87px 0;
 }
@@ -6585,7 +6585,7 @@ transition: all 1s ease;
 
 .flat-our-history {
 	padding: 100px 0 119px;
-	background-image: url(images/public/homepage114.png);
+	background-image: url(/myapp/images/public/homepage114.png);
 	background-position: center;
 }
 
@@ -6938,7 +6938,7 @@ transition: all 1s ease;
 	left: 0;
 	width: 100%;
 	height: 4px;
-	background-image: url(images/public/homepage121.png);
+	background-image: url(/myapp/images/public/homepage121.png);
 }
 
 .main-event .filter-post .featured-post {
