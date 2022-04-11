@@ -296,7 +296,7 @@
     left: -86px;
     width: 73px;
     height: 4px;
-    background: url(./../images/public/homepage15.png);
+    background: url(/myapp/images/public/homepage15.png);
 }
 .title-section .our-product-image:after {
     content: '';
@@ -306,7 +306,7 @@
     right: -86px;  
     width: 73px;
     height: 4px;
-    background: url(images/public/homepage15.png);
+    background: url(/myapp/images/public/homepage15.png);
 }
 
 /* product */
@@ -535,7 +535,7 @@
     right: 50px;
     width: 141px;
     height: 4px;
-    background-image: url('images/public/homepage27.png');
+    background-image: url('/myapp/images/public/homepage27.png');
 }
 
 .flat-products.style1 .title-between:after {
@@ -547,7 +547,7 @@
     right: 50px;
     width: 95px;
     height: 4px;
-    background-image: url('images/public/homepage27.png');
+    background-image: url('/myapp/images/public/homepage27.png');
 }
 
 .flat-products.style1 .title-bottom:after {
@@ -559,7 +559,7 @@
     right: 50px;
     width: 130px;
     height: 4px;
-    background-image: url('images/public/homepage27.png');
+    background-image: url('/myapp/images/public/homepage27.png');
 }
 
 .flat-products.style1 .flat-next a {
@@ -806,7 +806,7 @@
     left: 0;
     width: 20px;
     height: 20px;
-    background-image: url(images/public/homepage24.png);
+    background-image: url(/myapp/images/public/homepage24.png);
     background-repeat: no-repeat;
 }
 
@@ -817,7 +817,7 @@
     right: 0;
     width: 20px;
     height: 20px;
-    background-image: url(images/public/homepage25.png);
+    background-image: url(/myapp/images/public/homepage25.png);
     background-repeat: no-repeat;
 }
 
@@ -828,7 +828,7 @@
     left: 0;
     width: 20px;
     height: 20px;
-    background-image: url(images/public/homepage23.png);
+    background-image: url(/myapp/images/public/homepage23.png);
     background-repeat: no-repeat;
 }
 
@@ -839,7 +839,7 @@
     right: 0;
     width: 20px;
     height: 20px;
-    background-image: url(images/public/homepage26.png);
+    background-image: url(/myapp/images/public/homepage26.png);
 }
 
 .flat-counter .wrap-bg .numb-count {
