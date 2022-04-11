@@ -10,3 +10,6 @@ EEIT40Project
 組員：
 
 功能製作人員表
+
+
+http://localhost:8080/myapp/ 首頁
