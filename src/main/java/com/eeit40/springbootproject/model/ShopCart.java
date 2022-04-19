@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.servlet.annotation.MultipartConfig;
 
@@ -22,9 +23,10 @@ public class ShopCart {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JoinColumn(name = "fk_ShopLiquor_id")
 	private Integer id;
 	
-	@Column(name = "cName")
+	@JoinColumn(name = "fk_ShopLiquor_cName")
 	private String cName;
 	
 	@Column(name = "img")
