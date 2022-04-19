@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Report")
+@Table(name = "forumreport")
 public class Forumreport {
 
 	@Id
@@ -46,7 +46,10 @@ public class Forumreport {
 		UserReason = userReason;
 	}
 
-	public Forumreport(Integer postID, Integer userID, String userReason) {
+	public Forumreport(String userReason) {
+		super();
+		UserReason = userReason;
 	}
+
 
 }
