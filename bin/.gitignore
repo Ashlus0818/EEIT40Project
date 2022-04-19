@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+/.gitignore
+/.metadata/
+/.mvn/
+/.springWebflow
+/README.md
+/mvnw
+/mvnw.cmd
+/pom.xml
+/src/
