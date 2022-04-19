@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Post")
+@Table(name = "forumpost")
 public class Forumpost {
 
 	@Id
@@ -34,8 +34,12 @@ public class Forumpost {
 	@Column(name = "IsDeleted")
 	private Boolean IsDeleted;
 
-	public Forumpost(Integer postID, Integer userID, String title, String context, byte[] image, Integer parentPostID,
-			Boolean isDeleted) {
+	public Forumpost(String title, String context, byte[] image, Boolean isDeleted) {
+		super();
+		Title = title;
+		Context = context;
+		Image = image;
+		IsDeleted = isDeleted;
 	}
 
 	public Integer getPostID() {
