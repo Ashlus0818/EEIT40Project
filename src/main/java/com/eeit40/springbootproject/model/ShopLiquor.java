@@ -12,7 +12,7 @@ import javax.servlet.annotation.MultipartConfig;
 
 @MultipartConfig
 @Entity
-@Table(name="shopLiquor")
+@Table(name="ShopLiquor")
 public class ShopLiquor {
 	
 	@Id
