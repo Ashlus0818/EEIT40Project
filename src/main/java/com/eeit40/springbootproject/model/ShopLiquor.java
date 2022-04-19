@@ -22,7 +22,7 @@ public class ShopLiquor {
 	
 	@Column(name = "pName")
 	private String pName;
-	
+	 
 	@Column(name = "pImg")
 	private byte[] pImg;
 	
