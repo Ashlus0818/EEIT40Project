@@ -1,7 +1,10 @@
 package com.eeit40.springbootproject.model;
 //庫存
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.servlet.annotation.MultipartConfig;
 
@@ -11,15 +14,20 @@ import javax.servlet.annotation.MultipartConfig;
 public class ShopInventory {
 	
 
-	
+	@Id
+	@JoinColumn(name = "fk_ShopLiquor_id")
 	private Integer id;
 	
+	@Column(name="iName")
 	private String iName;
 	
+	@Column(name="iImg")
 	private byte[] iImg;
 	
+	@Column(name = "iPlace")
 	private String iPlace;
 	
+	@Column(name = "iprice")
 	private String iprice;
 	
 	
