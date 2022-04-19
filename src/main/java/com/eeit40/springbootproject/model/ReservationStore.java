@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +22,9 @@ public class ReservationStore {
 	@Column(name = "storeDepartmentNumber")
 	private Integer storeDepartmentNumber;
 	
-	@Column(name = "storeName")
-	private String storeName;
+	@OneToOne
+	@JoinColumn(name = "fk_storeName")
+	private ReservationDepartment storeName;
 	
 	@Column(name = "storePhone")
 	private String storePhone;
@@ -44,7 +47,7 @@ public class ReservationStore {
 	
 	
 	//storeId自動產生所以不用建構子
-	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress,
+	public ReservationStore(Integer storeDepartmentNumber, ReservationDepartment storeName, String storePhone, String storeAddress,
 			String storeFax, String storeOpendate, String createdAt, String modifiedAt) {
 		super();
 		this.storeDepartmentNumber = storeDepartmentNumber;
@@ -82,12 +85,12 @@ public class ReservationStore {
 	}
 
 
-	public String getStoreName() {
+	public ReservationDepartment getStoreName() {
 		return storeName;
 	}
 
 
-	public void setStoreName(String storeName) {
+	public void setStoreName(ReservationDepartment storeName) {
 		this.storeName = storeName;
 	}
 
