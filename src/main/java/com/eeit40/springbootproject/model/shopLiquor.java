@@ -8,10 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.servlet.annotation.MultipartConfig;
 
+//產品
+
 @MultipartConfig
 @Entity
 @Table(name="shopLiquor")
-public class shopCart {
+public class shopLiquor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +36,9 @@ public class shopCart {
 	private String price;
 	
 	
-	public shopCart() {
-	}
-
+	public shopLiquor() {}
 	
-	public shopCart(Integer id, String pName, byte[] pImg, String place, String introduce, String price) {
+	public shopLiquor(Integer id, String pName, byte[] pImg, String place, String introduce, String price) {
 		super();
 		this.id = id;
 		this.pName = pName;
