@@ -13,7 +13,7 @@ import javax.servlet.annotation.MultipartConfig;
 @MultipartConfig
 @Entity
 @Table(name="shopLiquor")
-public class shopLiquor {
+public class ShopLiquor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,9 +36,9 @@ public class shopLiquor {
 	private String price;
 	
 	
-	public shopLiquor() {}
+	public ShopLiquor() {}
 	
-	public shopLiquor(Integer id, String pName, byte[] pImg, String place, String introduce, String price) {
+	public ShopLiquor(Integer id, String pName, byte[] pImg, String place, String introduce, String price) {
 		super();
 		this.id = id;
 		this.pName = pName;
