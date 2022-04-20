@@ -22,9 +22,9 @@ public class ReservationStore {
 	@Column(name = "storeDepartmentNumber")
 	private Integer storeDepartmentNumber;
 	
-	@OneToOne
+//@OneToOne
 	@JoinColumn(name = "fk_storeName")
-	private ReservationDepartment storeName;
+	private String storeName;
 	
 	@Column(name = "storePhone")
 	private String storePhone;
@@ -47,7 +47,7 @@ public class ReservationStore {
 	
 	
 	//storeId自動產生所以不用建構子
-	public ReservationStore(Integer storeDepartmentNumber, ReservationDepartment storeName, String storePhone, String storeAddress,
+	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress,
 			String storeFax, String storeOpendate, String createdAt, String modifiedAt) {
 		super();
 		this.storeDepartmentNumber = storeDepartmentNumber;
@@ -85,12 +85,12 @@ public class ReservationStore {
 	}
 
 
-	public ReservationDepartment getStoreName() {
+	public String getStoreName() {
 		return storeName;
 	}
 
 
-	public void setStoreName(ReservationDepartment storeName) {
+	public void setStoreName(String storeName) {
 		this.storeName = storeName;
 	}
 
@@ -153,6 +153,7 @@ public class ReservationStore {
 	public void setModifiedAt(String modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
+
 
 	
 	
