@@ -16,7 +16,7 @@ public class ReservationStore {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "storeId")
+	@Column(name = "storeId")  //建立table時會依據name指定名稱建立
 	private Integer storeId;
 	
 	@Column(name = "storeDepartmentNumber")
