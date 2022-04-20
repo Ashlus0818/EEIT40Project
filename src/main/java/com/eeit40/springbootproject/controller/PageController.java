@@ -8,8 +8,12 @@ public class PageController {
 	
 	@GetMapping("/")
 	public String index() {
-		return "index";
+		return "/FrontPage/html/index.html";
 	}
-	 
+	
+	@GetMapping("/enterback")
+	public String enterback() {
+		return "WEB-INF/jsp/BackTemplate.jsp";
+	}
 }
  
