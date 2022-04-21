@@ -10,6 +10,10 @@ public class PageController {
 	public String index() {
 		return "index";
 	}
-	 
+	
+	@GetMapping("/2")
+	public String index2() {
+		return "second";
+	}
 }
  
