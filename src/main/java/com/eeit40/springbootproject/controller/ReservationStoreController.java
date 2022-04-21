@@ -1,6 +1,5 @@
 package com.eeit40.springbootproject.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +27,7 @@ public class ReservationStoreController {
 	@Autowired
 	private ReservationStoreRepository dao;
 
-	// inset店家資料(僅限一筆)
+	// insert店家資料(僅限一筆)
 	@ResponseBody // 想回傳(ReservationStore物件)序列化後的Json格式 //自動將傳回的物件轉換為JSON格式字串
 	@PostMapping(value = "ReservationStore/insert") // insert用post
 	public ReservationStore insertReservationStore() {
@@ -80,6 +79,7 @@ public class ReservationStoreController {
 		// 因為從路徑搜尋,使用@PathVariable
 		// 回傳Optional<xxx>泛型,因為它希望把null切開,null可以是沒有也可以是空,它希望能分清楚是哪種
 		// isPresent()是搭配optional,表示有拿到東西-->回傳responseReS(要加get方法),沒有拿到東西就回傳null
+		//路徑裡的和@PathVariable和findById 三個storeId名稱必須都是一樣的(都是table欄位名稱[or bean的?反正entity取名時都設一樣])
 	}
 
 	// 前端送form表單時,如何get(搜尋)
@@ -98,7 +98,7 @@ public class ReservationStoreController {
 		// request)的request.getAttribute(xxx[form的name])
 	}
 
-	//根據id刪除資料 自測成功
+	// 根據id刪除資料 自測成功
 	@ResponseBody
 	@GetMapping(value = "ReservationStore/del")
 	public void delStoreById(@RequestParam Integer storeId) {
@@ -106,25 +106,65 @@ public class ReservationStoreController {
 
 	}
 
-	//Page物件 springboot講義P91 重播3/30下午2:09:00
-	@GetMapping(value="ReservationStore/page/{pageNumber}")
-	public List<ReservationStore> findByPage(@PathVariable Integer pageNumber){
-	Pageable pgb = PageRequest.of(pageNumber-1, 2, Sort.Direction.ASC,"id");
-	Page<ReservationStore> page = dao.findAll(pgb);
-	List<ReservationStore> list = page.getContent();
-	return list;
-				
+	// Page物件 springboot講義P91 重播3/30下午2:09:00
+	@ResponseBody
+	@GetMapping(value = "ReservationStore/page/{pageNumber}")
+	public List<ReservationStore> findByPage(@PathVariable Integer pageNumber) {
+		Pageable pgb = PageRequest.of(pageNumber - 1, 2, Sort.Direction.ASC, "storeId");
+		Page<ReservationStore> page = dao.findAll(pgb);
+		List<ReservationStore> list = page.getContent();
+		return list;
+
+	}
+
+	//@Query HQL查詢
+	@ResponseBody
+	@GetMapping(value = "ReservationStore/findByName")
+	public List<ReservationStore> findByName(@RequestParam String storeName) {
+		return dao.findStoreByNameHQL(storeName);
+
+//findStoreByName要跟ReservationStoreRepository裡的findStoreByName方法一樣
+	}
+
+	//@Query SQL查詢
+	@ResponseBody
+	@GetMapping(value = "ReservationStore/findByName2")
+	public List<ReservationStore> findByName2(@RequestParam String storeName) {
+		return dao.findStoreByNameSQL(storeName);
+
 	}
 	
+//--------------以上是3/30-----------------------------------//	
 	
+	//@Query SQL刪除 
+	@ResponseBody
+	@GetMapping(value="ReservationStore/delete/{storeId}")
+	public boolean deleteStore(@PathVariable Integer storeId) {
+		dao.deleteStoreByIdSQL(storeId);
+		return true;
+	}
+	//不會回傳東西,所以return true(也不用if else),錯了就會跳出去不會回傳true
 	
+	//使用直接透過方法名稱查詢
+	//使用路徑去搜尋
+	@ResponseBody
+	@GetMapping(value="ReservationStore/findStoreName/{storeName}")
+	public List<ReservationStore> findByStoreName(@PathVariable String storeName){
+		return dao.findByStoreNameOrderByStoreId(storeName);
+	}
 	
+	//使用直接透過方法名稱查詢
+	@ResponseBody
+	@GetMapping(value="ReservationStore/findstoreDepartmentNumber/{storeDepartmentNumber}")
+	public List<ReservationStore> findByStoreDepartmentNumber(@PathVariable Integer storeDepartmentNumber){
+		return dao.findByStoreDepartmentNumberOrderByStoreNameDesc(storeDepartmentNumber);
+	}
 	
-	
+	//之後教留言版功能的專案是3/31 09的影片 40:00時開始
 	
 	
 	
 	
 }
 
-//看到1:27:00
+
