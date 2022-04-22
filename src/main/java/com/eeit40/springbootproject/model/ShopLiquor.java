@@ -12,7 +12,7 @@ import javax.servlet.annotation.MultipartConfig;
 
 @MultipartConfig
 @Entity
-@Table(name="shopLiquor")
+@Table(name="ShopLiquor")
 public class ShopLiquor {
 	
 	@Id
@@ -23,8 +23,9 @@ public class ShopLiquor {
 	@Column(name = "pName")
 	private String pName;
 	 
+	//用url路徑
 	@Column(name = "pImg")
-	private byte[] pImg;
+	private String pImg;
 	
 	@Column(name = "place")
 	private String place;
@@ -37,16 +38,23 @@ public class ShopLiquor {
 	
 	
 	public ShopLiquor() {}
+
 	
-	public ShopLiquor(Integer id, String pName, byte[] pImg, String place, String introduce, String price) {
+	
+	
+
+	public ShopLiquor(Integer id, String pName, String pImg, String place, String introduce, String price) {
 		super();
 		this.id = id;
 		this.pName = pName;
 		this.pImg = pImg;
 		this.place = place;
-		this.Introduce = introduce;
+		Introduce = introduce;
 		this.price = price;
 	}
+
+
+
 
 
 	public Integer getId() {
@@ -69,12 +77,12 @@ public class ShopLiquor {
 	}
 
 
-	public byte[] getpImg() {
+	public String getpImg() {
 		return pImg;
 	}
 
 
-	public void setpImg(byte[] pImg) {
+	public void setpImg(String pImg) {
 		this.pImg = pImg;
 	}
 
@@ -107,6 +115,5 @@ public class ShopLiquor {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-
 	
 }

@@ -29,14 +29,26 @@ public class ShopCart {
 	@JoinColumn(name = "fk_ShopLiquor_cName")
 	private String cName;
 	
+	
+	//url路徑
 	@Column(name = "img")
-	private byte[] img;
+	private String img;
 	
 	@Column(name = "price")
 	private String price;
 	
 	@Column(name = "quantity")
 	private Integer quantity;
+
+	
+		public ShopCart(Integer id, String cName, String img, String price, Integer quantity) {
+		super();
+		this.id = id;
+		this.cName = cName;
+		this.img = img;
+		this.price = price;
+		this.quantity = quantity;
+	}
 
 	public Integer getId() {
 		return id;
@@ -54,11 +66,11 @@ public class ShopCart {
 		this.cName = cName;
 	}
 
-	public byte[] getImg() {
+	public String getImg() {
 		return img;
 	}
 
-	public void setImg(byte[] img) {
+	public void setImg(String img) {
 		this.img = img;
 	}
 
@@ -77,14 +89,7 @@ public class ShopCart {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-
-	public ShopCart(Integer id, String cName, byte[] img, String price, Integer quantity) {
-		super();
-		this.id = id;
-		this.cName = cName;
-		this.img = img;
-		this.price = price;
-		this.quantity = quantity;
-	}
+	
+	
 	
 }
