@@ -7,5 +7,6 @@ import com.eeit40.springbootproject.model.Forumpost;
 
 @Repository
 public interface ForumpostRepository extends JpaRepository<Forumpost, Integer> {
+	public Forumpost findFirstByOrderByDateDesc();
 
 }

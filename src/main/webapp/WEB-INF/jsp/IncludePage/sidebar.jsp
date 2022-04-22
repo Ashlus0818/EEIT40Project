@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!-- Page Wrapper -->
 <div id="wrapper">
 	<!-- Sidebar -->
@@ -43,8 +45,8 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>客服</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="#"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>留言板</span></a></li>
+		<li class="nav-item"><a class="nav-link" href="${contextRoot}/post"> <i
+				class="fas fa-fw fa-chart-area"></i> <span>討論區</span></a></li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>這下面先留著備用</span></a></li>

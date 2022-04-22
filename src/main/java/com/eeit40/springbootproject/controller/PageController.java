@@ -15,5 +15,10 @@ public class PageController {
 	public String index2() {
 		return "second";
 	}
+	
+	@GetMapping("/post")
+	public String forumpost() {
+		return "Forumpost";
+	}
 }
  
