@@ -1,11 +1,19 @@
 package com.eeit40.springbootproject.model;
 
+import java.util.Arrays;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "forumpost")
@@ -33,12 +41,24 @@ public class Forumpost {
 
 	@Column(name = "isDeleted")
 	private Boolean isDeleted;
+	
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "date")
+	private Date date;
 
 	public Forumpost(String title, String context, byte[] image, Boolean isDeleted) {
 		this.title = title;
 		this.context = context;
 		this.image = image;
 		this.isDeleted = isDeleted;
+	}
+	
+	@PrePersist
+	public void onCreate() {
+		if(date == null) {
+			date = new Date();
+		}
 	}
 
 	public Forumpost() {
@@ -102,5 +122,19 @@ public class Forumpost {
 	}
 
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Forumpost [postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
+				+ ", image=" + Arrays.toString(image) + ", parentPostID=" + parentPostID + ", isDeleted=" + isDeleted
+				+ ", date=" + date + "]";
+	}	
 
 }

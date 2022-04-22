@@ -20,48 +20,52 @@ import com.eeit40.springbootproject.model.Forumpost;
 
 @RestController
 public class ForumpostController {
-	
+
 	@Autowired
 	private ForumpostRepository dao;
-	
+
 	@PostMapping(value = "/forumpost/insert")
 	public Forumpost insertPost(@RequestBody Forumpost post) {
 		Forumpost resPost = dao.save(post);
-		
+
 		return resPost;
 	}
-	
+
 	@GetMapping(value = "/forumpost/get/{postid}")
 	public Forumpost getPostByID(@PathVariable Integer postid) {
 		Optional<Forumpost> responsePost = dao.findById(postid);
-		
-		if(responsePost.isPresent()) {
+
+		if (responsePost.isPresent()) {
 			return responsePost.get();
 		}
-		
+
 		return null;
 	}
-	
+
 	@GetMapping(value = "/forumpost/get")
 	public Forumpost getPostByID2(@RequestParam Integer postid) {
 		Optional<Forumpost> responsePost = dao.findById(postid);
-		
-		if(responsePost.isPresent()) {
+
+		if (responsePost.isPresent()) {
 			return responsePost.get();
 		}
-		
+
 		return null;
 	}
-	
+
 	@GetMapping(value = "/forumpost/page/{pageNumber}")
-	public List<Forumpost> findByPage(@PathVariable Integer pageNumber)
-	{
+	public List<Forumpost> findByPage(@PathVariable Integer pageNumber) {
 		System.out.print(pageNumber);
-		Pageable pgb = PageRequest.of(pageNumber-1, 2,Sort.Direction.DESC,"postID");
+		Pageable pgb = PageRequest.of(pageNumber - 1, 2, Sort.Direction.DESC, "postID");
 		Page<Forumpost> page = dao.findAll(pgb);
 		List<Forumpost> list = page.getContent();
-		return list;		
+		return list;
 	}
-	
-		
+
+	@GetMapping(value = "/forumpost/delete/{postid}")
+	public boolean deleteBypostID(@PathVariable Integer postid) {
+		dao.deleteById(postid);
+		return true;
+	}
+
 }
