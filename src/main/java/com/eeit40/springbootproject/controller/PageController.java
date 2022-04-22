@@ -11,9 +11,9 @@ public class PageController {
 		return "index";
 	}
 	
-	@GetMapping("/2")
-	public String index2() {
-		return "second";
+	@GetMapping("/BackInsert")
+	public String BackInsert() {
+		return "BackInsert";
 	}
 }
  
