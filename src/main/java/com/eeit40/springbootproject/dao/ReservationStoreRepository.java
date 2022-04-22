@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.eeit40.springbootproject.model.ReservationStore;
 
-@Repository
+@Repository 
+//紫色字左邊(ReservationStore)是目前的資料型別,右邊(Integer)是這entity的id的資料型別
 public interface ReservationStoreRepository extends JpaRepository<ReservationStore, Integer> {
 
 	// JPQL=HQL Query方法 boot講義p96, 查詢方法-->在Repository寫一個方法-->參數設定好-->@Query

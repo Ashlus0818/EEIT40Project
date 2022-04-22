@@ -28,6 +28,7 @@ public class ReservationStoreController {
 	private ReservationStoreRepository dao;
 
 	// insert店家資料(僅限一筆)
+	//使用crudRepository的save方法
 	@ResponseBody // 想回傳(ReservationStore物件)序列化後的Json格式 //自動將傳回的物件轉換為JSON格式字串
 	@PostMapping(value = "ReservationStore/insert") // insert用post
 	public ReservationStore insertReservationStore() {
