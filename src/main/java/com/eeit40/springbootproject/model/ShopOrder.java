@@ -18,7 +18,6 @@ import javax.servlet.annotation.MultipartConfig;
 
 public class ShopOrder {
 
-	public ShopOrder() {}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,22 +31,31 @@ public class ShopOrder {
 	private String pName;
 	
 	@Column(name = "img")
-	private byte[] img;
+	private String img;
 	
 	@Column(name = "quantity")
 	private Integer quantity;
 	
 	@Column(name = "date")
 	private Date date;
-
 	
-	public String getpName() {
-		return pName;
+	public ShopOrder() {}
+	
+	
+	
+
+	public ShopOrder(Integer id, String uName, String pName, String img, Integer quantity, Date date) {
+		super();
+		this.id = id;
+		this.uName = uName;
+		this.pName = pName;
+		this.img = img;
+		this.quantity = quantity;
+		this.date = date;
 	}
 
-	public void setpName(String pName) {
-		this.pName = pName;
-	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -65,11 +73,19 @@ public class ShopOrder {
 		this.uName = uName;
 	}
 
-	public byte[] getImg() {
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+	public String getImg() {
 		return img;
 	}
 
-	public void setImg(byte[] img) {
+	public void setImg(String img) {
 		this.img = img;
 	}
 
@@ -86,15 +102,6 @@ public class ShopOrder {
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public ShopOrder(Integer id, String uName, byte[] img, Integer quantity, Date date) {
-		super();
-		this.id = id;
-		this.uName = uName;
-		this.img = img;
-		this.quantity = quantity;
 		this.date = date;
 	}
 	
