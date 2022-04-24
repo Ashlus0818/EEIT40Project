@@ -18,7 +18,7 @@ public class BackTaskesController {
 	@ResponseBody
 	@PostMapping(value="backtaskes/insert")
 	public BackTaskes insertBackTaskes() {
-		BackTaskes task = new BackTaskes("Ash", "level_1");
+		
 		BackTaskes resTask= dao.save(task);
 		return resTask;
 	}
