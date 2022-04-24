@@ -10,6 +10,15 @@ public class PageController {
 	public String index() {
 		return "index";
 	}
-	 
+	
+	@GetMapping("/BackInsert")
+	public String BackInsert() {
+		return "BackInsert";
+	}
+	
+	@GetMapping("/post")
+	public String forumpost() {
+		return "Forumpost";
+	}
 }
  

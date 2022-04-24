@@ -8,23 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ForumID")
+@Table(name = "forumid")
 public class ForumID {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ForumID")
-	private Integer ForumID;
+	@Column(name = "forumID")
+	private Integer forumID;
 
 	public ForumID(Integer forumID) {
 
 	}
 
 	public Integer getForumID() {
-		return ForumID;
+		return forumID;
 	}
 
 	public void setForumID(Integer forumID) {
-		ForumID = forumID;
+		this.forumID = forumID;
 	}
 
 }

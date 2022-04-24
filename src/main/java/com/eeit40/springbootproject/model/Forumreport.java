@@ -8,45 +8,47 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Report")
+@Table(name = "forumreport")
 public class Forumreport {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "PostID")
-	private Integer PostID;
+	@Column(name = "postID")
+	private Integer postID;
 
-	@Column(name = "UserID")
-	private Integer UserID;
+	@Column(name = "userID")
+	private Integer userID;
 
-	@Column(name = "UserReason")
-	private String UserReason;
+	@Column(name = "userReason")
+	private String userReason;
 
 	public Integer getPostID() {
-		return PostID;
+		return postID;
 	}
 
 	public void setPostID(Integer postID) {
-		PostID = postID;
+		this.postID = postID;
 	}
 
 	public Integer getUserID() {
-		return UserID;
+		return userID;
 	}
 
 	public void setUserID(Integer userID) {
-		UserID = userID;
+		this.userID = userID;
 	}
 
 	public String getUserReason() {
-		return UserReason;
+		return userReason;
 	}
 
 	public void setUserReason(String userReason) {
-		UserReason = userReason;
+		this.userReason = userReason;
 	}
 
-	public Forumreport(Integer postID, Integer userID, String userReason) {
+	public Forumreport(String userReason) {
+		super();
+		this.userReason = userReason;
 	}
 
 }

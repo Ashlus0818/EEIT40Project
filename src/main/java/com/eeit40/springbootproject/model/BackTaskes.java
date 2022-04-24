@@ -13,34 +13,27 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Taskes")
+@Table(name="BackTaskes")
 public class BackTaskes {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
 	
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="activeDate")
-	private Date activeDate;
-	
-	@Column(name="deadline")
-	private Date deadline;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="fk_member_email")
-	private Member createdBy;
-	
-	@Column(name="pdf")
-	private byte[] pdf;
-	
-	@Column(name="condition")
-	private boolean condition;
-	
+	@Column(name="level")
+	private String level;
+
 	public BackTaskes() {
+	}
+	
+	public BackTaskes(String name, String level) {
+		super();
+		this.name = name;
+		this.level = level;
 	}
 
 	public Integer getId() {
@@ -59,46 +52,14 @@ public class BackTaskes {
 		this.name = name;
 	}
 
-	public Date getActiveDate() {
-		return activeDate;
+	public String getLevel() {
+		return level;
 	}
 
-	public void setActiveDate(Date activeDate) {
-		this.activeDate = activeDate;
+	public void setLevel(String level) {
+		this.level = level;
 	}
-
-	public Date getDeadline() {
-		return deadline;
-	}
-
-	public void setDeadline(Date deadline) {
-		this.deadline = deadline;
-	}
-
-	public Member getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(Member createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public byte[] getPdf() {
-		return pdf;
-	}
-
-	public void setPdf(byte[] pdf) {
-		this.pdf = pdf;
-	}
-
-	public boolean isCondition() {
-		return condition;
-	}
-
-	public void setCondition(boolean condition) {
-		this.condition = condition;
-	}
-
+	
 	
 	
 }

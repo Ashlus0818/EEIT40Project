@@ -22,7 +22,7 @@ public class ShopInventory {
 	private String iName;
 	
 	@Column(name="iImg")
-	private byte[] iImg;
+	private String iImg;
 	
 	@Column(name = "iPlace")
 	private String iPlace;
@@ -32,54 +32,68 @@ public class ShopInventory {
 	
 	
 	public ShopInventory() {}
+
 	
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getiName() {
-		return iName;
-	}
-
-	public void setiName(String iName) {
-		this.iName = iName;
-	}
-
-	public byte[] getiImg() {
-		return iImg;
-	}
-
-	public void setiImg(byte[] iImg) {
-		this.iImg = iImg;
-	}
-
-	public String getiPlace() {
-		return iPlace;
-	}
-
-	public void setiPlace(String iPlace) {
-		this.iPlace = iPlace;
-	}
-
-	public String getIprice() {
-		return iprice;
-	}
-
-	public void setIprice(String iprice) {
-		this.iprice = iprice;
-	}
-
-	public ShopInventory(Integer id, String iName, byte[] iImg, String iPlace, String iprice) {
+	
+	
+	public ShopInventory(Integer id, String iName, String iImg, String iPlace, String iprice) {
 		super();
 		this.id = id;
 		this.iName = iName;
 		this.iImg = iImg;
 		this.iPlace = iPlace;
+		this.iprice = iprice;
+	}
+
+
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getiName() {
+		return iName;
+	}
+
+
+	public void setiName(String iName) {
+		this.iName = iName;
+	}
+
+
+	public String getiImg() {
+		return iImg;
+	}
+
+
+	public void setiImg(String iImg) {
+		this.iImg = iImg;
+	}
+
+
+	public String getiPlace() {
+		return iPlace;
+	}
+
+
+	public void setiPlace(String iPlace) {
+		this.iPlace = iPlace;
+	}
+
+
+	public String getIprice() {
+		return iprice;
+	}
+
+
+	public void setIprice(String iprice) {
 		this.iprice = iprice;
 	}
 	
