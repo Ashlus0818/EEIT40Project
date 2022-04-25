@@ -1,5 +1,7 @@
 package com.eeit40.springbootproject.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="ReservationStore")
@@ -23,7 +29,8 @@ public class ReservationStore {
 	private Integer storeDepartmentNumber;
 	
 //@OneToOne
-	@JoinColumn(name = "fk_storeName")
+//@JoinColumn(name = "fk_storeName")
+	@Column(name = "storeName")
 	private String storeName;
 	
 	@Column(name = "storePhone")
@@ -38,17 +45,25 @@ public class ReservationStore {
 	@Column(name = "storeOpendate")
 	private String storeOpendate;
 	
-	@Column(name = "createdAt")
-	private String createdAt;  //datetime用string接
+	// Date引入util話,要用@Temporal,表跟資料庫說明我的資料型別要裝什麼(年月日/年月日時分秒...等)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") // 年月日時分秒的格式,因為不同資料庫有不同存的格式,例如有些會存到秒數後三位
+	@Temporal(TemporalType.TIMESTAMP) // 年月日時分秒
+	@Column(name = "createdAt",columnDefinition = "datetime") //預設是datetime2型別,要換datetime型別要改)
+	private Date createdAt;  
 	
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") // 年月日時分秒的格式,因為不同資料庫有不同存的格式,例如有些會存到秒數後三位
+	@Temporal(TemporalType.TIMESTAMP) // 年月日時分秒
 	@Column(name = "modifiedAt")
-	private String modifiedAt;
+	private Date modifiedAt;
+	
+	
+
 	
 	
 	
 	//storeId自動產生所以不用建構子
 	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress,
-			String storeFax, String storeOpendate, String createdAt, String modifiedAt) {
+			String storeFax, String storeOpendate, Date createdAt, Date modifiedAt) {
 		super();
 		this.storeDepartmentNumber = storeDepartmentNumber;
 		this.storeName = storeName;
@@ -59,7 +74,7 @@ public class ReservationStore {
 		this.createdAt = createdAt;
 		this.modifiedAt = modifiedAt;
 	}
-
+	
 
 	public ReservationStore() {
 	}
@@ -135,25 +150,24 @@ public class ReservationStore {
 	}
 
 
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
 
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
 
-	public String getModifiedAt() {
+	public Date getModifiedAt() {
 		return modifiedAt;
 	}
 
 
-	public void setModifiedAt(String modifiedAt) {
+	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
-
 
 	
 	
