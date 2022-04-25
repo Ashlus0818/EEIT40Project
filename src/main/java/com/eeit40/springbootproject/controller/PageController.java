@@ -20,5 +20,10 @@ public class PageController {
 	public String forumpost() {
 		return "Forumpost";
 	}
+	
+	@GetMapping("/ReservationStore")
+	public String ReservationStore() {
+		return "ReservationStore";
+	}
 }
  
