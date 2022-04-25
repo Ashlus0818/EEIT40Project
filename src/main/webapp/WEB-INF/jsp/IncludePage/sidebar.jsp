@@ -51,7 +51,7 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="#"> <i
+		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backstage/ReservationStore"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>實體店面</span></a></li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i

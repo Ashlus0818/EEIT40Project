@@ -9,14 +9,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.model.ReservationMessageTest;
+import com.eeit40.springbootproject.model.ReservationStore;
 import com.eeit40.springbootproject.service.ReservationMessageTestService;
+import com.eeit40.springbootproject.service.ReservationStoreService;
 
 @Controller
 public class PageController {
 	
 	@Autowired
-	private ReservationMessageTestService messageService;
+	private ReservationStoreService ReStoreService;
 	
+	@Autowired
+	private ReservationMessageTestService messageService;
 	
 	@GetMapping("/")
 	public String index() {
@@ -33,10 +37,13 @@ public class PageController {
 		return "Forumpost";
 	}
 	
-	@GetMapping("/ReservationStore")
-	public String ReservationStore() {
-		return "ReservationStore";
-	}
+//	@GetMapping("/ReservationStore")
+//	public String ReservationStore() {
+//		return "ReservationStore";
+//	}
+	
+	
+	//課堂範例測試
 	//路徑myapp來自於application.properties
 	//http://localhost:8080/myapp/ReMsgTest
 	//測試老師msg功能從這裡先輸入網址開始(上面)-->連到indexReMsgTest.jsp-->再連到default.jsp-->
@@ -46,6 +53,7 @@ public class PageController {
 		return "indexReMsgTest";
 	}
 	
+	//課堂範例測試
 	//3/31錄影 10點的 1:00:00 & 1:05:00成功
 	//搭配ReservationMsgTestController的@PostMapping("/message/add"),一個get 一個post
 	@GetMapping("/message/add")
@@ -71,6 +79,7 @@ public class PageController {
 		
 	}
 	
+	//課堂範例測試
 	@GetMapping("/message/viewMessages")
 	public ModelAndView viewMessages(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
 		Page<ReservationMessageTest> page = messageService.findByPage(pageNumber);
@@ -80,6 +89,18 @@ public class PageController {
 		
 		return mav;
 	}
+	
+	
+	//ReservationStore showAll
+		@GetMapping("/backstage/ReservationStore")
+		public ModelAndView ReservationStore(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
+			Page<ReservationStore> page = ReStoreService.findByPage(pageNumber);
+			
+			mav.getModel().put("pageStore1", page);
+			mav.setViewName("ReservationStore"); //目標jsp名字
+			
+			return mav;
+		}
 	
 	
 	

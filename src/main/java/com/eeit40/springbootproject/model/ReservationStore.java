@@ -38,10 +38,7 @@ public class ReservationStore {
 	
 	@Column(name = "storeAddress")
 	private String storeAddress;
-	
-	@Column(name = "storeFax")
-	private String storeFax;
-	
+		
 	@Column(name = "storeOpendate")
 	private String storeOpendate;
 	
@@ -62,14 +59,12 @@ public class ReservationStore {
 	
 	
 	//storeId自動產生所以不用建構子
-	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress,
-			String storeFax, String storeOpendate, Date createdAt, Date modifiedAt) {
+	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress, String storeOpendate, Date createdAt, Date modifiedAt) {
 		super();
 		this.storeDepartmentNumber = storeDepartmentNumber;
 		this.storeName = storeName;
 		this.storePhone = storePhone;
 		this.storeAddress = storeAddress;
-		this.storeFax = storeFax;
 		this.storeOpendate = storeOpendate;
 		this.createdAt = createdAt;
 		this.modifiedAt = modifiedAt;
@@ -127,16 +122,6 @@ public class ReservationStore {
 
 	public void setStoreAddress(String storeAddress) {
 		this.storeAddress = storeAddress;
-	}
-
-
-	public String getStoreFax() {
-		return storeFax;
-	}
-
-
-	public void setStoreFax(String storeFax) {
-		this.storeFax = storeFax;
 	}
 
 

@@ -111,7 +111,7 @@ public class ReservationStoreController {
 	@ResponseBody
 	@GetMapping(value = "ReservationStore/page/{pageNumber}")
 	public List<ReservationStore> findByPage(@PathVariable Integer pageNumber) {
-		Pageable pgb = PageRequest.of(pageNumber - 1, 2, Sort.Direction.ASC, "storeId");
+		Pageable pgb = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "storeId");
 		Page<ReservationStore> page = dao.findAll(pgb);
 		List<ReservationStore> list = page.getContent();
 		return list;
@@ -162,6 +162,9 @@ public class ReservationStoreController {
 	}
 	
 	//之後教留言版功能的專案是3/31 09的影片 40:00時開始
+	
+
+	
 	
 	
 	
