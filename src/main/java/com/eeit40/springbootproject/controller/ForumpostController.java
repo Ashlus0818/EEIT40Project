@@ -1,71 +1,49 @@
 package com.eeit40.springbootproject.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.eeit40.springbootproject.dao.ForumpostRepository;
 import com.eeit40.springbootproject.model.Forumpost;
+import com.eeit40.springbootproject.service.ForumpostService;
 
-@RestController
+@Controller
 public class ForumpostController {
 
 	@Autowired
-	private ForumpostRepository dao;
+	private ForumpostService postService;
 
-	@PostMapping(value = "/forumpost/insert")
-	public Forumpost insertPost(@RequestBody Forumpost post) {
-		Forumpost resPost = dao.save(post);
+	@PostMapping(value = { "/AddForumpost", "/Forumpostlist" })
+	public ModelAndView insertPost(ModelAndView mav, @ModelAttribute Forumpost post) {
+		postService.insertPost(post);
 
-		return resPost;
+		Forumpost newpost = new Forumpost();
+
+		mav.getModel().put("forumpost", newpost);
+
+		Forumpost latestpost = postService.getLastpost();
+
+		mav.getModel().put("lastpost", latestpost);
+
+		mav.setViewName("AddForumpost");
+
+		return mav;
 	}
-
-	@GetMapping(value = "/forumpost/get/{postid}")
-	public Forumpost getPostByID(@PathVariable Integer postid) {
-		Optional<Forumpost> responsePost = dao.findById(postid);
-
-		if (responsePost.isPresent()) {
-			return responsePost.get();
-		}
-
-		return null;
+	
+	@GetMapping("/EditForumpost")
+	public String editPost(Model model, @RequestParam(name="postid") Integer postid) {
+		Forumpost getpost = postService.getpostById(postid);
+		model.addAttribute("forumpost", getpost);
+		
+		return "EditForumpost";
 	}
-
-	@GetMapping(value = "/forumpost/get")
-	public Forumpost getPostByID2(@RequestParam Integer postid) {
-		Optional<Forumpost> responsePost = dao.findById(postid);
-
-		if (responsePost.isPresent()) {
-			return responsePost.get();
-		}
-
-		return null;
-	}
-
-	@GetMapping(value = "/forumpost/page/{pageNumber}")
-	public List<Forumpost> findByPage(@PathVariable Integer pageNumber) {
-		System.out.print(pageNumber);
-		Pageable pgb = PageRequest.of(pageNumber - 1, 2, Sort.Direction.DESC, "postID");
-		Page<Forumpost> page = dao.findAll(pgb);
-		List<Forumpost> list = page.getContent();
-		return list;
-	}
-
-	@GetMapping(value = "/forumpost/delete/{postid}")
-	public boolean deleteBypostID(@PathVariable Integer postid) {
-		dao.deleteById(postid);
-		return true;
-	}
+	
 
 }

@@ -57,7 +57,7 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>客服</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="${contextRoot}/post"> <i
+		<li class="nav-item"><a class="nav-link" href="${contextRoot}/AddForumpost"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>討論區</span></a></li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i

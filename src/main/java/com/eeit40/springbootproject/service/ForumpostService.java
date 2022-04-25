@@ -19,11 +19,11 @@ public class ForumpostService {
 	@Autowired
 	private ForumpostRepository forumpostDao;
 
-	public void insert(Forumpost post) {
+	public void insertPost(Forumpost post) {
 		forumpostDao.save(post);
 	}
 
-	public Forumpost findById(Integer postid) {
+	public Forumpost getpostById(Integer postid) {
 		Optional<Forumpost> option = forumpostDao.findById(postid);
 		if (option.isPresent()) {
 			return option.get();
@@ -31,7 +31,7 @@ public class ForumpostService {
 		return null;
 	}
 
-	public void deleteById(Integer postid) {
+	public void deleteBypostId(Integer postid) {
 		forumpostDao.deleteById(postid);
 	}
 
