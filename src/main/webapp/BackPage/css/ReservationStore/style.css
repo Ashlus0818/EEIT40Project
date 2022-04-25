@@ -7402,6 +7402,7 @@ sub {
   border-radius: 100%; }
 
 .content-body .container-fluid {
+position: relative;
   padding: 15px 30px 0; }
 
 @media (max-width: 767px) {
@@ -9995,9 +9996,9 @@ input[type="checkbox"]:checked:after {
   width: 1.2rem;
   height: 1.2rem;
   display: block;
-  content: "\f00c";
+  content: "";
   font-family: 'FontAwesome';
-  color: #7571f9;
+  background-color: #f63b3b00;
   font-weight: 100;
   text-align: center; }
 
@@ -14705,4 +14706,17 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
+.totalpages{
+	position: absolute;
+    bottom: 7%;
+    right: -15%;
+    width: 100%;
+    text-align: right;
+}
+
+.totalpages .col-9{
+	font-size: 20px;
+}
+#DataTables_Table_0_wrapper .row:nth-child(3) .col-sm-12:nth-child(2){display:none;}
 /*# sourceMappingURL=style.css.map */

@@ -23,6 +23,7 @@
 	rel="stylesheet">
 
 <jsp:include page="IncludePage/css.jsp" />
+
 </head>
 
 <body>
@@ -44,7 +45,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12">
-						<div class="card">
+						<div class="card" style="overflow-x: scroll;">
 							<div class="card-body">
 								<h4 class="card-title">實體店面</h4>
 								<div class="table-responsive">
@@ -52,13 +53,13 @@
 										class="table table-striped table-bordered zero-configuration">
 										<thead>
 											<tr>
-<!-- 												<th class="checkbox-cell">     -->
-<!-- 									                <label class="checkbox"> -->
-<!-- 											            <input type="checkbox"> -->
-<!-- 											                <span class="check"></span> -->
-<!-- 									                </label> -->
+												<th class="checkbox-cell">    
+									                <label class="checkbox">
+											            <input type="checkbox">
+											                <span class="check"></span>
+									                </label>
 											  
-<!-- 						                       </th> -->
+						                       </th>
 												<th>店家編號</th>
 												<th>部門編號</th>
 												<th>店家名</th>
@@ -74,11 +75,11 @@
 						<c:forEach var="pageStore" items="${pageStore1.content}">
 					<tr>
 					
-<!-- 					     <td class="checkbox-cell"> -->
-<!-- 					         <label class="checkbox"> -->
-<!-- 									<input type="checkbox"><span class="check"></span> -->
-<!-- 							 </label> -->
-<!-- 						 </td> -->
+					     <td class="checkbox-cell">
+					         <label class="checkbox">
+									<input type="checkbox"><span class="check"></span>
+							 </label>
+						 </td>
 
                          <td><c:out value="${pageStore.storeId}" />  </td>  
                          <td><c:out value="${pageStore.storeDepartmentNumber}" /> </td> 
@@ -123,7 +124,7 @@
 				</div>
 				
 				
-	<div class="row justify-content-center">
+	<div class="row totalpages">
 		<div class="col-9">
 		   <c:forEach var="pageNumber" begin="1" end="${pageStore1.totalPages}">
 		   
