@@ -15,7 +15,7 @@
 	<jsp:include page="IncludePage/pageheading.jsp" />
 	
 	<div>
-		<h1>留言管理</h1>
+		<h1>留言管理kkkkkkk</h1>
 
 		<h2>this is test ting1</h2>
 	</div>
