@@ -13,18 +13,13 @@
 <jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
 </head>
 <body>
-	<jsp:include page="/WEB-INF/jsp/IncludePage/sidebar.jsp" />
-	<jsp:include page="/WEB-INF/jsp/IncludePage/topbar.jsp" />
-	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
-	
+<jsp:include page="/WEB-INF/jsp/IncludePage/sidebar.jsp" />
+<jsp:include page="/WEB-INF/jsp/IncludePage/topbar.jsp" />
+<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />	
 <div class="container">
-
 <p />
-
 <a href="http://localhost:8080/myapp/Forumpostlist">文章列表</a>
-
 <p />
-
  <div class="col-6">
   <div class="card">
   <div class="card-header">
@@ -40,13 +35,10 @@
 </div>
 <input type="submit" name="submit" value="新增訊息">
 </form:form>
-  </div>
 </div>
 </div>
 </div>
-
-
-
+</div>
 	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
 </body>
 </html>
