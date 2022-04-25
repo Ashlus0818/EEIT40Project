@@ -54,7 +54,7 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>酒類訂購</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="#"> <i
+		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backmessage"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>客服</span></a></li>
 
 		<li class="nav-item"><a class="nav-link" href="${contextRoot}/post"> <i

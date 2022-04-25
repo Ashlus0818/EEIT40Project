@@ -27,7 +27,7 @@ public class CustomerMessageController {
 	@Autowired
 	private CustomerMessageRepository dao;
 	
-	@GetMapping("/customermes/page/{pageNumber}")
+	@GetMapping("/backmessage/page/{pageNumber}")
 	public List<CustomerMessage> findByPage(@PathVariable Integer pageNumber)
 	{
 		System.out.print(pageNumber);
@@ -38,7 +38,7 @@ public class CustomerMessageController {
 	}
 	
 	 // 单个删除
-    @RequestMapping("/deleteMessageId")
+    @RequestMapping("/backmessage/deleteMessageId")
     public Map<String, String> deleteMessageId(Integer id){
     	customerMessageService.deleteMessageId(id);
 
@@ -48,7 +48,7 @@ public class CustomerMessageController {
     }
 
     // 批量删除
-    @RequestMapping("/deleteManyMessageId")
+    @RequestMapping("/backmessage/deleteManyMessageId")
     public Map<String, String> deleteManyMessageId(String idList){
     	customerMessageService.deleteManyMessageId(idList);
 
@@ -59,7 +59,7 @@ public class CustomerMessageController {
 
 
     // 编辑 单个留言审核状态
-    @RequestMapping("/updateMessage")
+    @RequestMapping("/backmessage/updateMessage")
     public Map<String, String> updateMessage(Integer messagetext, Integer id){
     	customerMessageService.updateMessage(messagetext,id);
 
@@ -69,13 +69,5 @@ public class CustomerMessageController {
     }
 
 
-//    // 编辑 整个留言审核状态
-//    @RequestMapping("/updateMessageManageStatus")
-//    public Map<String, String> updateMessageManageStatus(String message_manage){
-//    	customerMessageService.updateMessageManageStatus(message_manage);
-//
-//        Map<String, String> m = new HashMap<>();
-////        m.put("message", "成功");
-////        return m;
-//    }
+
 }
