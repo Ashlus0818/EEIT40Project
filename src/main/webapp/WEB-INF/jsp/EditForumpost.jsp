@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +17,18 @@
 	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
 	<div class="container">
 		<p />
-		<a href="http://localhost:8080/myapp/Forumpostlist">文章列表</a>
 		<p />
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header">編輯文章</div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumpost">
-					<form:input type="hidden" path="postID" />
-					<form:input type="hidden" path="userID" />
-					<form:input type="hidden" path="date" />
-					<form:input type="hidden" path="image" />
-					<form:input type="hidden" path="parentPostID" />
-					<form:input type="hidden" path="isDeleted" />
+						<form:errors path="title" />
+						<form:errors path="context" />
+						<form:input type="hidden" path="postID" />
+						<form:input type="hidden" path="userID" />
+						<form:input type="hidden" path="image" />
+						<form:input type="hidden" path="date" />
 						<div class="imput-group">
 							標題：
 							<form:textarea path="title" class="form-control"></form:textarea>
