@@ -41,10 +41,12 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">
-							<a href="${contextRoot}/EditForumpost?postid=${post.postID}">編輯</a>
+							<a href="${contextRoot}/EditForumpost?postID=${post.postID}">編輯</a> | 
+							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a>
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${post.date}" />
+							<p /> No： <c:out value="${post.postID}" />
 							<p />
 							<p /> 標題： <c:out value="${post.title}" />
 							<p />

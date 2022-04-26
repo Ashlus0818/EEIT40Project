@@ -18,7 +18,6 @@
 <jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />	
 <div class="container">
 <p />
-<a href="http://localhost:8080/myapp/Forumpostlist">文章列表</a>
 <p />
  <div class="col-6">
   <div class="card">
@@ -27,6 +26,8 @@
   </div>
   <div class="card-body">
 <form:form class="form" method="POST" modelAttribute="forumpost">
+<form:errors path="title"/>
+<form:errors path="context"/>
 <div class="imput-group">
 標題：
 <form:textarea path="title" class="form-control"></form:textarea>
