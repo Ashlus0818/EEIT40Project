@@ -106,6 +106,15 @@
 										</tbody>
 										<tfoot>
 											<tr>
+											
+											<th class="checkbox-cell">    
+									                <label class="checkbox">
+											            <input type="checkbox">
+											                <span class="check"></span>
+									                </label>
+											  
+						                       </th>
+											
 												<th>店家編號</th>
 												<th>部門編號</th>
 												<th>店家名</th>
