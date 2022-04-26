@@ -31,13 +31,21 @@ public class BackTaskesService {
 		return null;
 	}
 	public Page<BackTaskes> findByPage(Integer pageNumber){
-		Pageable pgb = PageRequest.of(pageNumber-1, 3, Sort.Direction.DESC, "id");
+		Pageable pgb = PageRequest.of(pageNumber-1, 10, Sort.Direction.DESC, "id");
 		
 		Page<BackTaskes> page = backTaskesDao.findAll(pgb);
 		
 		return page;
 	}
-	public void deleteById(Integer id) {
-		backTaskesDao.deleteById(id);
+	public boolean deleteById(Integer id) {
+		Optional<BackTaskes> option = backTaskesDao.findById(id);
+		if(option.isPresent()) {
+			backTaskesDao.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+		
+		
 	}
 }

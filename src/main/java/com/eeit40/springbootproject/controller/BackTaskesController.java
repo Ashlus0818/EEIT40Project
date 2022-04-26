@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.service.BackTaskesService;
@@ -30,8 +32,9 @@ public class BackTaskesController {
 	}
 	
 	@PostMapping(value="backtaskes/delete")
-	public void deleteById(Integer id) {
-		bService.deleteById(id);
+	public String deleteById(ModelAndView mav, @RequestParam("num") Integer id) {
+		boolean flag = bService.deleteById(id);
+		return "redirect:/backTask";
 	}
 	
 }
