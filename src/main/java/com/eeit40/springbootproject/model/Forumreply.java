@@ -1,6 +1,5 @@
 package com.eeit40.springbootproject.model;
 
-import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -32,28 +31,36 @@ public class Forumreply {
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "redate")
-	private Date redate;
+	@Column(name = "date")
+	private Date date;
 
 	@PrePersist
 	public void onCreate() {
-		if (redate == null) {
-			redate = new Date();
+		if (date == null) {
+			date = new Date();
 		}
 	}
 
-	public Forumreply(Integer replyID, String recontext, Date redate) {
-		super();
+	public Forumreply(String recontext, Date date) {
+		
 		this.recontext = recontext;
-		this.redate = redate;
-	}
-
+		this.date = date;
+	}	
+	
 	public Integer getReplyID() {
 		return replyID;
 	}
 
 	public void setReplyID(Integer replyID) {
 		this.replyID = replyID;
+	}
+
+	public Integer getUserID() {
+		return userID;
+	}
+
+	public void setUserID(Integer userID) {
+		this.userID = userID;
 	}
 
 	public String getRecontext() {
@@ -64,12 +71,12 @@ public class Forumreply {
 		this.recontext = recontext;
 	}
 
-	public Date getRedate() {
-		return redate;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setRedate(Date redate) {
-		this.redate = redate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public Forumreply() {
@@ -77,7 +84,7 @@ public class Forumreply {
 
 	@Override
 	public String toString() {
-		return "Forumreply [replyID=" + replyID + ", recontext=" + recontext + ", redate=" + redate + "]";
+		return "Forumreply [replyID=" + replyID + ", recontext=" + recontext + ", redate=" + date + "]";
 	}
 
 }
