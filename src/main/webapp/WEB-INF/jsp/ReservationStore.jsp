@@ -30,18 +30,11 @@
 	<jsp:include page="IncludePage/sidebar.jsp" />
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
-	<!--**********************************
-        Main wrapper start
-    ***********************************-->
+
 	<div id="main-wrapper">
 
-		<!--**********************************
-            Content body start
-        ***********************************-->
 		<div class="content-body">
-
-			<!-- row -->
-
+	
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12">
@@ -59,61 +52,58 @@
 											                <span class="check"></span>
 									                </label>
 											  
-						                       </th>
-												<th>店家編號</th>
-												<th>部門編號</th>
-												<th>店家名</th>
-												<th>店家電話</th>
-												<th>店家地址</th>
-												<th>營業時間</th>
-												<th>建立日期</th>
-												<th>修改日期</th>
-											</tr>
-										</thead>
-										<tbody>
-										
-						<c:forEach var="pageStore" items="${pageStore1.content}">
-					<tr>
-					
-					     <td class="checkbox-cell">
-					         <label class="checkbox">
-									<input type="checkbox"><span class="check"></span>
-							 </label>
-						 </td>
-
-                         <td><c:out value="${pageStore.storeId}" />  </td>  
-                         <td><c:out value="${pageStore.storeDepartmentNumber}" /> </td> 
-                         <td><c:out value="${pageStore.storeName}" /> </td>
-                         <td><c:out value="${pageStore.storePhone}" /> </td> 
-                         <td><c:out value="${pageStore.storeAddress}" /> </td>
-                         <td><c:out value="${pageStore.storeOpendate}" /> </td>
-                         <td><c:out value="${pageStore.createdAt}" /> </td>
-                         <td><c:out value="${pageStore.modifiedAt}" /> </td>
-                                                     
-					</tr>	
-						 </c:forEach>
+							                       </th>
+													<th>店家編號</th>
+													<th>部門編號</th>
+													<th>店家名</th>
+													<th>店家電話</th>
+													<th>店家地址</th>
+													<th>營業時間</th>
+													<th>建立日期</th>
+													<th>修改日期</th>
+													<th>檢視</th>
+													<th>刪除</th>
+												</tr>
+											</thead>
+			<tbody>										
+					<c:forEach var="pageStore" items="${pageStore1.content}" varStatus="vs">
+							<tr>
 							
-																	
-<!-- 											<tr> -->
-<!-- 												<td>Airi Satou</td> -->
-<!-- 												<td>Accountant</td> -->
-<!-- 												<td>Tokyo</td> -->
-<!-- 												<td>33</td> -->
-<!-- 												<td><div class="date-new">2012/03/29</div></td> -->
-<!-- 												<td>$162,700</td> -->
-<!-- 											</tr> -->
-										
-										</tbody>
-										<tfoot>
-											<tr>
-											
-											<th class="checkbox-cell">    
-									                <label class="checkbox">
-											            <input type="checkbox">
-											                <span class="check"></span>
-									                </label>
-											  
-						                       </th>
+							     <td class="checkbox-cell">
+							         <label class="checkbox">
+											<input type="checkbox"><span class="check"></span>
+									 </label>
+								 </td>
+		                         <td><c:out value="${pageStore.storeId}" />  </td>  
+		                         <td><c:out value="${pageStore.storeDepartmentNumber}" /> </td> 
+		                         <td><c:out value="${pageStore.storeName}" /> </td>
+		                         <td><c:out value="${pageStore.storePhone}" /> </td> 
+		                         <td><c:out value="${pageStore.storeAddress}" /> </td>
+		                         <td><c:out value="${pageStore.storeOpendate}" /> </td>
+		                         <td><c:out value="${pageStore.createdAt}" /> </td>
+		                         <td><c:out value="${pageStore.modifiedAt}" /> </td>
+		                         
+		                         <td><form id='formStoreID${vs.count}' action="ReservationStore/get" method="get">
+		                         		<input class="${vs.count}" name="storeIDnumberView" value="${vs.count}" type="hidden"/>
+		                         		<input id="testname" type="button" value="檢視" onclick="show(${pageStore.storeId})"/> 
+		                             </form>  
+		                           
+		                          <td><form id='formStoreID${vs.count}' action="ReservationStore/get" method="get">
+		                         		<input class="${vs.count}" name="storeIDnumberDel" value="${vs.count}" type="hidden"/>
+		                         		<input id="testname" type="button" value="刪除" onclick="show(${pageStore.storeId})"/> 
+		                             </form>    
+		                                                                                                    
+							</tr>	
+					</c:forEach>																																	
+	        </tbody>
+					  <tfoot>
+								<tr>									
+									<th class="checkbox-cell">    
+							                <label class="checkbox">
+									            <input type="checkbox">
+									                <span class="check"></span>
+							                </label>									  
+				                            </th>
 											
 												<th>店家編號</th>
 												<th>部門編號</th>
@@ -123,6 +113,8 @@
 												<th>營業時間</th>
 												<th>建立日期</th>
 												<th>修改日期</th>
+												<th>檢視</th>
+												<th>刪除</th>
 											</tr>
 										</tfoot>
 									</table>
@@ -132,7 +124,7 @@
 					</div>
 				</div>
 				
-				
+<!-- 顯示page頁數按鈕				 -->
 	<div class="row totalpages">
 		<div class="col-9">
 		   <c:forEach var="pageNumber" begin="1" end="${pageStore1.totalPages}">
@@ -156,38 +148,31 @@
 	    </div>
 	</div>
 				
-				
-				
-				
-				
-			</div>
-			<!-- #/ container -->
-		</div>
-		<!--**********************************
-            Content body end
-        ***********************************-->
-
-	</div>
-	<!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-	<!--**********************************
-        Scripts
-    ***********************************-->
+									
+		  </div>			
+	 </div>		
+</div>
+	
+    
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
+<script>
+// 為了在檢視或刪除時根據"id"去刪除,要先抓到storeId的前置作業
+//formStoreID 連結 ReservationStoreController 第94行的getStoreById方法
+function show(count){
+	document.getElementById("formStoreID"+count).submit();
+}
+</script>
+    
+       
 	<script src="${contextRoot}/BackPage/js/ReservationStore/common.min.js"></script>
 	<script src="${contextRoot}/BackPage/js/ReservationStore/custom.min.js"></script>
 	<script src="${contextRoot}/BackPage/js/ReservationStore/settings.js"></script>
 	<script src="${contextRoot}/BackPage/js/ReservationStore/gleek.js"></script>
-	<script
-		src="${contextRoot}/BackPage/js/ReservationStore/styleSwitcher.js"></script>
-
-	<script
-		src="${contextRoot}/BackPage/js/ReservationStore/jquery.dataTables.min.js"></script>
-	<script
-		src="${contextRoot}/BackPage/js/ReservationStore/dataTables.bootstrap4.min.js"></script>
-	<script
-		src="${contextRoot}/BackPage/js/ReservationStore/datatable-basic.min.js"></script>
+	<script src="${contextRoot}/BackPage/js/ReservationStore/styleSwitcher.js"></script>
+	<script src="${contextRoot}/BackPage/js/ReservationStore/jquery.dataTables.min.js"></script>
+	<script src="${contextRoot}/BackPage/js/ReservationStore/dataTables.bootstrap4.min.js"></script>
+	<script src="${contextRoot}/BackPage/js/ReservationStore/datatable-basic.min.js"></script>
 
 </body>
 

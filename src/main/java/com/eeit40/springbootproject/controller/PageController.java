@@ -37,9 +37,9 @@ public class PageController {
 		return "Forumpost";
 	}
 	
-//	@GetMapping("/ReservationStore")
-//	public String ReservationStore() {
-//		return "ReservationStore";
+//	@GetMapping("/backStage/Re-show-a-store")
+//	public String ReShowAstore() {
+//		return "Re-show-a-store";
 //	}
 	
 	
@@ -91,7 +91,7 @@ public class PageController {
 	}
 	
 	
-	//ReservationStore showAll
+	//ReservationStore.jsp showAll + ReservationStoreService(store showAll)
 		@GetMapping("/backstage/ReservationStore")
 		public ModelAndView ReservationStore(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
 			Page<ReservationStore> page = ReStoreService.findByPage(pageNumber);

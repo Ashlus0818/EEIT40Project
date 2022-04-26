@@ -19,15 +19,20 @@ public class ReservationStoreService {
 	@Autowired
 	private ReservationStoreRepository ReservationStoreDao;
 	
+	//store showALL + PageController(showAll)
 	public Page<ReservationStore> findByPage(Integer pageNumber){
 	Pageable pgb = PageRequest.of(pageNumber - 1,10, Sort.Direction.ASC, "storeId");
 	Page<ReservationStore> page = ReservationStoreDao.findAll(pgb);
 	//List<ReservationStore> list = page.getContent();
 	
 	return page;
-	
-	
+		
 	}
+	
+	
+	
+	
+	
 	
 	
 }

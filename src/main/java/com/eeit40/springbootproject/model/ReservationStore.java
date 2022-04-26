@@ -50,7 +50,7 @@ public class ReservationStore {
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") // 年月日時分秒的格式,因為不同資料庫有不同存的格式,例如有些會存到秒數後三位
 	@Temporal(TemporalType.TIMESTAMP) // 年月日時分秒
-	@Column(name = "modifiedAt")
+	@Column(name = "modifiedAt",columnDefinition = "datetime")
 	private Date modifiedAt;
 	
 	

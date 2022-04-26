@@ -52,5 +52,5 @@ public interface ReservationStoreRepository extends JpaRepository<ReservationSto
 	//搜尋StoreDepartmentNumber並按storeName降冪排序
 	public List<ReservationStore> findByStoreDepartmentNumberOrderByStoreNameDesc(Integer StoreDepartmentNumber);
 	
-	
+	//controller-->呼叫service-->呼叫DAO-->DAO去找bean
 }

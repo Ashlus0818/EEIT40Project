@@ -9,15 +9,19 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ReservationStoreRepository;
 import com.eeit40.springbootproject.model.ReservationStore;
+import com.eeit40.springbootproject.service.ReservationStoreService;
 
 //此class範例在老師3/30下午錄影裡
 @Controller
@@ -83,14 +87,18 @@ public class ReservationStoreController {
 		//路徑裡的和@PathVariable和findById 三個storeId名稱必須都是一樣的(都是table欄位名稱[or bean的?反正entity取名時都設一樣])
 	}
 
+	
+	//顯示在Re-show-a-store用的
 	// 前端送form表單時,如何get(搜尋)
-	@ResponseBody
-	@GetMapping(value = "ReservationStore/get")
-	public ReservationStore getStoreById2(@RequestParam Integer storeId) {
-		Optional<ReservationStore> responseReS = dao.findById(storeId);
+//	@ResponseBody
+	@GetMapping(value = "backstage/ReservationStore/get")
+	public Optional<ReservationStore> getStoreById2(@RequestParam("storeIDnumberView") Integer storeId) {
+			System.out.println(storeId);
+
+				Optional<ReservationStore> responseReS = dao.findById(storeId);
 
 		if (responseReS.isPresent()) {
-			return responseReS.get();
+			return responseReS;
 		}
 
 		return null;
@@ -99,6 +107,28 @@ public class ReservationStoreController {
 		// request)的request.getAttribute(xxx[form的name])
 	}
 
+	
+	@GetMapping(value = "backstage/ReservationStore/get1")
+	public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberDel") Integer storeId) {
+			System.out.println(storeId);
+
+				Optional<ReservationStore> responseReS = dao.findById(storeId);
+
+		if (responseReS.isPresent()) {
+			return responseReS;
+		}
+
+		return null;
+
+		// 因為參數是從form表單來的,要用form表單的參數就要用(@RequestParam)==(HttpServletRequest
+		// request)的request.getAttribute(xxx[form的name])
+	}
+	
+	
+	
+	
+	
+	
 	// 根據id刪除資料 自測成功
 	@ResponseBody
 	@GetMapping(value = "ReservationStore/del")
@@ -165,9 +195,29 @@ public class ReservationStoreController {
 	
 
 	
+	//實體頁面轉個別店面檢視
+	@ResponseBody
+	@GetMapping(value="ReservationStore/findstore")
+	public List<ReservationStore> findByStore(@PathVariable Integer storeDepartmentNumber){
+		return dao.findByStoreDepartmentNumberOrderByStoreNameDesc(storeDepartmentNumber);
+	}
 	
 	
-	
+	//廢棄了
+	//show-a-store formform表單
+//	@GetMapping(value="/backStage/Re-show-a-store")
+//	public String showAstore(Model m) {
+//		ReservationStore ReS = new ReservationStore();
+//		m.addAttribute("storeOne",ReS);
+//		return "Re-show-a-store";
+//	}
+
+
+	@GetMapping("/backStage/Re-show-a-store")
+	public String ReShowAstore() {
+		return "Re-show-a-store";
+	}
+
 	
 }
 
