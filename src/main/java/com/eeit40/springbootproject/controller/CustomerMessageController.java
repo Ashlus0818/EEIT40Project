@@ -3,7 +3,6 @@ package com.eeit40.springbootproject.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,8 +10,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.CustomerMessageRepository;
 import com.eeit40.springbootproject.model.CustomerMessage;
@@ -37,37 +40,29 @@ public class CustomerMessageController {
 		return list;		
 	}
 	
-	 // 单个删除
-    @RequestMapping("/backmessage/deleteMessageId")
-    public Map<String, String> deleteMessageId(Integer id){
-    	customerMessageService.deleteMessageId(id);
+	@PostMapping(value="backmessage/insert")
+	public CustomerMessage insertCustomerMessages() {
+		CustomerMessage mes = new CustomerMessage( "Tom", "qwe@gmail.com", "Hi","Hi");
+		CustomerMessage reMes= dao.save(mes);
+		return reMes;
+	}
 
-        Map<String, String> m = new HashMap<>();
-        m.put("message", "成功");
-        return m;
-    }
+	@PostMapping(value="backmessage/insert2")
+	public CustomerMessage insertCustomerMessages2(String messageName, String messageEmail, String messageQuest, String messagetext) {
+		CustomerMessage mes = new CustomerMessage(messageName, messageEmail, messageQuest, messagetext);
+		CustomerMessage reMes= dao.save(mes);
+		return reMes;
+	}
 
-    // 批量删除
-    @RequestMapping("/backmessage/deleteManyMessageId")
-    public Map<String, String> deleteManyMessageId(String idList){
-    	customerMessageService.deleteManyMessageId(idList);
-
-        Map<String, String> m = new HashMap<>();
-        m.put("message", "成功");
-        return m;
-    }
-
-
-    // 编辑 单个留言审核状态
-    @RequestMapping("/backmessage/updateMessage")
-    public Map<String, String> updateMessage(Integer messagetext, Integer id){
-    	customerMessageService.updateMessage(messagetext,id);
-
-        Map<String, String> m = new HashMap<>();
-        m.put("message", "成功");
-        return m;
-    }
-
-
-
+	@PostMapping(value = "backmessage/delete")
+	public String deleteBymessageID(@RequestParam("num") Integer messageId) {
+		dao.deleteById(messageId);
+		return "redirect/backmessage";
+		
+	}
+	
+//	@GetMapping(value="/")
+//	public ModelAndView AddCustomerMessage (ModelAndView mav) {
+//		CustomerMessage cMes = new CustomerMessage();
+//	}
 }

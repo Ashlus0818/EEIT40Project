@@ -82,6 +82,18 @@ public class CustomerMessage {
 	public void setMessagetext(String messagetext) {
 		this.messagetext = messagetext;
 	}
+
+
+
+	public CustomerMessage( String messageName, @Email(message = "請輸入 Email") String messageEmail,
+			String messageQuest, String messagetext) {
+		super();
+		
+		this.messageName = messageName;
+		this.messageEmail = messageEmail;
+		this.messageQuest = messageQuest;
+		this.messagetext = messagetext;
+	}
 	
 	
 }
