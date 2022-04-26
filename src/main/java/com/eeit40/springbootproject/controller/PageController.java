@@ -1,5 +1,6 @@
 package com.eeit40.springbootproject.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.model.CustomerMessage;
 import com.eeit40.springbootproject.service.CustomerMessageService;
+
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PageController {
@@ -25,8 +31,9 @@ public class PageController {
 	@GetMapping("/BackInsert")
 	public String BackInsert() {
 		return "BackInsert";
-	}
+	}		
 	
+
 	@GetMapping("/post")
 	public String forumpost() {
 		return "Forumpost";
@@ -36,15 +43,7 @@ public class PageController {
 	public String backmessage() {
 		return "backmessage";
 	}
-	
-	@RequestMapping(value="/backmessage")
-	public ModelAndView viewMessages(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
-		Page<CustomerMessage> page = cums.findByPage(pageNumber);
-		
-		mav.getModel().put("page", page);
-		mav.setViewName("backmessage");
-		
-		return mav;
-	}
+
+
 }
  
