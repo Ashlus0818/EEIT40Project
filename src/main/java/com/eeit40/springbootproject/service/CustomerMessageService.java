@@ -1,13 +1,19 @@
 package com.eeit40.springbootproject.service;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eeit40.springbootproject.dao.CustomerMessageMapper;
+import com.eeit40.springbootproject.dao.CustomerMessageRepository;
+import com.eeit40.springbootproject.model.CustomerMessage;
 
 
 
@@ -15,62 +21,41 @@ import com.eeit40.springbootproject.dao.CustomerMessageMapper;
 @Service
 public class CustomerMessageService {
 	
+	
 	@Autowired
-	private CustomerMessageMapper messageMapper;
-	/*
-	 * 前台
-	 */
-	private int getAllMessageTexts() {
-		if (messageMapper.getMessageManageStatus().equals("True")) {
-			int count = messageMapper.getAllMessageTexts();
+	private CustomerMessageRepository cmdao;
+	//===============================================================
+	
+	public void insert(CustomerMessage messages) {
+			cmdao.save(messages);
+	}
+	
+	public CustomerMessage findById(Integer id) {
+		Optional<CustomerMessage> option = cmdao.findById(id);
+		
+		if(option.isPresent()) {
+			return option.get();
 		}
-		int count = messageMapper.getAllMessage();
-		return count;
+		
+		return null;
 	}
-
 	
-
-	/*
-	 * 后台
-	 */
-	private int getAllMessage() {
-		int count = messageMapper.getAllMessage();
-		return count;
+	public void deleteById(Integer id) {
+		cmdao.deleteById(id);
 	}
-
+	
+	public List<CustomerMessage> findAllMessages(){
+		return cmdao.findAll();
+	}
+	
+	public Page<CustomerMessage> findByPage(Integer pageNumber){
+		Pageable pgb = PageRequest.of(pageNumber-1, 3, Sort.Direction.DESC, "added");
+		
+		Page<CustomerMessage> page = cmdao.findAll(pgb);
+		
+		return page;
+	}
 	
 	
-
-	/*
-	 * Springboot 事务管理，防止程序报错后 错误数据插入数据库
-	 */
-
-	// 单个删除
-	@Transactional
-	public void deleteMessageId(Integer id) {
-		messageMapper.deleteMessageId(id);
-	}
-
-	// 批量删除
-	@Transactional
-	public void deleteManyMessageId(String idList) {
-		List idLists = Arrays.asList(idList.split(","));
-		idLists.forEach(id -> {
-			Integer message_id = Integer.parseInt((String) id);
-			messageMapper.deleteMessageId(message_id);
-		});
-	}
-
-	// 编辑 单个留言审核状态
-	@Transactional
-	public void updateMessage(Integer messagetext, Integer messageid) {
-		messageMapper.updateMessage(messagetext, messageid);
-	}
-
-	// 编辑 整个留言审核状态
-	@Transactional
-	public void updateMessageManageStatus(String message_manage) {
-		messageMapper.updateMessageManageStatus(message_manage);
-	}
-
+	
 }

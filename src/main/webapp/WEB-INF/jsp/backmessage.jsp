@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -15,22 +16,36 @@
 	<jsp:include page="IncludePage/pageheading.jsp" />
 	
 	<div>
-		<h1>留言管理kkkkkkk</h1>
-
-		<h2>this is test ting1</h2>
+		<h1>客服 留言管理</h1>
 	</div>
 		<table class="table table-hover" style="text-align: center">
-        <thead>
             <tr>
-                <th  style="text-align: center"> <input id="selectAll" type="checkbox" onclick="seltAll()"></th>
                 <th style="text-align: center">ID</th>
-                <th style="text-align: center">用户名</th>
+                <th style="text-align: center">姓名</th>
+                <th style="text-align: center">信箱</th>
+                <th style="text-align: center">問題</th>
                 <th style="text-align: center">留言内容</th>
             </tr>
-        </thead>
+		<c:forEach items="${page.content}" var="backmessages" varStatus="s">
+			<form action="backmessage/delete" method="post">
+			<tr>
+				<td><input type="text" disabled value="${backmessages.messageId}" /></td>
+				<td><input type="text" disabled value="${backmessages.messageName}" /></td>
+				<td><input id="btn" type="button" value="delete"
+					onclick="delete()"></td>
+			</tr>
+
+		</c:forEach>
+		</form>
  </table>
 
 
 	<jsp:include page="IncludePage/script.jsp" />
+	<script >
+	
+       
+    
+
+	</script>
 </body>
 </html>
