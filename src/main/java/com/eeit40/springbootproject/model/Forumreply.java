@@ -41,8 +41,7 @@ public class Forumreply {
 		}
 	}
 
-	public Forumreply(String recontext, Date date) {
-		
+	public Forumreply(String recontext, Date date) {		
 		this.recontext = recontext;
 		this.date = date;
 	}	

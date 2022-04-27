@@ -24,7 +24,7 @@ public class ForumreportController {
 	@Autowired
 	private ForumreportService reportService;
 
-	@GetMapping("/AddForumreport")
+	@GetMapping("/ForumAddreport")
 	public ModelAndView AddForumreport(ModelAndView mav) {
 		Forumreport report = new Forumreport();
 		mav.getModel().put("forumreport", report);
@@ -45,11 +45,11 @@ public class ForumreportController {
 		return mav;
 	}
 
-	@PostMapping(value = { "/AddForumreport", "/Forumreportlist" })
+	@PostMapping(value = { "/ForumAddreport", "/Forumreportlist" })
 	public ModelAndView insertreport(ModelAndView mav, @Valid @ModelAttribute(name = "forumreport") Forumreport report,
 			BindingResult br) {
 
-		mav.setViewName("AddForumreport");
+		mav.setViewName("ForumAddreport");
 
 		if (!br.hasErrors()) {
 			reportService.insertReport(report);
@@ -65,7 +65,7 @@ public class ForumreportController {
 		return mav;
 	}
 
-	@GetMapping("/DeleteForumreport")
+	@GetMapping("/ForumDeletereport")
 	public ModelAndView deletereport(ModelAndView mav, @RequestParam(name = "reportID") Integer reportID) {
 		reportService.deleteByreportId(reportID);
 
