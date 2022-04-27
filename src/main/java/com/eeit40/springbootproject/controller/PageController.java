@@ -80,6 +80,7 @@ public class PageController {
 	}
 	
 	//課堂範例測試
+	//()裡的mav是資料 pagenumber是第幾頁 它是請求參數所以要@RequestParam  name=p p是page意思  defaultValue=預設是第幾頁
 	@GetMapping("/message/viewMessages")
 	public ModelAndView viewMessages(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
 		Page<ReservationMessageTest> page = messageService.findByPage(pageNumber);

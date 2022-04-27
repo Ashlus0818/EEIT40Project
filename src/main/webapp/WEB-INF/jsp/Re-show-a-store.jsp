@@ -15,7 +15,7 @@ width:600px;
 }
 
 
-
+/* type="text" id="name" name="name"  */
 
 </style>
 
@@ -26,54 +26,50 @@ width:600px;
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
 
-
-	<!-- 	action:送到目標網址 // modelAttribute:跟bean結合的model屬性 -->
-	<form action="#" method="post" modelAttribute="storeOne">
-
+		
 		<fieldset class="fieldset">
 			<legend>店家資訊</legend>
 			<div class="st1">
-				<label path="storeId">店家編號:</label><br>
-				<input path="storeId"  class="st2"/>
-				<!--              path="xxx" 等於bean的名稱             -->
+				<label >店家編號:</label><br>
+				<input value=<c:out value="${foreachAstore.get().storeId}" /> class="st2"/>
+			
 			</div>
 
 			<div class="st1">
-				<label path="storeDepartmentNumber">店家部門編號:</label><br>
-				<input path="storeDepartmentNumber" class="st2"/>
+				<label >店家部門編號:</label><br>
+				<input value=<c:out value="${foreachAstore.get().storeDepartmentNumber}" /> class="st2"/>
 
 			</div>
 
 			<div class="st1">
-				<label path="storeName">店家名稱:</label><br>
-				<input path="storeName" class="st2"/>
+				<label >店家名稱:</label><br>
+				<input value=<c:out value="${foreachAstore.get().storeName}" /> class="st2"/>
 			</div>
 
 			<div class="st1">
-				<label path="storePhone">店家電話:</label><br>
-				<input path="storePhone" class="st2"/>
+				<label >店家電話:</label><br>
+				<input value=<c:out value="${foreachAstore.get().storePhone}" /> class="st2"/>
 			</div>
 			
 			
 			<div class="st1">
-				<label path="storeAddress">店家地址:</label><br>
-				<input path="storeAddress" class="st2"/>
+				<label >店家地址:</label><br>
+				<input value=<c:out value="${foreachAstore.get().storeAddress}" /> class="st2"/>
 			</div>
 			
 			<div class="st1">
-				<label path="storeOpendate">店家營業時間:</label><br>
-				<input path="storeOpendate" class="st2"/>
+				<label >店家營業時間:</label><br>
+				<input value=<c:out value="${foreachAstore.get().storeOpendate}" /> class="st2"/>
 			</div>
 
-
+	
 
 			<div class="st1">
 				<button value="send">submit</button>
 			</div>
 
 		</fieldset>
-	</form>
-	<!-- form:from一定要透過controller return回來才能用 -->
+		
 
 
 	<jsp:include page="IncludePage/script.jsp" />

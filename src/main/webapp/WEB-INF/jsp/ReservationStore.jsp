@@ -42,7 +42,21 @@
 							<div class="card-body">
 								<h4 class="card-title">實體店面</h4>
 								<div class="table-responsive">
-									<table
+								  <div>
+								  
+								  <form id='newData' action="" method="get">
+		                         		<input class="" name="" value="" type="hidden"/>
+		                         		<input id="testname" type="button" value="新增" onclick=""/> 
+		                           </form>  
+								  
+								  <form id='delData' action="" method="get">
+		                         		<input class="" name="" value="" type="hidden"/>
+		                         		<input id="testname" type="button" value="刪除" onclick=""/> 
+		                           </form>    
+								  
+								  
+								  
+									 <table
 										class="table table-striped table-bordered zero-configuration">
 										<thead>
 											<tr>
@@ -67,14 +81,14 @@
 											</thead>
 			<tbody>										
 					<c:forEach var="pageStore" items="${pageStore1.content}" varStatus="vs">
-							<tr>
+							<tr id="Id${pageStore.storeId}">
 							
 							     <td class="checkbox-cell">
 							         <label class="checkbox">
 											<input type="checkbox"><span class="check"></span>
 									 </label>
 								 </td>
-		                         <td><c:out value="${pageStore.storeId}" />  </td>  
+		                         <td id="storeId${pageStore.storeId}"><c:out value="${pageStore.storeId}" />  </td>  
 		                         <td><c:out value="${pageStore.storeDepartmentNumber}" /> </td> 
 		                         <td><c:out value="${pageStore.storeName}" /> </td>
 		                         <td><c:out value="${pageStore.storePhone}" /> </td> 
@@ -83,7 +97,9 @@
 		                         <td><c:out value="${pageStore.createdAt}" /> </td>
 		                         <td><c:out value="${pageStore.modifiedAt}" /> </td>
 		                         
-		                         <td><form id='formStoreID${vs.count}' action="ReservationStore/get" method="get">
+<!--  storeIDnumberView和Del  連結 ReservationStoreController 第94行的getStoreById方法 -->
+<%-- ${vs.count}的vs是69行varStatus="vs",count是計數,為了抓到第幾個button --%>
+		                         <td><form id='formStoreID${vs.count}' action="${contextRoot}/backstage/ReservationStore/getstoreId1" method="get">
 		                         		<input class="${vs.count}" name="storeIDnumberView" value="${vs.count}" type="hidden"/>
 		                         		<input id="testname" type="button" value="檢視" onclick="show(${pageStore.storeId})"/> 
 		                             </form>  
@@ -123,6 +139,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 				
 <!-- 顯示page頁數按鈕				 -->
 	<div class="row totalpages">
@@ -158,7 +175,7 @@
 	
 <script>
 // 為了在檢視或刪除時根據"id"去刪除,要先抓到storeId的前置作業
-//formStoreID 連結 ReservationStoreController 第94行的getStoreById方法
+//formStoreID 連結 90行前後的form id欄位
 function show(count){
 	document.getElementById("formStoreID"+count).submit();
 }
