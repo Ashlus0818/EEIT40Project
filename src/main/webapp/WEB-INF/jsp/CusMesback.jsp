@@ -32,28 +32,32 @@
 		<c:forEach items="${list.content}" var="backmessages" varStatus="s">
 		
 			<tr>
-				<td>${backmessages.messageId}</td>
+				<td id="mesId${s.count}">${backmessages.messageId}</td>
 				<td>${backmessages.messageName}</td>
 				<td>${backmessages.messageEmail}</td>
 				<td><input type="text" disabled
 					value="${backmessages.messageQuest}" /></td>
 				<td><input type="text" disabled
 					value="${backmessages.messagetext}" /></td>
-				<td herf=""><input id="btn" type="button" value="刪除" onclick="return confirm('確認刪除')" ></td>
+				<td herf=""><input id="btn${s.count}" type="button" value="刪除" ></td>
 			</tr>
 
 		</c:forEach>
 		
 	</table>
-	<%--  onclick="return confirm('確認刪除')" href="${contextRoot}/backmessage/DeleteCusMessage?id=${CustomerMessage.messageId}"<!--  -->
+	<%--  onclick="return confirm('確認刪除')" href="${contextRoot}/backmessage/DeleteCusMessage?id=${CustomerMessage.messageId}" onclick="return confirm('確認刪除')" <!--  -->
  --%>
 	<jsp:include page="IncludePage/script.jsp" />
 	<script charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
 	<script>
-		$('#btn').click(function(){
-			
-		});
+	function btn(count){
+		var mesId="mesFormId"+count;
+		var yes = confirm("確認刪除此筆紀錄?");
+		if(yes){
+			document.getElementById(mesId).submit();
+		} else{}
+	}
 		$(document).ready(function(){
 	        $('#myTable').DataTable();
 	    });

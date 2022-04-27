@@ -69,7 +69,7 @@
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
 					<a class="collapse-item" href="${contextRoot}/addMessage">新增留言</a>
-					<a class="collapse-item" href="${contextRoot}/backmessage/findByPage">留言管理</a>
+					<a class="collapse-item" href="${contextRoot}/CusMesback/findByPage">留言管理</a>
 				</div>
 			</div></li>
 	

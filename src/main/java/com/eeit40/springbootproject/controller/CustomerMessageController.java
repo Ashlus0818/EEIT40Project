@@ -38,22 +38,22 @@ public class CustomerMessageController {
 	@Autowired
 	private CustomerMessageRepository dao;
 	
-	@GetMapping("/backmessage/findByPage")
+	@GetMapping("/CusMesback/findByPage")
 	public ModelAndView findByPage(ModelAndView mav,@RequestParam(name="p", defaultValue = "1") Integer pageNumber)
 	{
 		System.out.print(pageNumber);
 		Page<CustomerMessage> list = cmseService.findByPage(pageNumber);
 		mav.getModel().put("list",list );
-		mav.setViewName("backmessage");
+		mav.setViewName("CusMesback");
 		System.out.println(list);
 		return mav;
 	
 	}
 	
-	@RequestMapping(value = "/backmessage/{messageId}",method=RequestMethod.DELETE)
+	@RequestMapping(value = "/CusMesback/{messageId}",method=RequestMethod.DELETE)
 	public String deleteBymessageID(@PathVariable("messageId") Integer messageId) {
 		dao.deleteById(messageId);
-		return "redirect:/backmessage";
+		return "redirect:/CusMesback";
 		
 	}
 
@@ -74,7 +74,7 @@ public class CustomerMessageController {
 			cmseService.insert(cusmes);
 			CustomerMessage cMes = new CustomerMessage();
 			mav.getModel().put("workMessages", cMes);
-			mav.setViewName("redirect:/backmessage");
+			mav.setViewName("redirect:/CusMesback");
 		}
 		return mav;
 	}
@@ -82,7 +82,7 @@ public class CustomerMessageController {
 	@GetMapping("/EditCustomerMessage")
 	public String editMessage(Model model, @RequestParam(name = "messageId") Integer messageId) {
 		CustomerMessage cMes = cmseService.findBymessagesId(messageId);
-		model.addAttribute("backmessage", cMes);
+		model.addAttribute("CusMesback", cMes);
 
 		return "EditForumpost";
 	}
@@ -95,7 +95,7 @@ public class CustomerMessageController {
 
 		if (!br.hasErrors()) {
 			cmseService.insert(cusmes);
-			mav.setViewName("redirect:/backmessage");
+			mav.setViewName("redirect:/CusMesback");
 		}
 
 		return mav;
