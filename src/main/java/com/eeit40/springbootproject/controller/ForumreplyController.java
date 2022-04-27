@@ -23,7 +23,7 @@ public class ForumreplyController {
 	@Autowired
 	private ForumreplyService replyService;
 
-	@GetMapping("/AddForumreply")
+	@GetMapping("/ForumAddreply")
 	public ModelAndView AddForumreply(ModelAndView mav) {
 		Forumreply reply = new Forumreply();
 		mav.getModel().put("forumreply", reply);
@@ -44,11 +44,11 @@ public class ForumreplyController {
 		return mav;
 	}
 
-	@PostMapping(value = { "/AddForumreply", "/Forumreplylist" })
+	@PostMapping(value = { "/ForumAddreply", "/Forumreplylist" })
 	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") Forumreply reply,
 			BindingResult br) {
 
-		mav.setViewName("AddForumreply");
+		mav.setViewName("ForumAddreply");
 
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
@@ -64,7 +64,7 @@ public class ForumreplyController {
 		return mav;
 	}
 
-	@GetMapping("/EditForumreply")
+	@GetMapping("/ForumEditreply")
 	public String editreply(Model model, @RequestParam(name = "replyID") Integer replyid) {
 		Forumreply getreply = replyService.getreplyById(replyid);
 		model.addAttribute("forumreply", getreply);
@@ -72,11 +72,11 @@ public class ForumreplyController {
 		return "EditForumreply";
 	}
 
-	@PostMapping("/EditForumreply")
+	@PostMapping("/ForumEditreply")
 	public ModelAndView editreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") Forumreply reply,
 			BindingResult br) {
 
-		mav.setViewName("EditForumreply");
+		mav.setViewName("ForumEditreply");
 
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);

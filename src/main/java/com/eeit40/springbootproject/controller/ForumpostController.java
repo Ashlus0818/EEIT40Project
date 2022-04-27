@@ -25,7 +25,7 @@ public class ForumpostController {
 	@Autowired
 	private ForumpostService postService;
 
-	@GetMapping("/AddForumpost")
+	@GetMapping("/ForumAddpost")
 	public ModelAndView AddForumpage(ModelAndView mav) {
 		Forumpost post = new Forumpost();
 		mav.getModel().put("forumpost", post);
@@ -46,11 +46,11 @@ public class ForumpostController {
 		return mav;
 	}
 
-	@PostMapping(value = { "/AddForumpost", "/Forumpostlist" })
+	@PostMapping(value = { "/ForumAddpost", "/Forumpostlist" })
 	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") Forumpost post,
 			BindingResult br) {
 
-		mav.setViewName("AddForumpost");
+		mav.setViewName("ForumAddpost");
 
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
@@ -66,7 +66,7 @@ public class ForumpostController {
 		return mav;
 	}
 
-	@GetMapping("/EditForumpost")
+	@GetMapping("/ForumEditpost")
 	public String editPost(Model model, @RequestParam(name = "postID") Integer postid) {
 		Forumpost getpost = postService.getpostById(postid);
 		model.addAttribute("forumpost", getpost);
@@ -74,11 +74,11 @@ public class ForumpostController {
 		return "EditForumpost";
 	}
 
-	@PostMapping("/EditForumpost")
+	@PostMapping("/ForumEditpost")
 	public ModelAndView editPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") Forumpost post,
 			BindingResult br) {
 
-		mav.setViewName("EditForumpost");
+		mav.setViewName("ForumEditpost");
 
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
