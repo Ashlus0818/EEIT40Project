@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.eeit40.springbootproject.dao.ReservationStoreRepository;
 import com.eeit40.springbootproject.model.ReservationStore;
@@ -41,8 +43,17 @@ public class ReservationStoreService {
 		// request)的request.getAttribute(xxx[form的name])
 	}
 
+//not yet
+	//修改資料 from ReservationStoreController		
+		public ReservationStore insertAStore(@RequestBody ReservationStore reS) {
+			ReservationStore responseReS = ReservationStoreDao.save(reS);
 
-	
+			return responseReS;
+			// (@RequestBody ReservationStore reS)要怎麼丟?-->ajax:做一個java物件(ReservationStore
+			// reS//key,value形式)->tostring成json格式
+
+		}
+
 	
 	
 	

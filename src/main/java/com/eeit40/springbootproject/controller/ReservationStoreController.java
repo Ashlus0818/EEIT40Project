@@ -237,7 +237,7 @@ public class ReservationStoreController {
         //@ResponseBody
   		@GetMapping(value = "backstage/ReservationStore/getstoreId1")
   		public ModelAndView getStoreById4(ModelAndView mav,@RequestParam("storeIDnumberView") Integer storeId) {
-  			 System.out.println("TEST");   
+  			System.out.println("TEST=====================");   
   			Optional<ReservationStore> opionRes = service.findById(storeId);
   			mav.getModel().put("foreachAstore", opionRes);
   			mav.setViewName("Re-show-a-store");	
@@ -247,20 +247,22 @@ public class ReservationStoreController {
        
         
 
-        
+//not yet        
   	//老師範例改搜store的
   		// insert店家資料,ex.從postman鍵入資料
   		// @RequestBody-->丟Json進來bean裡面-->反序列化成java物件
-  		@ResponseBody
-  		@PostMapping(value = "ReservationStore/insertAStore")
-  		public ReservationStore insertAStore(@RequestBody ReservationStore reS) {
-  			ReservationStore responseReS = dao.save(reS);
-
-  			return responseReS;
+  		//@ResponseBody
+//  		@PostMapping(value = "ReservationStore/insertAStore")
+//  		public ModelAndView insertAStore(ModelAndView mav,@RequestBody ReservationStore reS) {
+//  			Optional<ReservationStore> opionRes = service.save(reS);
+//  			mav.getModel().put("foreachAstore", opionRes);
+//  			mav.setViewName("Re-show-a-store");	
+//  		    System.out.println(opionRes);
+//  		    return mav;				
   			// (@RequestBody ReservationStore reS)要怎麼丟?-->ajax:做一個java物件(ReservationStore
   			// reS//key,value形式)->tostring成json格式
 
-  		}
+//  		}
 
   		
         
