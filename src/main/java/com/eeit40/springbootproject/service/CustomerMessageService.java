@@ -30,8 +30,8 @@ public class CustomerMessageService {
 			cmdao.save(messages);
 	}
 	
-	public CustomerMessage findById(Integer id) {
-		Optional<CustomerMessage> option = cmdao.findById(id);
+	public CustomerMessage findBymessagesId(Integer messagesid) {
+		Optional<CustomerMessage> option = cmdao.findById(messagesid);
 		
 		if(option.isPresent()) {
 			return option.get();
@@ -40,8 +40,8 @@ public class CustomerMessageService {
 		return null;
 	}
 	
-	public void deleteById(Integer id) {
-		cmdao.deleteById(id);
+	public void deleteBymessagesId(Integer messagesid) {
+		cmdao.deleteById(messagesid);
 	}
 	
 	public List<CustomerMessage> findAllMessages(){
@@ -49,13 +49,12 @@ public class CustomerMessageService {
 	}
 	
 	public Page<CustomerMessage> findByPage(Integer pageNumber){
-		Pageable pgb = PageRequest.of(pageNumber-1, 3, Sort.Direction.DESC, "added");
+		Pageable pgb = PageRequest.of(pageNumber-1, 10, Sort.Direction.ASC, "messageId");
 		
 		Page<CustomerMessage> page = cmdao.findAll(pgb);
 		
 		return page;
 	}
-	
 	
 	
 }

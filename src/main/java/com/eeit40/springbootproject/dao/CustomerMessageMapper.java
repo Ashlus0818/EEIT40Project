@@ -65,7 +65,11 @@ public interface CustomerMessageMapper {
 	    @Update("UPDATE CustomerMessage SET messagetext = #{messagetext} WHERE id = #{messageid}")
 	    void updateMessage(@Param("messagetext")Integer messagetext,@Param("id")Integer messageid);
 	 	
-	 	
+	 	//删除 按id删除
+	    @Delete("delete from student where id = #{id}")
+	    int deleteById(@Param("id") int id);
+
+	
 	 	
 	 	
 	 	

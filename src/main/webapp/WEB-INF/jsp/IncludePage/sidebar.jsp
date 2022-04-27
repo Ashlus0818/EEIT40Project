@@ -40,8 +40,8 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
-					<a class="collapse-item" href="${contextRoot}/BackInsert">新增任務</a> <a
-						class="collapse-item" href="cards.html">無</a>
+					<a class="collapse-item" href="${contextRoot}/BackInsert">新增任務</a>
+					 <a class="collapse-item" href="cards.html">無</a>
 				</div>
 			</div></li>
 
@@ -54,8 +54,19 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>酒類訂購</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backmessage"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>客服</span></a></li>
+		
+	<li class="nav-item"><a class="nav-link collapsed" href="*"
+			data-toggle="collapse" data-target="#backmes"
+			aria-expanded="true" aria-controls="backmes"> 
+				<i class="fas fa-fw fa-cog"></i> <span>客服</span></a>
+			<div id="backmes" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Custom Components:</h6>
+					<a class="collapse-item" href="${contextRoot}/addMessage">新增留言</a>
+					<a class="collapse-item" href="${contextRoot}/backmessage/findByPage">留言管理</a>
+				</div>
+			</div></li>
 	
 				<li class="nav-item"><a class="nav-link collapsed" href="*"
 			data-toggle="collapse" data-target="#forum"
