@@ -15,43 +15,44 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "forumreport")
-public class Forumreport {
+@Table(name = "forumreply")
+public class Forumreply {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "reportID")
-	private Integer reportID;
+	@Column(name = "replyID")
+	private Integer replyID;
 
 	@Column(name = "userID")
 	private Integer userID;
-
-	@Column(name = "reportReason")
-	private String reportReason;
+	
+	@Column(name = "recontext")
+	private String recontext;
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	private Date date;
-	
+
 	@PrePersist
 	public void onCreate() {
 		if (date == null) {
 			date = new Date();
 		}
 	}
-	
-	public Forumreport(String reportReason,Date date) {
-		this.reportReason = reportReason;
+
+	public Forumreply(String recontext, Date date) {
+		
+		this.recontext = recontext;
 		this.date = date;
+	}	
+	
+	public Integer getReplyID() {
+		return replyID;
 	}
 
-	public Integer getReportID() {
-		return reportID;
-	}
-
-	public void setReportID(Integer reportID) {
-		this.reportID = reportID;
+	public void setReplyID(Integer replyID) {
+		this.replyID = replyID;
 	}
 
 	public Integer getUserID() {
@@ -62,12 +63,12 @@ public class Forumreport {
 		this.userID = userID;
 	}
 
-	public String getReportReason() {
-		return reportReason;
+	public String getRecontext() {
+		return recontext;
 	}
 
-	public void setReportReason(String reportReason) {
-		this.reportReason = reportReason;
+	public void setRecontext(String recontext) {
+		this.recontext = recontext;
 	}
 
 	public Date getDate() {
@@ -77,15 +78,13 @@ public class Forumreport {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	public Forumreport() {
-	}
 
+	public Forumreply() {
+	}
 
 	@Override
 	public String toString() {
-		return "Forumreport [reportID=" + reportID + ", userID=" + userID + ", reportReason=" + reportReason + ", date="
-				+ date + "]";
+		return "Forumreply [replyID=" + replyID + ", recontext=" + recontext + ", redate=" + date + "]";
 	}
 
 }

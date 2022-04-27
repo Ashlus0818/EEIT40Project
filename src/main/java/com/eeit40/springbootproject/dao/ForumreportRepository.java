@@ -7,5 +7,5 @@ import com.eeit40.springbootproject.model.Forumreport;
 
 @Repository
 public interface ForumreportRepository extends JpaRepository<Forumreport, Integer>{
-
+	public Forumreport findFirstByOrderByDateDesc();
 }
