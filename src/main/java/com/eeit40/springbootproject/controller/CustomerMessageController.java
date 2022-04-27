@@ -3,66 +3,114 @@ package com.eeit40.springbootproject.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.CustomerMessageRepository;
 import com.eeit40.springbootproject.model.CustomerMessage;
+import com.eeit40.springbootproject.model.Forumpost;
 import com.eeit40.springbootproject.service.CustomerMessageService;
 
 @RestController
 public class CustomerMessageController {
 	
 	@Autowired
-	private CustomerMessageService customerMessageService;
+	private CustomerMessageService cmseService;
 	
 	@Autowired
 	private CustomerMessageRepository dao;
 	
-	@GetMapping("/backmessage/page/{pageNumber}")
-	public List<CustomerMessage> findByPage(@PathVariable Integer pageNumber)
+	@GetMapping("/CusMesback/findByPage")
+	public ModelAndView findByPage(ModelAndView mav,@RequestParam(name="p", defaultValue = "1") Integer pageNumber)
 	{
 		System.out.print(pageNumber);
-		Pageable pgb = PageRequest.of(pageNumber-1, 2,Sort.Direction.DESC,"postID");
-		Page<CustomerMessage> page = dao.findAll(pgb);
-		List<CustomerMessage> list = page.getContent();
-		return list;		
+		Page<CustomerMessage> list = cmseService.findByPage(pageNumber);
+		mav.getModel().put("list",list );
+		mav.setViewName("CusMesback");
+		System.out.println(list);
+		return mav;
+	
 	}
 	
-	@PostMapping(value="backmessage/insert")
-	public CustomerMessage insertCustomerMessages() {
-		CustomerMessage mes = new CustomerMessage( "Tom", "qwe@gmail.com", "Hi","Hi");
-		CustomerMessage reMes= dao.save(mes);
-		return reMes;
-	}
-
-	@PostMapping(value="backmessage/insert2")
-	public CustomerMessage insertCustomerMessages2(String messageName, String messageEmail, String messageQuest, String messagetext) {
-		CustomerMessage mes = new CustomerMessage(messageName, messageEmail, messageQuest, messagetext);
-		CustomerMessage reMes= dao.save(mes);
-		return reMes;
-	}
-
-	@PostMapping(value = "backmessage/delete")
-	public String deleteBymessageID(@RequestParam("num") Integer messageId) {
+	@RequestMapping(value = "/CusMesback/{messageId}",method=RequestMethod.DELETE)
+	public String deleteBymessageID(@PathVariable("messageId") Integer messageId) {
 		dao.deleteById(messageId);
-		return "redirect/backmessage";
+		return "redirect:/CusMesback";
 		
 	}
+
+//================================================================
+	@GetMapping(value="/AddCusMessage")
+	public ModelAndView AddCustomerMessage (ModelAndView mav) {
+		CustomerMessage cMes = new CustomerMessage();
+		mav.getModel().put("backmessage", cMes);
+		return mav;
+	}
 	
-//	@GetMapping(value="/")
-//	public ModelAndView AddCustomerMessage (ModelAndView mav) {
-//		CustomerMessage cMes = new CustomerMessage();
-//	}
+	@PostMapping(value = "/AddCusMessage")
+	public ModelAndView insertMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessage") CustomerMessage cusmes,
+			BindingResult br) {
+		mav.setViewName("AddCusMessage");
+		
+		if (!br.hasErrors()) {
+			cmseService.insert(cusmes);
+			CustomerMessage cMes = new CustomerMessage();
+			mav.getModel().put("workMessages", cMes);
+			mav.setViewName("redirect:/CusMesback");
+		}
+		return mav;
+	}
+	
+	@GetMapping("/EditCustomerMessage")
+	public String editMessage(Model model, @RequestParam(name = "messageId") Integer messageId) {
+		CustomerMessage cMes = cmseService.findBymessagesId(messageId);
+		model.addAttribute("CusMesback", cMes);
+
+		return "EditForumpost";
+	}
+	
+	@PostMapping("/EditCustomerMessage")
+	public ModelAndView editMessage(ModelAndView mav, @Valid @ModelAttribute(name = "CustomerMessage") CustomerMessage cusmes,
+			BindingResult br) {
+
+		mav.setViewName("EditCustomerMessage");
+
+		if (!br.hasErrors()) {
+			cmseService.insert(cusmes);
+			mav.setViewName("redirect:/CusMesback");
+		}
+
+		return mav;
+
+	}
+	
+	@GetMapping("/DeleteCusMessage")
+	public ModelAndView deleteMessage(ModelAndView mav, @RequestParam(name = "messageId") Integer messageId) {
+		cmseService.deleteBymessagesId(messageId);
+
+		mav.setViewName("redirect:/backmessage");
+
+		return mav;
+	}
+	
+	
+
 }
