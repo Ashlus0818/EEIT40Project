@@ -23,34 +23,28 @@
 			<div class="card">
 				<div class="card-header">
 					最近一筆(時間)<span><fmt:formatDate
-							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastpost.date}" /></span>
+							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastreport.date}" /></span>
 				</div>
 				<div class="card-body">
-					標題：
-					<c:out value="${lastpost.title}" />
-					<p />
 					<p />
 					內容：
-					<c:out value="${lastpost.context}" />
+					<c:out value="${lastreport.reportReason}" />
 				</div>
 			</div>
 		</div>
 
-		<c:forEach var="post" items="${allpost}">
+		<c:forEach var="report" items="${allreport}">
 			<div class="col-6">
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">
-							<a href="${contextRoot}/EditForumpost?postID=${post.postID}">編輯</a> | 
-							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a>
+							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreport?reportID=${report.reportID}">刪除</a>
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
-								value="${post.date}" />
-							<br> No： <c:out value="${post.postID}" />
+								value="${report.date}" />
+							<br> No： <c:out value="${report.reportID}" />
 							<br>
-							<br> 標題： <c:out value="${post.title}" />
-							<br>
-							<br> 內容： <c:out value="${post.context}" />
+							<br> 內容： <c:out value="${report.reportReason}" />
 						</span>
 					</div>
 				</div>

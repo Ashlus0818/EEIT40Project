@@ -40,8 +40,13 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
+
 					<a class="collapse-item" href="${contextRoot}/BackInsert">新增任務</a>
 					 <a class="collapse-item" href="cards.html">無</a>
+
+					<a class="collapse-item" href="${contextRoot}/backTask">查看任務</a> <a
+						class="collapse-item" href="cards.html">無</a>
+
 				</div>
 			</div></li>
 
@@ -51,8 +56,8 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="#"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>酒類訂購</span></a></li>
+		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backstage/ReservationStore"> <i
+				class="fas fa-fw fa-chart-area"></i> <span>實體店面</span></a></li>
 
 		
 	<li class="nav-item"><a class="nav-link collapsed" href="*"
@@ -76,10 +81,12 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
+					<a class="collapse-item" href="${contextRoot}/AddForumpost">新增文章</a>
 					<a class="collapse-item" href="${contextRoot}/Forumpostlist">文章列表</a>
+				    <a class="collapse-item" href="${contextRoot}/AddForumreply">新增回應</a>
 					<a class="collapse-item" href="${contextRoot}/Forumreplylist">回應列表</a>
-					<a class="collapse-item" href="${contextRoot}/AddForumpost">新增文章</a> 
-					<a class="collapse-item" href="${contextRoot}/AddForumreply">新增回應</a> 
+					<a class="collapse-item" href="${contextRoot}/AddForumreport">新增檢舉</a> 
+					<a class="collapse-item" href="${contextRoot}/Forumreportlist">檢舉區</a> 
 				</div>
 			</div></li>
 

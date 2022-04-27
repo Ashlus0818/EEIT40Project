@@ -1,11 +1,18 @@
 package com.eeit40.springbootproject.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "forumreport")
@@ -13,21 +20,38 @@ public class Forumreport {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "postID")
-	private Integer postID;
+	@Column(name = "reportID")
+	private Integer reportID;
 
 	@Column(name = "userID")
 	private Integer userID;
 
-	@Column(name = "userReason")
-	private String userReason;
+	@Column(name = "reportReason")
+	private String reportReason;
 
-	public Integer getPostID() {
-		return postID;
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "date")
+	private Date date;
+	
+	@PrePersist
+	public void onCreate() {
+		if (date == null) {
+			date = new Date();
+		}
+	}
+	
+	public Forumreport(String reportReason,Date date) {
+		this.reportReason = reportReason;
+		this.date = date;
 	}
 
-	public void setPostID(Integer postID) {
-		this.postID = postID;
+	public Integer getReportID() {
+		return reportID;
+	}
+
+	public void setReportID(Integer reportID) {
+		this.reportID = reportID;
 	}
 
 	public Integer getUserID() {
@@ -38,17 +62,30 @@ public class Forumreport {
 		this.userID = userID;
 	}
 
-	public String getUserReason() {
-		return userReason;
+	public String getReportReason() {
+		return reportReason;
 	}
 
-	public void setUserReason(String userReason) {
-		this.userReason = userReason;
+	public void setReportReason(String reportReason) {
+		this.reportReason = reportReason;
 	}
 
-	public Forumreport(String userReason) {
-		super();
-		this.userReason = userReason;
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	public Forumreport() {
+	}
+
+
+	@Override
+	public String toString() {
+		return "Forumreport [reportID=" + reportID + ", userID=" + userID + ", reportReason=" + reportReason + ", date="
+				+ date + "]";
 	}
 
 }
