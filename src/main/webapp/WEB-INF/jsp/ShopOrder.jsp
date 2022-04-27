@@ -24,7 +24,10 @@
 				<th>數量</th>
 				<th>金額</th>
 				<th>小計</th>
-				<th></th>
+				<th>購買日期</th>
+				<th>買家名稱</th>
+				<th>狀態</th>
+				<th>備考</th>
 			</tr>
 		</thead>
 
@@ -35,15 +38,17 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><input type="button" value="刪除"/></th>
-
+				<th></th>
+				<th></th>
+				<th>已出貨/沒出貨</th>
+				<th><input type="button" value="刪除" /></th>
 			</tr>
 		</thead>
 	</table>
 
 
 	<div class="row justify-content-center">
-		<input href="${contextRoot}/ShopCart" type="button" value="新增商品" />
+		<input href="${contextRoot}/ShopOrder" type="button" value="新增商品" />
 	</div>
 
 

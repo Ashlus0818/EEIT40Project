@@ -49,9 +49,17 @@
 
 				</div>
 			</div></li>
-
-		<li class="nav-item"><a class="nav-link" href="#"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a></li>
+<%-- 			${contextRoot}/ShopCart/findPostById --%>
+		<li class="nav-item"><a class="nav-link" href="*"
+		data-toggle="collapse" data-target="#backmes"
+			aria-expanded="true" aria-controls="backmes">
+			 <i class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a>
+			 <div id="backmes" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="${contextRoot}/ShopCart/findPostById">購物車管理</a>
+				<a class="collapse-item" href="${contextRoot}/ShopOrder/findPostById">客戶訂單</a>
+			 </li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>
