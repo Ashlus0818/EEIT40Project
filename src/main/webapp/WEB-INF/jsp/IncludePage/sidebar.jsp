@@ -65,10 +65,12 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
+					<a class="collapse-item" href="${contextRoot}/AddForumpost">新增文章</a>
 					<a class="collapse-item" href="${contextRoot}/Forumpostlist">文章列表</a>
+				    <a class="collapse-item" href="${contextRoot}/AddForumreply">新增回應</a>
 					<a class="collapse-item" href="${contextRoot}/Forumreplylist">回應列表</a>
-					<a class="collapse-item" href="${contextRoot}/AddForumpost">新增文章</a> 
-					<a class="collapse-item" href="${contextRoot}/AddForumreply">新增回應</a> 
+					<a class="collapse-item" href="${contextRoot}/AddForumreport">新增檢舉</a> 
+					<a class="collapse-item" href="${contextRoot}/Forumreportlist">檢舉區</a> 
 				</div>
 			</div></li>
 
