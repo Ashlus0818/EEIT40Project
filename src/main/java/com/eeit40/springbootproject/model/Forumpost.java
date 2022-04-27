@@ -12,6 +12,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,33 +28,29 @@ public class Forumpost {
 	@Column(name = "userID")
 	private Integer userID;
 
+	@Size(min = 1, max = 100, message = "標題請輸入1到100個字串")
 	@Column(name = "title")
 	private String title;
 
+	@Size(min = 1, message = "內容請至少輸入1個字")
 	@Column(name = "context")
 	private String context;
 
 	@Column(name = "image")
 	private byte[] image;
-
-	@Column(name = "parentPostID")
-	private Integer parentPostID;
-
-	@Column(name = "isDeleted")
-	private Boolean isDeleted;
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	private Date date;
 
-	public Forumpost(String title, String context, byte[] image, Boolean isDeleted) {
+	public Forumpost(String title, String context, byte[] image,Date date) {
 		this.title = title;
 		this.context = context;
 		this.image = image;
-		this.isDeleted = isDeleted;
-	}
-	
+		this.date = date;
+	}		
+
 	@PrePersist
 	public void onCreate() {
 		if(date == null) {
@@ -105,23 +102,6 @@ public class Forumpost {
 		this.image = image;
 	}
 
-	public Integer getParentPostID() {
-		return parentPostID;
-	}
-
-	public void setParentPostID(Integer parentPostID) {
-		this.parentPostID = parentPostID;
-	}
-
-	public Boolean getIsDeleted() {
-		return isDeleted;
-	}
-
-	public void setIsDeleted(Boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
-
-
 	public Date getDate() {
 		return date;
 	}
@@ -133,8 +113,7 @@ public class Forumpost {
 	@Override
 	public String toString() {
 		return "Forumpost [postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
-				+ ", image=" + Arrays.toString(image) + ", parentPostID=" + parentPostID + ", isDeleted=" + isDeleted
-				+ ", date=" + date + "]";
+				+ ", image=" + Arrays.toString(image) + ", date=" + date + "]";
 	}	
 
 }
