@@ -55,18 +55,16 @@
 				</c:forEach>
 	</table>
 
-	<div id="testdialogid"><input type="text"></div>
+	<div id="testdialogid"></div>
 
 
-
-	<%-- <script src="${contextRoot}/BackPage/js/jquery-3.6.0.js"></script> --%>
 	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"></script>
 	<script
 		src="${contextRoot}/BackPage/jquery-ui-1.13.1.custom/jquery-ui.js"></script>
-	<script>
+<script>
 function deleteAlert(count){
 		var formId="taskFormId"+count;
 		var yes = confirm("確認刪除此筆紀錄?");
