@@ -44,10 +44,9 @@
 								<div class="table-responsive">
 								  <div>
 								  
-								  <form id='newData' action="" method="get">
-		                         		<input class="" name="" value="" type="hidden"/>
-		                         		<input id="testname" type="button" value="新增" onclick=""/> 
-		                           </form>  
+								  <div>		                  		
+		                         	 <a href="${contextRoot}/backStage/Re-new-a-store"> <input type="button" value="新增"></a> 
+		                          </div>
 								  
 								  <form id='delData' action="" method="get">
 		                         		<input class="" name="" value="" type="hidden"/>
@@ -179,6 +178,10 @@
 function show(count){
 	document.getElementById("formStoreID"+count).submit();
 }
+
+
+
+
 </script>
     
        

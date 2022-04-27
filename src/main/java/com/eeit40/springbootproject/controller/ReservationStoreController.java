@@ -199,9 +199,9 @@ public class ReservationStoreController {
 	
 	
 	
-	@GetMapping("/backStage/Re-show-a-store")
-	public String ReShowAstore() {
-		return "Re-show-a-store";
+	@GetMapping("/backStage/Re-new-a-store")
+	public String ReNewAstore() {
+		return "Re-new-a-store";
 	}
 	
 	
@@ -215,7 +215,8 @@ public class ReservationStoreController {
 				   // System.out.println(opionRes);
 				    return opionRes;				
 		}
-
+        
+        //測試用
         //ReservationStore --> Re-show-a-stores
         //http://localhost:8080/myapp/backstage/ReservationStore/getstoreId?storeIDnumberView=1
         @ResponseBody
@@ -232,7 +233,7 @@ public class ReservationStoreController {
         
         
      
-     
+        ////ReservationStore --> Re-show-a-stores
         //@ResponseBody
   		@GetMapping(value = "backstage/ReservationStore/getstoreId1")
   		public ModelAndView getStoreById4(ModelAndView mav,@RequestParam("storeIDnumberView") Integer storeId) {
@@ -245,15 +246,23 @@ public class ReservationStoreController {
   		}
        
         
-//  		public ModelAndView viewMessages(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
-//  			Page<ReservationMessageTest> page = messageService.findByPage(pageNumber);
-//  			
-//  			mav.getModel().put("page", page);
-//  			mav.setViewName("viewMessages");
-//  			
-//  			return mav;
-//  		}
+
         
+  	//老師範例改搜store的
+  		// insert店家資料,ex.從postman鍵入資料
+  		// @RequestBody-->丟Json進來bean裡面-->反序列化成java物件
+  		@ResponseBody
+  		@PostMapping(value = "ReservationStore/insertAStore")
+  		public ReservationStore insertAStore(@RequestBody ReservationStore reS) {
+  			ReservationStore responseReS = dao.save(reS);
+
+  			return responseReS;
+  			// (@RequestBody ReservationStore reS)要怎麼丟?-->ajax:做一個java物件(ReservationStore
+  			// reS//key,value形式)->tostring成json格式
+
+  		}
+
+  		
         
         
 		

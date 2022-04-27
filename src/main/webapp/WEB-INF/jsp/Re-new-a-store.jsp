@@ -31,41 +31,41 @@ width:600px;
 			<legend>店家資訊</legend>
 			<div class="st1">
 				<label >店家編號:</label><br>
-				<input name="storeId" value=<c:out value="${foreachAstore.get().storeId}" /> class="st2"/>
+				<input class="st2"/>
 			
 			</div>
 
 			<div class="st1">
 				<label >店家部門編號:</label><br>
-				<input name="storeDepartmentNumber" value=<c:out value="${foreachAstore.get().storeDepartmentNumber}" /> class="st2"/>
+				<input class="st2"/>
 
 			</div>
 
 			<div class="st1">
 				<label >店家名稱:</label><br>
-				<input name="storeName" value=<c:out value="${foreachAstore.get().storeName}" /> class="st2"/>
+				<input class="st2"/>
 			</div>
 
 			<div class="st1">
 				<label >店家電話:</label><br>
-				<input name="storePhone" value=<c:out value="${foreachAstore.get().storePhone}" /> class="st2"/>
+				<input class="st2"/>
 			</div>
 			
 			
 			<div class="st1">
 				<label >店家地址:</label><br>
-				<input name="storeAddress" value=<c:out value="${foreachAstore.get().storeAddress}" /> class="st2"/>
+				<input class="st2"/>
 			</div>
 			
 			<div class="st1">
 				<label >店家營業時間:</label><br>
-				<input name="storeOpendate" value=<c:out value="${foreachAstore.get().storeOpendate}" /> class="st2"/>
+				<input class="st2"/>
 			</div>
 
 	
 
 			<div class="st1">
-				<input type="submit"/>
+				<button value="send">submit</button>
 			</div>
 
 		</fieldset>

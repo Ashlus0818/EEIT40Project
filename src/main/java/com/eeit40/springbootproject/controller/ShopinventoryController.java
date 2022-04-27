@@ -26,8 +26,8 @@ public class ShopinventoryController {
 		return resInventory;
 	}
 	
-	@GET
-	public ShopInventory findPostById(@PathVariable Integer postid) {
-		
-	}
+//	@GET
+//	public ShopInventory findPostById(@PathVariable Integer postid) {
+//		
+//	}
 }
