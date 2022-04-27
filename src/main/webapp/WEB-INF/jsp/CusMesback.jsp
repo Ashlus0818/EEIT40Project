@@ -39,7 +39,7 @@
 					value="${backmessages.messageQuest}" /></td>
 				<td><input type="text" disabled
 					value="${backmessages.messagetext}" /></td>
-				<td herf=""><input id="btn${s.count}" type="button" value="刪除" ></td>
+				<td ><input class=".btn-circle" id="btn${s.count}" type="button" value="刪除" ></td>
 			</tr>
 
 		</c:forEach>
