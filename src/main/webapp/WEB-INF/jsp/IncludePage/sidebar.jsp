@@ -51,8 +51,8 @@
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="#"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>酒類訂購</span></a></li>
+		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backstage/ReservationStore"> <i
+				class="fas fa-fw fa-chart-area"></i> <span>實體店面</span></a></li>
 
 		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backmessage"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>客服</span></a></li>
