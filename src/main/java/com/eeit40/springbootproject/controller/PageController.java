@@ -64,7 +64,7 @@ public class PageController {
 		Page<BackTaskes> page = bService.findByPage(pageNumber);
 		mav.getModel().put("page", page);
 		mav.setViewName("backTask");
-		
+		System.out.println(page);
 		return mav;
 	}
 

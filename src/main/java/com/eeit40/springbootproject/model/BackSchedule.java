@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Schedule")
+@Table(name="BackSchedule")
 public class BackSchedule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
