@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ShopLiquorRepository;
 import com.eeit40.springbootproject.model.ShopLiquor;
@@ -31,15 +32,18 @@ public class ShopLiquorController {
 		return resLiquor;
 	}
 	
+	
+//	@ResponseBody
 	@GetMapping(value = "/ShopLiquor/get/{postId}")
-	public ShopLiquor findPostById(@PathVariable Integer postid) {
+	public ModelAndView findPostById(ModelAndView mav, Integer postid) {
 		
-		Optional<ShopLiquor> responsePost = dao.findById(postid);
-		
-		if(responsePost.isPresent()) {
-			return responsePost.get();
-		}
-		return null;
+//		Optional<ShopLiquor> responsePost = dao.findById(postid);
+//		
+//		if(responsePost.isPresent()) {
+//			return responsePost.get();
+//		}
+		mav.setViewName("ShopLiquor");
+		return mav;
 	}
 	
 	@GetMapping(value = "/ShopLiquor/get")

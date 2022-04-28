@@ -15,6 +15,9 @@
 	<jsp:include page="IncludePage/sidebar.jsp" />
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
+	
+	
+	<div id="" >
 
 	<table class="table table-striped table-bordered zero-configuration">
 		<thead>
@@ -35,16 +38,19 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><input type="button" value="刪除"/></th>
+				<th><input type="button" value="更改"/>|<input type="button" value="刪除"/></th>
 
 			</tr>
 		</thead>
 	</table>
+	
 
 
 	<div class="row justify-content-center">
 		<input href="${contextRoot}/ShopCart" type="button" value="新增商品" />
 	</div>
+	</div>
+	
 
 
 	<jsp:include page="IncludePage/script.jsp" />
