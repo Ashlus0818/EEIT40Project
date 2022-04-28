@@ -38,7 +38,7 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><input type="button" value="更改"/>|<input type="button" value="刪除"/></th>
+				<th><input type="button" value="確定"/>|<input type="button" value="清空"/></th>
 
 			</tr>
 		</thead>

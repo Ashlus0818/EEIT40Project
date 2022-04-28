@@ -40,18 +40,23 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
-
-					<a class="collapse-item" href="${contextRoot}/BackInsert">新增任務</a>
-					 <a class="collapse-item" href="cards.html">無</a>
-
 					<a class="collapse-item" href="${contextRoot}/backTask">查看任務</a> <a
 						class="collapse-item" href="cards.html">無</a>
 
 				</div>
 			</div></li>
-
-		<li class="nav-item"><a class="nav-link" href="#"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a></li>
+<%-- 			${contextRoot}/ShopCart/findPostById --%>
+		<li class="nav-item"><a class="nav-link" href="*"
+		data-toggle="collapse" data-target="#ShopCart"
+			aria-expanded="true" aria-controls="ShopCart">
+			 <i class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a>
+			 <div id="ShopCart" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="${contextRoot}/ShopCart/findPostById">購物車管理</a>
+				<a class="collapse-item" href="${contextRoot}/ShopOrder/findPostById">客戶訂單</a>
+			
+			 </li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>

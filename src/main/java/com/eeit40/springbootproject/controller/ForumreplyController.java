@@ -69,7 +69,7 @@ public class ForumreplyController {
 		Forumreply getreply = replyService.getreplyById(replyid);
 		model.addAttribute("forumreply", getreply);
 
-		return "EditForumreply";
+		return "ForumEditreply";
 	}
 
 	@PostMapping("/ForumEditreply")

@@ -28,9 +28,12 @@
 <form:form class="form" method="POST" modelAttribute="forumreply">
 <form:errors path="recontext"/>
 <div class="imput-group">
+文章No：
+<form:textarea path="replyID" class="form-control"/>
 內容：
-<form:textarea path="recontext" class="form-control"></form:textarea>
+<form:textarea path="recontext" class="form-control"/>
 </div>
+
 <input type="submit" name="submit" value="新增回應">
 </form:form>
 </div>
