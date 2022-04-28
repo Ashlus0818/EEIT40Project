@@ -43,12 +43,19 @@ public class BackTaskes {
 	public BackTaskes() {
 	}
 	
-	public BackTaskes(String name, String level) {
+	public BackTaskes(String name, String title) {
 		super();
 		this.name = name;
-		this.level = level;
+		this.title = title;
 	}
 	
+	public BackTaskes(Integer id, String name, String title) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.title = title;
+	}
+
 	@PrePersist // 再轉換到 Persist 狀態以前去做以下方法
 	public void createAt() {
 		if (create_at == null) {
