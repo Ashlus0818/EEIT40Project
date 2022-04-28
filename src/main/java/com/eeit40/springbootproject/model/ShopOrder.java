@@ -9,7 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.servlet.annotation.MultipartConfig;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 //訂單
 @MultipartConfig
@@ -36,6 +40,8 @@ public class ShopOrder {
 	@Column(name = "quantity")
 	private Integer quantity;
 	
+	@DateTimeFormat(pattern ="yyyy/MM/dd HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	private Date date;
 	

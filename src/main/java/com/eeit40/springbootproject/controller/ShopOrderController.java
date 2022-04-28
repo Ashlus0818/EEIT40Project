@@ -58,7 +58,7 @@ public class ShopOrderController {
 		return null;
 	}
 	
-	@GetMapping(value = "/ShopOrder/page/{pageNumber}")
+	@GetMapping(value = "/ShopOrder/page")
 	public List<ShopOrder> findByPage(@PathVariable Integer pageNumber){
 		
 		Pageable pgb = PageRequest.of(pageNumber-1, 2,Sort.Direction.DESC,"postID");

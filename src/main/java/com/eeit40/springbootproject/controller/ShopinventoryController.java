@@ -56,7 +56,7 @@ public class ShopinventoryController {
 		return null;
 	}
 	
-	@GetMapping(value = "/ShopInventory/page/{pageNumber}")
+	@GetMapping(value = "/ShopInventory/page")
 	public List<ShopInventory> findByPage(@PathVariable Integer pageNumber){
 		
 		Pageable pgb = PageRequest.of(pageNumber-1, 2,Sort.Direction.DESC,"postID");

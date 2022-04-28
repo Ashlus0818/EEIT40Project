@@ -7,5 +7,5 @@ import com.eeit40.springbootproject.model.ShopOrder;
 
 @Repository
 public interface ShopOrderRepository extends JpaRepository<ShopOrder, Integer> {
-
+	public ShopOrder findFirstByOrderByDateDesc();
 }

@@ -25,77 +25,77 @@
 		<hr class="sidebar-divider my-0">
 
 		<!-- Nav Item - Dashboard -->
-		<li class="nav-item active"><a class="nav-link" href="${contextRoot}/">
-				<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+		<li class="nav-item active"><a class="nav-link"
+			href="${contextRoot}/"> <i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Dashboard</span>
 		</a></li>
 
 		<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<!-- data-target 和 aria-controls 和 一個div 改名就能閉合-->
+		<!-- data-target 和 aria-controls 和 一個div 改名就能閉合-->
 		<li class="nav-item"><a class="nav-link collapsed" href="#"
-			data-toggle="collapse" data-target="#backtask"
-			aria-expanded="true" aria-controls="backtask"> <i
-				class="fas fa-fw fa-cog"></i> <span>後台功能</span></a>
+			data-toggle="collapse" data-target="#backtask" aria-expanded="true"
+			aria-controls="backtask"> <i class="fas fa-fw fa-cog"></i> <span>後台功能</span></a>
 			<div id="backtask" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
 
 					<a class="collapse-item" href="${contextRoot}/BackInsert">新增任務</a>
-					 <a class="collapse-item" href="cards.html">無</a>
-
-					<a class="collapse-item" href="${contextRoot}/backTask">查看任務</a> <a
+					<a class="collapse-item" href="cards.html">無</a> <a
+						class="collapse-item" href="${contextRoot}/backTask">查看任務</a> <a
 						class="collapse-item" href="cards.html">無</a>
 
 				</div>
 			</div></li>
-<%-- 			${contextRoot}/ShopCart/findPostById --%>
+		<%-- 			${contextRoot}/ShopCart/findPostById --%>
 		<li class="nav-item"><a class="nav-link" href="*"
-		data-toggle="collapse" data-target="#ShopCart"
-			aria-expanded="true" aria-controls="ShopCart">
-			 <i class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a>
-			 <div id="ShopCart" class="collapse" aria-labelledby="headingTwo"
+			data-toggle="collapse" data-target="#ShopCart" aria-expanded="true"
+			aria-controls="ShopCart"> <i class="fas fa-fw fa-chart-area"></i>
+				<span>購物車</span></a>
+			<div id="ShopCart" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="${contextRoot}/ShopCart/findPostById">購物車管理</a>
-				<a class="collapse-item" href="${contextRoot}/ShopOrder/findPostById">客戶訂單</a>
-			
-			 </li>
+					<a class="collapse-item" href="${contextRoot}/ShopCart/findPostById">購物車管理</a> 
+					<a class="collapse-item" href="${contextRoot}/ShopOrder/findPostById">客戶訂單</a>
+					<a class="collapse-item" href="${contextRoot}/ShopLiquor/insert">產品管理</a>
+				</div>
+			</div></li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>
 
-		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backstage/ReservationStore"> <i
+		<li class="nav-item"><a class="nav-link"
+			href="${contextRoot}/backstage/ReservationStore"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>實體店面</span></a></li>
 
-		
-	<li class="nav-item"><a class="nav-link collapsed" href="*"
-			data-toggle="collapse" data-target="#backmes"
-			aria-expanded="true" aria-controls="backmes"> 
-				<i class="fas fa-fw fa-cog"></i> <span>客服</span></a>
+
+		<li class="nav-item"><a class="nav-link collapsed" href="*"
+			data-toggle="collapse" data-target="#backmes" aria-expanded="true"
+			aria-controls="backmes"> <i class="fas fa-fw fa-cog"></i> <span>客服</span></a>
 			<div id="backmes" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
 					<a class="collapse-item" href="${contextRoot}/addMessage">新增留言</a>
-					<a class="collapse-item" href="${contextRoot}/CusMesback/findByPage">留言管理</a>
+					<a class="collapse-item"
+						href="${contextRoot}/CusMesback/findByPage">留言管理</a>
 				</div>
 			</div></li>
-	
-				<li class="nav-item"><a class="nav-link collapsed" href="*"
-			data-toggle="collapse" data-target="#forum"
-			aria-expanded="true" aria-controls="forum"> <i
-				class="fas fa-fw fa-cog"></i> <span>討論區</span></a>
+
+		<li class="nav-item"><a class="nav-link collapsed" href="*"
+			data-toggle="collapse" data-target="#forum" aria-expanded="true"
+			aria-controls="forum"> <i class="fas fa-fw fa-cog"></i> <span>討論區</span></a>
 			<div id="forum" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
 					<a class="collapse-item" href="${contextRoot}/ForumAddpost">新增文章</a>
 					<a class="collapse-item" href="${contextRoot}/Forumpostlist">文章列表</a>
-				    <a class="collapse-item" href="${contextRoot}/ForumAddreply">新增回應</a>
+					<a class="collapse-item" href="${contextRoot}/ForumAddreply">新增回應</a>
 					<a class="collapse-item" href="${contextRoot}/Forumreplylist">回應列表</a>
-					<a class="collapse-item" href="${contextRoot}/ForumAddreport">新增檢舉</a> 
-					<a class="collapse-item" href="${contextRoot}/Forumreportlist">檢舉區</a> 
+					<a class="collapse-item" href="${contextRoot}/ForumAddreport">新增檢舉</a>
+					<a class="collapse-item" href="${contextRoot}/Forumreportlist">檢舉區</a>
 				</div>
 			</div></li>
 
