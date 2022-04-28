@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 	<!-- Main Content -->
@@ -115,7 +117,7 @@
 						<h6 class="dropdown-header">Message Center</h6>
 						<a class="dropdown-item d-flex align-items-center" href="#">
 							<div class="dropdown-list-image mr-3">
-								<img class="rounded-circle" src="img/undraw_profile_1.svg"
+								<img class="rounded-circle" src="${contextRoot}/BackPage/img/undraw_profile_1.svg"
 									alt="...">
 								<div class="status-indicator bg-success"></div>
 							</div>
@@ -126,7 +128,7 @@
 							</div>
 						</a> <a class="dropdown-item d-flex align-items-center" href="#">
 							<div class="dropdown-list-image mr-3">
-								<img class="rounded-circle" src="img/undraw_profile_2.svg"
+								<img class="rounded-circle" src="${contextRoot}/BackPage/img/undraw_profile_2.svg"
 									alt="...">
 								<div class="status-indicator"></div>
 							</div>
@@ -137,7 +139,7 @@
 							</div>
 						</a> <a class="dropdown-item d-flex align-items-center" href="#">
 							<div class="dropdown-list-image mr-3">
-								<img class="rounded-circle" src="img/undraw_profile_3.svg"
+								<img class="rounded-circle" src="${contextRoot}/BackPage/img/undraw_profile_3.svg"
 									alt="...">
 								<div class="status-indicator bg-warning"></div>
 							</div>
@@ -172,7 +174,7 @@
 					aria-expanded="false"> <span
 						class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas
 							McGee</span> <img class="img-profile rounded-circle"
-						src="BackPage/img/undraw_profile.svg">
+						src="${contextRoot}/BackPage/img/undraw_profile.svg">
 				</a> <!-- Dropdown - User Information -->
 					<div
 						class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

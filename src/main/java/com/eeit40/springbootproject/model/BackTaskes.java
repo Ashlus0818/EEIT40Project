@@ -10,7 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="BackTaskes")
@@ -24,9 +29,17 @@ public class BackTaskes {
 	@Column(name="name")
 	private String name;
 	
+	@Column(name="title")
+	private String title;
+	
 	@Column(name="level")
 	private String level;
-
+	
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="create_at", columnDefinition = "datetime")
+	private Date create_at;
+	
 	public BackTaskes() {
 	}
 	
@@ -35,7 +48,14 @@ public class BackTaskes {
 		this.name = name;
 		this.level = level;
 	}
-
+	
+	@PrePersist // 再轉換到 Persist 狀態以前去做以下方法
+	public void createAt() {
+		if (create_at == null) {
+			create_at = new Date();
+		}
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -58,6 +78,22 @@ public class BackTaskes {
 
 	public void setLevel(String level) {
 		this.level = level;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getCreate_at() {
+		return create_at;
+	}
+
+	public void setCreate_at(Date create_at) {
+		this.create_at = create_at;
 	}
 	
 	
