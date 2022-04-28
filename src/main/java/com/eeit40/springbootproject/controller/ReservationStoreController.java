@@ -3,6 +3,8 @@ package com.eeit40.springbootproject.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,7 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -175,15 +179,6 @@ public class ReservationStoreController {
 	
 	//之後教留言版功能的專案是3/31 09的影片 40:00時開始
 	
-
-	
-	//實體店面轉個別店面檢視
-	@ResponseBody
-	@GetMapping(value="ReservationStore/findstore")
-	public List<ReservationStore> findByStore(@PathVariable Integer storeDepartmentNumber){
-		return dao.findByStoreDepartmentNumberOrderByStoreNameDesc(storeDepartmentNumber);
-	}
-	
 	
 	//廢棄了
 	//show-a-store formform表單
@@ -198,90 +193,119 @@ public class ReservationStoreController {
 	private ReservationStoreService service;
 	
 	
-	
+	//測試
 	@GetMapping("/backStage/Re-new-a-store")
 	public String ReNewAstore() {
 		return "Re-new-a-store";
 	}
 	
 	
-	    //測試用
-		// 前端送form表單時,如何get(搜尋)
-        @ResponseBody
-		@GetMapping(value = "backstage/ReservationStore/get")
-		public Optional<ReservationStore> getStoreById2(@RequestParam("storeId") Integer storeId) {
-				   // System.out.println(storeId);
-				    Optional<ReservationStore>	opionRes = service.findById(storeId);
-				   // System.out.println(opionRes);
-				    return opionRes;				
-		}
+//	    //測試用 service需是回傳optinaol物件才行用
+//		// 前端送form表單時,如何get(搜尋)
+//        @ResponseBody
+//		@GetMapping(value = "backstage/ReservationStore/get")
+//		public Optional<ReservationStore> getStoreById2(@RequestParam("storeId") Integer storeId) {
+//				   // System.out.println(storeId);
+//				    Optional<ReservationStore>	opionRes = service.findById(storeId);
+//				   // System.out.println(opionRes);
+//				    return opionRes;				
+//		}
         
-        //測試用
-        //ReservationStore --> Re-show-a-stores
-        //http://localhost:8080/myapp/backstage/ReservationStore/getstoreId?storeIDnumberView=1
-        @ResponseBody
-  		@GetMapping(value = "backstage/ReservationStore/getstoreId")
-  		public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberView") Integer storeId) {
-  				   // System.out.println(storeId);
-  				    Optional<ReservationStore>	opionRes = service.findById(storeId);
-  				   // System.out.println(opionRes);
-  				    return opionRes;				
-  		}
-        //抓到jsp的參數 name:storeIDnumberView之後 就會抓到它(name)的value也就是storeId
-        //postman key value測試
+//        //測試用
+//        //ReservationStore --> Re-show-a-stores
+//        //http://localhost:8080/myapp/backstage/ReservationStore/getstoreId?storeIDnumberView=1
+//        @ResponseBody
+//  		@GetMapping(value = "backstage/ReservationStore/getstoreId")
+//  		public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberView") Integer storeId) {
+//  				   // System.out.println(storeId);
+//  				    Optional<ReservationStore>	opionRes = service.findById(storeId);
+//  				   // System.out.println(opionRes);
+//  				    return opionRes;				
+//  		}
+//        //抓到jsp的參數 name:storeIDnumberView之後 就會抓到它(name)的value也就是storeId
+//        //postman key value測試
         
         
-        
-     
-        ////ReservationStore --> Re-show-a-stores
-        //@ResponseBody
-  		@GetMapping(value = "backstage/ReservationStore/getstoreId1")
-  		public ModelAndView getStoreById4(ModelAndView mav,@RequestParam("storeIDnumberView") Integer storeId) {
-  			System.out.println("TEST=====================");   
-  			Optional<ReservationStore> opionRes = service.findById(storeId);
-  			mav.getModel().put("foreachAstore", opionRes);
-  			mav.setViewName("Re-show-a-store");	
-  		    System.out.println(opionRes);
-  		    return mav;				
-  		}
        
-        
-
-//not yet        
-  	//老師範例改搜store的
-  		// insert店家資料,ex.從postman鍵入資料
-  		// @RequestBody-->丟Json進來bean裡面-->反序列化成java物件
-  		//@ResponseBody
-//  		@PostMapping(value = "ReservationStore/insertAStore")
-//  		public ModelAndView insertAStore(ModelAndView mav,@RequestBody ReservationStore reS) {
-//  			Optional<ReservationStore> opionRes = service.save(reS);
+//        //印出修改前的資料---舊的
+//        //ReservationStore --> Re-show-a-stores
+//  		@GetMapping(value = "backstage/ReservationStore/editStore")
+//  		public ModelAndView getStoreById4(ModelAndView mav,@RequestParam(name="storeIDnumberView") Integer storeId) {
+//  			System.out.println("TEST=====================");   
+//  			Optional<ReservationStore> opionRes = service.findById(storeId);
 //  			mav.getModel().put("foreachAstore", opionRes);
 //  			mav.setViewName("Re-show-a-store");	
 //  		    System.out.println(opionRes);
 //  		    return mav;				
-  			// (@RequestBody ReservationStore reS)要怎麼丟?-->ajax:做一個java物件(ReservationStore
-  			// reS//key,value形式)->tostring成json格式
-
 //  		}
-
+        
+	
+//		//印出修改前的資料
+//        //ReservationStore --> Re-show-a-store
+  		@GetMapping(value = "backstage/ReservationStore/editStore")
+  		public String editStore(Model model,@RequestParam(name="storeIDnumberView") Integer storeId) {
+//  			System.out.println(storeId);
+//  			System.out.println(model.getAttribute("storeIDnumberView"));
+  			ReservationStore reS = service.findById(storeId);
+  			model.addAttribute("modAtt-Re-show-a-store1", reS);   			
+//  			System.out.println(reS.getStoreName());
+  			
+  		    return "Re-show-a-store2";				
+  		}
+                                                                                             
+       
+  		//Re-show-a-stores 修改資料 修改後送出傳到這
+  		@PostMapping(value = "backstage/ReservationStore/editStore")
+  		public ModelAndView editAStore(ModelAndView mav, @Valid @ModelAttribute(name="modAtt-Re-show-a-store1") ReservationStore reS, BindingResult br) {  		
   		
-        
-        
-		
-//		@GetMapping(value = "backstage/ReservationStore/get1")
-//		public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberDel") Integer storeId) {
-//				System.out.println(storeId);
-//				Optional<ReservationStore> responseReS = dao.findById(storeId);
-//
-//			if (responseReS.isPresent()) {
-//				return responseReS;
-//			}
-//			return null;
-//			// 因為參數是從form表單來的,要用form表單的參數就要用(@RequestParam)==(HttpServletRequest
-//			// request)的request.getAttribute(xxx[form的name])
-//		}
-	
-	
+  			mav.setViewName("Re-show-a-store");	
+  			if(!br.hasErrors()) {
+
+  				service.insert(reS);
+  				mav.setViewName("redirect:/backstage/ReservationStore");
+  			}			
+  			return mav;	 			
+  		}
+//遇到問題:https://neillin1415.pixnet.net/blog/post/362128512-%E3%80%90%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%91spring-mvc---request-method-'post'-not-sup
+  		
+  		
+  		@GetMapping("/backstage/ReservationStore/delAStore")
+  		public ModelAndView deleteMessage(ModelAndView mav, @RequestParam(name="storeIDnumberDel") Integer storeId) {
+  			service.deleteById(storeId);
+  			
+  			mav.setViewName("redirect:/backstage/ReservationStore");
+  			
+  			return mav;
+  		}
+  	
+
+  		//新增一筆店家資訊 導入頁面
+  		@GetMapping("/backstage/ReservationStore/addAStore")
+  		public ModelAndView addStore(ModelAndView mav) {
+  			
+  			ReservationStore newStore = new ReservationStore();
+  			mav.getModel().put("modAtt-Re-new-a-store", newStore);
+  			 				
+  	        mav.setViewName("Re-new-a-store");
+  			return mav;
+  		}
+  		
+  		
+  		//新增一筆店家資訊 輸入後匯出並導向新頁面
+  		@PostMapping("/backstage/ReservationStore/addAStore")
+  		public ModelAndView addStore(ModelAndView mav, @Valid @ModelAttribute(name = "modAtt-Re-new-a-store") ReservationStore reS,
+  				BindingResult br) {
+
+  			if (!br.hasErrors()) {
+  				service.insert(reS);
+  				ReservationStore newStore = new ReservationStore();
+  				mav.getModel().put("modAtt-Re-new-a-store", newStore);
+  			}
+ 			
+  			mav.setViewName("redirect:/backstage/ReservationStore");
+
+  			return mav;
+  		}
 	
 	
 	

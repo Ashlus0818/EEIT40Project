@@ -16,6 +16,8 @@ width:800px;
 }
 
 
+/* type="text" id="name" name="name"  */
+
 </style>
 
 <jsp:include page="IncludePage/css.jsp" />
@@ -24,10 +26,13 @@ width:800px;
 	<jsp:include page="IncludePage/sidebar.jsp" />
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
+
 	
-<form:form class="form" method="POST" action="" modelAttribute="modAtt-Re-new-a-store">	
+	
+<form:form class="form" method="POST" modelAttribute="modAtt-Re-show-a-store1">	
 		
-		
+		<fieldset class="fieldset">
+			<legend>店家資訊</legend>
 			<div class="st1">
 				<label >店家編號:</label><br>
 				<form:input name="storeId" path="storeId" /> 
@@ -63,25 +68,22 @@ width:800px;
 
 			<div class="st1">
 				<label >建立日期:</label><br>
-				<form:input name="createdAt" path="createdAt"  class="st2"/>			
+				<form:input name="createdAt" path="createdAt"   class="st2"/> 
 			</div>
 	
 			<div class="st1">
 				<label >修改日期:</label><br>
-				<form:input name="modifiedAt" path="modifiedAt"  class="st2"/>  
+				<form:input name="modifiedAt"  path="modifiedAt"  class="st2"/>  
 			</div>
 
 
 			<div class="st1">
 				<input type="submit" name="submit" value="送出"/>
 			</div>
-</form:form>
-	
-	
-	
-<script>
 
-</script>
+		</fieldset>
+</form:form>		
+
 
 	<jsp:include page="IncludePage/script.jsp" />
 </body>
