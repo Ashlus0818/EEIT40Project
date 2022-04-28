@@ -19,12 +19,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ShopOrderRepository;
 import com.eeit40.springbootproject.model.ShopOrder;
+import com.eeit40.springbootproject.service.ShopOrderService;
 
 @RestController
 public class ShopOrderController {
 	
 	@Autowired
 	private ShopOrderRepository dao;
+	
+	private ShopOrderService sodao;
 	
 	@PostMapping(value= "/ShopOrder/insert")
 	public ShopOrder insertPost(@RequestBody ShopOrder order) {
