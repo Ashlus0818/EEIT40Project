@@ -36,6 +36,7 @@ public class ShopinventoryController {
 		return resInventory;
 	}
 	
+
 	@GetMapping(value = "/ShopInventory/findPostById")
 	public ModelAndView findPostById(ModelAndView mav, Integer postid) {
 		mav.setViewName("ShopInventory");
@@ -66,4 +67,5 @@ public class ShopinventoryController {
 		
 	}
 	
+
 }

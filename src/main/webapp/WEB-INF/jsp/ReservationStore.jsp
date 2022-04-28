@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -44,14 +45,13 @@
 								<div class="table-responsive">
 								  <div>
 								  
-								  <form id='newData' action="" method="get">
-		                         		<input class="" name="" value="" type="hidden"/>
-		                         		<input id="testname" type="button" value="新增" onclick=""/> 
-		                           </form>  
+								  <div>		                  		
+		                         	 <a href="${contextRoot}/backstage/ReservationStore/addAStore"> <input type="button" value="新增"></a> 
+		                          </div>
 								  
 								  <form id='delData' action="" method="get">
 		                         		<input class="" name="" value="" type="hidden"/>
-		                         		<input id="testname" type="button" value="刪除" onclick=""/> 
+		                         		<input id="testname" type="button" value="刪除" onclick="return confirm('確認刪除?')"/> 
 		                           </form>    
 								  
 								  
@@ -79,7 +79,9 @@
 													<th>刪除</th>
 												</tr>
 											</thead>
-			<tbody>										
+			<tbody>		
+<!-- 	pageStore是var值	//pageStore1連到PageController								 -->
+<%-- var的值把${pageStore1.content}的物件塞進去   ${pageStore1.content}來自PageController的page物件 --%>
 					<c:forEach var="pageStore" items="${pageStore1.content}" varStatus="vs">
 							<tr id="Id${pageStore.storeId}">
 							
@@ -94,19 +96,19 @@
 		                         <td><c:out value="${pageStore.storePhone}" /> </td> 
 		                         <td><c:out value="${pageStore.storeAddress}" /> </td>
 		                         <td><c:out value="${pageStore.storeOpendate}" /> </td>
-		                         <td><c:out value="${pageStore.createdAt}" /> </td>
+		                         <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${pageStore.createdAt}" /> </td>
 		                         <td><c:out value="${pageStore.modifiedAt}" /> </td>
 		                         
 <!--  storeIDnumberView和Del  連結 ReservationStoreController 第94行的getStoreById方法 -->
 <%-- ${vs.count}的vs是69行varStatus="vs",count是計數,為了抓到第幾個button --%>
-		                         <td><form id='formStoreID${vs.count}' action="${contextRoot}/backstage/ReservationStore/getstoreId1" method="get">
+		                         <td><form id='formStoreID${vs.count}' action="${contextRoot}/backstage/ReservationStore/editStore" method="get">
 		                         		<input class="${vs.count}" name="storeIDnumberView" value="${vs.count}" type="hidden"/>
 		                         		<input id="testname" type="button" value="檢視" onclick="show(${pageStore.storeId})"/> 
 		                             </form>  
 		                           
-		                          <td><form id='formStoreID${vs.count}' action="ReservationStore/get" method="get">
+		                          <td><form id='formStoreID1${vs.count}' action="${contextRoot}/backstage/ReservationStore/delAStore" method="get">
 		                         		<input class="${vs.count}" name="storeIDnumberDel" value="${vs.count}" type="hidden"/>
-		                         		<input id="testname" type="button" value="刪除" onclick="show(${pageStore.storeId})"/> 
+		                         		<input id="testname" type="button" value="刪除" onclick="del(${pageStore.storeId})" />		                        
 		                             </form>    
 		                                                                                                    
 							</tr>	
@@ -179,6 +181,12 @@
 function show(count){
 	document.getElementById("formStoreID"+count).submit();
 }
+
+
+function del(count){
+	document.getElementById("formStoreID1"+count).submit();
+}
+
 </script>
     
        
