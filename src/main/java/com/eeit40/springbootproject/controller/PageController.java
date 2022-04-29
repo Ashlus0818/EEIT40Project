@@ -121,9 +121,9 @@ public class PageController {
 		return mav;
 	}
 
-	@GetMapping("/backmessage")
+	@GetMapping("/CusMesback")
 	public String backmessage() {
-		return "backmessage";
+		return "CusMesback";
 	}
 
 }
