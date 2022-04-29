@@ -42,9 +42,9 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">
-							<a href="${contextRoot}/ForumEditpost?postID=${post.postID}">編輯</a>
-							| <a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a>
-							<a href="${contextRoot}/ForumAddreply?replyID=${post.postID}">回應</a>	
+							<a href="${contextRoot}/ForumEditpost?postID=${post.postID}">編輯</a> |
+							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a> |
+							<a href="${contextRoot}/ForumAddreply?belongtopostid=${post.postID}">回應</a>	
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${post.date}" /> <br> No： <c:out

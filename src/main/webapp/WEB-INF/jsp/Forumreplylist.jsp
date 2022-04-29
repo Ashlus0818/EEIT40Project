@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script>System.out.println("Hello");</script>
 <title>Insert title here</title>
 <jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
 </head>
@@ -34,7 +35,6 @@
 		</div>
 
 
-
 		<c:forEach var="reply" items="${allreply}">
 			<div class="col-6">
 				<div class="card">
@@ -42,7 +42,7 @@
 						<div class="edit-link">
 							<a href="${contextRoot}/ForumEditreply?replyID=${reply.replyID}">編輯</a> | 
 							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreply?replyID=${reply.replyID}">刪除</a>
-							<a href="${contextRoot}/Forumpostlist#${reply.replyID}">>>${reply.replyID}</a>
+							<a href="${contextRoot}/Forumpostlist#${reply.postID}">${reply.postID}</a>
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${reply.date}" />
