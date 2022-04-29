@@ -22,14 +22,13 @@
  <div class="col-6">
   <div class="card">
   <div class="card-header">
-   發布文章
+   發布回應
   </div>
   <div class="card-body">
 <form:form class="form" method="POST" modelAttribute="forumreply">
 <form:errors path="recontext"/>
 <div class="imput-group">
-文章No：
-<form:textarea path="replyID" class="form-control"/>
+<a href="${post.postID}">1234</a>
 內容：
 <form:textarea path="recontext" class="form-control"/>
 </div>
