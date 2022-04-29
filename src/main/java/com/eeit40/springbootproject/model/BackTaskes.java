@@ -40,6 +40,11 @@ public class BackTaskes {
 	@Column(name="create_at", columnDefinition = "datetime")
 	private Date create_at;
 	
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="lastModified", columnDefinition = "datetime")
+	private Date lastModified;
+	
 	public BackTaskes() {
 	}
 	
@@ -54,6 +59,15 @@ public class BackTaskes {
 		this.id = id;
 		this.name = name;
 		this.title = title;
+	}
+
+	public BackTaskes(Integer id, String name, String title, Date create_at, Date lastModified) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.title = title;
+		this.create_at = create_at;
+		this.lastModified = lastModified;
 	}
 
 	@PrePersist // 再轉換到 Persist 狀態以前去做以下方法
