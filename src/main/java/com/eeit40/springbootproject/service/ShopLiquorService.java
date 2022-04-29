@@ -51,7 +51,7 @@ public class ShopLiquorService {
 	
 	public Page<ShopLiquor> findByPage(Integer pageNumber){
 		
-		Pageable pgb = PageRequest.of(pageNumber-1, 10,Sort.Direction.ASC,"liquorId");
+		Pageable pgb = PageRequest.of(pageNumber-1, 10,Sort.Direction.ASC,"id");
 	
 		Page<ShopLiquor> page = sldao.findAll(pgb);
 		

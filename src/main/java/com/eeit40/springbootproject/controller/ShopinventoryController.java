@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,15 +19,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ShopInventoryRepository;
+import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.model.ShopInventory;
+import com.eeit40.springbootproject.service.ShopInventoryService;
 
 
 
-@RestController
+@Controller
 public class ShopinventoryController {
 	
 	@Autowired
 	private ShopInventoryRepository dao;
+	
+	@Autowired
+	private ShopInventoryService siService;
 	
 	@PostMapping(value = "/ShopInventory/insert")
 	public ShopInventory insertPost(@RequestBody ShopInventory inventory) {
@@ -65,6 +71,21 @@ public class ShopinventoryController {
 		List<ShopInventory> list = page.getContent();
 		return list;
 		
+	}
+	
+	@PostMapping(value = "ShopInventory/delete")
+	public String deleteById(ModelAndView mav, @RequestParam("Inventoryid") Integer Id) {
+		System.out.println(Id);
+		siService.deleteByinventoryId(Id);
+		System.out.println("finidsh");
+		return "redirect:/addShopInventory";
+	}
+	@PostMapping(value="ShopInventoey/update")
+	public String updateById(ModelAndView mav,@RequestParam("InventoryId") Integer id, @RequestParam("InventoryName") String iName, @RequestParam("InventoryImg") String iImg, 
+			@RequestParam("InventoryPlace") String iPlace,@RequestParam("InventoryPrice") String iprice) {
+		System.out.println(iName+" "+iPlace);
+		siService.insert(new ShopInventory(id, iName, iImg, iPlace, iprice));
+		return "index";
 	}
 	
 
