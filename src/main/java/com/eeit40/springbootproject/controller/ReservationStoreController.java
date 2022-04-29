@@ -1,5 +1,8 @@
 package com.eeit40.springbootproject.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -180,14 +183,6 @@ public class ReservationStoreController {
 	//之後教留言版功能的專案是3/31 09的影片 40:00時開始
 	
 	
-	//廢棄了
-	//show-a-store formform表單
-//	@GetMapping(value="/backStage/Re-show-a-store")
-//	public String showAstore(Model m) {
-//		ReservationStore ReS = new ReservationStore();
-//		m.addAttribute("storeOne",ReS);
-//		return "Re-show-a-store";
-//	}
 
 	@Autowired
 	private ReservationStoreService service;
@@ -240,11 +235,11 @@ public class ReservationStoreController {
 //  		}
         
 	
-//		//印出修改前的資料
-//        //ReservationStore --> Re-show-a-store
+		//修改一筆資料
+        //ReservationStore.jsp 導向 Re-show-a-store2
   		@GetMapping(value = "backstage/ReservationStore/editStore")
   		public String editStore(Model model,@RequestParam(name="storeIDnumberView") Integer storeId) {
-//  			System.out.println(storeId);
+  			System.out.println(storeId);
 //  			System.out.println(model.getAttribute("storeIDnumberView"));
   			ReservationStore reS = service.findById(storeId);
   			model.addAttribute("modAtt-Re-show-a-store1", reS);   			
@@ -253,12 +248,17 @@ public class ReservationStoreController {
   		    return "Re-show-a-store2";				
   		}
                                                                                              
-       
-  		//Re-show-a-stores 修改資料 修改後送出傳到這
+        //修改一筆資料 輸入後匯出並導向新頁面
+  		//Re-show-a-store2 導向 ReservationStore.jsp
   		@PostMapping(value = "backstage/ReservationStore/editStore")
-  		public ModelAndView editAStore(ModelAndView mav, @Valid @ModelAttribute(name="modAtt-Re-show-a-store1") ReservationStore reS, BindingResult br) {  		
-  		
-  			mav.setViewName("Re-show-a-store");	
+  		public ModelAndView editAStore(ModelAndView mav, @Valid @ModelAttribute(name="modAtt-Re-show-a-store1") ReservationStore reS, BindingResult br) throws ParseException {  		
+  			System.out.println(reS.getStoreName());
+  			System.out.println(reS.getCreatedAt());
+  
+  			reS.setModifiedAt(new Date());
+  			System.out.println(reS.getModifiedAt());
+  			
+			//mav.setViewName("Re-show-a-store2");	有錯才導回去?
   			if(!br.hasErrors()) {
 
   				service.insert(reS);
@@ -269,6 +269,7 @@ public class ReservationStoreController {
 //遇到問題:https://neillin1415.pixnet.net/blog/post/362128512-%E3%80%90%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%91spring-mvc---request-method-'post'-not-sup
   		
   		
+  		//刪除一筆資料
   		@GetMapping("/backstage/ReservationStore/delAStore")
   		public ModelAndView deleteMessage(ModelAndView mav, @RequestParam(name="storeIDnumberDel") Integer storeId) {
   			service.deleteById(storeId);
@@ -291,24 +292,39 @@ public class ReservationStoreController {
   		}
   		
   		
-  		//新增一筆店家資訊 輸入後匯出並導向新頁面
-  		@PostMapping("/backstage/ReservationStore/addAStore")
-  		public ModelAndView addStore(ModelAndView mav, @Valid @ModelAttribute(name = "modAtt-Re-new-a-store") ReservationStore reS,
-  				BindingResult br) {
+  		//新增一筆店家資訊 輸入後匯出並導向新頁面  舊的-formform表單用
+//  		@PostMapping("/backstage/ReservationStore/addAStore")
+//  		public ModelAndView addStore(ModelAndView mav, @Valid @ModelAttribute(name = "modAtt-Re-new-a-store") ReservationStore reS,
+//  				BindingResult br) {
+//
+//  			if (!br.hasErrors()) {
+//  				service.insert(reS);
+//  				ReservationStore newStore = new ReservationStore();
+//  				mav.getModel().put("modAtt-Re-new-a-store", newStore);
+//  			}
+// 			
+//  			mav.setViewName("redirect:/backstage/ReservationStore");
+//
+//  			return mav;
+//  		}
 
-  			if (!br.hasErrors()) {
-  				service.insert(reS);
-  				ReservationStore newStore = new ReservationStore();
-  				mav.getModel().put("modAtt-Re-new-a-store", newStore);
-  			}
- 			
-  			mav.setViewName("redirect:/backstage/ReservationStore");
-
-  			return mav;
+  		
+  		//新增一筆店家資訊 輸入後匯出並導向新頁面  form表單
+  		@PostMapping(value="/backstage/ReservationStore/insert")
+  		public String insertBackTaskes(@RequestParam("storeDepartmentNumber") Integer storeDepartmentNumber, 
+  				@RequestParam("storeName")String storeName, 
+  				@RequestParam("storePhone") String storePhone, 
+  				@RequestParam("storeAddress") String storeAddress, 
+  				@RequestParam("storeOpendate") String storeOpendate
+  				){  			
+  			ReservationStore bean = new ReservationStore(storeDepartmentNumber, storeName, 
+  					storePhone, storeAddress, 
+  					storeOpendate);
+  			service.insert(bean);
+  			return "redirect:/backstage/ReservationStore";
   		}
-	
-	
-	
+
+
 	
 	
 	
