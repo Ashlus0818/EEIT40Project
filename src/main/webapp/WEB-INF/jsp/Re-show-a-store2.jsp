@@ -16,6 +16,8 @@ width:800px;
 }
 
 
+/* type="text" id="name" name="name"  */
+
 </style>
 
 <jsp:include page="IncludePage/css.jsp" />
@@ -24,72 +26,65 @@ width:800px;
 	<jsp:include page="IncludePage/sidebar.jsp" />
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
+
 	
-<form id="insertForm" method="POST" action="">	
+	
+<form:form class="form" method="POST" modelAttribute="modAtt-Re-show-a-store1">	
+		
+		<fieldset class="fieldset">
+			<legend>店家資訊</legend>
 			<div class="st1">
 				<label >店家編號:</label><br>
-<!-- 				<input id="storeId" name="storeId" class="st2"/> -->
+				<form:input name="storeId" path="storeId" /> 
+			
 			</div>
 
 			<div class="st1">
 				<label >店家部門編號:</label><br>
-				<input id="storeDepartmentNumber" name="storeDepartmentNumber"  class="st2"/>
+				<form:input name="storeDepartmentNumber" path="storeDepartmentNumber"  class="st2" />
 
 			</div>
 
 			<div class="st1">
 				<label >店家名稱:</label><br>
-				<input id="storeName" name="storeName" value="" class="st2"/>
+				<form:input name="storeName" path="storeName"  class="st2" />
 			</div>
 
 			<div class="st1">
 				<label >店家電話:</label><br>
-				<input id="storePhone" name="storePhone" value="" class="st2"/> 
+				<form:input name="storePhone" path="storePhone"  class="st2" /> 
 			</div>
 			
 			
 			<div class="st1">
 				<label >店家地址:</label><br>
-				<input id="storeAddress" name="storeAddress" value="" class="st2"/>
+				<form:input name="storeAddress" path="storeAddress"   class="st2"/>
 			</div>
 			
 			<div class="st1">
 				<label >店家營業時間:</label><br>
-				<input id="storeOpendate" name="storeOpendate" value="" class="st2"/> 
+				<form:input name="storeOpendate" path="storeOpendate"  class="st2"/> 
 			</div>
 
 			<div class="st1">
 				<label >建立日期:</label><br>
-<!-- 				<input id="createdAt" name="createdAt" value="" class="st2"/>			 -->
+				<form:input name="createdAt" path="createdAt" class="st2" /> 
 			</div>
 	
 			<div class="st1">
 				<label >修改日期:</label><br>
-<!-- 				<input id="modifiedAt" name="modifiedAt" value="" class="st2"/>   -->
+				<form:input name="modifiedAt"  path="modifiedAt"  class="st2"/>  
 			</div>
 
 
 			<div class="st1">
-				<input id="sendBtn" type="button" value="送出"/>
+				<input type="submit" name="submit" value="送出"/>
 			</div>
-</form>
-	
-	
-	
-<script>
 
-</script>
+		</fieldset>
+</form:form>		
+
+
 	<jsp:include page="IncludePage/script.jsp" />
-	
-<script>
-	$("#sendBtn").click(function(){
-		console.log($("#modifiedAt").val());
-// 		$("#insertForm").attr("action", "/backstage/ReservationStore/insert");
-// 		$("insertForm").submit();
-		document.getElementById("insertForm").action = '${contextRoot}/backstage/ReservationStore/insert';
-		document.getElementById("insertForm").submit();
-	})
-</script>
-
 </body>
 </html>
