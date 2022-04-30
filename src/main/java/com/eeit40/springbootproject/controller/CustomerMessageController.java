@@ -87,6 +87,7 @@ public class CustomerMessageController {
 		return "EditForumpost";
 	}
 	
+	//老師SpringBoot2-3 2:46:00
 	@PostMapping("/EditCustomerMessage")
 	public ModelAndView editMessage(ModelAndView mav, @Valid @ModelAttribute(name = "CustomerMessage") CustomerMessage cusmes,
 			BindingResult br) {

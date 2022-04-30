@@ -20,7 +20,7 @@
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">編輯文章</div>
+				<div class="card-header">編輯回應</div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumreply">
 						<form:errors path="recontext" />

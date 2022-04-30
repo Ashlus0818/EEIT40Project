@@ -10,12 +10,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ShopOrderRepository;
 import com.eeit40.springbootproject.model.ShopOrder;
+import com.eeit40.springbootproject.service.ShopOrderService;
 
 @RestController
 public class ShopOrderController {
@@ -23,22 +27,27 @@ public class ShopOrderController {
 	@Autowired
 	private ShopOrderRepository dao;
 	
+	private ShopOrderService sodao;
 	
+	@PostMapping(value= "/ShopOrder/insert")
 	public ShopOrder insertPost(@RequestBody ShopOrder order) {
 		ShopOrder resOrder = dao.save(order);
 		
 		return resOrder;
 	}
 	
-	@GetMapping(value = "/ShopOrder/get/{postId}")
-	public ShopOrder findPostById(@PathVariable Integer postid) {
+//	@ResponseBody
+	@GetMapping(value = "/ShopOrder/findPostById")
+	public ModelAndView findPostById(ModelAndView mav, Integer postid) {
 		
-		Optional<ShopOrder> responsePost = dao.findById(postid);
+//		Optional<ShopOrder> responsePost = dao.findById(postid);
 		
-		if(responsePost.isPresent()) {
-			return responsePost.get();
-		}
-		return null;
+//		if(responsePost.isPresent()) {
+//			return responsePost.get();
+		
+		mav.setViewName("ShopOrder");
+//		}
+		return mav;
 	}
 	
 	@GetMapping(value = "/ShopOrder/get")

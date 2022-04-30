@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.model.Forumpost;
+
 import com.eeit40.springbootproject.service.ForumpostService;
+
 
 @Controller
 public class ForumpostController {
@@ -35,7 +37,7 @@ public class ForumpostController {
 
 	@GetMapping("/Forumpostlist")
 	public ModelAndView Forumlistpage(ModelAndView mav) {
-
+		
 		Forumpost lastpost = postService.getLastpost();
 		mav.getModel().put("lastpost", lastpost);
 
@@ -71,7 +73,7 @@ public class ForumpostController {
 		Forumpost getpost = postService.getpostById(postid);
 		model.addAttribute("forumpost", getpost);
 
-		return "EditForumpost";
+		return "ForumEditpost";
 	}
 
 	@PostMapping("/ForumEditpost")
