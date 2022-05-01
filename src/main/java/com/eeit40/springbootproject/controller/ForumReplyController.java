@@ -14,73 +14,77 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.eeit40.springbootproject.model.Forumreply;
-import com.eeit40.springbootproject.service.ForumreplyService;
+import com.eeit40.springbootproject.model.ForumReply;
+import com.eeit40.springbootproject.service.ForumReplyService;
 
 @Controller
-public class ForumreplyController {
+public class ForumReplyController {
 
 	@Autowired
-	private ForumreplyService replyService;
+	private ForumReplyService replyService;
 
 	@GetMapping("/ForumAddreply")
 	public ModelAndView AddForumreply(ModelAndView mav) {
-		Forumreply reply = new Forumreply();
+		ForumReply reply = new ForumReply();
 		mav.getModel().put("forumreply", reply);
 
 		return mav;
 	}
 
-	@GetMapping("/Forumreplylist")
+	@GetMapping("/ForumReplylist")
 	public ModelAndView Forumreplylistpage(ModelAndView mav) {
 
-		Forumreply lastreply = replyService.getLastreply();
+		ForumReply lastreply = replyService.getLastreply();
 		mav.getModel().put("lastreply", lastreply);
 
-		List<Forumreply> allreply = replyService.findAllreply();
+		List<ForumReply> allreply = replyService.findAllreply();
 		mav.getModel().put("allreply", allreply);
-		mav.setViewName("Forumreplylist");
-
+		mav.setViewName("ForumReplylist");
+		
 		return mav;
+
 	}
 
-	@PostMapping(value = { "/ForumAddreply", "/Forumreplylist" })
-	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") Forumreply reply,
+	@PostMapping(value = { "/ForumAddreply", "/ForumReplylist" })
+	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply,
 			BindingResult br) {
 
 		mav.setViewName("ForumAddreply");
 
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
-			Forumreply newreply = new Forumreply();
+			ForumReply newreply = new ForumReply();
 			mav.getModel().put("forumreply", newreply);
-			mav.setViewName("redirect:/Forumreplylist");
+			mav.setViewName("redirect:/ForumReplylist");
+			
 		}
 
-		Forumreply latestreply = replyService.getLastreply();
+		ForumReply latestreply = replyService.getLastreply();
 
 		mav.getModel().put("lastreply", latestreply);
 
+		System.out.println(latestreply.toString());
+		
 		return mav;
 	}
 
 	@GetMapping("/ForumEditreply")
 	public String editreply(Model model, @RequestParam(name = "replyID") Integer replyid) {
-		Forumreply getreply = replyService.getreplyById(replyid);
+		ForumReply getreply = replyService.getreplyById(replyid);
 		model.addAttribute("forumreply", getreply);
 
 		return "ForumEditreply";
 	}
 
 	@PostMapping("/ForumEditreply")
-	public ModelAndView editreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") Forumreply reply,
+	public ModelAndView editreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply,
 			BindingResult br) {
 
 		mav.setViewName("ForumEditreply");
 
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
-			mav.setViewName("redirect:/Forumreplylist");
+			mav.setViewName("redirect:/ForumReplylist");
 		}
 
 		return mav;
@@ -91,7 +95,7 @@ public class ForumreplyController {
 	public ModelAndView deletereply(ModelAndView mav, @RequestParam(name = "replyID") Integer replyID) {
 		replyService.deleteByreplyId(replyID);
 
-		mav.setViewName("redirect:/Forumreplylist");
+		mav.setViewName("redirect:/ForumReplylist");
 
 		return mav;
 	}

@@ -23,10 +23,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "forumpost")
-public class Forumpost {
+public class ForumPost {
 
-	@OneToMany(cascade = {CascadeType.ALL} , mappedBy = "forumpost" , fetch = FetchType.LAZY)
-	private Set<Forumreply> replys = new LinkedHashSet<Forumreply>();
+	@OneToMany(cascade = {CascadeType.ALL} , mappedBy = "forumpost" , fetch = FetchType.EAGER)
+	private Set<ForumReply> replys = new LinkedHashSet<ForumReply>();
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "postID")
@@ -51,17 +51,6 @@ public class Forumpost {
 	@Column(name = "date")
 	private Date date;
 
-	public Forumpost(Set<Forumreply> replys, Integer postID, Integer userID,
-			@Size(min = 1, max = 100, message = "標題請輸入1到100個字串") String title,
-			@Size(min = 1, message = "內容請至少輸入1個字") String context, byte[] image, Date date) {
-		super();
-		this.replys = replys;
-		this.title = title;
-		this.context = context;
-		this.image = image;
-		this.date = date;
-	}
-
 	@PrePersist
 	public void onCreate() {
 		if(date == null) {
@@ -69,7 +58,7 @@ public class Forumpost {
 		}
 	}
 
-	public Forumpost() {
+	public ForumPost() {
 		super();
 	}
 
@@ -121,11 +110,11 @@ public class Forumpost {
 		this.date = date;
 	}
 
-	public Set<Forumreply> getReplys() {
+	public Set<ForumReply> getReplys() {
 		return replys;
 	}
 
-	public void setReplys(Set<Forumreply> replys) {
+	public void setReplys(Set<ForumReply> replys) {
 		this.replys = replys;
 	}
 

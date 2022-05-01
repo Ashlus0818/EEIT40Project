@@ -14,32 +14,27 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "forumreply")
-public class Forumreply {
+public class ForumReply {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "replyID")
 	private Integer replyID;
 
-	@Column(name = "postID")
-	@Transient
-	private Integer postID;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "postID")
-	private Forumpost forumpost;
-
+	private ForumPost forumpost;
+	
 	@Column(name = "userID")
 	private Integer userID;
-	
+
 	@Column(name = "recontext")
 	private String recontext;
-	
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -53,13 +48,6 @@ public class Forumreply {
 		}
 	}
 
-	public Forumreply(String recontext, Date date, Integer postID,Forumpost forumpost) {		
-		this.recontext = recontext;
-		this.date = date;
-		this.postID = postID;
-		this.forumpost = forumpost;
-	}	
-	
 	public Integer getReplyID() {
 		return replyID;
 	}
@@ -90,33 +78,25 @@ public class Forumreply {
 
 	public void setDate(Date date) {
 		this.date = date;
-	}		
-	
-	public Integer getpostID() {
-		return postID;
 	}
 
-	public void setFk_postID(Integer postID) {
-		this.postID = postID;
+	public ForumReply() {
 	}
 
-	public Forumreply() {
-	}
-
-	public Forumpost getForumpost() {
+	public ForumPost getForumpost() {
 		return forumpost;
 	}
 
-	public void setForumpost(Forumpost forumpost) {
+	public void setForumpost(ForumPost forumpost) {
 		this.forumpost = forumpost;
-	}
+	}		
+
 
 	@Override
 	public String toString() {
-		return "Forumreply [replyID=" + replyID + ", postID=" + postID + ", forumpost=" + forumpost + ", userID="
+		return "ForumReply [replyID=" + replyID + ", forumpost=" + forumpost + ", userID="
 				+ userID + ", recontext=" + recontext + ", date=" + date + "]";
 	}
-
 
 
 }

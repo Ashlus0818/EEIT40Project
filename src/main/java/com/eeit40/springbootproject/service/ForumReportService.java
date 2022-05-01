@@ -9,20 +9,20 @@ import org.springframework.stereotype.Service;
 
 import com.eeit40.springbootproject.dao.ForumreportRepository;
 
-import com.eeit40.springbootproject.model.Forumreport;
+import com.eeit40.springbootproject.model.ForumReport;
 
 @Service
-public class ForumreportService {
+public class ForumReportService {
 
 	@Autowired
 	private ForumreportRepository forumreportDao;
 
-	public void insertReport(Forumreport report) {
+	public void insertReport(ForumReport report) {
 		forumreportDao.save(report);
 	}
 
-	public Forumreport getreportById(Integer report) {
-		Optional<Forumreport> option = forumreportDao.findById(report);
+	public ForumReport getreportById(Integer report) {
+		Optional<ForumReport> option = forumreportDao.findById(report);
 		if (option.isPresent()) {
 			return option.get();
 		}
@@ -33,11 +33,11 @@ public class ForumreportService {
 		forumreportDao.deleteById(reportid);
 	}
 
-	public List<Forumreport> findAllreport() {
+	public List<ForumReport> findAllreport() {
 		return forumreportDao.findAll();
 	}
 
-	public Forumreport getLastreport() {
+	public ForumReport getLastreport() {
 		return forumreportDao.findFirstByOrderByDateDesc();
 	}
 
