@@ -7,20 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eeit40.springbootproject.dao.ForumpostRepository;
-import com.eeit40.springbootproject.model.Forumpost;
+import com.eeit40.springbootproject.model.ForumPost;
 
 @Service
-public class ForumpostService {
+public class ForumPostService {
 
 	@Autowired
 	private ForumpostRepository forumpostDao;
 
-	public void insertPost(Forumpost post) {
+	public void insertPost(ForumPost post) {
 		forumpostDao.save(post);
 	}
 
-	public Forumpost getpostById(Integer postid) {
-		Optional<Forumpost> option = forumpostDao.findById(postid);
+	public ForumPost getpostById(Integer postid) {
+		Optional<ForumPost> option = forumpostDao.findById(postid);
 		if (option.isPresent()) {
 			return option.get();
 		}
@@ -31,12 +31,12 @@ public class ForumpostService {
 		forumpostDao.deleteById(postid);
 	}
 
-	public List<Forumpost> findAllpost() {
+	public List<ForumPost> findAllpost() {
 		return forumpostDao.findAll();
 	}
 
-	public Forumpost getLastpost() {
+	public ForumPost getLastpost() {
 		return forumpostDao.findFirstByOrderByDateDesc();
 	}
-
+	
 }

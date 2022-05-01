@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "forumreport")
-public class Forumreport {
+public class ForumReport {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +41,7 @@ public class Forumreport {
 		}
 	}
 	
-	public Forumreport(String reportReason,Date date) {
+	public ForumReport(String reportReason,Date date) {
 		this.reportReason = reportReason;
 		this.date = date;
 	}
@@ -78,7 +78,7 @@ public class Forumreport {
 		this.date = date;
 	}
 	
-	public Forumreport() {
+	public ForumReport() {
 	}
 
 

@@ -42,7 +42,7 @@
 						<div class="edit-link">
 							<a href="${contextRoot}/ForumEditreply?replyID=${reply.replyID}">編輯</a> | 
 							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreply?replyID=${reply.replyID}">刪除</a>
-							<a href="${contextRoot}/Forumpostlist#${reply.postID}">${reply.postID}</a>
+							<a href="${contextRoot}/ForumPostlist#${reply.forumpost.postID}">錨點</a> 
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${reply.date}" />
