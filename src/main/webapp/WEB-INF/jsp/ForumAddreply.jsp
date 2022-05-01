@@ -26,14 +26,13 @@
   </div>
   <div class="card-body">
 <form:form class="form" method="POST" modelAttribute="forumreply">
-<form:errors path="${reply.forumpost.postID}"/>
+
 <form:errors path="recontext"/>
 
 <div class="imput-group">
-內容：
-<form:textarea path="${reply.forumpost.postID}" class="form-control"/>
+內容：${forumreply.postID}
 <form:textarea path="recontext" class="form-control"/>
-${reply.forumpost.postID}
+
 </div>
 
 <input type="submit" name="submit" value="新增回應">
