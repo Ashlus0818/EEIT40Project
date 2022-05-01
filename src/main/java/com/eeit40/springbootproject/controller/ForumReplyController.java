@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.eeit40.springbootproject.model.ForumReply;
 import com.eeit40.springbootproject.service.ForumReplyService;
 
@@ -24,8 +25,9 @@ public class ForumReplyController {
 	private ForumReplyService replyService;
 
 	@GetMapping("/ForumAddreply")
-	public ModelAndView AddForumreply(ModelAndView mav) {
+	public ModelAndView AddForumreply(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
 		ForumReply reply = new ForumReply();
+		reply.setPostID(postID);
 		mav.getModel().put("forumreply", reply);
 
 		return mav;
@@ -50,7 +52,7 @@ public class ForumReplyController {
 			BindingResult br) {
 
 		mav.setViewName("ForumAddreply");
-
+		
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
 			ForumReply newreply = new ForumReply();
@@ -64,7 +66,7 @@ public class ForumReplyController {
 		mav.getModel().put("lastreply", latestreply);
 
 		System.out.println(latestreply.toString());
-		
+
 		return mav;
 	}
 
@@ -72,7 +74,7 @@ public class ForumReplyController {
 	public String editreply(Model model, @RequestParam(name = "replyID") Integer replyid) {
 		ForumReply getreply = replyService.getreplyById(replyid);
 		model.addAttribute("forumreply", getreply);
-
+		System.out.println(getreply.toString());
 		return "ForumEditreply";
 	}
 

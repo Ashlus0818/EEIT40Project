@@ -2,17 +2,16 @@ package com.eeit40.springbootproject.model;
 
 import java.util.Arrays;
 import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -25,8 +24,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "forumpost")
 public class ForumPost {
 
-	@OneToMany(cascade = {CascadeType.ALL} , mappedBy = "forumpost" , fetch = FetchType.EAGER)
-	private Set<ForumReply> replys = new LinkedHashSet<ForumReply>();
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "postID")
@@ -45,7 +42,7 @@ public class ForumPost {
 
 	@Column(name = "image")
 	private byte[] image;
-	
+
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
@@ -53,7 +50,7 @@ public class ForumPost {
 
 	@PrePersist
 	public void onCreate() {
-		if(date == null) {
+		if (date == null) {
 			date = new Date();
 		}
 	}
@@ -110,19 +107,10 @@ public class ForumPost {
 		this.date = date;
 	}
 
-	public Set<ForumReply> getReplys() {
-		return replys;
-	}
-
-	public void setReplys(Set<ForumReply> replys) {
-		this.replys = replys;
-	}
-
 	@Override
 	public String toString() {
-		return "Forumpost [replys=" + replys + ", postID=" + postID + ", userID=" + userID + ", title=" + title
-				+ ", context=" + context + ", image=" + Arrays.toString(image) + ", date=" + date + "]";
+		return "Forumpost [postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
+				+ ", image=" + Arrays.toString(image) + ", date=" + date + "]";
 	}
-
 
 }
