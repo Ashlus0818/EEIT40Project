@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.eeit40.springbootproject.model.ForumPostReply;
 import com.eeit40.springbootproject.model.ForumReply;
+import com.eeit40.springbootproject.service.ForumPostReplyService;
 import com.eeit40.springbootproject.service.ForumReplyService;
 
 @Controller
@@ -23,6 +24,8 @@ public class ForumReplyController {
 
 	@Autowired
 	private ForumReplyService replyService;
+	@Autowired
+	private ForumPostReplyService postreplyService;
 
 	@GetMapping("/ForumAddreply")
 	public ModelAndView AddForumreply(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
@@ -46,8 +49,21 @@ public class ForumReplyController {
 		return mav;
 
 	}
+	
+//	@GetMapping("/ForumOnepost")
+//	public ModelAndView Forumreplylistpage1(ModelAndView mav) {
+//
+//		List<ForumPostReply> allpostreply = postreplyService.getreplyById(null);
+//		mav.getModel().put("allpostreply", allpostreply);
+//		mav.setViewName("ForumOnepost");
+//		
+//		return mav;
+//
+//	}
 
-	@PostMapping(value = { "/ForumAddreply", "/ForumReplylist" })
+	
+	
+	@PostMapping("/ForumAddreply")
 	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply,
 			BindingResult br) {
 
@@ -55,18 +71,11 @@ public class ForumReplyController {
 		
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
-			ForumReply newreply = new ForumReply();
-			mav.getModel().put("forumreply", newreply);
-			mav.setViewName("redirect:/ForumReplylist");
+			List<ForumReply> allpostreply = replyService.getreplyById(reply.getPostID());
+			mav.setViewName("redirect:/ForumOnepost");
 			
 		}
-
-		ForumReply latestreply = replyService.getLastreply();
-
-		mav.getModel().put("lastreply", latestreply);
-
-		System.out.println(latestreply.toString());
-
+		
 		return mav;
 	}
 

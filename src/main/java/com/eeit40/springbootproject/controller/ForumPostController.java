@@ -20,7 +20,6 @@ import com.eeit40.springbootproject.model.ForumPost;
 
 import com.eeit40.springbootproject.service.ForumPostService;
 
-
 @Controller
 public class ForumPostController {
 
@@ -31,14 +30,14 @@ public class ForumPostController {
 	public ModelAndView AddForumpage(ModelAndView mav) {
 		ForumPost post = new ForumPost();
 		mav.getModel().put("forumpost", post);
-		
+
 		System.out.println(post.toString());
 		return mav;
 	}
 
-	@GetMapping("/ForumPostlist")
+	@GetMapping(value = {"/ForumPostlist","/ForumEditpost"})
 	public ModelAndView Forumlistpage(ModelAndView mav) {
-		
+
 		ForumPost lastpost = postService.getLastpost();
 		mav.getModel().put("lastpost", lastpost);
 
@@ -48,17 +47,6 @@ public class ForumPostController {
 
 		return mav;
 	}
-	
-//	@GetMapping("/ForumPostReply")
-//	public  String getPost(Model model, @RequestParam(name = "postID") Integer postid){
-//		
-//		ForumPost getpost = postService.getpostById();
-//		model.getModel().put("getpost", getpost);
-//
-//		model.setViewName("ForumPostReply");
-//
-//		return model;
-//	}
 
 	@PostMapping(value = { "/ForumAddpost", "/ForumPostlist" })
 	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
@@ -76,7 +64,7 @@ public class ForumPostController {
 		ForumPost latestpost = postService.getLastpost();
 
 		mav.getModel().put("lastpost", latestpost);
-		
+
 		return mav;
 	}
 

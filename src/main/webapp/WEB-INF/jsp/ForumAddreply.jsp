@@ -30,7 +30,9 @@
 <form:errors path="recontext"/>
 
 <div class="imput-group">
-內容：${forumreply.postID}
+NO：${forumreply.postID}
+<br>
+內容：
 <form:textarea path="recontext" class="form-control"/>
 
 </div>
