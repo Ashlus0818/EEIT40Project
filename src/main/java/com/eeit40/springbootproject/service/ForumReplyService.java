@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-
+import com.eeit40.springbootproject.dao.ForumpostRepository;
 import com.eeit40.springbootproject.dao.ForumreplyRepository;
 import com.eeit40.springbootproject.model.ForumReply;
 
@@ -41,4 +41,12 @@ public class ForumReplyService {
 		return forumreplyDao.findFirstByOrderByDateDesc();
 	}
 
+	public List<ForumReply> getReplyByPostID(Integer replyid) {
+		Optional<ForumReply> option = forumreplyDao.
+		if (option.isPresent()) {
+			return option.get();
+		}
+		return null;
+	}
+	
 }
