@@ -68,7 +68,7 @@ width:800px;
 
 			<div class="st1">
 				<label >建立日期:</label><br>
-				<form:input name="createdAt" path="createdAt"   class="st2"/> 
+				<form:input name="createdAt" path="createdAt" class="st2" /> 
 			</div>
 	
 			<div class="st1">

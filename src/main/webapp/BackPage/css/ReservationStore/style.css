@@ -14707,9 +14707,10 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     -webkit-box-orient: vertical;
 }
 
+/* 調整ReservationStore的page頁數顯示 */
 .totalpages{
 	position: absolute;
-    bottom: 7%;
+    bottom: 5%;
     right: -15%;
     width: 100%;
     text-align: right;
