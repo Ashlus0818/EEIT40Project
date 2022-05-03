@@ -1,11 +1,15 @@
 package com.eeit40.springbootproject.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ReservationStoreRepository;
@@ -325,8 +330,56 @@ public class ReservationStoreController {
   		}
 
 
+  	   //取消按鈕
+        @GetMapping("/backStage/CancelReturnStore")
+        public String CancelReturnStore() {
+            return "redirect:/backstage/ReservationStore";
+        }
 	
-	
+        
+        
+
+ 
+   
+//          // 因為uploadPage.jsp 在WEB-INF下，不能直接從瀏覽器訪問，所以要在這裡加一個uploadPage跳轉，這樣就可以通過
+//          @RequestMapping("/Re-show-a-store2")
+//          public String uploadPage() {
+//            return "Re-show-a-store2";  //過度跳轉頁
+//          }
+//        
+//          @PostMapping("/upload") // 等價於 @RequestMapping(value = "/upload",method = RequestMethod.POST)
+//          public String uplaod(HttpServletRequest req,@RequestParam("file") MultipartFile file,Model m) {//1. 接受上傳的檔案 @RequestParam("file") MultipartFile file
+//            try {
+// 
+//              //2.根據時間戳建立新的檔名，這樣即便是第二次上傳相同名稱的檔案，也不會把第一次的檔案覆蓋了
+//              String fileName = System.currentTimeMillis() + file.getOriginalFilename();
+//
+//              //3.通過req.getServletContext().getRealPath("") 獲取當前專案的真實路徑，然後拼接前面的檔名
+//              String destFileName = req.getServletContext().getRealPath("") + "uploaded" + File.separator + fileName;
+//
+//              //4.第一次執行的時候，這個檔案所在的目錄往往是不存在的，這裡需要建立一下目錄（建立到了webapp下uploaded資料夾下）
+//              File destFile = new File(destFileName);
+//              destFile.getParentFile().mkdirs();
+//        
+//              //5.把瀏覽器上傳的檔案複製到希望的位置
+//              file.transferTo(destFile);
+//              //6.把檔名放在model裡，以便後續顯示用
+//              m.addAttribute("fileName",fileName);
+//            } catch (FileNotFoundException e) {
+//              e.printStackTrace();
+//              return "上傳失敗," + e.getMessage();       
+//            } catch (IOException e) {        
+//              e.printStackTrace();        
+//              return "上傳失敗," + e.getMessage();       
+//            }
+//            return "showImg";       
+//          }
+        
+      
+
+        
+        
+        
 	
 }
 

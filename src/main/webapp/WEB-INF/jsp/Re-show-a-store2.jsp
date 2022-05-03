@@ -78,7 +78,21 @@ width:800px;
 
 
 			<div class="st1">
+				<form action="upload" method="post" enctype="multipart/form-data">
+					選擇圖片:<input type="file" name="file" accept="image/*" /> <br>
+					<input type="submit" value="立刻上傳">
+
+				</form>
+
+
+			</div><br><br><br><br>
+
+
+
+			<div class="st1">
 				<input type="submit" name="submit" value="送出"/>
+				
+				<a href="${contextRoot}/backStage/CancelReturnStore"> <input type="button" value="取消"></a>
 			</div>
 
 		</fieldset>
