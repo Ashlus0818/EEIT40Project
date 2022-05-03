@@ -28,7 +28,7 @@ width:800px;
 <form id="insertForm" method="POST" action="">	
 			<div class="st1">
 				<label >店家編號:</label><br>
-<!-- 				<input id="storeId" name="storeId" class="st2"/> -->
+<!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
 			</div>
 
 			<div class="st1">
