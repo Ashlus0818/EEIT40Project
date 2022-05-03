@@ -26,7 +26,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.CustomerMessageRepository;
 import com.eeit40.springbootproject.model.CustomerMessage;
-import com.eeit40.springbootproject.model.Forumpost;
 import com.eeit40.springbootproject.service.CustomerMessageService;
 
 @RestController
