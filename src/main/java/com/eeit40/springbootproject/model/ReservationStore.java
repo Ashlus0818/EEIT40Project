@@ -60,9 +60,9 @@ public class ReservationStore {
 
 	@PrePersist   // 再轉換到 Persist 狀態以前去做以下方法
 	public void onCreate() {
-		if(modifiedAt==null) {
-			modifiedAt = new Date();
-		}
+//		if(modifiedAt==null) {
+//			modifiedAt = new Date();
+//		}
 		
 		if(createdAt == null) {
 			createdAt = new Date();

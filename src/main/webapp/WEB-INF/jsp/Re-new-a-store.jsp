@@ -26,10 +26,17 @@ width:800px;
 	<jsp:include page="IncludePage/pageheading.jsp" />
 	
 <form id="insertForm" method="POST" action="">	
+<<<<<<< HEAD
 			<div class="st1">
 				<label >店家編號:</label><br>
 <!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
 			</div>
+=======
+<!-- 			<div class="st1"> -->
+<!-- 				<label >店家編號:</label><br> -->
+<!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
+<!-- 			</div> -->
+>>>>>>> a5cfab7511737879ed268b363738d7af156db450
 
 			<div class="st1">
 				<label >店家部門編號:</label><br>
@@ -71,6 +78,8 @@ width:800px;
 
 			<div class="st1">
 				<input id="sendBtn" type="button" value="送出"/>
+				
+				<a href="${contextRoot}/backStage/CancelReturnStore"> <input type="button" value="取消"></a>
 			</div>
 </form>
 	
