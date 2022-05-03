@@ -26,8 +26,16 @@ public class ForumPostReplyService {
 		forumpostreplyDao.save(reply);
 	}
 
-	public ForumPostReply getreplyById(Integer reply) {
-		Optional<ForumPostReply> option = forumpostreplyDao.findById(reply);
+	public ForumPostReply getreplyById(Integer postID) {
+		Optional<ForumPostReply> option = forumpostreplyDao.findById(postID);
+		if (option.isPresent()) {
+			return option.get();
+		}
+		return null;
+	}
+	
+	public ForumPostReply getpostById(Integer postID) {
+		Optional<ForumPostReply> option = forumpostreplyDao.findById(postID);
 		if (option.isPresent()) {
 			return option.get();
 		}
