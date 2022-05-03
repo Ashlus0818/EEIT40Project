@@ -7,23 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-
+import com.eeit40.springbootproject.dao.ForumpostRepository;
 import com.eeit40.springbootproject.dao.ForumreplyRepository;
-
-import com.eeit40.springbootproject.model.Forumreply;
+import com.eeit40.springbootproject.model.ForumReply;
 
 @Service
-public class ForumreplyService {
+public class ForumReplyService {
 
 	@Autowired
 	private ForumreplyRepository forumreplyDao;
 
-	public void insertReply(Forumreply reply) {
+	public void insertReply(ForumReply reply) {
 		forumreplyDao.save(reply);
 	}
 
-	public Forumreply getreplyById(Integer reply) {
-		Optional<Forumreply> option = forumreplyDao.findById(reply);
+	public ForumReply getreplyById(Integer reply) {
+		Optional<ForumReply> option = forumreplyDao.findById(reply);
 		if (option.isPresent()) {
 			return option.get();
 		}
@@ -34,12 +33,20 @@ public class ForumreplyService {
 		forumreplyDao.deleteById(replyid);
 	}
 
-	public List<Forumreply> findAllreply() {
+	public List<ForumReply> findAllreply() {
 		return forumreplyDao.findAll();
 	}
 	
-	public Forumreply getLastreply() {
+	public ForumReply getLastreply() {
 		return forumreplyDao.findFirstByOrderByDateDesc();
 	}
 
+	public List<ForumReply> getReplyByPostID(Integer replyid) {
+		Optional<ForumReply> option = forumreplyDao.
+		if (option.isPresent()) {
+			return option.get();
+		}
+		return null;
+	}
+	
 }

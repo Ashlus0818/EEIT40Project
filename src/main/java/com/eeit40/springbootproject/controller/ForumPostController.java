@@ -16,52 +16,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.eeit40.springbootproject.model.Forumpost;
+import com.eeit40.springbootproject.model.ForumPost;
 
-import com.eeit40.springbootproject.service.ForumpostService;
-
+import com.eeit40.springbootproject.service.ForumPostService;
 
 @Controller
-public class ForumpostController {
+public class ForumPostController {
 
 	@Autowired
-	private ForumpostService postService;
+	private ForumPostService postService;
 
 	@GetMapping("/ForumAddpost")
 	public ModelAndView AddForumpage(ModelAndView mav) {
-		Forumpost post = new Forumpost();
+		ForumPost post = new ForumPost();
 		mav.getModel().put("forumpost", post);
 
+		System.out.println(post.toString());
 		return mav;
 	}
 
-	@GetMapping("/Forumpostlist")
+	@GetMapping(value = {"/ForumPostlist","/ForumEditpost"})
 	public ModelAndView Forumlistpage(ModelAndView mav) {
-		
-		Forumpost lastpost = postService.getLastpost();
+
+		ForumPost lastpost = postService.getLastpost();
 		mav.getModel().put("lastpost", lastpost);
 
-		List<Forumpost> allpost = postService.findAllpost();
+		List<ForumPost> allpost = postService.findAllpost();
 		mav.getModel().put("allpost", allpost);
-		mav.setViewName("Forumpostlist");
+		mav.setViewName("ForumPostlist");
 
 		return mav;
 	}
 
-	@PostMapping(value = { "/ForumAddpost", "/Forumpostlist" })
-	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") Forumpost post,
+	@PostMapping(value = { "/ForumAddpost", "/ForumPostlist" })
+	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
 			BindingResult br) {
 
 		mav.setViewName("ForumAddpost");
 
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
-			Forumpost newpost = new Forumpost();
+			ForumPost newpost = new ForumPost();
 			mav.getModel().put("forumpost", newpost);
-			mav.setViewName("redirect:/Forumpostlist");
+			mav.setViewName("redirect:/ForumPostlist");
 		}
 
-		Forumpost latestpost = postService.getLastpost();
+		ForumPost latestpost = postService.getLastpost();
 
 		mav.getModel().put("lastpost", latestpost);
 
@@ -70,21 +70,21 @@ public class ForumpostController {
 
 	@GetMapping("/ForumEditpost")
 	public String editPost(Model model, @RequestParam(name = "postID") Integer postid) {
-		Forumpost getpost = postService.getpostById(postid);
+		ForumPost getpost = postService.getpostById(postid);
 		model.addAttribute("forumpost", getpost);
 
 		return "ForumEditpost";
 	}
 
 	@PostMapping("/ForumEditpost")
-	public ModelAndView editPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") Forumpost post,
+	public ModelAndView editPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
 			BindingResult br) {
 
 		mav.setViewName("ForumEditpost");
 
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
-			mav.setViewName("redirect:/Forumpostlist");
+			mav.setViewName("redirect:/ForumPostlist");
 		}
 
 		return mav;
@@ -95,7 +95,7 @@ public class ForumpostController {
 	public ModelAndView deletePost(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
 		postService.deleteBypostId(postID);
 
-		mav.setViewName("redirect:/Forumpostlist");
+		mav.setViewName("redirect:/ForumPostlist");
 
 		return mav;
 	}

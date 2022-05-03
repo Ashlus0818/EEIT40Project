@@ -88,11 +88,11 @@
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
 					<a class="collapse-item" href="${contextRoot}/ForumAddpost">新增文章</a>
-					<a class="collapse-item" href="${contextRoot}/Forumpostlist">文章列表</a>
+					<a class="collapse-item" href="${contextRoot}/ForumPostlist">文章列表</a>
 				    <a class="collapse-item" href="${contextRoot}/ForumAddreply">新增回應</a>
-					<a class="collapse-item" href="${contextRoot}/Forumreplylist">回應列表</a>
+					<a class="collapse-item" href="${contextRoot}/ForumReplylist">回應列表</a>
 					<a class="collapse-item" href="${contextRoot}/ForumAddreport">新增檢舉</a> 
-					<a class="collapse-item" href="${contextRoot}/Forumreportlist">檢舉區</a> 
+					<a class="collapse-item" href="${contextRoot}/ForumReportlist">檢舉區</a> 
 				</div>
 			</div></li>
 

@@ -2,17 +2,16 @@ package com.eeit40.springbootproject.model;
 
 import java.util.Arrays;
 import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,10 +22,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "forumpost")
-public class Forumpost {
+public class ForumPost {
 
-	@OneToMany(cascade = {CascadeType.ALL} , mappedBy = "forumpost" , fetch = FetchType.LAZY)
-	private Set<Forumreply> replys = new LinkedHashSet<Forumreply>();
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "postID")
@@ -45,31 +42,20 @@ public class Forumpost {
 
 	@Column(name = "image")
 	private byte[] image;
-	
+
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	private Date date;
 
-	public Forumpost(Set<Forumreply> replys, Integer postID, Integer userID,
-			@Size(min = 1, max = 100, message = "標題請輸入1到100個字串") String title,
-			@Size(min = 1, message = "內容請至少輸入1個字") String context, byte[] image, Date date) {
-		super();
-		this.replys = replys;
-		this.title = title;
-		this.context = context;
-		this.image = image;
-		this.date = date;
-	}
-
 	@PrePersist
 	public void onCreate() {
-		if(date == null) {
+		if (date == null) {
 			date = new Date();
 		}
 	}
 
-	public Forumpost() {
+	public ForumPost() {
 		super();
 	}
 
@@ -121,19 +107,10 @@ public class Forumpost {
 		this.date = date;
 	}
 
-	public Set<Forumreply> getReplys() {
-		return replys;
-	}
-
-	public void setReplys(Set<Forumreply> replys) {
-		this.replys = replys;
-	}
-
 	@Override
 	public String toString() {
-		return "Forumpost [replys=" + replys + ", postID=" + postID + ", userID=" + userID + ", title=" + title
-				+ ", context=" + context + ", image=" + Arrays.toString(image) + ", date=" + date + "]";
+		return "Forumpost [postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
+				+ ", image=" + Arrays.toString(image) + ", date=" + date + "]";
 	}
-
 
 }
