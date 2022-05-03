@@ -28,11 +28,11 @@ width:800px;
 <form:form class="form" method="POST" action="" modelAttribute="modAtt-Re-new-a-store">	
 		
 		
-			<div class="st1">
-				<label >店家編號:</label><br>
-				<form:input name="storeId" path="storeId" /> 
+<!-- 			<div class="st1"> -->
+<!-- 				<label >店家編號:</label><br> -->
+<%-- 				<form:input name="storeId" path="storeId" />  --%>
 			
-			</div>
+<!-- 			</div> -->
 
 			<div class="st1">
 				<label >店家部門編號:</label><br>
@@ -63,13 +63,13 @@ width:800px;
 
 			<div class="st1">
 				<label >建立日期:</label><br>
-				<form:input name="createdAt" path="createdAt"  class="st2"/>			
+<%-- 				<form:input name="createdAt" path="createdAt"  class="st2"/>			 --%>
 			</div>
 	
-			<div class="st1">
-				<label >修改日期:</label><br>
-				<form:input name="modifiedAt" path="modifiedAt"  class="st2"/>  
-			</div>
+<!-- 			<div class="st1"> -->
+<!-- 				<label >修改日期:</label><br> -->
+<%-- 				<form:input name="modifiedAt" path="modifiedAt"  class="st2"/>   --%>
+<!-- 			</div> -->
 
 
 			<div class="st1">
