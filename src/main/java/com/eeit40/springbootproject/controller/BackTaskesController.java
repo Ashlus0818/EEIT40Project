@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +44,7 @@ public class BackTaskesController {
 	@PostMapping(value="backtaskes/update")
 	public String updateById(ModelAndView mav, @RequestParam("taskId") Integer id, @RequestParam("taskName") String name, 
 			@RequestParam("taskTitle") String title) {
-		bService.insert(new BackTaskes(id, name, title));
+		bService.insert(new BackTaskes(id, name, title, new Date(), new Date()));
 		return "redirect:/backTask";
 	}
 	
