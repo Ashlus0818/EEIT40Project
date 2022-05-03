@@ -19,32 +19,36 @@
 
 <div class="container">
 		<p />
+		
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header">
 					<span><fmt:formatDate
-							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${getpost.postID}" /></span>
+							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${post.date}" /></span>
 				</div>
 				<div class="card-body">
+					標題：
+					<c:out value="${post.title}" />
+					<p />
 					<p />
 					內容：
-					<c:out value="${getpost.context}" />
+					<c:out value="${post.context}" />
 				</div>
 			</div>
 		</div>
 		
-		<c:forEach var="reply" items="${allreply}">
+		<c:forEach var="getpost" items="${getpost}">
 			<div class="col-6">
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
-								value="${reply.date}" />
+								value="${getpost.date}" />
 							<br> 
-							No： <c:out value="${reply.replyID}" />
+							No： <c:out value="${getpost.replyID}" />
 							<br>
-							內容： <c:out value="${reply.recontext}" />
+							內容： <c:out value="${getpost.recontext}" />
 						</span>
 					</div>
 				</div>

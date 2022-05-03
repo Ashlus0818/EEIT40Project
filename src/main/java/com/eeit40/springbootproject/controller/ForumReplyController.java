@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.model.ForumPost;
 import com.eeit40.springbootproject.model.ForumPostReply;
 import com.eeit40.springbootproject.model.ForumReply;
 import com.eeit40.springbootproject.service.ForumPostReplyService;
+import com.eeit40.springbootproject.service.ForumPostService;
 import com.eeit40.springbootproject.service.ForumReplyService;
 
 @Controller
@@ -24,15 +26,14 @@ public class ForumReplyController {
 
 	@Autowired
 	private ForumReplyService replyService;
-	@Autowired
-	private ForumPostReplyService postreplyService;
+
 
 	@GetMapping("/ForumAddreply")
 	public ModelAndView AddForumreply(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
 		ForumReply reply = new ForumReply();
 		reply.setPostID(postID);
-		mav.getModel().put("forumreply", reply);
-
+		mav.getModel().put("forumReply", reply);
+		mav.setViewName("ForumAddreply");
 		return mav;
 	}
 
@@ -45,37 +46,37 @@ public class ForumReplyController {
 		List<ForumReply> allreply = replyService.findAllreply();
 		mav.getModel().put("allreply", allreply);
 		mav.setViewName("ForumReplylist");
-		
+
 		return mav;
 
 	}
-	
-//	@GetMapping("/ForumOnepost")
-//	public ModelAndView Forumreplylistpage1(ModelAndView mav) {
-//
-//		List<ForumPostReply> allpostreply = postreplyService.getreplyById(null);
-//		mav.getModel().put("allpostreply", allpostreply);
-//		mav.setViewName("ForumOnepost");
-//		
-//		return mav;
-//
-//	}
 
-	
-	
+	@PostMapping("/ForumOnepost")
+	public ModelAndView Forumreplylistpage1(ModelAndView mav,
+			@ModelAttribute(name = "forumReply") ForumReply forumReply) {
+		Integer postID = forumReply.getPostID();
+
+		List<ForumReply> getpost = replyService.getreplyBypostID(postID);
+		mav.getModel().put("getpost", getpost);
+		mav.setViewName("ForumOnepost");
+
+		return mav;
+
+	}
+
 	@PostMapping("/ForumAddreply")
 	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply,
 			BindingResult br) {
 
 		mav.setViewName("ForumAddreply");
-		
+
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
-			List<ForumReply> allpostreply = replyService.getreplyById(reply.getPostID());
+
+			mav.getModel().put("postID", reply);
 			mav.setViewName("redirect:/ForumOnepost");
-			
 		}
-		
+
 		return mav;
 	}
 
