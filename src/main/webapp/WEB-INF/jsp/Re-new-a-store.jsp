@@ -14,8 +14,6 @@
 height:40px ;
 width:800px;
 }
-
-
 </style>
 
 <jsp:include page="IncludePage/css.jsp" />
@@ -26,17 +24,10 @@ width:800px;
 	<jsp:include page="IncludePage/pageheading.jsp" />
 	
 <form id="insertForm" method="POST" action="">	
-<<<<<<< HEAD
-			<div class="st1">
-				<label >店家編號:</label><br>
-<!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
-			</div>
-=======
 <!-- 			<div class="st1"> -->
 <!-- 				<label >店家編號:</label><br> -->
 <!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
 <!-- 			</div> -->
->>>>>>> a5cfab7511737879ed268b363738d7af156db450
 
 			<div class="st1">
 				<label >店家部門編號:</label><br>
@@ -86,7 +77,6 @@ width:800px;
 	
 	
 <script>
-
 </script>
 	<jsp:include page="IncludePage/script.jsp" />
 	
