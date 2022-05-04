@@ -11,6 +11,31 @@ public class PageControllerFront {
 		return "FrontJsp/index";
 	}
 	
+	@GetMapping("/front/Blog-details-fullwidth")
+	public String blogDetailsFullwidth() {
+		return "FrontJsp/Blog-details-fullwidth";
+	}
+	
+	@GetMapping("/front/Coming-soon")
+	public String comingSoon() {
+		return "FrontJsp/Coming-soon";
+	}
+	
+	@GetMapping("/front/CusMesFront")
+	public String cusMesFront() {
+		return "FrontJsp/CusMesFront";
+	}
+	
+	@GetMapping("/front/Event")
+	public String event() {
+		return "FrontJsp/Event";
+	}
+	
+	@GetMapping("/front/Reservation")
+	public String reservation() {
+		return "FrontJsp/Reservation";
+	}
+
 	@GetMapping("/front/Shop-cart")
 	public String shopCart() {
 		return "FrontJsp/Shop-cart";
@@ -32,9 +57,5 @@ public class PageControllerFront {
 		return "FrontJsp/Shop-order-tracking";
 	}
 	
-	@GetMapping("/front/Reservation")
-	public String reservation() {
-		return "FrontJsp/Reservation";
-	}
 	
 }
