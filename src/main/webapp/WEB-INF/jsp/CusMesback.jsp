@@ -39,12 +39,15 @@
 							<input hidden type="text" name="messageId"
 								value="${backmessages.messageId}" />
 							<td id="mesId${backmessages.messageId}">${backmessages.messageId}</td>
+							
 							<td>${backmessages.messageName}</td>
+							
+							
 							<td>${backmessages.messageEmail}</td>
-							<td><input type="text" name="messageQuest"
-								value="${backmessages.messageQuest}" /></td>
-							<td><input type="text" name="messagetext"
-								value="${backmessages.messagetext}" /></td>
+							<td><input hidden type="text" name="messageQuest"
+								value="${backmessages.messageQuest}" />${backmessages.messageQuest}</td>
+							<td><input hidden type="text" name="messagetext"
+								value="${backmessages.messagetext}" />${backmessages.messagetext}</td>
 							<td><input class="btn btn-danger btn-circle btn-lg"
 								id="btn${s.count}" type="button" value="del" name="delebtn"
 								onclick=deleteForm(${backmessages.messageId})></td>
@@ -55,6 +58,7 @@
 						</tr>
 					</form>
 				</c:forEach>
+				
 	</table>
 	<%--  onclick="return confirm('確認刪除')" href="${contextRoot}/backmessage/DeleteCusMessage?id=${CustomerMessage.messageId}" onclick="return confirm('確認刪除')" <!--  -->
  --%>
@@ -74,14 +78,15 @@
 	
 	
 	function deleteForm(count){
+		var form="taskForm"+count;
+		var yes = confirm("確認刪除此筆紀錄?");
+		if(yes){
 		   document.getElementById('CusFormId'+count).action="${contextRoot}/CusMesbacks/DeleteMessage";
  		document.getElementById('CusFormId'+count).submit();
-		
- 		
-	}
+		} else{}
+	};	
 	
-     
-     	
+   
 		
 	</script>
 	<div id="dialog-form" title="視窗">

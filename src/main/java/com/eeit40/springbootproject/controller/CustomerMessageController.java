@@ -110,7 +110,7 @@ public class CustomerMessageController {
 	
 	@GetMapping("CusMesbacks/DeleteMessage")
 	public String deleteMessage(ModelAndView mav, @RequestParam(name = "messageId") Integer messageId) {
-		System.out.print(messageId);
+		System.out.print(messageId+",");
 		cmseService.deleteBymesId(messageId);
 
 		//mav.setViewName("redirect:/CusMesbacks/findByPage");
