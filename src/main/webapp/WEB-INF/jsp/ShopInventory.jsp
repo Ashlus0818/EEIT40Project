@@ -1,0 +1,182 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<jsp:include page="IncludePage/css.jsp" />
+<link
+	href="${contextRoot}/BackPage/jquery-ui-1.13.1.custom/jquery-ui.css"
+	rel="stylesheet" />
+
+</head>
+<body>
+	<jsp:include page="IncludePage/sidebar.jsp" />
+	<jsp:include page="IncludePage/topbar.jsp" />
+	<jsp:include page="IncludePage/pageheading.jsp" />
+
+
+	<div id="">
+		<h3>庫存管理</h3>
+		<table class="table table-striped table-bordered zero-configuration">
+			<thead>
+				<tr>
+					<th>圖片</th>
+					<th>產品名稱</th>
+					<th>詳細介紹</th>
+					<th>產地</th>
+					<th>價錢</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<thead>
+
+				<c:forEach var="Product" items="${page.content}" varStatus="vs">
+					<form id='taskForm${Product.id}' action="" method="post">
+						<tr>
+							<td><input id="task${Product.id}" name="Inventoryid"
+								type="text" value="${Product.id}" /></td>
+
+							<td><input id="taskName${Product.id}" name="InventoryName"
+								type="text" value="${Product.iName}" /></td>
+
+							<td><input id="taskTitle${Product.id}" name="InventoryImg"
+								type="text" value="${Product.iImg}" /></td>
+
+							<td><input id="taskCreateAt${Product.id}"
+								name="InventoryPlace" type="text" value="${Product.iPlace}" /></td>
+
+							<td><input id="taskCreateAt${Product.id}"
+								name="InventoryPrice" type="text" value="${Product.iprice}" /></td>
+
+							<td><input
+								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+								id="deleteButton${Product.id}" type="button" value="刪除"
+								onclick="deleteForm(${Product.id})"></td>
+								<td><input data-toggle="modal" data-target="#triggerModal"
+								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+								id="updateButton${Product.id}" type="button" value="更新"
+								onclick="updateBox(${Product.id})"></td>
+								
+								</c:forEach>
+
+
+							<!-- update Modal-->
+							<div id="insertDialog" hidden>
+								<form id="insertForm" method="post">
+									<div class="modal-body">
+										Id:&nbsp <input id="dialogBodyId" name="InventoryId" readonly />
+									</div>
+									<div class="modal-body">
+										圖片:&nbsp <input id="dialogBodyImg" name="InventoryName" />
+									</div>
+									<div class="modal-body">
+										產品名稱:&nbsp<input id="dialogBodyName" name="InventoryImg" />
+									</div>
+									<div class="modal-body">
+										產地:&nbsp<input id="dialogBodyPlace" name="InventoryPlace" />
+									</div>
+									<div class="modal-body">
+										價錢:&nbsp<input id="dialogBodyPrice"
+											name="InventoryPrice" />
+									</div>
+								</form>
+							</div>
+							<!--end of update Modal-->
+
+							<!-- update Modal-->
+							<div class="modal fade" id="triggerModal" tabindex="-1"
+								role="dialog" aria-labelledby="exampleModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">請選擇欲更改的欄位</h5>
+											<button class="close" type="button" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">×</span>
+											</button>
+										</div>
+										<div class="modal-body">Select "Logout" below if you are
+											ready to end your current session.</div>
+										<form id="updateForm" method="post">
+											<div class="modal-body">
+												Id:&nbsp <input id="modalBodyId" name="InventoryId" readonly />
+											</div>
+											<div class="modal-body">
+												圖片:&nbsp<input id="modalBodyName" name="InventoryName" />
+											</div>
+											<div class="modal-body">
+												產品名稱:&nbsp<input id="modalBodyImg" name="InventoryImg" />
+											</div>
+											<div class="modal-body">
+												產地:&nbsp<input id="modalBodyPlace" name="InventoryPlace" />
+											</div>
+											<div class="modal-body">
+												價錢:&nbsp<input id="modalBodyPrice" name="InventoryPrice" />
+											</div>
+											
+										</form>
+
+										<div class="modal-footer">
+											<button class="btn btn-secondary" type="button"
+												data-dismiss="modal">取消</button>
+
+											<button id="confirmUpdateBtn" class="btn btn-primary">更新</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+						</tr>
+					</form>
+				</tr>
+			</thead>
+		</table>
+
+	</div>
+	</div>
+	<jsp:include page="IncludePage/script.jsp" />
+	
+
+	
+	<script>
+	function deleteForm(number) {
+		console.log(number);
+		var yes = confirm("是否刪除此筆紀錄?");
+		if(yes){document.getElementById("taskForm"+number).action = 'ShopInventory/delete';
+		document.getElementById("taskForm"+number).submit();}
+		
+	}
+	
+	function updateBox(num){
+		console.log(num);
+		$("#modalBodyId").val(num);
+		$("#modalBodyName").val($("#InventoryName"+num).val());
+		$("#modalBodyImg").val($("#InventoryImg"+num).val());
+		$("#modalBodyPlace").val($("#InventoryPlace"+num).val());	
+		$("#modalBodyPrice").val($("#InventoryPrice"+num).val());
+		$("#confirmUpdateBtn").click(function(){
+			var yes = confirm("確認更新此筆紀錄?");
+			if(yes){
+				document.getElementById("updateForm").action = 'ShopInventoey/update';
+				document.getElementById("updateForm").submit();
+			} else{}
+		})
+	};
+	
+	</script>
+</body>
+</html>
+
+
