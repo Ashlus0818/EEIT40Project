@@ -10,10 +10,26 @@
 <meta charset="UTF-8">
 <title>Store Form</title>
 <style>
+.st1 {
+margin: 10px;
+}
+
 .st2 {
 height:40px ;
 width:800px;
 }
+
+.form{
+  margin: 20px;
+  border:3px solid gray;	
+  height:800px ;
+}
+
+.button{
+  margin: 10px;
+}
+
+
 </style>
 
 <jsp:include page="IncludePage/css.jsp" />
@@ -23,7 +39,7 @@ width:800px;
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
 	
-<form id="insertForm" method="POST" action="">	
+<form id="insertForm" method="POST" action=""  class="form">	
 <!-- 			<div class="st1"> -->
 <!-- 				<label >店家編號:</label><br> -->
 <!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
@@ -56,18 +72,18 @@ width:800px;
 				<input id="storeOpendate" name="storeOpendate" value="" class="st2"/> 
 			</div>
 
-			<div class="st1">
+			<!-- <div class="st1">
 				<label >建立日期:</label><br>
-<!-- 				<input id="createdAt" name="createdAt" value="" class="st2"/>			 -->
-			</div>
+				<input id="createdAt" name="createdAt" value="" class="st2"/>			
+			</div> -->
 	
-			<div class="st1">
+			<!-- <div class="st1">
 				<label >修改日期:</label><br>
-<!-- 				<input id="modifiedAt" name="modifiedAt" value="" class="st2"/>   -->
-			</div>
+				<input id="modifiedAt" name="modifiedAt" value="" class="st2"/>  
+			</div> -->
 
 
-			<div class="st1">
+			<div class="button">
 				<input id="sendBtn" type="button" value="送出"/>
 				
 				<a href="${contextRoot}/backStage/CancelReturnStore"> <input type="button" value="取消"></a>
