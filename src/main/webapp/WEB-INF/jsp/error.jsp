@@ -1,120 +1,196 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
+	  <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>Wizym-Templae</title>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+    <meta name="author" content="themesflat.com">
 
-<title>EEIT40</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<!-- Custom fonts for this template-->
-<link href="${contextRoot}/BackPage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-	type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/bootstrap.css" >
 
-<!-- Custom styles for this template-->
-<link href="${contextRoot}/BackPage/css/sb-admin-2.min.css" rel="stylesheet">
-<jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/style.css">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/responsive.css">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/colors/color1.css" id="colors">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/animate.css">
+
+    <!-- Favicon and touch icons  -->
+    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed">
+    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="shortcut icon">
 </head>
+<body>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div> <!-- /.loading-overlay -->
+    <header class="style1">
+        <div id="site-header">
+        <div class="container-fluid">
+             <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="${contextRoot}/FrontPage/image/logo-2x.png" data-width="147" data-height="21"></a>
+             <div class="mobile-button">
+                                <span></span>
+             </div>
 
-<body id="page-top">
+             <div class="nav-wrap ">
+                <nav id="mainnav" class="mainnav">
+                    <ul class="menu">
+                        <li class="active">
+                             <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
+                        </li>
+                        <li class="active a"> 
+                             <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
+                                <ul class="sub-menu">
+                                    
+                                    <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
+                                    <li class="active"><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
+                                 </ul><!-- /.sub-menu -->
+                        </li>
+                        <li class="active">
+                            <a href="#" title="">PRODUCTS</a>
+                                <ul class="sub-menu">
+                                    <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-list.html" title="">Shop Full Width List</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">Shop Full Width Grid</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-list.html" title="">Shop Right Slidebar List</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-grid.html" title="">Shop Right Slidebar Grid</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-details-slidebar.html" title="">Shop Details Slidebar</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-details.html" title="">Shop Details </a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.html" title="">Shop Order Tracking</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Shop-cart.html" title="">Shop Cart</a></li>
+                                </ul><!-- /.sub-menu -->
+                        </li>
+                        <li class="active">
+                            <a href="#" title="">BLOG</a>
+                                <ul class="sub-menu">
+                                    <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-Right-Slidebar.html" title="">Blog Right Slidebar</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-details-slidebar.html" title="">Blog Details Slidebar</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-details-fullwidth.html" title="">Blog Details FullWidth</a></li>
+                                </ul><!-- /.sub-menu -->
+                        </li>
+                        <li class="active">
+                            <a href="#" title="">CONTACT US</a>
+                                <ul class="sub-menu">
+                                    <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
+                                </ul><!-- /.sub-menu -->
+                         </li>
+                    </ul>
+                </nav>
+             </div><!-- /.nav-wrap -->
+             <div class="search clearfix"> 
+                 <ul>
+                     <li><input type="search" id="search" placeholder="Search..." ></li>
+                     <li><a href="#" class="header-search-icon"><i class="ti-search" aria-hidden="true"></i></a></li>       
+                     <li><a href="#"> <i class="ti-align-justify" aria-hidden="true"></i> </a>
+                        <ul class="sub-menu">
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Login/ Register</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Account</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Wishlist</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Cart</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Tracking Orders</a></li>
+                            <li class="language"><a href="${contextRoot}/FrontPage/projects1.html" title="">LANGUAGE</a></li>
+                            <li class="flag">
+                                <a href="${contextRoot}/FrontPage/projects1.html" title="">
+                                    <span><img src="${contextRoot}/FrontPage/image/flash3.png" alt="image"></span>
+                                    <span><img src="${contextRoot}/FrontPage/image/flash1.png" alt="image"></span>
+                                    <span><img src="${contextRoot}/FrontPage/image/flash2.png" alt="image"></span>
+                                </a>
+                            </li>
+                        </ul><!-- /.sub-menu -->
+                      </li>
+                 </ul>  
+                 <form class="header-search-form" role="search" method="get" action="#">
+                    <input type="text" value="" name="#" class="header-search-field" placeholder="Search...">
+                    <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
+                 </form>             
+             </div>
+        </div><!-- /container -->
+        </div>
+    </header>
+<div class="404-page">                      
+    <section class="flat-error">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div class="wrap-error text-center">
+                        <h1 class="heading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>404</h1>
+                        <h1 class="title-error">Opps! page not found</h1>
+                        <p>It looks like nothing was found at this location. Click the link to return <span class="link"><a href="${contextRoot}/FrontPage/index.html">Home</a></span></p>
+                        <input type="search" id="search-bug" placeholder="Search..." >
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+    </section>
+</div>  
+<footer class="style1">
+    <div class="container">
+        <div class="footer-widgets">
+            <div class="widget widget-logo">
+                        <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
+            </div> <!-- /widget-logo --> 
+            <div class="widget widget-icon">
+                <ul>
+                    <li class="active"><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-twitter" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-skype" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-wordpress" aria-hidden="true"></i></a></li>
+                </ul>
+            </div> <!-- /widget-icon -->
+            <div class="widget widget-title">
+                 <h2>Get news & offers</h2>
+            </div> <!-- /widget-title -->
+            <div class="widget widget-contact">
+                 <input type="search" id="search-footer" placeholder="Your Email" >
+                 <button type="submit"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
+            </div> <!-- /widget-contact -->
+            <div class="widget widget-menu">
+                 <ul>
+                     <li class="active"><a href="${contextRoot}/FrontPage/About.html"> About Us </a></li>
+                     <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html"> Customer Service </a></li>
+                     <li><a href="${contextRoot}/FrontPage/Homepage2.html"> Terms & Conditions </a></li>
+                     <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html"> Privacy Policy </a></li>
+                     <li class="contact"><a href="${contextRoot}/FrontPage/contact-1.html"> Contact </a></li>
+                 </ul>
+            </div> <!-- /widget-about -->
+            <div class="widget widget-text">
+                <span>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="https://shop194286523.taobao.com/">狮王素材-淘宝店</a></span>
+            </div>
+        </div> <!-- /footer-widgets -->
+    </div> <!-- /container -->
+</footer>
+ <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
 
-	<!-- Page Wrapper -->
-	<div id="wrapper">
-
-
-		<!-- Content Wrapper -->
-		<div id="content-wrapper" class="d-flex flex-column">
-			<jsp:include page="/WEB-INF/jsp/IncludePage/sidebar.jsp" />
-			<jsp:include page="/WEB-INF/jsp/IncludePage/topbar.jsp" />
-			<!-- Main Content -->
-			<div id="content">
-
-
-
-				<!-- Begin Page Content -->
-				<div class="container-fluid">
-
-					<!-- 404 Error Text -->
-					<div class="text-center">
-						<div class="error mx-auto" data-text="404">404</div>
-						<p class="lead text-gray-800 mb-5">Page Not Found</p>
-						<p class="text-gray-500 mb-0">It looks like you found a glitch
-							in the matrix...</p>
-						<a href="${contextRoot}/">&larr; Back to Dashboard</a>
-					</div>
-
-				</div>
-				<!-- /.container-fluid -->
-
-			</div>
-			<!-- End of Main Content -->
-
-
-
-		</div>
-		<!-- End of Content Wrapper -->
-		<!-- Footer -->
-		<footer class="sticky-footer bg-white">
-			<div class="container my-auto">
-				<div class="copyright text-center my-auto">
-					<span>Copyright &copy; Your Website 2020</span>
-				</div>
-			</div>
-		</footer>
-		<!-- End of Footer -->
-	</div>
-	<!-- End of Page Wrapper -->
-
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
-
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Bootstrap core JavaScript-->
-	<script src="${contextRoot}/BackPage/vendor/jquery/jquery.min.js"></script>
-	<script src="${contextRoot}/BackPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-	<!-- Core plugin JavaScript-->
-	<script src="${contextRoot}/BackPage/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script src="${contextRoot}/BackPage/js/sb-admin-2.min.js"></script>
-	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
+<script src="${contextRoot}/FrontPage/javascript/jquery.min.js"></script>
+<script src="${contextRoot}/FrontPage/javascript/jquery.easing.js"></script>
+<script src="${contextRoot}/FrontPage/javascript/owl.carousel.min.js"></script> 
+<script src="${contextRoot}/FrontPage/javascript/jquery-countTo.js"></script> 
+<script src="${contextRoot}/FrontPage/javascript/images-loaded.js"></script>  
+<script src="${contextRoot}/FrontPage/javascript/jquery.isotope.min.js"></script> 
+<script src="${contextRoot}/FrontPage/javascript/jquery-waypoints.js"></script> 
+<script src="${contextRoot}/FrontPage/javascript/bootstrap.min.js"></script>
+<script src="${contextRoot}/FrontPage/javascript/main.js"></script>
 </body>
-
 </html>

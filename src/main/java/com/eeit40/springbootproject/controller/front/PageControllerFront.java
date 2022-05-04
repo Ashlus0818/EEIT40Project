@@ -8,7 +8,33 @@ public class PageControllerFront {
 
 	@GetMapping("/front")
 	public String front() {
-		System.out.println("sdfsdf");
-		return "FrontJsp/404-page";
+		return "FrontJsp/index";
 	}
+	
+	@GetMapping("/front/Shop-cart")
+	public String shopCart() {
+		return "FrontJsp/Shop-cart";
+	}
+	
+	@GetMapping("/front/Shop-details")
+	public String shopdetails() {
+		return "FrontJsp/Shop-details";
+	}
+	
+	@GetMapping("/front/Shop-fullwidth-grid")
+	public String shopFullWidthGrid() {
+		return "FrontJsp/Shop-fullwidth-grid";
+	}
+
+	
+	@GetMapping("/front/Shop-order-tracking")
+	public String shopOrderTracking() {
+		return "FrontJsp/Shop-order-tracking";
+	}
+	
+	@GetMapping("/front/Reservation")
+	public String reservation() {
+		return "FrontJsp/Reservation";
+	}
+	
 }

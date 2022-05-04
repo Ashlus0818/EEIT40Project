@@ -36,17 +36,16 @@
     <link href="${contextRoot}/FrontPage/icon/icon.png" rel="shortcut icon">
 </head>
 <body>
-    <div id="loading-overlay">
-        <div class="loader"></div>
-    </div> <!-- /.loading-overlay -->
+<!--     <div id="loading-overlay"> -->
+<!--         <div class="loader"></div> -->
+<!--     </div> /.loading-overlay -->
     <header class="style1">
         <div id="site-header">
         <div class="container-fluid">
              <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
              <div class="mobile-button">
-                                <span></span>
+                <span></span>
              </div>
-
              <div class="nav-wrap ">
                 <nav id="mainnav" class="mainnav">
                     <ul class="menu">
@@ -58,8 +57,8 @@
                                 <ul class="sub-menu">
                                     
                                     <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
-                                    <li class="active"><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
+                                    <li class="active"><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
                                     <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
                                  </ul><!-- /.sub-menu -->
                         </li>
@@ -108,47 +107,83 @@
                             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Cart</a></li>
                             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Tracking Orders</a></li>
                             <li class="language"><a href="${contextRoot}/FrontPage/projects1.html" title="">LANGUAGE</a></li>
-                            <li class="flag">
-                                <a href="${contextRoot}/FrontPage/projects1.html" title="">
-                                    <span><img src="${contextRoot}/FrontPage/image/flash3.png" alt="image"></span>
-                                    <span><img src="${contextRoot}/FrontPage/image/flash1.png" alt="image"></span>
-                                    <span><img src="${contextRoot}/FrontPage/image/flash2.png" alt="image"></span>
-                                </a>
-                            </li>
+                            <li class="flag"><a href="${contextRoot}/FrontPage/projects1.html" title="">
+                                <span><img src="${contextRoot}/FrontPage/image/flash3.png" alt="image"></span>
+                                <span><img src="${contextRoot}/FrontPage/image/flash1.png" alt="image"></span>
+                                <span><img src="${contextRoot}/FrontPage/image/flash2.png" alt="image"></span>
+                            </a></li>
                         </ul><!-- /.sub-menu -->
                       </li>
-                 </ul>  
-                 <form class="header-search-form" role="search" method="get" action="#">
-                    <input type="text" value="" name="#" class="header-search-field" placeholder="Search...">
-                    <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
-                 </form>             
+                 </ul> 
+                  <form class="header-search-form" role="search" method="get" action="#">
+                        <input type="text" value="" name="#" class="header-search-field" placeholder="Search...">
+                        <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
+                  </form>              
              </div>
         </div><!-- /container -->
         </div>
     </header>
-<div class="404-page">                      
-    <section class="flat-error">
+<div class="coming-soon">                      
+    <section class="flat-our-website">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="wrap-error text-center">
-                        <h1 class="heading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>404</h1>
-                        <h1 class="title-error">Opps! page not found</h1>
-                        <p>It looks like nothing was found at this location. Click the link to return <span class="link"><a href="${contextRoot}/FrontPage/index.html">Home</a></span></p>
-                        <input type="search" id="search-bug" placeholder="Search..." >
+                <div class="col-lg-12">
+                    <div class="wrap-our-website">
+                        <h1><a href="#">Our Website Is Under Construction</a></h1>
+                        <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        <div class="flat-counter count-time" data-day="20" data-month="3" data-year="2019" data-hour="12" data-minute="12" data-second="12">
+                            <div class="counter">
+                                 <ul>
+                                     <li class="content-counter">
+                                        <div class="wrap-bg">
+                                            <div class="inner-bg days">
+                                                 <div class="numb-count numb" data-from="0" data-to="18" data-speed="2000" data-inviewport="yes">18</div>
+                                                 <div class="name-count">Day</div>
+                                            </div>
+                                        </div>
+                                     </li>
+                                     <li class="content-counter">
+                                        <div class="wrap-bg">
+                                            <div class="inner-bg hours">
+                                                 <div class="numb-count numb" data-from="0" data-to="11" data-speed="2000" data-inviewport="yes">11</div>
+                                                 <div class="name-count">Hour</div>
+                                            </div>
+                                        </div>
+                                     </li>
+                                     <li class="content-counter">
+                                        <div class="wrap-bg">
+                                            <div class="inner-bg minutes">
+                                                 <div class="numb-count numb" data-from="0" data-to="14" data-speed="2000" data-inviewport="yes">14</div>
+                                                 <div class="name-count">Min</div>
+                                            </div>
+                                        </div>
+                                     </li>
+                                     <li class="content-counter">
+                                        <div class="wrap-bg numb">
+                                            <div class="inner-bg seconds">
+                                                 <div class="numb-count numb" data-from="0" data-to="47" data-speed="2000" data-inviewport="yes">47</div>
+                                                 <div class="name-count">Sec</div>
+                                            </div>
+                                        </div>
+                                     </li>
+                                 </ul>
+                            </div> <!-- /counter -->
+                        </div> <!-- /flat-counter -->
+                        <div class="our-website-input">
+                            <input type="search" id="search-coming" placeholder="Please, enter your email address..." >
+                            <button type="submit"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2"></div>
             </div>
         </div>
     </section>
 </div>  
-<footer class="style1">
+<footer class="style2">
     <div class="container">
         <div class="footer-widgets">
             <div class="widget widget-logo">
-                        <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
+                <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
             </div> <!-- /widget-logo --> 
             <div class="widget widget-icon">
                 <ul>
@@ -176,21 +211,18 @@
                  </ul>
             </div> <!-- /widget-about -->
             <div class="widget widget-text">
-                <span>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="https://shop194286523.taobao.com/">狮王素材-淘宝店</a></span>
+                 <span>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="https://shop194286523.taobao.com/">狮王素材-淘宝店</a></span>
             </div>
         </div> <!-- /footer-widgets -->
     </div> <!-- /container -->
 </footer>
- <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
-
 <script src="${contextRoot}/FrontPage/javascript/jquery.min.js"></script>
-<script src="${contextRoot}/FrontPage/javascript/jquery.easing.js"></script>
 <script src="${contextRoot}/FrontPage/javascript/owl.carousel.min.js"></script> 
 <script src="${contextRoot}/FrontPage/javascript/jquery-countTo.js"></script> 
 <script src="${contextRoot}/FrontPage/javascript/images-loaded.js"></script>  
 <script src="${contextRoot}/FrontPage/javascript/jquery.isotope.min.js"></script> 
 <script src="${contextRoot}/FrontPage/javascript/jquery-waypoints.js"></script> 
 <script src="${contextRoot}/FrontPage/javascript/bootstrap.min.js"></script>
-<script src="${contextRoot}/FrontPage/javascript/main.js"></script>
+<script src="${contextRoot}/FrontPage/avascript/main.js"></script>
 </body>
 </html>
