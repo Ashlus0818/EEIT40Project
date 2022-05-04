@@ -35,7 +35,7 @@ width:800px;
 			<legend>店家資訊</legend>
 			<div class="st1">
 				<label >店家編號:</label><br>
-				<form:input name="storeId" path="storeId" /> 
+				<form:input name="storeId" path="storeId"  /> 
 			
 			</div>
 

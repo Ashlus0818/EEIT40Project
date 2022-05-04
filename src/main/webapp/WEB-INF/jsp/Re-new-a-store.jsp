@@ -14,8 +14,6 @@
 height:40px ;
 width:800px;
 }
-
-
 </style>
 
 <jsp:include page="IncludePage/css.jsp" />
@@ -79,7 +77,6 @@ width:800px;
 	
 	
 <script>
-
 </script>
 	<jsp:include page="IncludePage/script.jsp" />
 	
