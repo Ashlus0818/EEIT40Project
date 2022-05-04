@@ -53,10 +53,12 @@
 			 <div id="ShopCart" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="${contextRoot}/ShopCart/findPostById">購物車管理</a>
-				<a class="collapse-item" href="${contextRoot}/ShopOrder/findPostById">客戶訂單</a>
-				<a class="collapse-item" href="${contextRoot}/ShopLiquor/page">產品管理</a>
-				<a class="collapse-item" href="${contextRoot}/">庫存管理</a>
+				<a class="collapse-item" href="${contextRoot}/addShopCart">購物車管理</a>
+				<a class="collapse-item" href="${contextRoot}/addShopOrder">客戶訂單</a>
+				<a class="collapse-item" href="${contextRoot}/addShopLiquor">產品管理</a>
+				<a class="collapse-item" href="${contextRoot}/addShopInventory">庫存管理</a>
+				</div>
+				</div>
 			 </li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i
@@ -74,8 +76,7 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
-					<a class="collapse-item" href="${contextRoot}/addMessage">新增留言</a>
-					<a class="collapse-item" href="${contextRoot}/CusMesback/findByPage">留言管理</a>
+					<a class="collapse-item" href="${contextRoot}/CusMesbacks/findByPage">查看留言</a>
 				</div>
 			</div></li>
 	

@@ -6,9 +6,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,16 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-//import org.json.JSONObject;
-
+import com.eeit40.springbootproject.dto.MessageDto;
 
 @RestController
 public class FrontApi {
 	private final String port = "8090";
 	
-	
 	@CrossOrigin("*")
-	
 	@PostMapping(value = "/test")
 	// public List<String> test(@RequestParam("message") String string){
 	public List<String> test(HttpServletRequest request) throws IOException {
@@ -38,7 +33,8 @@ public class FrontApi {
 		// String body = IOUtils.toString(request.getInputStream(),
 		// StandardCharsets.UTF_8);
 
-		
+
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
 
 		String json = "";
@@ -59,3 +55,4 @@ public class FrontApi {
 //	}
 	
 }
+

@@ -3,6 +3,8 @@ package com.eeit40.springbootproject.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
@@ -15,6 +17,7 @@ public class ShopInventory {
 	
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JoinColumn(name = "fk_ShopLiquor_id")
 	private Integer id;
 	
@@ -36,6 +39,17 @@ public class ShopInventory {
 	
 	
 	
+	public ShopInventory(String iName, String iImg, String iPlace, String iprice) {
+		super();
+		this.iName = iName;
+		this.iImg = iImg;
+		this.iPlace = iPlace;
+		this.iprice = iprice;
+	}
+
+
+
+
 	public ShopInventory(Integer id, String iName, String iImg, String iPlace, String iprice) {
 		super();
 		this.id = id;

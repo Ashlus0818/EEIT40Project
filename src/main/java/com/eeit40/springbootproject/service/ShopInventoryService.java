@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.eeit40.springbootproject.dao.ShopInventoryRepository;
 import com.eeit40.springbootproject.model.ShopInventory;
+import com.eeit40.springbootproject.model.ShopOrder;
 
 
 
@@ -25,8 +26,8 @@ public class ShopInventoryService {
 	@Autowired
 	private ShopInventoryRepository sidao;
 	
-	public void insert(ShopInventory inventory) {
-		sidao.save(inventory);
+	public ShopInventory insert(ShopInventory inventory) {
+		return sidao.save(inventory);
 	}
 	
 	public ShopInventory findByinventoryId(Integer inventory) {
@@ -38,8 +39,18 @@ public class ShopInventoryService {
 		return null;
 	}
 	
-	public void deleteByinventoryId(Integer inventory) {
-		sidao.deleteById(inventory);
+
+	
+	public boolean deleteByinventoryId(Integer id) {
+		System.out.println(id+"outside the loop");
+		Optional<ShopInventory> option = sidao.findById(id);
+		if(option.isPresent()) {
+			System.out.println(id+"in the loop");
+			sidao.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public List<ShopInventory> findAllinventoryId(){
@@ -48,7 +59,7 @@ public class ShopInventoryService {
 	
 	public Page<ShopInventory> findByPage(Integer pageNumber){
 		
-		Pageable pgb = PageRequest.of(pageNumber-1, 10,Sort.Direction.ASC,"CartId");
+		Pageable pgb = PageRequest.of(pageNumber-1, 10,Sort.Direction.ASC,"id");
 	
 		Page<ShopInventory> page = sidao.findAll(pgb);
 		

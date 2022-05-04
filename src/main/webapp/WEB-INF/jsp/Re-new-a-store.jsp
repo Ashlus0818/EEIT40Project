@@ -12,9 +12,7 @@
 <style>
 .st1 {
 margin: 10px;
-
 }
-
 
 .st2 {
 height:40px ;
@@ -95,7 +93,6 @@ width:800px;
 	
 	
 <script>
-
 </script>
 	<jsp:include page="IncludePage/script.jsp" />
 	

@@ -35,7 +35,7 @@
 			<th>表單名稱
 			<th>發文時間 <c:forEach var="backTaskes" items="${page.content}"
 					varStatus="vs">
-					<form id='taskForm${backTaskes.id}' action="" method="post">
+					<form id='taskForm${backTaskes.id}' action="" method="post" name="page">
 						<tr>
 							<td><input id="task${backTaskes.id}" name="taskId"
 								type="text" value="${backTaskes.id}" /></td>

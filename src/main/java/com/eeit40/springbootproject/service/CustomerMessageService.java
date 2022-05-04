@@ -9,11 +9,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.eeit40.springbootproject.dao.CustomerMessageMapper;
 import com.eeit40.springbootproject.dao.CustomerMessageRepository;
+import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.model.CustomerMessage;
+
 
 
 
@@ -30,8 +30,8 @@ public class CustomerMessageService {
 			cmdao.save(messages);
 	}
 	
-	public CustomerMessage findBymessagesId(Integer messagesid) {
-		Optional<CustomerMessage> option = cmdao.findById(messagesid);
+	public CustomerMessage findBymessagesId(Integer messageId) {
+		Optional<CustomerMessage> option = cmdao.findById(messageId);
 		
 		if(option.isPresent()) {
 			return option.get();
@@ -40,8 +40,8 @@ public class CustomerMessageService {
 		return null;
 	}
 	
-	public void deleteBymessagesId(Integer messagesid) {
-		cmdao.deleteById(messagesid);
+	public void deleteBymesId(Integer messageId) {
+		cmdao.deleteById(messageId);
 	}
 	
 	public List<CustomerMessage> findAllMessages(){
@@ -56,5 +56,19 @@ public class CustomerMessageService {
 		return page;
 	}
 	
+	public CustomerMessage getLastmes() {
+		return cmdao.findFirstByOrderByDateDesc();
+	}
 	
+	public boolean deleteById1(Integer messageId) {
+		Optional<CustomerMessage> option = cmdao.findById(messageId);
+		if(option.isPresent()) {
+			cmdao.deleteById(messageId);
+			return true;
+		}else {
+			return false;
+		}
+		
+		
+	}
 }

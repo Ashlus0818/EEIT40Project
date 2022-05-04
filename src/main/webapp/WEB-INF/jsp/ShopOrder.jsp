@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,8 @@
 	<jsp:include page="IncludePage/sidebar.jsp" />
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
-
+	
+	<h3>訂單管理</h3>
 	<table class="table table-striped table-bordered zero-configuration">
 		<thead>
 			<tr>
