@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>庫存管理</title>
 <jsp:include page="IncludePage/css.jsp" />
 <link
 	href="${contextRoot}/BackPage/jquery-ui-1.13.1.custom/jquery-ui.css"
@@ -32,6 +32,7 @@
 					<th>產地</th>
 					<th>價錢</th>
 					<th></th>
+					
 				</tr>
 			</thead>
 
@@ -63,9 +64,9 @@
 								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 								id="updateButton${Product.id}" type="button" value="更新"
 								onclick="updateBox(${Product.id})"></td>
-								
+								</tr>
+								</form>
 								</c:forEach>
-
 
 							<!-- update Modal-->
 							<div id="insertDialog" hidden>
@@ -83,17 +84,15 @@
 										產地:&nbsp<input id="dialogBodyPlace" name="InventoryPlace" />
 									</div>
 									<div class="modal-body">
-										價錢:&nbsp<input id="dialogBodyPrice"
-											name="InventoryPrice" />
+										價錢:&nbsp<input id="dialogBodyPrice" name="InventoryPrice" />
 									</div>
 								</form>
 							</div>
 							<!--end of update Modal-->
 
 							<!-- update Modal-->
-							<div class="modal fade" id="triggerModal" tabindex="-1"
-								role="dialog" aria-labelledby="exampleModalLabel"
-								aria-hidden="true">
+							<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -138,14 +137,12 @@
 
 
 
-						</tr>
-					</form>
-				</tr>
+				
 			</thead>
 		</table>
 
 	</div>
-	</div>
+	
 	<jsp:include page="IncludePage/script.jsp" />
 	
 
@@ -178,5 +175,3 @@
 	</script>
 </body>
 </html>
-
-
