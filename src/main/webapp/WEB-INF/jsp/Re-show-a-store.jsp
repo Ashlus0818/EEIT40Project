@@ -14,10 +14,7 @@
 height:40px ;
 width:800px;
 }
-
-
 /* type="text" id="name" name="name"  */
-
 </style>
 
 <jsp:include page="IncludePage/css.jsp" />

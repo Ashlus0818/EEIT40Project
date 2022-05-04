@@ -79,7 +79,10 @@ public class ShopinventoryController {
 		System.out.println(iName+" "+iPlace);
 		siService.insert(new ShopInventory(id, iName, iImg, iPlace, iprice));
 		return "redirect:/addShopInventory";
+
 	}
+	
+
 	
 	@GetMapping(value = "/insertInventory")
 	public String AddLiquor(@RequestParam(name = "t1") String iName,

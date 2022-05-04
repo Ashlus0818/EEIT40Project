@@ -25,7 +25,8 @@
    發布回應
   </div>
   <div class="card-body">
-<form:form action="${contextRoot}/ForumOnepost?postID=${forumReply.postID}"  class="form" method="Post" modelAttribute="forumReply">
+
+<form:form class="form" method="Post" modelAttribute="forumReply">
 <form:errors path="recontext"/>
 <form:input type="hidden" path="postID" value="${forumReply.postID}"/>
 

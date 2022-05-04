@@ -13,6 +13,29 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Quixlab - Bootstrap Admin Dashboard Template by
     Themefisher.com</title>
+    
+    <style>
+    
+    .newSrore{
+      width: 90px;
+      /* position:absolute;
+      top: 80px;
+      left: 150px; */
+      border:3px solid green;	
+    }
+    
+    .delAll{
+      width: 90px;
+        /* position:absolute;
+        top: 20px;
+        left: 30px; */
+      border:3px solid yellow;
+    }
+    
+    </style>
+    
+    
+    
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
   <!-- Custom Stylesheet -->
@@ -42,14 +65,14 @@
                 <div class="table-responsive">
                   <div>
 
-                    <div>
+                    <div class="newSrore">
                       <a href="${contextRoot}/backstage/ReservationStore/addAStore"> <input type="button"
-                          value="新增"></a>
-                    </div>
+                          value="新增一筆"></a>
+                    </div><br>
 
-                    <form id='delData' action="" method="get">
+                    <form id='delData' action="" method="get" class="delAll" >
                       <input class="" name="" value="" type="hidden" />
-                      <input id="testname" type="button" value="刪除" onclick="return confirm('確認刪除?')" />
+                      <input id="testname" type="button" value="整筆刪除" onclick="return confirm('確認刪除?')" />
                     </form>
 
 
