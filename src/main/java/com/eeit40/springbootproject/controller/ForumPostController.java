@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.model.ForumPost;
-
+import com.eeit40.springbootproject.model.ForumPostReply;
+import com.eeit40.springbootproject.model.ForumReply;
+import com.eeit40.springbootproject.service.ForumPostReplyService;
 import com.eeit40.springbootproject.service.ForumPostService;
 
 @Controller
@@ -26,16 +28,18 @@ public class ForumPostController {
 	@Autowired
 	private ForumPostService postService;
 
+
 	@GetMapping("/ForumAddpost")
 	public ModelAndView AddForumpage(ModelAndView mav) {
 		ForumPost post = new ForumPost();
 		mav.getModel().put("forumpost", post);
 
+		mav.setViewName("ForumAddpost");
 		System.out.println(post.toString());
 		return mav;
 	}
 
-	@GetMapping(value = {"/ForumPostlist","/ForumEditpost"})
+	@GetMapping("/ForumPostlist")
 	public ModelAndView Forumlistpage(ModelAndView mav) {
 
 		ForumPost lastpost = postService.getLastpost();
@@ -48,7 +52,7 @@ public class ForumPostController {
 		return mav;
 	}
 
-	@PostMapping(value = { "/ForumAddpost", "/ForumPostlist" })
+	@PostMapping("/ForumAddpost")
 	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
 			BindingResult br) {
 
@@ -69,7 +73,8 @@ public class ForumPostController {
 	}
 
 	@GetMapping("/ForumEditpost")
-	public String editPost(Model model, @RequestParam(name = "postID") Integer postid) {
+	public String editPost(Model model,@ModelAttribute(name = "forumPost") ForumPost forumPost ) {
+		Integer postid = forumPost.getPostID();
 		ForumPost getpost = postService.getpostById(postid);
 		model.addAttribute("forumpost", getpost);
 
@@ -77,15 +82,14 @@ public class ForumPostController {
 	}
 
 	@PostMapping("/ForumEditpost")
-	public ModelAndView editPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
-			BindingResult br) {
+	public ModelAndView editPost(ModelAndView mav,@ModelAttribute(name = "forumpost") ForumPost post) {
 
 		mav.setViewName("ForumEditpost");
 
-		if (!br.hasErrors()) {
+		
 			postService.insertPost(post);
 			mav.setViewName("redirect:/ForumPostlist");
-		}
+		
 
 		return mav;
 
