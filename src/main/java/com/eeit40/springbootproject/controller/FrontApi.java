@@ -21,7 +21,19 @@ public class FrontApi {
 	private final String port = "8090";
 	
 	@CrossOrigin("*")
+
+	@PostMapping(value="/test")
+	public List<String> test(@RequestBody MessageDto dto){
+		String text = dto.getMsg();
+		String text2 = dto.getMsg2();
+		System.out.println(text);
+		System.out.println(text2);
+		return null;
+	}
+	@PostMapping(value = "/test1")
+
 	@PostMapping(value = "/test")
+
 	// public List<String> test(@RequestParam("message") String string){
 	public List<String> test(HttpServletRequest request) throws IOException {
 		List<String> list = new ArrayList<>();

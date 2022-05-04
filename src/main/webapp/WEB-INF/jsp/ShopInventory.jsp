@@ -26,9 +26,9 @@
 		<table class="table table-striped table-bordered zero-configuration">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>圖片</th>
 					<th>產品名稱</th>
-					<th>詳細介紹</th>
 					<th>產地</th>
 					<th>價錢</th>
 					<th></th>
@@ -91,7 +91,7 @@
 							<!--end of update Modal-->
 
 							<!-- update Modal-->
-							<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+							<div class="modal fade" id="triggerModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
@@ -139,8 +139,20 @@
 
 				
 			</thead>
+			<thead>
+			<tr>
+			<form action="${contextRoot}/InsertInventory" method="get" >
+			<th><input  type="text" placeholder="ID會自動產生" ></input></th>
+				<th><input name="t1" type="text" placeholder="請選擇要載入的圖片" value=""></input></th>
+				<th><input name="t2" type="text" placeholder="輸入產品名稱" value=""></input></th>
+				<th><input name="t3" type="text" placeholder="輸入產地" value=""></input></th>
+				<th><input name="t4" type="text" placeholder="輸入價錢" value=""></input></th>
+				<th><input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" name="t5" type="submit" name="AAA" value="確定"/></th>
+				<th><input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" name="t6" type="reset" name="BBB" value="清空"/></th>
+			</form>
+			</tr>
+		</thead>
 		</table>
-
 	</div>
 	
 	<jsp:include page="IncludePage/script.jsp" />
@@ -158,6 +170,7 @@
 	
 	function updateBox(num){
 		console.log(num);
+		console.log($("#modalBodyId").val(num));
 		$("#modalBodyId").val(num);
 		$("#modalBodyName").val($("#InventoryName"+num).val());
 		$("#modalBodyImg").val($("#InventoryImg"+num).val());
