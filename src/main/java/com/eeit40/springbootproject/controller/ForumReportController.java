@@ -14,54 +14,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.model.ForumPost;
 import com.eeit40.springbootproject.model.ForumReport;
-
+import com.eeit40.springbootproject.service.ForumPostService;
 import com.eeit40.springbootproject.service.ForumReportService;
 
 @Controller
 public class ForumReportController {
-
 	@Autowired
 	private ForumReportService reportService;
-
-	@GetMapping("/ForumAddreport")
-	public ModelAndView AddForumreport(ModelAndView mav) {
-		ForumReport report = new ForumReport();
-		mav.getModel().put("forumreport", report);
-
-		return mav;
-	}
-
+	@Autowired
+	private ForumPostService postService;	
 	@GetMapping("/ForumReportlist")
-	public ModelAndView ForumReportlistpage(ModelAndView mav) {
-
+	public ModelAndView ForumReportlistpage(ModelAndView mav) {		
 		ForumReport lastreport = reportService.getLastreport();
 		mav.getModel().put("lastreport", lastreport);
-
 		List<ForumReport> allreport = reportService.findAllreport();
 		mav.getModel().put("allreport", allreport);
 		mav.setViewName("ForumReportlist");
-
 		return mav;
 	}
-
-	@PostMapping(value = { "/ForumAddreport", "/ForumReportlist" })
+	@GetMapping("/ForumAddreport")
+	public ModelAndView AddForumreport(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
+		ForumReport report = new ForumReport();
+		report.setReportID(postID);
+		ForumPost post = new ForumPost();
+		post = postService.getpostById(postID);
+		mav.getModel().put("post", post);
+		mav.getModel().put("forumreport", report);
+		mav.setViewName("ForumAddreport");
+		return mav;
+	}	
+	@PostMapping("/ForumAddreport")
 	public ModelAndView insertreport(ModelAndView mav, @Valid @ModelAttribute(name = "forumreport") ForumReport report,
 			BindingResult br) {
-
 		mav.setViewName("ForumAddreport");
 
 		if (!br.hasErrors()) {
 			reportService.insertReport(report);
 			ForumReport newreport = new ForumReport();
 			mav.getModel().put("forumreport", newreport);
-			mav.setViewName("redirect:/ForumReportlist");
+			mav.setViewName("redirect:/ForumPostlist");
 		}
-
-		ForumReport latestreport = reportService.getLastreport();
-
-		mav.getModel().put("lastreport", latestreport);
-
 		return mav;
 	}
 
