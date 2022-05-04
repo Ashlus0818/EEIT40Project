@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.eeit40.springbootproject.dao.ShopInventoryRepository;
 import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.model.ShopInventory;
+import com.eeit40.springbootproject.model.ShopLiquor;
 import com.eeit40.springbootproject.service.ShopInventoryService;
 
 
@@ -34,15 +35,7 @@ public class ShopinventoryController {
 	@Autowired
 	private ShopInventoryService siService;
 	
-	@PostMapping(value = "/ShopInventory/insert")
-	public ShopInventory insertPost(@RequestBody ShopInventory inventory) {
-		
-		ShopInventory resInventory = dao.save(inventory);
-		
-		return resInventory;
-	}
 	
-
 	@GetMapping(value = "/ShopInventory/findPostById")
 	public ModelAndView findPostById(ModelAndView mav, Integer postid) {
 		mav.setViewName("ShopInventory");
@@ -85,8 +78,19 @@ public class ShopinventoryController {
 			@RequestParam("InventoryPlace") String iPlace,@RequestParam("InventoryPrice") String iprice) {
 		System.out.println(iName+" "+iPlace);
 		siService.insert(new ShopInventory(id, iName, iImg, iPlace, iprice));
-		return "index";
+		return "redirect:/addShopInventory";
 	}
 	
+	@GetMapping(value = "/insertInventory")
+	public String AddLiquor(@RequestParam(name = "t1") String iName,
+			@RequestParam(name = "t2") String iImg,
+			@RequestParam(name = "t3") String iPlace,
+			@RequestParam(name = "t4") String iprice) {
+		System.out.println(iprice);
+		ShopInventory sl =  new ShopInventory(iName,iImg,iPlace,iprice);
+		
+		siService.insert(sl);
+		return "redirect:/addShopInventory";
+	}
 
 }

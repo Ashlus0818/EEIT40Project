@@ -33,7 +33,7 @@ public class FrontApi {
 		System.out.println(text2);
 		return null;
 	}
-	@PostMapping(value = "/test")
+	@PostMapping(value = "/test2")
 	// public List<String> test(@RequestParam("message") String string){
 	public List<String> test(HttpServletRequest request) throws IOException {
 		List<String> list = new ArrayList<>();

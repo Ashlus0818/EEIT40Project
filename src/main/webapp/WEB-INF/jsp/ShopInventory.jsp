@@ -26,9 +26,9 @@
 		<table class="table table-striped table-bordered zero-configuration">
 			<thead>
 				<tr>
-					<th>圖片</th>
+					<th>id</th>
 					<th>產品名稱</th>
-					<th>詳細介紹</th>
+					<th>圖片</th>
 					<th>產地</th>
 					<th>價錢</th>
 					<th></th>
@@ -75,10 +75,10 @@
 										Id:&nbsp <input id="dialogBodyId" name="InventoryId" readonly />
 									</div>
 									<div class="modal-body">
-										圖片:&nbsp <input id="dialogBodyImg" name="InventoryName" />
+										產品名稱:&nbsp <input id="dialogBodyImg" name="InventoryName" />
 									</div>
 									<div class="modal-body">
-										產品名稱:&nbsp<input id="dialogBodyName" name="InventoryImg" />
+										圖片:&nbsp<input id="dialogBodyName" name="InventoryImg" />
 									</div>
 									<div class="modal-body">
 										產地:&nbsp<input id="dialogBodyPlace" name="InventoryPlace" />
@@ -91,7 +91,7 @@
 							<!--end of update Modal-->
 
 							<!-- update Modal-->
-							<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+							<div class="modal fade" id="triggerModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
@@ -109,10 +109,10 @@
 												Id:&nbsp <input id="modalBodyId" name="InventoryId" readonly />
 											</div>
 											<div class="modal-body">
-												圖片:&nbsp<input id="modalBodyName" name="InventoryName" />
+												產品名稱:&nbsp<input id="modalBodyName" name="InventoryName" />
 											</div>
 											<div class="modal-body">
-												產品名稱:&nbsp<input id="modalBodyImg" name="InventoryImg" />
+												圖片:&nbsp<input id="modalBodyImg" name="InventoryImg" />
 											</div>
 											<div class="modal-body">
 												產地:&nbsp<input id="modalBodyPlace" name="InventoryPlace" />
@@ -139,6 +139,20 @@
 
 				
 			</thead>
+			<thead>
+			<tr>
+			<form action="${contextRoot}/insertInventory" method="get" >
+			<th><input type="text" placeholder="會自動載入ID"  readonly></input></th>
+				<th><input name="t1" type="text" placeholder="請輸入產品名稱" value=""></input></th>
+				<th><input name="t2" type="text" placeholder="請選擇要載入的圖片" value=""></input></th>
+				<th><input name="t3" type="text" placeholder="輸入產地" value=""></input></th>
+				<th><input name="t4" type="text" placeholder="輸入價錢" value=""></input></th>
+				<th><input name="t5" type="submit" name="AAA" value="確定"/>
+				<input name="t6" type="reset" name="BBB" value="清空"/></th>
+			</form>
+			</tr>
+		</thead>
+			
 		</table>
 
 	</div>
