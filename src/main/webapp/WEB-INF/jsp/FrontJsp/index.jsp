@@ -21,7 +21,7 @@
     </div>
   </header>
   
-  
+
   <div class="flat-slider style1">
     <!-- SLIDER -->
     <div class="rev_slider_wrapper fullwidthbanner-container">

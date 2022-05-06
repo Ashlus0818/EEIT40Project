@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <div class="container-fluid">
-    <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
+    <a href="${contextRoot}/front" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
         data-retina="${contextRoot}/FrontPage/image/logo.png" data-width="147" data-height="21"></a>
     <div class="mobile-button">
       <span></span>
@@ -13,7 +13,7 @@
       <nav id="mainnav" class="mainnav">
         <ul class="menu">
           <li class="active a">
-            <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
+            <a href="${contextRoot}/front" title="">HOME</a>
           </li>
           <li class="active">
             <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
@@ -45,11 +45,7 @@
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">CONTACT US</a>
-            <ul class="sub-menu">
-              <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
-              <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
-            </ul><!-- /.sub-menu -->
+            <a href="${contextRoot}/front/CusMesFront" title="">聯絡我們</a>
           </li>
         </ul>
       </nav>

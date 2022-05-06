@@ -8,62 +8,11 @@
   <jsp:include page="IncludePage/head.jsp" />
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<title>聯絡我們</title>
 </head>
 <body>
  <header class="style1">
     <div id="site-header">
-    <div class="container-fluid">
-         <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
-         <div class="mobile-button">
-            <span></span>
-         </div>
-         
-         <div class="nav-wrap ">
-            <nav id="mainnav" class="mainnav">
-                <ul class="menu">
-                    <li class="active">
-                         <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
-                    </li>
-                    <li class="active"> 
-                         <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
-                            <ul class="sub-menu">
-                                
-                                <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
-                                <li><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
-                             </ul><!-- /.sub-menu -->
-                    </li>
-                    <li class="active">
-                        <a href="#" title="">商品</a>
-                            <ul class="sub-menu">
-                            <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.jsp" title="">商品總覽</a></li>
-                                 <li><a href="${contextRoot}/FrontPage/Shop-details.jsp" title="">商品詳細 </a></li>
-                                 <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.jsp" title="">訂單追蹤</a></li>
-                                 <li><a href="${contextRoot}/FrontPage/Shop-cart.jsp" title="">購物車</a></li>
-                            </ul><!-- /.sub-menu -->
-                    </li>
-                    <li class="active">
-                        <a href="#" title="">BLOG</a>
-                            <ul class="sub-menu">
-                                <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Blog-Right-Slidebar.html" title="">Blog Right Slidebar</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Blog-details-slidebar.html" title="">Blog Details Slidebar</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Blog-details-fullwidth.html" title="">Blog Details FullWidth</a></li>
-                            </ul><!-- /.sub-menu -->
-                    </li>
-                    <li class="active a">
-                        <a href="#" title="">CONTACT US</a>
-                            <ul class="sub-menu">
-                                <li class="active"><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
-                            </ul><!-- /.sub-menu -->
-                     </li>
-                </ul>
-            </nav>
-         </div><!-- /.nav-wrap -->
 
       <jsp:include page="IncludePage/topBar.jsp" />
 
@@ -77,7 +26,7 @@
                     <div class="page-title-content text-center">
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="#">首頁</a></li>     
+                                <li><a href="${contextRoot}/front">首頁</a></li>     
                                 <li class="blog"><a href="#">聯絡我們</a></li>
                             </ul>
                         </div>
@@ -105,13 +54,13 @@
                   </div>
               </div> <!-- /title-section -->
          
-               <form id="contactform" action="./contact/contact-process.php" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
+               <form id="contactform" action="" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
                   <span class="wpcf7-form-control-wrap your-name">
                       <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="姓名" required>
                   </span>
                   <div class="flat-divider-margintop10px"></div>                                                           
                   <span class="wpcf7-form-control-wrap your-email">
-                      <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="信箱" required>
+                      <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="example@gmail.com" required>
                   </span>
                   <div class="flat-divider-margintop16px"></div>
                   <span class="wpcf7-form-control-wrap your-question">
@@ -158,4 +107,79 @@
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
 </body>
+<script>
+  // $(document).ready(function () {
+  //     $('#submitButton').click(function () {
+         
+  //         var inputText = document.getElementById('name').value;
+  //         var inputText2 = document.getElementById('email').value;
+  //         var inputText3 = document.getElementById('question').value;
+  //         var inputText4 = document.getElementById('text').value;
+
+  //         var dtoObject = {"cusname": inputText,
+  //                          "cusemail": inputText2,
+  //                          "cusquest": inputText3,
+  //                          "custext": inputText4
+  //                         };
+  //         var dtoJsonString = JSON.stringify(dtoObject);
+         
+  //           $.ajax({
+  //             url: 'http://localhost:8080/myapp/cusmes',
+  //             contentType: "application/json;charset=utf-8", 
+  //             dataType: 'json',   
+  //             method: 'post',
+  //             data: dtoJsonString,
+  //             success: function (request) {
+                  
+  //                 console.log(request);
+                  
+  //             },
+
+
+  //             error: function (err) {
+  //                 console.log("error ajax")
+  //                 console.log(err)
+  //             }
+  //         })
+          
+          
+
+  //     })
+  // })
+
+
+  let sendSubmit = document.querySelector('.submit btn btn-styl hvr-shutter-out-horizontal wpcf7-form-control wpcf7-submit');
+sendSubmit.addEventListener("click",runSubmit,false);
+
+function runSubmit(e){
+  e.preventDefault();
+  let mailSubmit = document.querySelector('.wpcf7-form-control').value;
+  let textSubmit = document.querySelector('.wpcf7-form-control wpcf7-textarea').value;
+  
+  if(mailSubmit == ''||textSubmit == ''){ 
+    alert('請輸入信箱');
+  }else{
+    let xhrSubmit = new XMLHttpRequest();
+    xhrSubmit.open("post","https://hexschool-tutorial.herokuapp.com/api/signup",true);
+    xhrSubmit.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    xhrSubmit.send("email="+mailSubmit+"&text="+textSubmit);
+    xhrSubmit.onload=function (){
+      if(xhrSubmit.value == ""){ //帳號密碼不可為空
+        outmail.innerhtml = "請輸入信箱"
+      };
+		let strSubmit= JSON.parse(xhrSubmit.responseText).message;
+		alert(strSubmit);
+	  }  
+    console.log(xhrSubmit.send);
+  }
+  reset(); //送出後，欄位進行清空
+}
+
+function reset(){ //送出後，欄位進行清空
+  document.querySelector('email').value = "";
+  document.querySelector('text').value = "";
+  document.querySelector('name').value = "";
+  document.querySelector('question').value = "";
+}
+</script>
 </html>
