@@ -15,30 +15,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.eeit40.springbootproject.dto.MessageDto;
+import com.eeit40.springbootproject.dto.CusMesDto;
 
 @RestController
-public class FrontApi {
+public class CusMesApi {
 	private final String port = "8090";
 	
 	@CrossOrigin("*")
 
-	@PostMapping(value="/test")
-	public List<String> test(@RequestBody MessageDto dto){
-		String text = dto.getMsg();
-		String text2 = dto.getMsg2();
+	@PostMapping(value="/cusmes")
+	public List<String> test(@RequestBody CusMesDto dto){
+		String name = dto.getCusname();
+		String email = dto.getCusemail();
+		String quest = dto.getCusquest();
+		String text = dto.getCustext();
+		System.out.println(name);
+		System.out.println(email);
+		System.out.println(quest);
 		System.out.println(text);
-		System.out.println(text2);
 		return null;
 	}
+
+//	@PostMapping(value = "/test2")
+
+
+
+//	@PostMapping(value = "/test")
 
 
 	// public List<String> test(@RequestParam("message") String string){
 	public List<String> test(HttpServletRequest request) throws IOException {
 		List<String> list = new ArrayList<>();
 		list.add(0, "name");
-		list.add(1, "num");
-
+		list.add(1, "email");
+		list.add(2, "quest");
+		list.add(3, "text");
 //		JSONObject jObj = new JSONObject(request.getParameter(""));
 		System.out.println(request.getParameter("message"));
 		// String body = IOUtils.toString(request.getInputStream(),

@@ -32,16 +32,25 @@
 							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${post.date}" /></span>
 				</div>
 				<div class="card-body">
+				No.${post.postID}
+				<p />
+				<p />
 					標題：
 					<p/>
 					<p/>
+				<!--	<p />-->
+				<!--	<p />-->
+				<!--	<p />-->
 					<c:out value="${post.title}" />
 					<p />
+										----------------------------------------------------------------------
 					<p />
 					內容：
 					<p/>
 					<p/>
+				<!--	<p />-->
 					<c:out value="${post.context}" />
+					<p />
 				</div>
 			</div>
 		</div>

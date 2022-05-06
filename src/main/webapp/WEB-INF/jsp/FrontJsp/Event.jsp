@@ -5,42 +5,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
-	  <!-- Basic Page Needs -->
-    <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Wizym-Templae</title>
-
-    <meta name="author" content="themesflat.com">
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/bootstrap.css" >
-
-    <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/style.css">
-
-    <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/responsive.css">
-
-    <!-- Colors -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/colors/color1.css" id="colors">
-
-    <!-- Animation Style -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/animate.css">
-
-    <!-- Favicon and touch icons  -->
-    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed" sizes="48x48">
-    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed">
-    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="shortcut icon">
+    <jsp:include page="IncludePage/head.jsp" />
+    <title>Event</title>
 </head>
 <body>
     <div id="loading-overlay">
         <div class="loader"></div>
-    </div> /.loading-overlay
+    </div> <!--/.loading-overlay-->
     <header class="style1">
         <div id="site-header">
+<<<<<<< HEAD
+
+            <jsp:include page="IncludePage/topBar.jsp" />
+
+        
+=======
         <div class="container-fluid">
              <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
              <div class="mobile-button">
@@ -62,19 +41,15 @@
                                     <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
                                  </ul><!-- /.sub-menu -->
                         </li>
-                        <li class="active">
-                            <a href="#" title="">PRODUCTS</a>
-                                <ul class="sub-menu">
-                                    <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-list.html" title="">Shop Full Width List</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">Shop Full Width Grid</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-list.html" title="">Shop Right Slidebar List</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-grid.html" title="">Shop Right Slidebar Grid</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-details-slidebar.html" title="">Shop Details Slidebar</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-details.html" title="">Shop Details </a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.html" title="">Shop Order Tracking</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Shop-cart.html" title="">Shop Cart</a></li>
-                                </ul><!-- /.sub-menu -->
-                        </li>
+                       <li class="active">
+                <a href="#" title="">商品</a>
+                <ul class="sub-menu">
+               <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.jsp" title="">商品總覽</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-details.jsp" title="">商品詳細 </a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.jsp" title="">訂單追蹤</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-cart.jsp" title="">購物車</a></li>
+                </ul><!-- /.sub-menu -->
+              </li>
                         <li class="active">
                             <a href="#" title="">BLOG</a>
                                 <ul class="sub-menu">
@@ -121,6 +96,7 @@
                  </form>                
              </div>
         </div><!-- /container -->
+>>>>>>> angus
         </div>
     </header>
     <div class="page-title parallax parallax1 ">
@@ -136,7 +112,7 @@
                                 </ul>
                             </div>
                             <div class="page-title-heading">
-                                 <h2 class="title"><a href="#">EVENT</a></h2>
+                                 <h2 class="title"><a href="#">預約試飲</a></h2>
                             </div>
                         </div>
                     </div>
@@ -150,18 +126,18 @@
                 <div class="col-lg-12">
                     <div class="filter-border">
                         <div class="filter-date">
-                            <input type="search" id="searcha" placeholder="03/12/2018" >
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <input type="search" id="searcha" placeholder="輸入日期" >
+                            <i class="fa fa-calendar" aria-hidden="true"></i> <!--  這是欄位裡的icon -->
                         </div>
                         <div class="filter-location">
-                            <input type="search" id="searchb" placeholder="Mianma City" >
+                            <input type="search" id="searchb" placeholder="輸入店家名" >
                             <i class="fa fa-map-marker" aria-hidden="true"></i> 
                         </div>
                         <div class="filter-keywork">
-                            <input type="search" id="searchc" placeholder="Keywork" >
+                            <input type="search" id="searchc" placeholder="輸入人數" >
                         </div>
                         <div class="elm-btn">
-                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">FIND EVENT</a>
+                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">搜尋店家</a>
                         </div>
                     </div>
                 </div>
@@ -179,18 +155,33 @@
                          </div>
                      </div>                     
                      <div class="content-post">
-                         <h2 class="content-title"><a href="">Alsace: Outta This Earth at La Compagnie Des Vins Surnaturels</a></h2>
-                         <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i> 09:00 AM - 22:00 PM</a></p>
-                         <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i> 40 Baria Sreet: 133/2 New York City, United State</a></p>
+                         <h2 class="content-title"><a href="">信義信安店</a></h2>
+                         <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i>週一至週五：9:00 ～ 18:30,週六：10:30 ～ 18:30,週日：公休</a></p>
+                         <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i>台北市信義區信安街90號</a></p>
                          <div class="content-phone">
                              <ul>
                                  <li class="map"><a href=""><i class="icon_map" aria-hidden="true"></i> View Map</a></li>
-                                 <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i> (+12) 345 - 678 - 910</a></li>
+                                 <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i>02-1020-3040</a></li>
                              </ul>
                           </div>
-                         <h3 class="content-price"><a href="">Price: $22.99</a></h3>
+                          
+                          <div>
+                           <label for="" class="">選擇時段</label>
+                             <select name="add1" >
+                              <!-- <select name="add1" 下拉式選單 > -->
+			                    <option value="">上午9:30~10:30</option>
+			                    <option value="">上午10:30~11:30</option>
+			                    <option value="">下午1:30~2:30</option>
+			                    <option value="">下午2:30~3:30</option>
+			                    <option value="">下午3:30~4:30</option>
+			                    <option value="">下午4:30~5:30</option>
+			                    <!-- 用option -->
+			                 </select>                          
+                          </div>
+                          
+<!--                          <h3 class="content-price"><a href="">施工中</a></h3> -->
                          <div class="elm-btn">
-                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">JOIN NOW</a>
+                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</a>
                         </div>
                      </div>                    
                 </div>         
@@ -207,7 +198,7 @@
                      </div>
                  </div>                     
                  <div class="content-post">
-                     <h2 class="content-title"><a href="">2018 SOMM Summit ~ International Wine & Spirits Symposium ~ Seattle, WA</a></h2>
+                     <h2 class="content-title"><a href="">內湖一店</a></h2>
                      <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i> 17:00 AM - 22:00 PM</a></p>
                      <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i> 40 Baria Sreet: 133/2 New York City, United State</a></p>
                      <div class="content-phone">
@@ -305,43 +296,8 @@
         </div>
     </section>
 </div> 
-<footer class="style3">
-    <div class="container">
-        <div class="footer-widgets">
-            <div class="widget widget-logo">
-                <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
-            </div> <!-- /widget-logo --> 
-            <div class="widget widget-icon">
-                <ul>
-                    <li class="active"><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
-                    <li><a href="#"> <i class="fa fa-twitter" aria-hidden="true"></i> </a></li>
-                    <li><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li>
-                    <li><a href="#"> <i class="fa fa-skype" aria-hidden="true"></i> </a></li>
-                    <li><a href="#"> <i class="fa fa-wordpress" aria-hidden="true"></i></a></li>
-                </ul>
-            </div> <!-- /widget-icon -->
-            <div class="widget widget-title">
-                 <h2>Get news & offers</h2>
-            </div> <!-- /widget-title -->
-            <div class="widget widget-contact">
-                 <input type="search" id="search-footer" placeholder="Your Email" >
-                 <button type="submit"><i class="fa fa-location-arrow" aria-hidden="true"></i></button>
-            </div> <!-- /widget-contact -->
-            <div class="widget widget-menu">
-                 <ul>
-                     <li class="active"><a href="${contextRoot}/FrontPage/About.html"> About Us </a></li>
-                     <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html"> Customer Service </a></li>
-                     <li><a href="${contextRoot}/FrontPage/Homepage2.html"> Terms & Conditions </a></li>
-                     <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html"> Privacy Policy </a></li>
-                     <li class="contact"><a href="${contextRoot}/FrontPage/contact-1.html"> Contact </a></li>
-                 </ul>
-            </div> <!-- /widget-about -->
-            <div class="widget widget-text">
-                 <span>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="https://shop194286523.taobao.com/">狮王素材-淘宝店</a></span>
-            </div>
-        </div> <!-- /footer-widgets -->
-    </div> <!-- /container -->
-</footer>
+
+<jsp:include page="IncludePage/footer.jsp" />
 <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
 
 <script src="${contextRoot}/FrontPage/javascript/jquery.min.js"></script>

@@ -74,6 +74,7 @@ public class PageController {
 		return "indexReMsgTest";
 	}
 
+
 	// 課堂範例測試
 	// 3/31錄影 10點的 1:00:00 & 1:05:00成功
 	// 搭配ReservationMsgTestController的@PostMapping("/message/add"),一個get 一個post
@@ -159,5 +160,5 @@ public class PageController {
 	}
 	
 
-	
+
 }
