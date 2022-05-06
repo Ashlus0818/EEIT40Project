@@ -25,7 +25,7 @@
 							value="${post.date}" /></span>
 				</div>
 				<div class="card-body">
-					NO：${forumReply.postID}
+					NO.${forumReply.postID}
 					<p />
 					<p />
 					文章標題：
@@ -51,7 +51,7 @@
 						<form:input type="hidden" path="postID"
 							value="${forumReply.postID}" />
 						<div class="imput-group">
-							>> NO：${forumReply.postID}
+							>> NO.${forumReply.postID}
 							<p />
 							<p />
 							回覆內容：
