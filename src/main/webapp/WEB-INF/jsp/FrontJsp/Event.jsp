@@ -53,17 +53,17 @@
                              <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
                         </li>
                         <li class="active a"> 
-                             <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
+                             <a href="${contextRoot}/FrontPage/about.html" title="">現場試喝</a>
                                 <ul class="sub-menu">
                                     
                                     <li class="active"><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
-                                    <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">施工中</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/404-page.html" title="">施工中</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">施工中</a></li>
                                  </ul><!-- /.sub-menu -->
                         </li>
                         <li class="active">
-                            <a href="#" title="">PRODUCTS</a>
+                            <a href="#" title="">商品</a>
                                 <ul class="sub-menu">
                                     <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-list.html" title="">Shop Full Width List</a></li>
                                     <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">Shop Full Width Grid</a></li>
@@ -76,7 +76,7 @@
                                 </ul><!-- /.sub-menu -->
                         </li>
                         <li class="active">
-                            <a href="#" title="">BLOG</a>
+                            <a href="#" title="">討論/交流</a>
                                 <ul class="sub-menu">
                                     <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
                                     <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
@@ -86,7 +86,7 @@
                                 </ul><!-- /.sub-menu -->
                         </li>
                         <li class="active">
-                            <a href="#" title="">CONTACT US</a>
+                            <a href="#" title="">聯絡我們</a>
                                 <ul class="sub-menu">
                                     <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
                                     <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
@@ -136,7 +136,7 @@
                                 </ul>
                             </div>
                             <div class="page-title-heading">
-                                 <h2 class="title"><a href="#">EVENT</a></h2>
+                                 <h2 class="title"><a href="#">預約試飲</a></h2>
                             </div>
                         </div>
                     </div>
@@ -150,18 +150,18 @@
                 <div class="col-lg-12">
                     <div class="filter-border">
                         <div class="filter-date">
-                            <input type="search" id="searcha" placeholder="03/12/2018" >
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <input type="search" id="searcha" placeholder="輸入日期" >
+                            <i class="fa fa-calendar" aria-hidden="true"></i> <!--  這是欄位裡的icon -->
                         </div>
                         <div class="filter-location">
-                            <input type="search" id="searchb" placeholder="Mianma City" >
+                            <input type="search" id="searchb" placeholder="輸入店家名" >
                             <i class="fa fa-map-marker" aria-hidden="true"></i> 
                         </div>
                         <div class="filter-keywork">
-                            <input type="search" id="searchc" placeholder="Keywork" >
+                            <input type="search" id="searchc" placeholder="輸入人數" >
                         </div>
                         <div class="elm-btn">
-                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">FIND EVENT</a>
+                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">搜尋店家</a>
                         </div>
                     </div>
                 </div>
@@ -179,18 +179,33 @@
                          </div>
                      </div>                     
                      <div class="content-post">
-                         <h2 class="content-title"><a href="">Alsace: Outta This Earth at La Compagnie Des Vins Surnaturels</a></h2>
-                         <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i> 09:00 AM - 22:00 PM</a></p>
-                         <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i> 40 Baria Sreet: 133/2 New York City, United State</a></p>
+                         <h2 class="content-title"><a href="">信義信安店</a></h2>
+                         <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i>週一至週五：9:00 ～ 18:30,週六：10:30 ～ 18:30,週日：公休</a></p>
+                         <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i>台北市信義區信安街90號</a></p>
                          <div class="content-phone">
                              <ul>
                                  <li class="map"><a href=""><i class="icon_map" aria-hidden="true"></i> View Map</a></li>
-                                 <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i> (+12) 345 - 678 - 910</a></li>
+                                 <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i>02-1020-3040</a></li>
                              </ul>
                           </div>
-                         <h3 class="content-price"><a href="">Price: $22.99</a></h3>
+                          
+                          <div>
+                           <label for="" class="">選擇時段</label>
+                             <select name="add1" >
+                              <!-- <select name="add1" 下拉式選單 > -->
+			                    <option value="">上午9:30~10:30</option>
+			                    <option value="">上午10:30~11:30</option>
+			                    <option value="">下午1:30~2:30</option>
+			                    <option value="">下午2:30~3:30</option>
+			                    <option value="">下午3:30~4:30</option>
+			                    <option value="">下午4:30~5:30</option>
+			                    <!-- 用option -->
+			                 </select>                          
+                          </div>
+                          
+<!--                          <h3 class="content-price"><a href="">施工中</a></h3> -->
                          <div class="elm-btn">
-                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">JOIN NOW</a>
+                                   <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</a>
                         </div>
                      </div>                    
                 </div>         
@@ -207,7 +222,7 @@
                      </div>
                  </div>                     
                  <div class="content-post">
-                     <h2 class="content-title"><a href="">2018 SOMM Summit ~ International Wine & Spirits Symposium ~ Seattle, WA</a></h2>
+                     <h2 class="content-title"><a href="">內湖一店</a></h2>
                      <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i> 17:00 AM - 22:00 PM</a></p>
                      <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i> 40 Baria Sreet: 133/2 New York City, United State</a></p>
                      <div class="content-phone">

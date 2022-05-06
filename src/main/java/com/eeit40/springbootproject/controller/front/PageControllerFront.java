@@ -37,4 +37,10 @@ public class PageControllerFront {
 		return "FrontJsp/Reservation";
 	}
 	
+	@GetMapping("/front/Event")
+	public String event() {
+		return "FrontJsp/Event";
+	}
+	
+	
 }
