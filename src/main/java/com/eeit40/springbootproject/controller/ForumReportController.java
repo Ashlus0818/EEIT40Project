@@ -37,7 +37,7 @@ public class ForumReportController {
 	@GetMapping("/ForumAddreport")
 	public ModelAndView AddForumreport(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
 		ForumReport report = new ForumReport();
-		report.setReportID(postID);
+		report.setPostID(postID);
 		ForumPost post = new ForumPost();
 		post = postService.getpostById(postID);
 		mav.getModel().put("post", post);
@@ -54,7 +54,11 @@ public class ForumReportController {
 			reportService.insertReport(report);
 			ForumReport newreport = new ForumReport();
 			mav.getModel().put("forumpost", newreport);
-			mav.setViewName("redirect:/ForumPostlist");
+
+		//	mav.setViewName("redirect:/ForumPostlist");
+
+			mav.setViewName("redirect:/ForumReportlist");
+
 		}
 		return mav;
 	}
@@ -62,6 +66,15 @@ public class ForumReportController {
 	@GetMapping("/DeleteForumreport")
 	public ModelAndView deletereport(ModelAndView mav, @RequestParam(name = "reportID") Integer reportID) {
 		reportService.deleteByreportId(reportID);
+
+		mav.setViewName("redirect:/ForumReportlist");
+
+		return mav;
+	}
+	
+	@GetMapping("/DeleteForumAllreport")
+	public ModelAndView deleteallreport(ModelAndView mav) {
+		reportService.deletereportall();
 
 		mav.setViewName("redirect:/ForumReportlist");
 

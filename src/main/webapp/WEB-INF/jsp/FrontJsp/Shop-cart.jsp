@@ -9,7 +9,7 @@
             <title>Shop-cart</title>            
         </head>
 
-        <body>
+<body>
             <div id="loading-overlay">
                 <div class="loader"></div>
             </div> <!-- /.loading-overlay -->
@@ -33,6 +33,127 @@
                                 <div class="page-title-heading">
                                     <h2 class="title"><a href="#">Cart</a></h2>
                                 </div>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/bootstrap.css" >
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/style.css">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/responsive.css">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/colors/color1.css" id="colors">
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/animate.css">
+
+    <!-- Favicon and touch icons  -->
+    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed">
+    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="shortcut icon">
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div> <!-- /.loading-overlay -->
+    <header class="style1">
+        <div id="site-header">
+        <div class="container-fluid">
+             <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
+             <div class="mobile-button">
+                <span></span>
+             </div>
+             <div class="nav-wrap ">
+                <nav id="mainnav" class="mainnav">
+                    <ul class="menu">
+                        <li class="active">
+                             <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
+                        </li>
+                        <li class="active"> 
+                             <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
+                                <ul class="sub-menu">
+                                    
+                                    <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
+                                 </ul><!-- /.sub-menu -->
+                        </li>
+                        <li class="active">
+                <a href="#" title="">商品</a>
+                <ul class="sub-menu">
+                <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.jsp" title="">商品總覽</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-details.jsp" title="">商品詳細 </a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.jsp" title="">訂單追蹤</a></li>
+                                 <li><a href="${contextRoot}/front/Shop-cart" title="">購物車</a></li>
+                </ul><!-- /.sub-menu -->
+              </li>
+                        <li class="active">
+                            <a href="#" title="">BLOG</a>
+                                <ul class="sub-menu">
+                                    <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-Right-Slidebar.html" title="">Blog Right Slidebar</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-details-slidebar.html" title="">Blog Details Slidebar</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Blog-details-fullwidth.html" title="">Blog Details FullWidth</a></li>
+                                </ul><!-- /.sub-menu -->
+                        </li>
+                        <li class="active">
+                            <a href="#" title="">CONTACT US</a>
+                                <ul class="sub-menu">
+                                    <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
+                                    <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
+                                </ul><!-- /.sub-menu -->
+                         </li>
+                    </ul>
+                </nav>
+             </div><!-- /.nav-wrap -->
+             <div class="search clearfix"> 
+                 <ul>
+                     <li><input type="search" id="search" placeholder="Search..." ></li>
+                     <li><a href="#" class="header-search-icon"><i class="ti-search" aria-hidden="true"></i></a></li>       
+                     <li><a href="#"> <i class="ti-align-justify" aria-hidden="true"></i> </a>
+                        <ul class="sub-menu">
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Login/ Register</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Account</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Wishlist</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Cart</a></li>
+                            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Tracking Orders</a></li>
+                            <li class="language"><a href="${contextRoot}/FrontPage/projects1.html" title="">LANGUAGE</a></li>
+                            <li class="flag"><a href="${contextRoot}/FrontPage/projects1.html" title="">
+                                <span><img src="${contextRoot}/FrontPage/image/flash3.png" alt="image"></span>
+                                <span><img src="${contextRoot}/FrontPage/image/flash1.png" alt="image"></span>
+                                <span><img src="${contextRoot}/FrontPage/image/flash2.png" alt="image"></span>
+                            </a></li>
+                        </ul><!-- /.sub-menu -->
+                      </li>
+                 </ul>     
+                 <form class="header-search-form" role="search" method="get" action="#">
+                    <input type="text" value="" name="#" class="header-search-field" placeholder="Search...">
+                    <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
+                 </form>           
+             </div>
+        </div><!-- /container -->
+        </div>
+    </header>
+    <div class="page-title parallax parallax1 ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-title-content text-center">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Product</a></li>
+                                    <li class="blog"><a href="#">Shopping Cart</a></li>
+                                </ul>
+                            </div>
+                            <div class="page-title-heading">
+                                 <h2 class="title"><a href="#">Cart</a></h2>
                             </div>
                         </div>
                     </div>
@@ -238,6 +359,107 @@
                                                                 TO CHECK OUR</a>
                                                         </div>
                                                     </div>
+            </div>
+    </div> <!-- /.page-title -->
+<div class="main-shop-cart">
+    <section class="flat-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="woocommerce-tabs wc-tabs-wrapper">
+                        <ul class="tabs">
+                            <li><a class="tab active" data-id ='#tab-description' href="#"><i class="  icon_bag" aria-hidden="true"></i>SHOPPING CART</a></li>
+                            <li><a class="tab" data-id ='#tab-reviews' href="#"><i class=" icon_ribbon" aria-hidden="true"></i>CHECK OUT</a></li>
+                            <li><a class="tab" data-id ='#tab-order' href="#"><i class="arrow_carrot-down_alt" aria-hidden="true"></i>ORDER COMPLETE</a></li>
+                        </ul>
+                        <div class="cart-wrap">
+                            <div id="tab-description" class="tab-content">
+                                <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>Image</th>
+                                        <th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th class="delete">×</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="text-center image"><img src="${contextRoot}/FrontPage/image/homepage132.png" alt="image"></td>
+                                        <td class="list text">Bougrier Rose d'Anjou</td>
+                                        <td class="text-center list price">$34.99</td>
+                                        <td class="text-center list quantity">
+                                            <ul class="quantity-menu">
+                                                <li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
+                                                <li>2</li>
+                                                <li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </td>
+                                        <td class="text-center list price">$69.98</td>
+                                        <td class="text-center delete">×</td>
+                                      </tr>
+                                      <tr>
+                                            <td class="text-center"><img src="${contextRoot}/FrontPage/image/homepage133.png" alt="image"></td>
+                                            <td class="list text">D'Autrefois Rose de Pinot Noir</td>
+                                            <td class="text-center list price">$28.99</td>
+                                            <td class="text-center list">
+                                            <ul>
+                                                <li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
+                                                <li>1</li>
+                                                <li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </td>
+                                        <td class="text-center list price">$28.99</td>
+                                        <td class="text-center delete">×</td>
+                                      </tr>
+                                      <tr>
+                                            <td class="text-center"><img src="${contextRoot}/FrontPage/image/homepage134.png" alt="image"></td>
+                                            <td class="list text">Chateau Vivonne Bandol Rose</td>
+                                            <td class="text-center list price">$46.99</td>
+                                            <td class="text-center list">
+                                                <ul>
+                                                    <li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
+                                                    <li>3</li>
+                                                    <li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+                                                </ul>
+                                            </td>
+                                            <td class="text-center list price">$40.97</td>
+                                            <td class="text-center delete">×</td>
+                                      </tr>
+                                      <tr>
+                                            <td class="text-center"><img src="${contextRoot}/FrontPage/image/homepage135.png" alt="image"></td>
+                                            <td class="list text">Olema Rose Cotes De</td>
+                                            <td class="text-center list price">$25.99</td>
+                                            <td class="text-center list">
+                                                <ul>
+                                                    <li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
+                                                    <li>1</li>
+                                                    <li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
+                                                </ul>
+                                            </td>
+                                            <td class="text-center list price">$25.99</td>
+                                            <td class="text-center delete">×</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                                <div class="cart-btn">
+                                    <div class="btn-continue">
+                                        <div class="elm-btn">
+                                                <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">繼續購買</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn-clear">
+                                        <ul>
+                                            <li>
+                                                <div class="elm-btn">
+                                                    <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">刪除商品</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="elm-btn">
+                                                    <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">新增商品</a>
                                                 </div>
                                             </div>
                                         </div>

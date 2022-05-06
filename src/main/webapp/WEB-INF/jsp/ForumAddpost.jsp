@@ -25,7 +25,7 @@
    發布文章
   </div>
   <div class="card-body">
-<form:form class="form" method="POST" modelAttribute="forumpost">
+<form:form class="form" method="POST" modelAttribute="forumpost" enctype="multipart/form-data">
 <form:errors path="title"/>
 <form:errors path="context"/>
 <div class="imput-group">
