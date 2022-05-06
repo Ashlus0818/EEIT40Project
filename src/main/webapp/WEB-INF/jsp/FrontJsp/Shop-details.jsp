@@ -15,9 +15,7 @@
 	<!-- /.loading-overlay -->
 	<header class="style1">
 		<div id="site-header">
-<<<<<<< HEAD
 			<jsp:include page="IncludePage/topBar.jsp" />
-=======
 			<div class="container-fluid">
 				<a href="${contextRoot}/FrontPage/index.html" class="logo"><img
 					src="${contextRoot}/FrontPage/image/logo.png" alt="image"
@@ -128,7 +126,6 @@
 				</div>
 			</div>
 			<!-- /container -->
->>>>>>> angus
 		</div>
 	</header>
 	<div class="page-title parallax parallax1 ">

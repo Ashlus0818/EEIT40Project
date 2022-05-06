@@ -13,8 +13,6 @@
 <body>
  <header class="style1">
     <div id="site-header">
-<<<<<<< HEAD
-=======
     <div class="container-fluid">
          <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
          <div class="mobile-button">
@@ -66,7 +64,6 @@
                 </ul>
             </nav>
          </div><!-- /.nav-wrap -->
->>>>>>> angus
 
       <jsp:include page="IncludePage/topBar.jsp" />
 
