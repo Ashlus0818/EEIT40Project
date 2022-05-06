@@ -25,16 +25,21 @@
    發布文章
   </div>
   <div class="card-body">
-<form:form class="form" method="POST" modelAttribute="forumpost">
+<form:form class="form" method="POST" modelAttribute="forumpost" enctype="multipart/form-data">
 <form:errors path="title"/>
 <form:errors path="context"/>
 <div class="imput-group">
+<p />
 標題：
+<p />
 <form:textarea path="title" class="form-control"></form:textarea>
+<p />
 內容：
+<p />
 <form:textarea path="context" class="form-control"></form:textarea>
 </div>
-<input type="submit" name="submit" value="新增訊息">
+<p />
+<input type="submit" name="submit" value="新增文章">
 </form:form>
 </div>
 </div>

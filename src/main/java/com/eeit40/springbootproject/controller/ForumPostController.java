@@ -47,7 +47,7 @@ public class ForumPostController {
 			postService.insertPost(post);
 			ForumPost newpost = new ForumPost();
 			mav.getModel().put("forumpost", newpost);
-			mav.setViewName("redirect:/ForumPostlist");
+			mav.setViewName("redirect:/ForumPostlist#" + post.getPostID());
 		}
 		ForumPost latestpost = postService.getLastpost();
 		mav.getModel().put("lastpost", latestpost);
@@ -66,7 +66,7 @@ public class ForumPostController {
 		mav.setViewName("ForumEditpost");
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
-			mav.setViewName("redirect:/ForumPostlist");
+			mav.setViewName("redirect:/ForumOnepost?postID=" + post.getPostID());
 		}
 		return mav;
 	}
