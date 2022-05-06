@@ -17,5 +17,9 @@ import com.eeit40.springbootproject.model.ReservationOrder;
 //紫色字左邊(ReservationStore)是目前的資料型別,右邊(Integer)是這entity的id的資料型別
 public interface ReservationOrderRepository extends JpaRepository<ReservationOrder, Integer> {
 
+	@Query(value="select * from ReservationOrder where orderStoreName = :name AND orderDate = :day",nativeQuery = true)
+	List<ReservationOrder> checkTime(@Param("name") String storeName,@Param("day") String day);
+//---->ReservationStoreController最下面
 	
 }
+

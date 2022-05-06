@@ -51,4 +51,68 @@ public class ReservationOrder {
 	public ReservationOrder() {
 	}
 
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getReCustomerGender() {
+		return reCustomerGender;
+	}
+
+	public void setReCustomerGender(String reCustomerGender) {
+		this.reCustomerGender = reCustomerGender;
+	}
+
+	public String getReCustomerPhone() {
+		return reCustomerPhone;
+	}
+
+	public void setReCustomerPhone(String reCustomerPhone) {
+		this.reCustomerPhone = reCustomerPhone;
+	}
+
+	public String getReCustomerEmail() {
+		return reCustomerEmail;
+	}
+
+	public void setReCustomerEmail(String reCustomerEmail) {
+		this.reCustomerEmail = reCustomerEmail;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public String getReWine() {
+		return reWine;
+	}
+
+	public void setReWine(String reWine) {
+		this.reWine = reWine;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}
+
 }
