@@ -29,12 +29,17 @@
 <form:errors path="title"/>
 <form:errors path="context"/>
 <div class="imput-group">
+<p />
 標題：
+<p />
 <form:textarea path="title" class="form-control"></form:textarea>
+<p />
 內容：
+<p />
 <form:textarea path="context" class="form-control"></form:textarea>
 </div>
-<input type="submit" name="submit" value="新增訊息">
+<p />
+<input type="submit" name="submit" value="新增文章">
 </form:form>
 </div>
 </div>

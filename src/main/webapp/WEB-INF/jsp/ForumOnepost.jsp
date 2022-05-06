@@ -25,6 +25,7 @@
 				<div class="card-header">
 				<div class="edit-link">
 							<a href="${contextRoot}/ForumPostlist">回文章列表</a> 
+							<a href="${contextRoot}/ForumReportlist">回檢舉列表</a> 
 						</div>
 					<span><fmt:formatDate
 							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${post.date}" /></span>

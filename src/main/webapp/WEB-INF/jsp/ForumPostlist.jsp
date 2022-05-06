@@ -18,23 +18,6 @@
 	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
 
 	<div class="container">
-		<p />
-		<div class="col-6">
-			<div class="card">
-				<div class="card-header">
-					最近一筆(時間)<span><fmt:formatDate
-							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastpost.date}" /></span>
-				</div>
-				<div class="card-body">
-					標題：
-					<c:out value="${lastpost.title}" />
-					<p />
-					<p />
-					內容：
-					<c:out value="${lastpost.context}" />
-				</div>
-			</div>
-		</div>
 
 		<c:forEach items="${allpost}" varStatus="theCount"
 			var="post">
@@ -42,19 +25,26 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">
+						 |
 							<a href="${contextRoot}/ForumEditpost?postID=${post.postID}">編輯</a> |
-							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a> |
-							<a href="${contextRoot}/ForumAddreply?postID=${post.postID}">回應</a>
-							<a href="${contextRoot}/ForumAddreport?postID=${post.postID}">檢舉</a> |	
+							<a href="${contextRoot}/ForumAddreply?postID=${post.postID}">回應</a> |
+							<a href="${contextRoot}/ForumAddreport?postID=${post.postID}">檢舉</a> |
+							<a href="${contextRoot}/ForumOnepost?postID=${post.postID}">只看NO：${post.postID}的文及回應</a> |	
+							<a onclick="return confirm('確認刪除?')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a> |
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${post.date}" />
 								 <br>
 								 No： <c:out value="${post.postID}" />
+								 <br>
+					----------------------------------------------------------------------
 								  <br> 
-								 標題： <c:out value="${post.title}" />
+								 標題：
+								  <br> <c:out value="${post.title}" />
 								  <br>
-								 內容： <c:out value="${post.context}" />
+								  <br>
+								 內容： 
+								  <br><c:out value="${post.context}" />
 						</span>
 					</div>
 				</div>
