@@ -20,7 +20,11 @@
 
       <jsp:include page="IncludePage/topBar.jsp" />
 
+<<<<<<< HEAD
+     
+=======
 
+>>>>>>> 710f77d6800572c376be690cea3781f189818f12
     </div>
   </header>
   <div class="flat-slider style1">
@@ -82,7 +86,7 @@
           <!-- Slide 2 -->
           <li data-transition="random">
             <!-- Main Image -->
-            <img src="${contextRoot}/FrontPage/image/homepage11.jpg" alt="" data-bgposition="center center" data-no-retina>
+            <img src="${contextRoot}/FrontPage/image/eeit40homepage.jpg" alt="" data-bgposition="center center" data-no-retina>
             <div class="overlay"></div>
 
             <!-- Layers -->
