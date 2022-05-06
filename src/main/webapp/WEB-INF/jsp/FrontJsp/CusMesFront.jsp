@@ -61,16 +61,12 @@
                              </ul><!-- /.sub-menu -->
                     </li>
                     <li class="active">
-                        <a href="#" title="">PRODUCTS</a>
+                        <a href="#" title="">商品</a>
                             <ul class="sub-menu">
-                                <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-list.html" title="">Shop Full Width List</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">Shop Full Width Grid</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-list.html" title="">Shop Right Slidebar List</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-grid.html" title="">Shop Right Slidebar Grid</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-details-slidebar.html" title="">Shop Details Slidebar</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-details.html" title="">Shop Details </a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.html" title="">Shop Order Tracking</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Shop-cart.html" title="">Shop Cart</a></li>
+                            <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.jsp" title="">商品總覽</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-details.jsp" title="">商品詳細 </a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.jsp" title="">訂單追蹤</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-cart.jsp" title="">購物車</a></li>
                             </ul><!-- /.sub-menu -->
                     </li>
                     <li class="active">
