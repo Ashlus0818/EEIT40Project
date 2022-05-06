@@ -1,7 +1,16 @@
 package com.eeit40.springbootproject.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,13 +19,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ReservationStoreRepository;
@@ -175,107 +187,199 @@ public class ReservationStoreController {
 	
 	//之後教留言版功能的專案是3/31 09的影片 40:00時開始
 	
-
 	
-	//實體店面轉個別店面檢視
-	@ResponseBody
-	@GetMapping(value="ReservationStore/findstore")
-	public List<ReservationStore> findByStore(@PathVariable Integer storeDepartmentNumber){
-		return dao.findByStoreDepartmentNumberOrderByStoreNameDesc(storeDepartmentNumber);
-	}
-	
-	
-	//廢棄了
-	//show-a-store formform表單
-//	@GetMapping(value="/backStage/Re-show-a-store")
-//	public String showAstore(Model m) {
-//		ReservationStore ReS = new ReservationStore();
-//		m.addAttribute("storeOne",ReS);
-//		return "Re-show-a-store";
-//	}
 
 	@Autowired
 	private ReservationStoreService service;
 	
 	
-	
-	@GetMapping("/backStage/Re-show-a-store")
-	public String ReShowAstore() {
-		return "Re-show-a-store";
+	//測試
+	@GetMapping("/backStage/Re-new-a-store")
+	public String ReNewAstore() {
+		return "Re-new-a-store";
 	}
 	
 	
-	    //測試用
-		// 前端送form表單時,如何get(搜尋)
-        @ResponseBody
-		@GetMapping(value = "backstage/ReservationStore/get")
-		public Optional<ReservationStore> getStoreById2(@RequestParam("storeId") Integer storeId) {
-				   // System.out.println(storeId);
-				    Optional<ReservationStore>	opionRes = service.findById(storeId);
-				   // System.out.println(opionRes);
-				    return opionRes;				
-		}
-
-        //ReservationStore --> Re-show-a-stores
-        //http://localhost:8080/myapp/backstage/ReservationStore/getstoreId?storeIDnumberView=1
-        @ResponseBody
-  		@GetMapping(value = "backstage/ReservationStore/getstoreId")
-  		public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberView") Integer storeId) {
-  				   // System.out.println(storeId);
-  				    Optional<ReservationStore>	opionRes = service.findById(storeId);
-  				   // System.out.println(opionRes);
-  				    return opionRes;				
-  		}
-        //抓到jsp的參數 name:storeIDnumberView之後 就會抓到它(name)的value也就是storeId
-        //postman key value測試
+//	    //測試用 service需是回傳optinaol物件才行用
+//		// 前端送form表單時,如何get(搜尋)
+//        @ResponseBody
+//		@GetMapping(value = "backstage/ReservationStore/get")
+//		public Optional<ReservationStore> getStoreById2(@RequestParam("storeId") Integer storeId) {
+//				   // System.out.println(storeId);
+//				    Optional<ReservationStore>	opionRes = service.findById(storeId);
+//				   // System.out.println(opionRes);
+//				    return opionRes;				
+//		}
+        
+//        //測試用
+//        //ReservationStore --> Re-show-a-stores
+//        //http://localhost:8080/myapp/backstage/ReservationStore/getstoreId?storeIDnumberView=1
+//        @ResponseBody
+//  		@GetMapping(value = "backstage/ReservationStore/getstoreId")
+//  		public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberView") Integer storeId) {
+//  				   // System.out.println(storeId);
+//  				    Optional<ReservationStore>	opionRes = service.findById(storeId);
+//  				   // System.out.println(opionRes);
+//  				    return opionRes;				
+//  		}
+//        //抓到jsp的參數 name:storeIDnumberView之後 就會抓到它(name)的value也就是storeId
+//        //postman key value測試
         
         
-        
-     
-     
-        //@ResponseBody
-  		@GetMapping(value = "backstage/ReservationStore/getstoreId1")
-  		public ModelAndView getStoreById4(ModelAndView mav,@RequestParam("storeIDnumberView") Integer storeId) {
-  			 System.out.println("TEST");   
-  			Optional<ReservationStore> opionRes = service.findById(storeId);
-  			mav.getModel().put("foreachAstore", opionRes);
-  			mav.setViewName("Re-show-a-store");	
-  		    System.out.println(opionRes);
-  		    return mav;				
-  		}
        
-        
-//  		public ModelAndView viewMessages(ModelAndView mav, @RequestParam(name="p", defaultValue = "1") Integer pageNumber) {
-//  			Page<ReservationMessageTest> page = messageService.findByPage(pageNumber);
-//  			
-//  			mav.getModel().put("page", page);
-//  			mav.setViewName("viewMessages");
-//  			
-//  			return mav;
+//        //印出修改前的資料---舊的
+//        //ReservationStore --> Re-show-a-stores
+//  		@GetMapping(value = "backstage/ReservationStore/editStore")
+//  		public ModelAndView getStoreById4(ModelAndView mav,@RequestParam(name="storeIDnumberView") Integer storeId) {
+//  			System.out.println("TEST=====================");   
+//  			Optional<ReservationStore> opionRes = service.findById(storeId);
+//  			mav.getModel().put("foreachAstore", opionRes);
+//  			mav.setViewName("Re-show-a-store");	
+//  		    System.out.println(opionRes);
+//  		    return mav;				
 //  		}
         
-        
-        
-		
-//		@GetMapping(value = "backstage/ReservationStore/get1")
-//		public Optional<ReservationStore> getStoreById3(@RequestParam("storeIDnumberDel") Integer storeId) {
-//				System.out.println(storeId);
-//				Optional<ReservationStore> responseReS = dao.findById(storeId);
+	
+		//修改一筆資料
+        //ReservationStore.jsp 導向 Re-show-a-store2
+  		@GetMapping(value = "backstage/ReservationStore/editStore")
+  		public String editStore(Model model,@RequestParam(name="storeIDnumberView") Integer storeId) {
+  			System.out.println(storeId);
+//  			System.out.println(model.getAttribute("storeIDnumberView"));
+  			ReservationStore reS = service.findById(storeId);
+  			model.addAttribute("modAtt-Re-show-a-store1", reS);   			
+//  			System.out.println(reS.getStoreName());
+  			
+  		    return "Re-show-a-store2";				
+  		}
+                                                                                             
+        //修改一筆資料 輸入後匯出並導向新頁面
+  		//Re-show-a-store2 導向 ReservationStore.jsp
+  		@PostMapping(value = "backstage/ReservationStore/editStore")
+  		public ModelAndView editAStore(ModelAndView mav, @Valid @ModelAttribute(name="modAtt-Re-show-a-store1") ReservationStore reS, BindingResult br) throws ParseException {  		
+  			System.out.println(reS.getStoreName());
+  			System.out.println(reS.getCreatedAt());
+  
+  			reS.setModifiedAt(new Date());
+  			System.out.println(reS.getModifiedAt());
+  			
+			//mav.setViewName("Re-show-a-store2");	有錯才導回去?
+  			if(!br.hasErrors()) {
+
+  				service.insert(reS);
+  				mav.setViewName("redirect:/backstage/ReservationStore");
+  			}			
+  			return mav;	 			
+  		}
+//遇到問題:https://neillin1415.pixnet.net/blog/post/362128512-%E3%80%90%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%91spring-mvc---request-method-'post'-not-sup
+  		
+  		
+  		//刪除一筆資料
+  		@GetMapping("/backstage/ReservationStore/delAStore")
+  		public ModelAndView deleteMessage(ModelAndView mav, @RequestParam(name="storeIDnumberDel") Integer storeId) {
+  			service.deleteById(storeId);
+  			
+  			mav.setViewName("redirect:/backstage/ReservationStore");
+  			
+  			return mav;
+  		}
+  	
+
+  		//新增一筆店家資訊 導入頁面
+  		@GetMapping("/backstage/ReservationStore/addAStore")
+  		public ModelAndView addStore(ModelAndView mav) {
+  			
+  			ReservationStore newStore = new ReservationStore();
+  			mav.getModel().put("modAtt-Re-new-a-store", newStore);
+  			 				
+  	        mav.setViewName("Re-new-a-store");
+  			return mav;
+  		}
+  		
+  		
+  		//新增一筆店家資訊 輸入後匯出並導向新頁面  舊的-formform表單用
+//  		@PostMapping("/backstage/ReservationStore/addAStore")
+//  		public ModelAndView addStore(ModelAndView mav, @Valid @ModelAttribute(name = "modAtt-Re-new-a-store") ReservationStore reS,
+//  				BindingResult br) {
 //
-//			if (responseReS.isPresent()) {
-//				return responseReS;
-//			}
-//			return null;
-//			// 因為參數是從form表單來的,要用form表單的參數就要用(@RequestParam)==(HttpServletRequest
-//			// request)的request.getAttribute(xxx[form的name])
-//		}
+//  			if (!br.hasErrors()) {
+//  				service.insert(reS);
+//  				ReservationStore newStore = new ReservationStore();
+//  				mav.getModel().put("modAtt-Re-new-a-store", newStore);
+//  			}
+// 			
+//  			mav.setViewName("redirect:/backstage/ReservationStore");
+//
+//  			return mav;
+//  		}
+
+  		
+  		//新增一筆店家資訊 輸入後匯出並導向新頁面  form表單
+  		@PostMapping(value="/backstage/ReservationStore/insert")
+  		public String insertBackTaskes(@RequestParam("storeDepartmentNumber") Integer storeDepartmentNumber, 
+  				@RequestParam("storeName")String storeName, 
+  				@RequestParam("storePhone") String storePhone, 
+  				@RequestParam("storeAddress") String storeAddress, 
+  				@RequestParam("storeOpendate") String storeOpendate
+  				){  			
+  			ReservationStore bean = new ReservationStore(storeDepartmentNumber, storeName, 
+  					storePhone, storeAddress, 
+  					storeOpendate);
+  			service.insert(bean);
+  			return "redirect:/backstage/ReservationStore";
+  		}
+
+
+  	   //取消按鈕
+        @GetMapping("/backStage/CancelReturnStore")
+        public String CancelReturnStore() {
+            return "redirect:/backstage/ReservationStore";
+        }
 	
-	
-	
-	
-	
-	
-	
+        
+        
+
+ 
+   
+//          // 因為uploadPage.jsp 在WEB-INF下，不能直接從瀏覽器訪問，所以要在這裡加一個uploadPage跳轉，這樣就可以通過
+//          @RequestMapping("/Re-show-a-store2")
+//          public String uploadPage() {
+//            return "Re-show-a-store2";  //過度跳轉頁
+//          }
+//        
+//          @PostMapping("/upload") // 等價於 @RequestMapping(value = "/upload",method = RequestMethod.POST)
+//          public String uplaod(HttpServletRequest req,@RequestParam("file") MultipartFile file,Model m) {//1. 接受上傳的檔案 @RequestParam("file") MultipartFile file
+//            try {
+// 
+//              //2.根據時間戳建立新的檔名，這樣即便是第二次上傳相同名稱的檔案，也不會把第一次的檔案覆蓋了
+//              String fileName = System.currentTimeMillis() + file.getOriginalFilename();
+//
+//              //3.通過req.getServletContext().getRealPath("") 獲取當前專案的真實路徑，然後拼接前面的檔名
+//              String destFileName = req.getServletContext().getRealPath("") + "uploaded" + File.separator + fileName;
+//
+//              //4.第一次執行的時候，這個檔案所在的目錄往往是不存在的，這裡需要建立一下目錄（建立到了webapp下uploaded資料夾下）
+//              File destFile = new File(destFileName);
+//              destFile.getParentFile().mkdirs();
+//        
+//              //5.把瀏覽器上傳的檔案複製到希望的位置
+//              file.transferTo(destFile);
+//              //6.把檔名放在model裡，以便後續顯示用
+//              m.addAttribute("fileName",fileName);
+//            } catch (FileNotFoundException e) {
+//              e.printStackTrace();
+//              return "上傳失敗," + e.getMessage();       
+//            } catch (IOException e) {        
+//              e.printStackTrace();        
+//              return "上傳失敗," + e.getMessage();       
+//            }
+//            return "showImg";       
+//          }
+        
+      
+
+        
+        
+        
 	
 }
 

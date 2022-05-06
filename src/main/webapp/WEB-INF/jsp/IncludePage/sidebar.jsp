@@ -40,18 +40,26 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
-
-					<a class="collapse-item" href="${contextRoot}/BackInsert">新增任務</a>
-					 <a class="collapse-item" href="cards.html">無</a>
-
 					<a class="collapse-item" href="${contextRoot}/backTask">查看任務</a> <a
 						class="collapse-item" href="cards.html">無</a>
 
 				</div>
 			</div></li>
-
-		<li class="nav-item"><a class="nav-link" href="#"> <i
-				class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a></li>
+<%-- 			${contextRoot}/ShopCart/findPostById --%>
+		<li class="nav-item"><a class="nav-link" href="*"
+		data-toggle="collapse" data-target="#ShopCart"
+			aria-expanded="true" aria-controls="ShopCart">
+			 <i class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a>
+			 <div id="ShopCart" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="${contextRoot}/addShopCart">購物車管理</a>
+				<a class="collapse-item" href="${contextRoot}/addShopOrder">客戶訂單</a>
+				<a class="collapse-item" href="${contextRoot}/addShopLiquor">產品管理</a>
+				<a class="collapse-item" href="${contextRoot}/addShopInventory">庫存管理</a>
+				</div>
+				</div>
+			 </li>
 
 		<li class="nav-item"><a class="nav-link" href="#"> <i
 				class="fas fa-fw fa-chart-area"></i> <span>會員</span></a></li>
@@ -81,11 +89,9 @@
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
 					<a class="collapse-item" href="${contextRoot}/ForumAddpost">新增文章</a>
-					<a class="collapse-item" href="${contextRoot}/Forumpostlist">文章列表</a>
-				    <a class="collapse-item" href="${contextRoot}/ForumAddreply">新增回應</a>
-					<a class="collapse-item" href="${contextRoot}/Forumreplylist">回應列表</a>
-					<a class="collapse-item" href="${contextRoot}/ForumAddreport">新增檢舉</a> 
-					<a class="collapse-item" href="${contextRoot}/Forumreportlist">檢舉區</a> 
+					<a class="collapse-item" href="${contextRoot}/ForumPostlist">文章列表</a>
+					<a class="collapse-item" href="${contextRoot}/ForumReplylist">回應列表</a>
+					<a class="collapse-item" href="${contextRoot}/ForumReportlist">檢舉區</a> 
 				</div>
 			</div></li>
 

@@ -9,10 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -55,9 +58,31 @@ public class ReservationStore {
 	
 	
 
+	@PrePersist   // 再轉換到 Persist 狀態以前去做以下方法
+	public void onCreate() {
+//		if(modifiedAt==null) {
+//			modifiedAt = new Date();
+//		}
+		
+		if(createdAt == null) {
+			createdAt = new Date();
+		}else if(createdAt != null) {
+			modifiedAt = new Date();
+		}
+	}
 	
 	
-	
+	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress,
+			String storeOpendate) {
+		super();
+		this.storeDepartmentNumber = storeDepartmentNumber;
+		this.storeName = storeName;
+		this.storePhone = storePhone;
+		this.storeAddress = storeAddress;
+		this.storeOpendate = storeOpendate;
+		}
+
+
 	//storeId自動產生所以不用建構子
 	public ReservationStore(Integer storeDepartmentNumber, String storeName, String storePhone, String storeAddress, String storeOpendate, Date createdAt, Date modifiedAt) {
 		super();

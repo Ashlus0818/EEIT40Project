@@ -57,6 +57,18 @@ public class ShopLiquor {
 
 
 
+	public ShopLiquor(String pName, String place, String introduce, String price) {
+		super();
+		this.pName = pName;
+		this.place = place;
+		Introduce = introduce;
+		this.price = price;
+	}
+
+
+
+
+
 	public Integer getId() {
 		return id;
 	}

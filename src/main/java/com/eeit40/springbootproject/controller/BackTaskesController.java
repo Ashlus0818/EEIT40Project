@@ -1,7 +1,10 @@
 package com.eeit40.springbootproject.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,10 +20,11 @@ public class BackTaskesController {
 	@Autowired
 	private BackTaskesService bService;
 	
-	@ResponseBody
 	@PostMapping(value="backtaskes/insert")
-	public BackTaskes insertBackTaskes(BackTaskes task) {
-		return bService.insert(task);
+	public String insertBackTaskes(@RequestParam("taskName") String name, 
+			@RequestParam("taskTitle") String title) {
+		bService.insert(new BackTaskes(name, title));
+		return "redirect:/backTask";
 	}
 	
 	@ResponseBody
@@ -32,8 +36,15 @@ public class BackTaskesController {
 	}
 	
 	@PostMapping(value="backtaskes/delete")
-	public String deleteById(ModelAndView mav, @RequestParam("num") Integer id) {
+	public String deleteById(ModelAndView mav, @RequestParam("taskId") Integer id) {
 		boolean flag = bService.deleteById(id);
+		return "redirect:/backTask";
+	}
+	
+	@PostMapping(value="backtaskes/update")
+	public String updateById(ModelAndView mav, @RequestParam("taskId") Integer id, @RequestParam("taskName") String name, 
+			@RequestParam("taskTitle") String title) {
+		bService.insert(new BackTaskes(id, name, title, new Date(), new Date()));
 		return "redirect:/backTask";
 	}
 	

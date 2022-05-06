@@ -9,9 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.model.ReservationMessageTest;
 import com.eeit40.springbootproject.model.ReservationStore;
+import com.eeit40.springbootproject.model.ShopInventory;
+
 import com.eeit40.springbootproject.service.ReservationMessageTestService;
 import com.eeit40.springbootproject.service.ReservationStoreService;
-
+import com.eeit40.springbootproject.service.ShopInventoryService;
 import com.eeit40.springbootproject.service.CustomerMessageService;
 
 import com.eeit40.springbootproject.model.BackTaskes;
@@ -30,6 +32,9 @@ public class PageController {
 
 	@Autowired
 	private ReservationMessageTestService messageService;
+	
+	@Autowired
+	private ShopInventoryService siService;
 
 	@GetMapping("/")
 	public String index() {
@@ -41,7 +46,6 @@ public class PageController {
 		Page<BackTaskes> page = bService.findByPage(pageNumber);
 		mav.getModel().put("page", page);
 		mav.setViewName("backTask");
-		System.out.println(page);
 		return mav;
 	}
 
@@ -125,5 +129,35 @@ public class PageController {
 	public String backmessage() {
 		return "CusMesback";
 	}
+	
+	@GetMapping("/addShopLiquor")
+	public String addShopLiquor() {
+		return "ShopLiquor";
+	}
+	
+	@GetMapping("/addShopOrder")
+	public String addShopOrder() {
+		return"ShopOrder";
+	}
+	
+	@GetMapping("/addShopCart")
+	public String addShopCart() {
+		return "ShopCart";
+	}
+	
+//	@GetMapping("/addShopInventory")
+//	public String ShopInventory() {
+//		return "ShopInventory";
+//	}
+	@GetMapping("/addShopInventory")
+	public ModelAndView ShopInventory(ModelAndView mav, @RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+		Page<ShopInventory> page = siService.findByPage(pageNumber);
 
+		mav.getModel().put("page", page);
+		mav.setViewName("ShopInventory");
+		return mav;
+	}
+	
+
+	
 }
