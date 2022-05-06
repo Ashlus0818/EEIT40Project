@@ -41,7 +41,7 @@ public class ForumReportController {
 		ForumPost post = new ForumPost();
 		post = postService.getpostById(postID);
 		mav.getModel().put("post", post);
-		mav.getModel().put("forumreport", report);
+		mav.getModel().put("forumReport", report);
 		mav.setViewName("ForumAddreport");
 		return mav;
 	}	
@@ -53,7 +53,7 @@ public class ForumReportController {
 		if (!br.hasErrors()) {
 			reportService.insertReport(report);
 			ForumReport newreport = new ForumReport();
-			mav.getModel().put("forumreport", newreport);
+			mav.getModel().put("forumpost", newreport);
 			mav.setViewName("redirect:/ForumPostlist");
 		}
 		return mav;

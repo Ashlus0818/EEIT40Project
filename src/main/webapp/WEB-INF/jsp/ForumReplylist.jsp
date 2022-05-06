@@ -18,21 +18,6 @@
 	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
 
 	<div class="container">
-		<p />
-		<div class="col-6">
-			<div class="card">
-				<div class="card-header">
-					最近一筆(時間)<span><fmt:formatDate
-							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastreply.date}" /></span>
-				</div>
-				<div class="card-body">
-					<p />
-					內容：
-					<c:out value="${lastreply.recontext}" />
-				</div>
-			</div>
-		</div>
-
 
 		<c:forEach var="reply" items="${allreply}">
 			<div class="col-6">
@@ -40,8 +25,8 @@
 					<div class="card-header">
 						<div class="edit-link">
 							<a href="${contextRoot}/ForumEditreply?replyID=${reply.replyID}">編輯</a> | 
-							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreply?replyID=${reply.replyID}">刪除</a>
-							<a href="${contextRoot}/ForumPostlist#${reply.postID}">錨點</a> 
+							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreply?replyID=${reply.replyID}">刪除</a> | 
+							<a href="${contextRoot}/ForumOnepost#${reply.postID}">看${reply.replyID}的文</a> 
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${reply.date}" />
@@ -56,8 +41,6 @@
 		</c:forEach>
 		
 	</div>
-
-
 
 	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
 </body>

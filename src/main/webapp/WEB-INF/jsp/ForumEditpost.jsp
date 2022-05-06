@@ -30,13 +30,18 @@
 						<form:input type="hidden" path="image" />
 						<form:input type="hidden" path="date" />
 						<div class="imput-group">
+						<p />
 							標題：
+							<p />
+							<p />
 							<form:textarea path="title" class="form-control"></form:textarea>
 							<p />
 							<p />
 							內容：
+							<p />
 							<form:textarea path="context" class="form-control"></form:textarea>
 						</div>
+						<p />
 						<input type="submit" name="submit" value="修改">
 					</form:form>
 				</div>
