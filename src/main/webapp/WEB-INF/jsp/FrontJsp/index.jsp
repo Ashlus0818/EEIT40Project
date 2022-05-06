@@ -95,11 +95,8 @@
                 </ul><!-- /.sub-menu -->
               </li>
               <li class="active">
-                <a href="#" title="">CONTACT US</a>
-                <ul class="sub-menu">
-                  <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
-                  <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
-                </ul><!-- /.sub-menu -->
+                  <a href="${contextRoot}/front/CusMesFront" title="">聯絡我們</a>
+               </li>
               </li>
             </ul>
           </nav>
