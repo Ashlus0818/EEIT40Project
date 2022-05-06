@@ -58,4 +58,8 @@ public class PageControllerFront {
 	}
 	
 	
+	@GetMapping("/front/CusMesFront")
+	public String customerMes() {
+		return "FrontJsp/CusMesFront";
+	}
 }

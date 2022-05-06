@@ -17,7 +17,10 @@
   </div> <!-- /.loading-overlay -->
   <header class="style1">
     <div id="site-header">
+
       <jsp:include page="IncludePage/topBar.jsp" />
+
+
     </div>
   </header>
   <div class="flat-slider style1">

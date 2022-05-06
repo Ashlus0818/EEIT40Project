@@ -23,6 +23,9 @@
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header">
+				<div class="edit-link">
+							<a href="${contextRoot}/ForumPostlist">回文章列表</a> 
+						</div>
 					<span><fmt:formatDate
 							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${post.date}" /></span>
 				</div>
@@ -36,19 +39,17 @@
 				</div>
 			</div>
 		</div>
-		
-		<c:forEach var="getpost" items="${getpost}">
+		<br>
+		<c:forEach var="getreply" items="${getreply}">
 			<div class="col-6">
-				<div class="card">
-					<div class="card-header">
+				<div class="card">			
+					<div class="card-header">			
 						<div class="edit-link">
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
-								value="${getpost.date}" />
-							<br> 
-							No： <c:out value="${getpost.replyID}" />
+								value="${getreply.date}" />
 							<br>
-							內容： <c:out value="${getpost.recontext}" />
+							內容： <c:out value="${getreply.recontext}" />
 						</span>
 					</div>
 				</div>
