@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eeit40.springbootproject.dao.ForumreportRepository;
-
+import com.eeit40.springbootproject.model.ForumReply;
 import com.eeit40.springbootproject.model.ForumReport;
 
 @Service
@@ -41,4 +41,8 @@ public class ForumReportService {
 		return forumreportDao.findFirstByOrderByDateDesc();
 	}
 
+	public List<ForumReport> getreplyBypostID(Integer postID) {
+		List<ForumReport> list1 = forumreportDao.findAllByPostID(postID);
+		return list1;
+	}
 }

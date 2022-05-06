@@ -20,7 +20,7 @@
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">編輯回應</div>
+				<div class="card-header">編輯回覆</div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumreply">
 						<form:errors path="recontext" />
@@ -29,7 +29,8 @@
 						<form:input type="hidden" path="date" />
 						<div class="imput-group">
 							<p />
-							內容：
+							回覆內容：
+							<p/>
 							<form:textarea path="recontext" class="form-control"></form:textarea>
 						</div>
 						<input type="submit" name="submit" value="修改">
