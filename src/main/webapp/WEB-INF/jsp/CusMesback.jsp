@@ -74,9 +74,11 @@
 	
 	
 	function deleteForm(count){
+		var yes = confirm("確認刪除此筆紀錄?");
+		if(yes){
 		   document.getElementById('CusFormId'+count).action="${contextRoot}/CusMesbacks/DeleteMessage";
  		document.getElementById('CusFormId'+count).submit();
-		
+		} else{}
  		
 	}
 	
