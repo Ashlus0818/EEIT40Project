@@ -57,16 +57,14 @@ public class ForumReplyController {
 		return mav;
 	}	
 	@PostMapping("/ForumAddreply")
-	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply,
-			BindingResult br) {
-		mav.setViewName("ForumAddreply");
+	public ModelAndView insertreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply) {
+		mav.setViewName("ForumAddreply");		
 		
-		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
 			ForumReply newreply = new ForumReply();
 			mav.getModel().put("forumpost", newreply);
 			mav.setViewName("redirect:/ForumOnepost?postID=" + reply.getPostID());
-		}
+		
 		return mav;
 	}
 	@GetMapping("/ForumEditreply")
