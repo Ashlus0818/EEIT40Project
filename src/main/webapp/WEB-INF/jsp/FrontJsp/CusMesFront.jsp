@@ -13,6 +13,60 @@
 <body>
  <header class="style1">
     <div id="site-header">
+<<<<<<< HEAD
+=======
+    <div class="container-fluid">
+         <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37" data-retina="image/logo-2x.png" data-width="147" data-height="21"></a>
+         <div class="mobile-button">
+            <span></span>
+         </div>
+         
+         <div class="nav-wrap ">
+            <nav id="mainnav" class="mainnav">
+                <ul class="menu">
+                    <li class="active">
+                         <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
+                    </li>
+                    <li class="active"> 
+                         <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
+                            <ul class="sub-menu">
+                                
+                                <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Coming-soon.html" title="">Coming Soon</a></li>
+                                <li><a href="${contextRoot}/FrontPage/404-page.html" title="">404 Page</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Wish-list.html" title="">Wish List</a></li>
+                             </ul><!-- /.sub-menu -->
+                    </li>
+                    <li class="active">
+                        <a href="#" title="">商品</a>
+                            <ul class="sub-menu">
+                            <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.jsp" title="">商品總覽</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-details.jsp" title="">商品詳細 </a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.jsp" title="">訂單追蹤</a></li>
+                                 <li><a href="${contextRoot}/FrontPage/Shop-cart.jsp" title="">購物車</a></li>
+                            </ul><!-- /.sub-menu -->
+                    </li>
+                    <li class="active">
+                        <a href="#" title="">BLOG</a>
+                            <ul class="sub-menu">
+                                <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Blog-Right-Slidebar.html" title="">Blog Right Slidebar</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Blog-details-slidebar.html" title="">Blog Details Slidebar</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Blog-details-fullwidth.html" title="">Blog Details FullWidth</a></li>
+                            </ul><!-- /.sub-menu -->
+                    </li>
+                    <li class="active a">
+                        <a href="#" title="">CONTACT US</a>
+                            <ul class="sub-menu">
+                                <li class="active"><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
+                                <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
+                            </ul><!-- /.sub-menu -->
+                     </li>
+                </ul>
+            </nav>
+         </div><!-- /.nav-wrap -->
+>>>>>>> angus
 
       <jsp:include page="IncludePage/topBar.jsp" />
 
