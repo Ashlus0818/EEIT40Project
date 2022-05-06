@@ -32,12 +32,6 @@ public class FrontApi {
 		return null;
 	}
 
-//	@PostMapping(value = "/test2")
-
-
-
-//	@PostMapping(value = "/test")
-
 
 	// public List<String> test(@RequestParam("message") String string){
 	public List<String> test(HttpServletRequest request) throws IOException {
