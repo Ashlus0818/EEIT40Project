@@ -48,8 +48,6 @@ public class ReservationOrderService {
 			return null;
 		}
 	
-
-
 	//修改資料 from ReservationStoreController		
 	public void insert(ReservationOrder reS) {
 		ReservationOrderDao.save(reS);
