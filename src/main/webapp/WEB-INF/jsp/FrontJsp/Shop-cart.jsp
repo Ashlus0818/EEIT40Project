@@ -9,8 +9,7 @@
             <title>Shop-cart</title>            
         </head>
 
-<<<<<<< HEAD
-        <body>
+<body>
             <div id="loading-overlay">
                 <div class="loader"></div>
             </div> <!-- /.loading-overlay -->
@@ -34,7 +33,6 @@
                                 <div class="page-title-heading">
                                     <h2 class="title"><a href="#">Cart</a></h2>
                                 </div>
-=======
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -91,7 +89,7 @@
                 <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.jsp" title="">商品總覽</a></li>
                                  <li><a href="${contextRoot}/FrontPage/Shop-details.jsp" title="">商品詳細 </a></li>
                                  <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.jsp" title="">訂單追蹤</a></li>
-                                 <li><a href="${contextRoot}/FrontPage/Shop-cart.jsp" title="">購物車</a></li>
+                                 <li><a href="${contextRoot}/front/Shop-cart" title="">購物車</a></li>
                 </ul><!-- /.sub-menu -->
               </li>
                         <li class="active">
@@ -156,12 +154,10 @@
                             </div>
                             <div class="page-title-heading">
                                  <h2 class="title"><a href="#">Cart</a></h2>
->>>>>>> angus
                             </div>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
             </div> <!-- /.page-title -->
             <div class="main-shop-cart">
                 <section class="flat-cart">
@@ -363,7 +359,6 @@
                                                                 TO CHECK OUR</a>
                                                         </div>
                                                     </div>
-=======
             </div>
     </div> <!-- /.page-title -->
 <div class="main-shop-cart">
@@ -465,7 +460,6 @@
                                             <li>
                                                 <div class="elm-btn">
                                                     <a href="#" class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">新增商品</a>
->>>>>>> angus
                                                 </div>
                                             </div>
                                         </div>
