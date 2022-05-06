@@ -97,10 +97,10 @@
           <div class="filter-post">
             <div class="featured-post">
               <img src="${contextRoot}/FrontPage/image/homepage120.png" alt="image">
-              <div class="date-time">
-                <h2>02</h2>
-                <h2>JULY</h2>
-              </div>
+<!--               <div class="date-time"> -->
+<!--                 <h2>02</h2> -->
+<!--                 <h2>JULY</h2> -->
+<!--               </div> -->
             </div>
             <div class="content-post">
               <h2 class="content-title"><a href="">
@@ -163,7 +163,7 @@
         </div>
       </c:forEach>
     </article>
-
+  </div>
     <!-- 顯示page頁數按鈕				 -->
     <div class="row totalpages">
       <div class="col-9">
@@ -188,9 +188,6 @@
         </c:forEach>
       </div>
     </div>
-
-
-  </div>
 
   <jsp:include page="IncludePage/footer.jsp" />
   <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
