@@ -25,7 +25,11 @@
 							value="${post.date}" /></span>
 				</div>
 				<div class="card-body">
-					NO.${forumReport.postID}
+
+			<!--			NO：${forumReport.postID} -->
+
+				NO.${forumReport.postID} 
+
 					<p />
 					<p />
 					文章標題：
@@ -51,8 +55,12 @@
 						<form:input type="hidden" path="postID"
 							value="${forumReport.postID}" />
 						<div class="imput-group">
+
+			<!--			${forumReport.postID}  -->
+
 							>> NO.${forumReport.postID}
 							<p />
+
 							<p />
 							檢舉原因：
 							<p />

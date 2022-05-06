@@ -23,11 +23,16 @@
 			<div class="card">
 				<div class="card-header">
 					最近的檢舉(時間)>><span><fmt:formatDate
+		<!--			pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastreport.date}" /></span>-->		
+		<!--		</div>-->
+		<!--		<div class="card-body">-->
+
 							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastreport.date}" /></span>						  
 				</div>
 				<div class="card-body">
 					<a href="${contextRoot}/ForumOnepost?postID=${lastreport.postID}">NO：${lastreport.postID}</a>
 					<p />
+          
 					理由：
 					<c:out value="${lastreport.reportReason}" />
 				</div>
@@ -44,6 +49,15 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">
+
+			<!--		<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreport?reportID=${report.reportID}">刪除</a> |-->		
+			<!--			<a href="${contextRoot}/ForumOnepost?postID=${report.postID}">看NO：${report.postID}的文及回應</a>-->	
+			<!--		</div>-->	
+			<!--		<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"-->	
+			<!--				value="${report.date}" />-->	
+			<!--			<br>-->	
+				<!--			<br> 理由： <c:out value="${report.reportReason}" />-->
+
 							<a href="${contextRoot}/ForumOnepost?postID=${report.postID}">看NO：${report.postID}的文及回應</a> |
 							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreport?reportID=${report.reportID}">刪除</a>
 
@@ -51,6 +65,7 @@
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${report.date}" /> <br> <br> 理由： <c:out
 								value="${report.reportReason}" />
+
 						</span>
 					</div>
 				</div>

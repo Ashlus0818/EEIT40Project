@@ -54,7 +54,11 @@ public class ForumReportController {
 			reportService.insertReport(report);
 			ForumReport newreport = new ForumReport();
 			mav.getModel().put("forumpost", newreport);
+
+		//	mav.setViewName("redirect:/ForumPostlist");
+
 			mav.setViewName("redirect:/ForumReportlist");
+
 		}
 		return mav;
 	}

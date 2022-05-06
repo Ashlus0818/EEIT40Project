@@ -27,6 +27,7 @@
 							<a href="${contextRoot}/ForumPostlist">回文章列表</a> |
 							<a href="${contextRoot}/ForumReportlist">回檢舉列表</a> 
 						</div>
+						<br>
 					<span><fmt:formatDate
 							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${post.date}" /></span>
 				</div>
@@ -35,15 +36,19 @@
 				<p />
 				<p />
 					標題：
-					<p />
-					<p />
-					<p />
+					<p/>
+					<p/>
+				<!--	<p />-->
+				<!--	<p />-->
+				<!--	<p />-->
 					<c:out value="${post.title}" />
 					<p />
 										----------------------------------------------------------------------
 					<p />
 					內容：
-					<p />
+					<p/>
+					<p/>
+				<!--	<p />-->
 					<c:out value="${post.context}" />
 					<p />
 				</div>
