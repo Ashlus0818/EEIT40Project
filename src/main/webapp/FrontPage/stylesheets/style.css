@@ -1546,7 +1546,7 @@ article.post-list .content-post {
 footer.style1 {
 	margin-top: 100px;
 	background-image: url(../image/footer.jpg);
-	height: 445px;
+	height: 260px;
 	max-height: 445px;
 }
 
@@ -6832,7 +6832,7 @@ transition: all 1s ease;
   /* flat-event */
 
 .main-event {
-	padding: 132px 0 77px;
+	padding: 65px 0 35px;
 }
 
 .flat-filter .filter-border {

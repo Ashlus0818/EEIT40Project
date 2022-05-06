@@ -31,8 +31,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.dao.ReservationOrderRepository;
 import com.eeit40.springbootproject.dao.ReservationStoreRepository;
 import com.eeit40.springbootproject.model.ReservationMessageTest;
+import com.eeit40.springbootproject.model.ReservationOrder;
 import com.eeit40.springbootproject.model.ReservationStore;
 import com.eeit40.springbootproject.service.ReservationStoreService;
 
@@ -44,6 +46,9 @@ public class ReservationStoreController {
 	// save動作--->有dao後才可以做下面new DB欄位裡的物件
 	@Autowired
 	private ReservationStoreRepository dao;
+	
+	@Autowired
+	private ReservationOrderRepository rrrepository;
 
 	// insert店家資料(僅限一筆)
 	//使用crudRepository的save方法
@@ -375,10 +380,21 @@ public class ReservationStoreController {
 //            return "showImg";       
 //          }
         
-      
-
-        
-        
+@GetMapping("texttttt")
+@ResponseBody
+public List<ReservationOrder> text(@RequestParam("storeName") String storeName,@RequestParam("day") String day){
+	
+	List<ReservationOrder> result=  rrrepository.checkTime(storeName, day);
+	for(ReservationOrder  r : result) {
+System.out.println(r.getReCustomerEmail());
+//for迴圈裡再比較時間
+// 比較時間有沒依樣   //失敗回傳
+	}
+	
+	return result;  //成功回傳
+}
+       //ajax 
+      //success function裡要寫成功和失敗(失敗回傳失敗)  
         
 	
 }
