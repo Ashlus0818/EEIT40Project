@@ -16,7 +16,7 @@
             <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
           </li>
           <li class="active">
-            <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
+            <a href="${contextRoot}/front/Re-Order-oldVersion" title="">現場試喝</a>
             <ul class="sub-menu">
 
               <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
@@ -26,7 +26,7 @@
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">PRODUCTS</a>
+            <a href="#" title="">商品</a>
             <ul class="sub-menu">
               <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-list.html" title="">Shop Full Width List</a></li>
               <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">Shop Full Width Grid</a></li>
@@ -40,7 +40,7 @@
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">BLOG</a>
+            <a href="#" title="">討稐/交流</a>
             <ul class="sub-menu">
               <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
@@ -50,7 +50,7 @@
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">CONTACT US</a>
+            <a href="#" title="">聯絡我們</a>
             <ul class="sub-menu">
               <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
               <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
