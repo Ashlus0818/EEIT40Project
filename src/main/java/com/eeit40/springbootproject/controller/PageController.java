@@ -1,6 +1,10 @@
 package com.eeit40.springbootproject.controller;
 
+import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,10 +41,16 @@ public class PageController {
 	private ShopInventoryService siService;
 
 	@GetMapping("/")
-	public String index() {
+	public String index(HttpSession session) {
+		System.out.println(session.getAttribute("status"));
 		return "index";
 	}
-
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
 	@GetMapping("/backTask")
 	public ModelAndView BackTask(ModelAndView mav, @RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
 		Page<BackTaskes> page = bService.findByPage(pageNumber);
