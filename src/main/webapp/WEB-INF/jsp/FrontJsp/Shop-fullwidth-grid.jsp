@@ -8,12 +8,10 @@
 			<jsp:include page="IncludePage/head.jsp" />
 			<title>Shop-fullwidth-grid</title>
 		</head>
-
-<<<<<<< HEAD
-		<body>
+<body>
 			<div id="loading-overlay">
 				<div class="loader"></div>
-=======
+
 <!-- Mobile Specific Metas -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -161,7 +159,6 @@
 						</button>
 					</form>
 				</div>
->>>>>>> angus
 			</div>
 			<!-- /.loading-overlay -->
 			<header class="style1">

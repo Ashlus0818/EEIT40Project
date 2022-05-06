@@ -12,12 +12,11 @@
 			<title>Reservation</title>
 		</head>
 
-<<<<<<< HEAD
-		<body>
+<body>
 			<!-- /.loading-overlay -->
 			<div id="loading-overlay">
 				<div class="loader"></div>
-=======
+
 <!-- Mobile Specific Metas -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -57,8 +56,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${contextRoot}/FrontPage/rev-slider/css/navigation.css">
 <!-- 改名 -->
-<link rel="stylesheet" type="text/css"
-	href="${contextRoot}/FrontPage/stylesheets/t1.css">
+<link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/t1.css">
 </head>
 
 <body>
@@ -169,7 +167,6 @@
 						</button>
 					</form>
 				</div>
->>>>>>> angus
 			</div>
 			<header class="style1">
 				<div id="site-header">

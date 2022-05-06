@@ -45,4 +45,8 @@ public class ForumReportService {
 		List<ForumReport> list1 = forumreportDao.findAllByPostID(postID);
 		return list1;
 	}
+	
+	public void deletereportall() {
+		forumreportDao.deleteAll();
+	}
 }

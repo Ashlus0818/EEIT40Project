@@ -17,10 +17,11 @@
   </div> <!-- /.loading-overlay -->
   <header class="style1">
     <div id="site-header">
-
-
       <jsp:include page="IncludePage/topBar.jsp" />
- 
+    </div>
+  </header>
+  
+
   <div class="flat-slider style1">
     <!-- SLIDER -->
     <div class="rev_slider_wrapper fullwidthbanner-container">
@@ -29,7 +30,7 @@
           <!-- Slide 1 -->
           <li data-transition="random">
             <!-- Main Image -->
-            <img src="${contextRoot}/FrontPage/image/homepage11.jpg" alt="" data-bgposition="center center" data-no-retina>
+            <img src="${contextRoot}/FrontPage/image/eeit40homepage.jpg" alt="" data-bgposition="center center" data-no-retina>
             <div class="overlay"></div>
 
             <!-- Layers -->
