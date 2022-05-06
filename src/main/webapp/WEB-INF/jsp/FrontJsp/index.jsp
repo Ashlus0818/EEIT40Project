@@ -20,11 +20,6 @@
 
       <jsp:include page="IncludePage/topBar.jsp" />
 
-<<<<<<< HEAD
-     
-=======
-
->>>>>>> 710f77d6800572c376be690cea3781f189818f12
     </div>
   </header>
   <div class="flat-slider style1">
