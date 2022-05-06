@@ -23,6 +23,9 @@ public class ForumReport {
 	@Column(name = "reportID")
 	private Integer reportID;
 
+	@Column(name = "postID")
+	private Integer postID;
+	
 	@Column(name = "userID")
 	private Integer userID;
 
@@ -81,11 +84,19 @@ public class ForumReport {
 	public ForumReport() {
 	}
 
+	public Integer getPostID() {
+		return postID;
+	}
+
+	public void setPostID(Integer postID) {
+		this.postID = postID;
+	}
 
 	@Override
 	public String toString() {
-		return "Forumreport [reportID=" + reportID + ", userID=" + userID + ", reportReason=" + reportReason + ", date="
-				+ date + "]";
+		return "ForumReport [reportID=" + reportID + ", postID=" + postID + ", userID=" + userID + ", reportReason="
+				+ reportReason + ", date=" + date + "]";
 	}
+
 
 }
