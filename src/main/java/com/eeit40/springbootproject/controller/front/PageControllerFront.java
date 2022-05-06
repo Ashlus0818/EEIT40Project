@@ -37,4 +37,8 @@ public class PageControllerFront {
 		return "FrontJsp/Reservation";
 	}
 	
+	@GetMapping("/front/CusMesFront")
+	public String customerMes() {
+		return "FrontJsp/CusMesFront";
+	}
 }

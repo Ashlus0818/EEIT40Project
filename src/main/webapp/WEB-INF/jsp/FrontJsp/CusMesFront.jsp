@@ -48,10 +48,10 @@
             <nav id="mainnav" class="mainnav">
                 <ul class="menu">
                     <li class="active">
-                         <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
+                         <a href="${contextRoot}/FrontPage/index.html" title="">首頁</a>
                     </li>
                     <li class="active"> 
-                         <a href="${contextRoot}/FrontPage/about.html" title="">FEATURES</a>
+                         <a href="${contextRoot}/FrontPage/about.html" title="">預約試喝</a>
                             <ul class="sub-menu">
                                 
                                 <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>
@@ -74,7 +74,7 @@
                             </ul><!-- /.sub-menu -->
                     </li>
                     <li class="active">
-                        <a href="#" title="">BLOG</a>
+                        <a href="#" title="">討論區</a>
                             <ul class="sub-menu">
                                 <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
                                 <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
@@ -84,11 +84,7 @@
                             </ul><!-- /.sub-menu -->
                     </li>
                     <li class="active a">
-                        <a href="#" title="">CONTACT US</a>
-                            <ul class="sub-menu">
-                                <li class="active"><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
-                                <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
-                            </ul><!-- /.sub-menu -->
+                        <a href="${contextRoot}/front/CusMesFront" title="">聯絡我們</a>
                      </li>
                 </ul>
             </nav>
@@ -129,12 +125,9 @@
                     <div class="page-title-content text-center">
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="#">Home</a></li>     
-                                <li class="blog"><a href="#">Contact Us</a></li>
+                                <li><a href="#">首頁</a></li>     
+                                <li class="blog"><a href="#">聯絡我們</a></li>
                             </ul>
-                        </div>
-                        <div class="page-title-heading">
-                             <h2 class="title"><a href="#">CONTACT US</a></h2>
                         </div>
                     </div>
                 </div>
@@ -145,10 +138,7 @@
 <section class="flat-map-content">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="flat-map">                       
-                </div>
-            </div>
+          <img src="${contextRoot}/FrontPage/image/cus01.jpeg" alt="" data-bgposition="center center" data-no-retina>   
         </div>
     </div>
 </section> <!-- /flat-map-content-->
@@ -158,67 +148,29 @@
           <div class="col-lg-12">
               <div class="title-section">
                   <h3 class="our-product-title"><a href="#"> Contact Us </a></h3>
-                  <h1 class="our-product-main"><a href="#"> Get In Touch </a></h1>
                   <div class="our-product-image">
                        <img src="${contextRoot}/FrontPage/image/homepage14.png" alt="image">
                   </div>
               </div> <!-- /title-section -->
-          </div>
-          <div class="col-lg-5 col-md-5 col-sm-5">
-              <div class="information info-contact">
-                  <div class="information-address">
-                      <h2><a href="#">å°å:</a></h2>
-                      <h2 class="information-content">40 Baria Sreet 133/2, New York, US</h2>
-                  </div>
-                  <div class="flat-divider-margintop8px"></div>
-                  <div class="information-hotline information-bottom">
-                      <h2><a href="#">çæ¥­æé:</a></h2>
-                      <h2 class="information-content">Open hours: 8.00-18.00 Mon_Sat</h2>
-                  </div>
-                  <div class="flat-divider-margintop8px"></div>
-                  <div class="information-open information-bottom">
-                      <h2><a href="#">ä¿¡ç®±:</a></h2>
-                      <h2 class="information-content">info.deercreative@gmail.com</h2>
-                  </div>
-                  <div class="flat-divider-margintop8px"></div>
-                  <div class="information-open information-bottom">
-                      <h2><a href="#">é»è©±</a></h2>
-                      <h2 class="information-content">(+123) 456-789-1120</h2>
-                  </div>
-              </div> <!-- /information -->
-          </div>
-          <div class="col-lg-7 col-md-7 col-sm-7">
-              <!-- <form id="contactform" action="./contact/contact-process.php"  class="form-submit contact-form wpcf7-form">
-                  <input type="text" name="name"  class="mg-bottom-33" required="" placeholder="Name*" >
-                  <div class="flat-divider-margintop10px"></div>
-                  <input type="email" name="email"  class="mg-bottom-33" required="" placeholder="Email" >
-                  <div class="flat-divider-margintop16px"></div>
-                  <input type="text" name="subject" class="mg-bottom-33" placeholder="Phone" >
-                  <div class="flat-divider-margintop12px"></div>
-                  <textarea name="messages"  required="" placeholder="Messages*"></textarea>
-                  <p class="submit-form">
-                      <button name="submit" type="submit"  class="submit btn btn-styl hvr-shutter-out-horizontal" >SUBMIT</button>
-                  </p>
-              </form> -->
-
+         
                <form id="contactform" action="./contact/contact-process.php" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
                   <span class="wpcf7-form-control-wrap your-name">
-                      <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="å§å*" required>
+                      <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="姓名" required>
                   </span>
                   <div class="flat-divider-margintop10px"></div>                                                           
                   <span class="wpcf7-form-control-wrap your-email">
-                      <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="ä¿¡ç®±*" required>
+                      <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="信箱" required>
                   </span>
                   <div class="flat-divider-margintop16px"></div>
                   <span class="wpcf7-form-control-wrap your-question">
-                      <input type="text" tabindex="2" id="question" name="question" value="" class="wpcf7-form-control" placeholder="åé¡ï¼">
+                      <input type="text" tabindex="2" id="question" name="question" value="" class="wpcf7-form-control" placeholder="問題">
                   </span> 
                   <div class="flat-divider-margintop12px"></div>
                   <span class="wpcf7-form-control-wrap your-message">
-                     <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="çè¨åé¡*" required ></textarea>
+                     <textarea name="message" tabindex="5" cols="40" rows="10" id="message" class="wpcf7-form-control wpcf7-textarea" placeholder="留言" required ></textarea>
                   </span>                                                             
                   <span class="wrap-submit submit-form">
-                      <button name="submit" type="submit" id="submit" class="submit btn btn-styl hvr-shutter-out-horizontal wpcf7-form-control wpcf7-submit" >éåº</button>
+                      <button name="submit" type="submit" id="submitButton" class="submit btn btn-styl hvr-shutter-out-horizontal wpcf7-form-control wpcf7-submit" >提交</button>
                   </span>                                                        
               </form>
           </div>
@@ -254,7 +206,7 @@
                      <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html"> Customer Service </a></li>
                      <li><a href="${contextRoot}/FrontPage/Homepage2.html"> Terms & Conditions </a></li>
                      <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html"> Privacy Policy </a></li>
-                     <li class="contact active"><a href="${contextRoot}/FrontPage/contact-1.html"> Contact </a></li>
+                     <li class="contact active"><a href="${contextRoot}/FrontPage/contact-1.html"> 聯絡我們 </a></li>
                  </ul>
             </div> <!-- /widget-about -->
             <div class="widget widget-text">
@@ -265,10 +217,50 @@
 </footer>
 
 <script>
+   $(document).ready(function () {
+        $('#submitButton').click(function () {
 
+            var inputText = document.getElementById('name').value;
+            var inputText2 = document.getElementById('email').value;
+            var inputText3 = document.getElementById('question').value;
+            var inputText4 = document.getElementById('message').value;
+
+            var dtoObject = {"cusname": inputText,
+                             "cusemail": inputText2,
+                             "cusquest": inputText3,
+                             "custext": inputText4,
+                            };
+            var dtoJsonString = JSON.stringify(dtoObject);
+            
+            $.ajax({
+                url: 'http://localhost:8080/myapp/cusmes',
+                contentType: 'application/json; charset=UTF-8', 
+                dataType: 'json',   
+                method: 'post',
+                data: dtoJsonString,
+                success: function (result) {
+                    var txt = "<tr><th>pubDate<th>title"
+                    console.log("enter ajax")
+                    console.log(result);
+                    $("#demo").html(txt);
+                },
+
+
+                error: function (err) {
+                    console.log("error ajax")
+                    console.log(err)
+                }
+            })
+
+        })
+    })
 </script>
 <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
-
+ <!-- Slider -->
+ <script src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+ <script src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+ <script src="${contextRoot}/FrontPage/javascript/rev-slider.js"></script>
+ 
 <script src="${contextRoot}/FrontPage/javascript/jquery.min.js"></script>
 <script src="${contextRoot}/FrontPage/javascript/jquery.easing.js"></script>
 <script src="${contextRoot}/FrontPage/javascript/owl.carousel.js"></script> 
