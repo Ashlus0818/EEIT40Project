@@ -23,19 +23,19 @@ public class ReservationOrder {
 	private String orderId;
 
 	@Column(name = "orderMemberEmail")
-	private String reCustomerGender;
+	private String orderMemberEmail;
 
 	@Column(name = "orderStoreName")
-	private String reCustomerPhone;
+	private String orderStoreName;
 
 	@Column(name = "orderDate")
-	private String reCustomerEmail;
+	private String orderDate;
 
 	@Column(name = "orderTime")
-	private String storeName;
+	private String orderTime;
 
 	@Column(name = "orderWine")
-	private String reWine;
+	private String orderWine;
 
 	// Date引入util話,要用@Temporal,表跟資料庫說明我的資料型別要裝什麼(年月日/年月日時分秒...等)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") // 年月日時分秒的格式,因為不同資料庫有不同存的格式,例如有些會存到秒數後三位
@@ -59,44 +59,44 @@ public class ReservationOrder {
 		this.orderId = orderId;
 	}
 
-	public String getReCustomerGender() {
-		return reCustomerGender;
+	public String getOrderMemberEmail() {
+		return orderMemberEmail;
 	}
 
-	public void setReCustomerGender(String reCustomerGender) {
-		this.reCustomerGender = reCustomerGender;
+	public void setOrderMemberEmail(String orderMemberEmail) {
+		this.orderMemberEmail = orderMemberEmail;
 	}
 
-	public String getReCustomerPhone() {
-		return reCustomerPhone;
+	public String getOrderStoreName() {
+		return orderStoreName;
 	}
 
-	public void setReCustomerPhone(String reCustomerPhone) {
-		this.reCustomerPhone = reCustomerPhone;
+	public void setOrderStoreName(String orderStoreName) {
+		this.orderStoreName = orderStoreName;
 	}
 
-	public String getReCustomerEmail() {
-		return reCustomerEmail;
+	public String getOrderDate() {
+		return orderDate;
 	}
 
-	public void setReCustomerEmail(String reCustomerEmail) {
-		this.reCustomerEmail = reCustomerEmail;
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
 	}
 
-	public String getStoreName() {
-		return storeName;
+	public String getOrderTime() {
+		return orderTime;
 	}
 
-	public void setStoreName(String storeName) {
-		this.storeName = storeName;
+	public void setOrderTime(String orderTime) {
+		this.orderTime = orderTime;
 	}
 
-	public String getReWine() {
-		return reWine;
+	public String getOrderWine() {
+		return orderWine;
 	}
 
-	public void setReWine(String reWine) {
-		this.reWine = reWine;
+	public void setOrderWine(String orderWine) {
+		this.orderWine = orderWine;
 	}
 
 	public Date getCreatedAt() {
@@ -114,5 +114,7 @@ public class ReservationOrder {
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
 	}
+
+
 
 }
