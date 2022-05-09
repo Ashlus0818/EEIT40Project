@@ -14,10 +14,10 @@
       <nav id="mainnav" class="mainnav">
         <ul class="menu">
           <li class="active a">
-            <a href="${contextRoot}/FrontPage/index.html" title="">HOME</a>
+            <a href="${contextRoot}/front" title="">HOME</a>
           </li>
           <li class="active">
-            <a href="${contextRoot}/front/Re-Order-oldVersion" title="">現場試喝</a>
+            <a href="${contextRoot}/front/Re-Order" title="">現場試喝</a>
             <ul class="sub-menu">
 
               <li><a href="${contextRoot}/FrontPage/Event.html" title="">Event</a></li>

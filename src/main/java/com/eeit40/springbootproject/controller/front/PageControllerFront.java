@@ -24,6 +24,7 @@ public class PageControllerFront {
 	@Autowired
 	private ReservationOrderService ReOrderService;
 
+	//前臺首頁
 	@GetMapping("/front")
 	public String front() {
 		return "FrontJsp/index";
@@ -96,5 +97,4 @@ public class PageControllerFront {
 	public String ex() {
 		return "FrontJsp/複製用";
 	}
-
 }
