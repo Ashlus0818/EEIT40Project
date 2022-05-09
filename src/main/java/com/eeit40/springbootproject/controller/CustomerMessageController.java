@@ -46,42 +46,26 @@ public class CustomerMessageController {
 	
 	}
 //================================================================	
-	@GetMapping("/CusMesbacks/AddCusMessage")
+	@GetMapping("/AddCusMessage")
 	public ModelAndView AddCustomerMessage(ModelAndView mav) {
 		CustomerMessage cusm = new CustomerMessage();
 		mav.getModel().put("cusmes", cusm);
 
-		return mav;
-	}
-	
-	@GetMapping("/CusMesbacks/CusMeslist")
-	public ModelAndView CusMeslistpage(ModelAndView mav) {
-
-		CustomerMessage lastmes = cmseService.getLastmes();
-		mav.getModel().put("lastmes", lastmes);
-
-		List<CustomerMessage> cm = cmseService.findAllMessages();
-		mav.getModel().put("allmes", cm);
-		mav.setViewName("CusMesAdd");
-
-		return mav;
-	}
-	
-	@PostMapping(value={"/AddCusMessage","/CusMeslist"})
-	public ModelAndView insertMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes,
-			BindingResult br) {
-		mav.setViewName("AddCusMessage");
 		
-		if (!br.hasErrors()) {
+		return mav;
+	}
+	
+	
+	@PostMapping("/AddCusMessage")
+	public ModelAndView insertMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes) {
+		
 			cmseService.insert(cusmes);
 			CustomerMessage cMes = new CustomerMessage();
 			mav.getModel().put("CusMes", cMes);
-			mav.setViewName("redirect:/CusMesAdd");
-		}
-		CustomerMessage lastmes = cmseService.getLastmes();
-
-		mav.getModel().put("lastmes", lastmes);
-
+			mav.setViewName("redirect:/front/CusMesFrontView");
+		
+		
+		System.out.print(cusmes+",");
 		return mav;
 	}
 	
@@ -110,7 +94,7 @@ public class CustomerMessageController {
 	
 	@GetMapping("CusMesbacks/DeleteMessage")
 	public String deleteMessage(ModelAndView mav, @RequestParam(name = "messageId") Integer messageId) {
-		System.out.print(messageId+",");
+		
 		cmseService.deleteBymesId(messageId);
 
 		//mav.setViewName("redirect:/CusMesbacks/findByPage");
@@ -121,6 +105,7 @@ public class CustomerMessageController {
 	@PostMapping("CusMesbacks/delete")
 	public String deleteById(ModelAndView mav, @RequestParam("num") Integer id) {
 		boolean flag = cmseService.deleteById1(id);
+		System.out.print(id);
 		return "redirect:/CusMesback";
 	}
 	

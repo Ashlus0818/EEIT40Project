@@ -44,7 +44,12 @@ public class PageControllerFront {
 	public String cusMesFront() {
 		return "FrontJsp/CusMesFront";
 	}
-
+	//查看留言
+	@GetMapping("/front/CusMesFrontView")
+	public String cusMesFrontView() {
+		return "FrontJsp/CusMesFrontView";
+	}
+	
 	// 預約試喝頁面
 //	@GetMapping("/front/Re-Order")
 //	public String reOrder() {

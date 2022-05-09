@@ -4,7 +4,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <div class="container-fluid">
-    <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
+    <a href="${contextRoot}/front" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
         data-retina="${contextRoot}/FrontPage/image/logo.png" data-width="147" data-height="21"></a>
     <div class="mobile-button">
       <span></span>
@@ -51,11 +51,10 @@
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">聯絡我們</a>
+            <a href="${contextRoot}/front/CusMesFront" title="">聯絡我們</a>
             <ul class="sub-menu">
-              <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
-              <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
-            </ul><!-- /.sub-menu -->
+            	 <li><a href="${contextRoot}/front/CusMesFrontView" title="">查看留言</a></li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -71,12 +70,6 @@
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Wishlist</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Cart</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Tracking Orders</a></li>
-            <li class="language"><a href="${contextRoot}/FrontPage/projects1.html" title="">LANGUAGE</a></li>
-            <li class="flag"><a href="${contextRoot}/FrontPage/projects1.html" title="">
-                <span><img src="${contextRoot}/FrontPage/image/flash3.png" alt="image"></span>
-                <span><img src="${contextRoot}/FrontPage/image/flash1.png" alt="image"></span>
-                <span><img src="${contextRoot}/FrontPage/image/flash2.png" alt="image"></span>
-              </a></li>
           </ul><!-- /.sub-menu -->
         </li>
       </ul>
