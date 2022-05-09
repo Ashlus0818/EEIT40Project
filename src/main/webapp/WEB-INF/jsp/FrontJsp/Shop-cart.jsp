@@ -10,53 +10,6 @@
         </head>
 
 <body>
-            <div id="loading-overlay">
-                <div class="loader"></div>
-            </div> <!-- /.loading-overlay -->
-            <header class="style1">
-                <div id="site-header">
-                    <jsp:include page="IncludePage/topBar.jsp" />
-                </div>
-            </header>
-            <div class="page-title parallax parallax1 ">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="page-title-content text-center">
-                                <div class="breadcrumbs">
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Product</a></li>
-                                        <li class="blog"><a href="#">Shopping Cart</a></li>
-                                    </ul>
-                                </div>
-                                <div class="page-title-heading">
-                                    <h2 class="title"><a href="#">Cart</a></h2>
-                                </div>
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/bootstrap.css" >
-
-    <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/style.css">
-
-    <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/responsive.css">
-
-    <!-- Colors -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/colors/color1.css" id="colors">
-
-    <!-- Animation Style -->
-    <link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/animate.css">
-
-    <!-- Favicon and touch icons  -->
-    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed" sizes="48x48">
-    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="apple-touch-icon-precomposed">
-    <link href="${contextRoot}/FrontPage/icon/icon.png" rel="shortcut icon">
-</head>
-<body>
     <div id="loading-overlay">
         <div class="loader"></div>
     </div> <!-- /.loading-overlay -->
@@ -159,208 +112,7 @@
                     </div>
                 </div>
             </div> <!-- /.page-title -->
-            <div class="main-shop-cart">
-                <section class="flat-cart">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="woocommerce-tabs wc-tabs-wrapper">
-                                    <ul class="tabs">
-                                        <li><a class="tab active" data-id='#tab-description' href="#"><i
-                                                    class="  icon_bag" aria-hidden="true"></i>SHOPPING CART</a></li>
-                                        <li><a class="tab" data-id='#tab-reviews' href="#"><i class=" icon_ribbon"
-                                                    aria-hidden="true"></i>CHECK OUT</a></li>
-                                        <li><a class="tab" data-id='#tab-order' href="#"><i
-                                                    class="arrow_carrot-down_alt" aria-hidden="true"></i>ORDER
-                                                COMPLETE</a></li>
-                                    </ul>
-                                    <div class="cart-wrap">
-                                        <div id="tab-description" class="tab-content">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Image</th>
-                                                        <th>Product Name</th>
-                                                        <th>Price</th>
-                                                        <th>Quantity</th>
-                                                        <th>Total</th>
-                                                        <th class="delete">×</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-center image"><img
-                                                                src="${contextRoot}/FrontPage/image/homepage132.png"
-                                                                alt="image"></td>
-                                                        <td class="list text">Bougrier Rose d'Anjou</td>
-                                                        <td class="text-center list price">$34.99</td>
-                                                        <td class="text-center list quantity">
-                                                            <ul class="quantity-menu">
-                                                                <li><i class="fa fa-minus-circle"
-                                                                        aria-hidden="true"></i></li>
-                                                                <li>2</li>
-                                                                <li><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                        <td class="text-center list price">$69.98</td>
-                                                        <td class="text-center delete">×</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><img
-                                                                src="${contextRoot}/FrontPage/image/homepage133.png"
-                                                                alt="image"></td>
-                                                        <td class="list text">D'Autrefois Rose de Pinot Noir</td>
-                                                        <td class="text-center list price">$28.99</td>
-                                                        <td class="text-center list">
-                                                            <ul>
-                                                                <li><i class="fa fa-minus-circle"
-                                                                        aria-hidden="true"></i></li>
-                                                                <li>1</li>
-                                                                <li><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                        <td class="text-center list price">$28.99</td>
-                                                        <td class="text-center delete">×</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><img
-                                                                src="${contextRoot}/FrontPage/image/homepage134.png"
-                                                                alt="image"></td>
-                                                        <td class="list text">Chateau Vivonne Bandol Rose</td>
-                                                        <td class="text-center list price">$46.99</td>
-                                                        <td class="text-center list">
-                                                            <ul>
-                                                                <li><i class="fa fa-minus-circle"
-                                                                        aria-hidden="true"></i></li>
-                                                                <li>3</li>
-                                                                <li><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                        <td class="text-center list price">$40.97</td>
-                                                        <td class="text-center delete">×</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><img
-                                                                src="${contextRoot}/FrontPage/image/homepage135.png"
-                                                                alt="image"></td>
-                                                        <td class="list text">Olema Rose Cotes De</td>
-                                                        <td class="text-center list price">$25.99</td>
-                                                        <td class="text-center list">
-                                                            <ul>
-                                                                <li><i class="fa fa-minus-circle"
-                                                                        aria-hidden="true"></i></li>
-                                                                <li>1</li>
-                                                                <li><i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                        <td class="text-center list price">$25.99</td>
-                                                        <td class="text-center delete">×</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="cart-btn">
-                                                <div class="btn-continue">
-                                                    <div class="elm-btn">
-                                                        <a href="#"
-                                                            class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">CONTINUE
-                                                            SHOPPING</a>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-clear">
-                                                    <ul>
-                                                        <li>
-                                                            <div class="elm-btn">
-                                                                <a href="#"
-                                                                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">CLEAR
-                                                                    CART</a>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="elm-btn">
-                                                                <a href="#"
-                                                                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">UPDATE
-                                                                    CART</a>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="wrap-discount-estimate-cart">
-                                                    <div class="col-lg-4 col-md-4 discount">
-                                                        <h2 class="discount-heading"><a href="#">Discount Codes</a></h2>
-                                                        <p class="discount-text">Enter your coupin if you have one</p>
-                                                        <input type="text" name="discount-codes">
-                                                        <div class="elm-btn">
-                                                            <a href="#"
-                                                                class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">submit</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 estimate">
-                                                        <h2 class="estimate-heading"><a href="#">Estimate Shipping</a>
-                                                        </h2>
-                                                        <p class="estimate-text">Enter your destination to get shipping
-                                                        </p>
-                                                        <div class="estimate-select country">
-                                                            <div class="title-select">
-                                                                <p>COUNTRY</p>
-                                                            </div>
-                                                            <div class="select">
-                                                                <select>
-                                                                    <option value="volvo">United States</option>
-                                                                    <option value="saab">Saab</option>
-                                                                    <option value="opel">Opel</option>
-                                                                    <option value="audi">Audi</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="estimate-select postal">
-                                                            <div class="title-select">
-                                                                <p>POSTAL CODE/ZIP'</p>
-                                                            </div>
-                                                            <div class="selectt">
-                                                                <select>
-                                                                    <option value="volvo">01234567</option>
-                                                                    <option value="saab">Saab</option>
-                                                                    <option value="opel">Opel</option>
-                                                                    <option value="audi">Audi</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="elm-btn">
-                                                            <a href="#"
-                                                                class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">GET
-                                                                A QUOTE</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 cart">
-                                                        <h2 class="cart-heading"><a href="#">Cart Total</a></h2>
-                                                        <div class="wrap-cart">
-                                                            <div class="sub-total">
-                                                                <span>SUB TOTAL</span>
-                                                                <p class="price">$320.00</p>
-                                                            </div>
-                                                            <div class="shipping">
-                                                                <span>SHIPPING</span>
-                                                                <p class="price">Free</p>
-                                                            </div>
-                                                            <div class="totall">
-                                                                <span>TOTAL</span>
-                                                                <p class="price">$320.00</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="elm-btn">
-                                                            <a href="#"
-                                                                class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">PROCEED
-                                                                TO CHECK OUR</a>
-                                                        </div>
-                                                    </div>
-            </div>
-    </div> <!-- /.page-title -->
+          </div>               
 <div class="main-shop-cart">
     <section class="flat-cart">
         <div class="container">
@@ -691,7 +443,84 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="row">
+                                                <div class="wrap-discount-estimate-cart">
+                                                    <div class="col-lg-4 col-md-4 discount">
+                                                        <h2 class="discount-heading"><a href="#">Discount Codes</a></h2>
+                                                        <p class="discount-text">Enter your coupin if you have one</p>
+                                                        <input type="text" name="discount-codes">
+                                                        <div class="elm-btn">
+                                                            <a href="#"
+                                                                class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">submit</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 estimate">
+                                                        <h2 class="estimate-heading"><a href="#">Estimate Shipping</a>
+                                                        </h2>
+                                                        <p class="estimate-text">Enter your destination to get shipping
+                                                        </p>
+                                                        <div class="estimate-select country">
+                                                            <div class="title-select">
+                                                                <p>COUNTRY</p>
+                                                            </div>
+                                                            <div class="select">
+                                                                <select>
+                                                                    <option value="volvo">United States</option>
+                                                                    <option value="saab">Saab</option>
+                                                                    <option value="opel">Opel</option>
+                                                                    <option value="audi">Audi</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="estimate-select postal">
+                                                            <div class="title-select">
+                                                                <p>POSTAL CODE/ZIP'</p>
+                                                            </div>
+                                                            <div class="selectt">
+                                                                <select>
+                                                                    <option value="volvo">01234567</option>
+                                                                    <option value="saab">Saab</option>
+                                                                    <option value="opel">Opel</option>
+                                                                    <option value="audi">Audi</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elm-btn">
+                                                            <a href="#"
+                                                                class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">GET
+                                                                A QUOTE</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 cart">
+                                                        <h2 class="cart-heading"><a href="#">Cart Total</a></h2>
+                                                        <div class="wrap-cart">
+                                                            <div class="sub-total">
+                                                                <span>SUB TOTAL</span>
+                                                                <p class="price">$320.00</p>
+                                                            </div>
+                                                            <div class="shipping">
+                                                                <span>SHIPPING</span>
+                                                                <p class="price">Free</p>
+                                                            </div>
+                                                            <div class="totall">
+                                                                <span>TOTAL</span>
+                                                                <p class="price">$320.00</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="elm-btn">
+                                                            <a href="#"
+                                                                class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">PROCEED
+                                                                TO CHECK OUR</a>
+                                                        </div>
+                                                    </div>
+            </div>
+    </div> <!-- /.page-title -->
+                    
+                    </div>
+                    
                 </section>
+                
             </div> <!-- /main-order-tracking -->
             
             <jsp:include page="IncludePage/footer.jsp" />
