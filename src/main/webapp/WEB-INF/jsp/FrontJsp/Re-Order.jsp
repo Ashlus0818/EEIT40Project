@@ -137,19 +137,20 @@
               <div class="st2">
                 <label for="">產地</label>
                 <select name="">
-                  <option value="">蘇格蘭</option>
-                  <option value="">英格蘭</option>
-                  <option value="">愛爾蘭</option>
+                  <option value="">英國</option>
                   <option value="">美國</option>
+                  <option value="">日本</option>
+                  <option value="">台灣</option>
+                  <option value="">愛爾蘭</option>
                 </select>
               </div>
               <div class="st3">
-                <label for="">XX</label>
+                <label for="">產區</label>
                 <select name="">
-                  <option value="">x</option>
-                  <option value="">xx</option>
+                  <option value="">蘇格蘭</option>
+                  <option value="">英格蘭</option>
+                  <option value="">愛爾蘭</option>
                   <option value="">xxx</option>
-                  <option value="">xxxx</option>
                 </select>
               </div>
 
