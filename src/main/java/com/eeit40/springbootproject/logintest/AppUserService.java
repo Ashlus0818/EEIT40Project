@@ -9,6 +9,8 @@ public class AppUserService {
 	@Autowired
     private AppUserRepository appDao;
 	
+	
+
 //    private BCryptPasswordEncoder passwordEncoder;
 
     

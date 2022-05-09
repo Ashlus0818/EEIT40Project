@@ -2,14 +2,18 @@ package com.eeit40.springbootproject.logintest;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,6 +25,14 @@ public class AppUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
+	
+	@Transient // 不讓 Hibernat 做對應
+	@Column(name="fk_appUserAuthority_authority")
+	private String userauthority;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_appUserAuthority_authority", referencedColumnName = "authority")
+	private AppUserAuthority appUserAuthority;
 	
 	@Column(name="userName")
 	private String userName;
@@ -51,6 +63,19 @@ public class AppUser {
 	private Date lastModified;
 
 	public AppUser() {
+	}
+
+	public AppUser( String userName, String userPwd) {
+		this.userName = userName;
+		this.userPwd = userPwd;
+	}
+
+	public AppUserAuthority getAppUserAuthority() {
+		return appUserAuthority;
+	}
+	
+	public void setAppUserAuthority(AppUserAuthority appUserAuthority) {
+		this.appUserAuthority = appUserAuthority;
 	}
 
 	public Integer getId() {
