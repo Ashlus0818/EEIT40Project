@@ -24,6 +24,11 @@ public class PageControllerFront {
 	@Autowired
 	private ReservationOrderService ReOrderService;
 
+	@GetMapping("/front/login")
+	public String login() {
+		return "FrontJsp/FrontLogin";
+	}
+	
 	//前臺首頁
 	@GetMapping("/front")
 	public String front() {
@@ -98,7 +103,7 @@ public class PageControllerFront {
 		return "FrontJsp/Shop-order-tracking";
 	}
 
-	@GetMapping("/ex")
+	@GetMapping("/front/ex")
 	public String ex() {
 		return "FrontJsp/複製用";
 	}

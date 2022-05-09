@@ -36,14 +36,14 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">EEIT40第一組後臺登入</h1>
                                     </div>
-                                    <form class="user" method="post" action="${contextRoot}/appUser">
+                                    <form class="user" method="post" action="${contextRoot}/login">
                                         <div class="form-group">
-                                            <input name="userName" type="email" class="form-control form-control-user"
+                                            <input name="username" type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input name="userPwd" type="password" class="form-control form-control-user"
+                                            <input name="password" type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
@@ -54,7 +54,10 @@
                                         </div>
                                         <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                                         <hr>
+<%--                                          <input type="text" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
                                     </form>
+
+                                    
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
