@@ -132,7 +132,7 @@
                 </select>
               </div>
 
-              <div>選擇酒</div>
+              <div>選擇預約酒類</div>
 
               <div class="st2">
                 <label for="">產地</label>
@@ -145,12 +145,21 @@
                 </select>
               </div>
               <div class="st3">
-                <label for="">產區</label>
+                <label for="">價格區間</label>
                 <select name="">
                   <option value="">蘇格蘭</option>
                   <option value="">英格蘭</option>
                   <option value="">愛爾蘭</option>
                   <option value="">xxx</option>
+                </select>
+              </div>
+               <div class="st3">
+                <label for="">選擇酒</label>
+                <select name="">
+                  <option value="">x</option>
+                  <option value="">xx</option>
+                  <option value="">xxx</option>
+                  <option value="">xxxx</option>
                 </select>
               </div>
 
