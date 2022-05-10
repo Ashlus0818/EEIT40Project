@@ -29,6 +29,7 @@
 					<a href="${contextRoot}/ForumOnepost?postID=${lastreport.postID}">NO：${lastreport.postID}</a>
 					<p />
 					理由：
+					<p />
 					<c:out value="${lastreport.reportReason}" />
 				</div>
 			</div>

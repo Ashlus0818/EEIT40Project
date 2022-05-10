@@ -24,7 +24,7 @@
 			<div class="card">
 				<div class="card-header">
 				<div class="edit-link">
-							<a href="${contextRoot}/ForumPostlist">回文章列表</a> |
+							<a href="${contextRoot}/ForumPostlist#${post.postID}">回文章列表</a> |
 							<a href="${contextRoot}/ForumReportlist">回檢舉列表</a> 
 						</div>
 					<span><fmt:formatDate
@@ -59,11 +59,16 @@
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${getreply.date}" />
 							<br>
-							內容： <c:out value="${getreply.recontext}" />
+							內容：
+							<br> 
+							<br>
+							<c:out value="${getreply.recontext}" />
 						</span>
+						<br>
 					</div>
 				</div>
 			</div>
+			<br>
 		</c:forEach>
 
 		
