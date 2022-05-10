@@ -1,6 +1,5 @@
 package com.eeit40.springbootproject.model;
 
-import java.util.Arrays;
 import java.util.Date;
 
 
@@ -40,8 +39,8 @@ public class ForumPost {
 	@Column(name = "context")
 	private String context;
 
-	@Column(name = "image")
-	private byte[] image;
+	@Column(name = "password")
+	private String password;
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -91,12 +90,12 @@ public class ForumPost {
 		this.context = context;
 	}
 
-	public byte[] getImage() {
-		return image;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setImage(byte[] image) {
-		this.image = image;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Date getDate() {
@@ -109,8 +108,8 @@ public class ForumPost {
 
 	@Override
 	public String toString() {
-		return "Forumpost [postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
-				+ ", image=" + Arrays.toString(image) + ", date=" + date + "]";
+		return "Forumpost postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
+				+ ", image=" + "password=" + password + ", date=" + date + "]";
 	}
 
 }
