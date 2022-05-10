@@ -1,9 +1,12 @@
 package com.eeit40.springbootproject.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +23,7 @@ import com.eeit40.springbootproject.service.CustomerMessageService;
 import com.eeit40.springbootproject.service.ReservationMessageTestService;
 import com.eeit40.springbootproject.service.ReservationStoreService;
 import com.eeit40.springbootproject.service.ShopInventoryService;
+import com.sun.net.httpserver.HttpsParameters;
 
 @Controller
 public class PageController {
@@ -56,10 +60,10 @@ public class PageController {
 		return "BackLogin";
 	}
 
-	@ResponseBody
-	@GetMapping("/loginFail")
+	@PostMapping("/loginFail")
 	public String loginFain() {
 		System.out.println("/loginFail");
+//		request.setAttribute("message", "login fail");
 		return "/loginFail";
 	}
 

@@ -1,11 +1,19 @@
 package com.eeit40.springbootproject.logintest;
 
+
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +27,10 @@ public class AppUserAuthority {
 	@Column(name="authority")
 	private String authority;
 
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "appUserAuthority")
+	private Set<AppUser> appuser = new LinkedHashSet<AppUser>();
+	
 	public Integer getId() {
 		return id;
 	}
@@ -38,6 +50,19 @@ public class AppUserAuthority {
 	public AppUserAuthority(String authority) {
 		this.authority = authority;
 	}
+
+	public AppUserAuthority() {
+	}
+
+	public Set<AppUser> getAppuser() {
+		return appuser;
+	}
+
+	public void setAppuser(Set<AppUser> appuser) {
+		this.appuser = appuser;
+	}
+
+
 	
 	
 }

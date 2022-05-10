@@ -137,6 +137,7 @@
                         <h1 class="title-error">Opps! page not found</h1>
                         <p>It looks like nothing was found at this location. Click the link to return <span class="link"><a href="${contextRoot}/FrontPage/index.html">Home</a></span></p>
                         <input type="search" id="search-bug" placeholder="Search..." >
+                        <br/><c:out value="${message}"></c:out>
                     </div>
                 </div>
                 <div class="col-lg-2"></div>
