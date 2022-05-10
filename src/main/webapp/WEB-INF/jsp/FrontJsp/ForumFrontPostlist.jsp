@@ -19,37 +19,39 @@
 
 	<div class="container">
 
-		<c:forEach var="reply" items="${allreply}">
-			<div class="col-6" id="${reply.postID}">
+		<c:forEach items="${allpost}" varStatus="theCount"
+			var="post">
+			<div class="col-6" id="${post.postID}">
 				<div class="card">
 					<div class="card-header">
-						<div class="edit-link">
-							<a href="${contextRoot}/ForumEditreply?replyID=${reply.replyID}">編輯</a> | 
-							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumreply?replyID=${reply.replyID}">刪除</a> | 
-<<<<<<< HEAD
-
-			<!--			<a href="${contextRoot}/ForumOnepost#${reply.postID}">看${reply.replyID}的文</a> -->	
-
-			<!--			<a href="${contextRoot}/ForumOnepost#${reply.postID}">看NO.${reply.replyID}的文</a> -->	
-
-=======
-							<a href="${contextRoot}/ForumOnepost?postID=${reply.postID}">看NO.${reply.postID}的文</a> 
->>>>>>> dyds1234
+						<div class="edit-link">						 
+							<a href="${contextRoot}/ForumAddreply?postID=${post.postID}">回應</a> |
+							<a href="${contextRoot}/ForumAddreport?postID=${post.postID}">檢舉</a> |
+							<a href="${contextRoot}/ForumOnepost?postID=${post.postID}">只看NO：${post.postID}的文及回應</a> |	
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
-								value="${reply.date}" />
-							<br> 
-							No： <c:out value="${reply.replyID}" />
-							<br>
-							內容： <c:out value="${reply.recontext}" />
+								value="${post.date}" />
+								 <br>
+								 No： <c:out value="${post.postID}" />
+								 <br>
+					----------------------------------------------------------------------
+								  <br> 
+								 標題：
+								  <br> <c:out value="${post.title}" />
+								  <br>
+								  <br>
+								 內容： 
+								  <br><c:out value="${post.context}" />
 						</span>
 					</div>
 				</div>
 			</div>
 			<br>
 		</c:forEach>
-		
+
 	</div>
+
+
 
 	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
 </body>

@@ -43,8 +43,8 @@
           <li class="active">
             <a href="#" title="">討稐/交流</a>
             <ul class="sub-menu">
-              <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
-              <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
+              <li><a href="${contextRoot}/front/ForumFrontAddpost1.jsp" title="">Blog Grid 3Column</a></li>
+              <li><a href="${contextRoot}/FormuFrontAddpost1" title="">Blog Grid 2Column</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-Right-Slidebar.html" title="">Blog Right Slidebar</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-details-slidebar.html" title="">Blog Details Slidebar</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-details-fullwidth.html" title="">Blog Details FullWidth</a></li>

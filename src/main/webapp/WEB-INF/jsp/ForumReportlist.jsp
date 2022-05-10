@@ -20,8 +20,35 @@
 	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
 
 	<div class="container">
+<<<<<<< HEAD
 		<p>
 			<div class="col-6">
+=======
+		<p />
+		<div class="col-6">
+			<div class="card">
+				<div class="card-header">
+					最近的檢舉(時間)>><span><fmt:formatDate
+							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastreport.date}" /></span>						  
+				</div>
+				<div class="card-body">
+					<a href="${contextRoot}/ForumOnepost?postID=${lastreport.postID}">NO：${lastreport.postID}</a>
+					<p />
+					理由：
+					<p />
+					<c:out value="${lastreport.reportReason}" />
+				</div>
+			</div>
+		</div>
+
+		<br>
+		 <a onclick="return confirm('確定刪除?')" href="${contextRoot}/DeleteForumAllreport">刪除全部檢舉</a>
+		 <br>
+		 <br>
+
+		<c:forEach var="report" items="${allreport}">
+			<div class="col-6" id="${report.postID}">
+>>>>>>> dyds1234
 				<div class="card">
 					<div class="card-header">
 						最近的檢舉(時間)>><span>
