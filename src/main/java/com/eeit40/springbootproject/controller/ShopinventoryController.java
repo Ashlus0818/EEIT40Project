@@ -75,9 +75,9 @@ public class ShopinventoryController {
 	}
 	@PostMapping(value="ShopInventoey/update")
 	public String updateById(ModelAndView mav,@RequestParam("InventoryId") Integer id, @RequestParam("InventoryName") String iName, @RequestParam("InventoryImg") String iImg, 
-			@RequestParam("InventoryPlace") String iPlace,@RequestParam("InventoryPrice") String iprice) {
+			@RequestParam("InventoryPlace") String iPlace,@RequestParam("InventoryPrice") String iprice,@RequestParam("InventoryCategory") String category) {
 		System.out.println(iName+" "+iPlace);
-		siService.insert(new ShopInventory(id, iName, iImg, iPlace, iprice));
+		siService.insert(new ShopInventory(id, iName, iImg, iPlace, iprice,category));
 		return "redirect:/addShopInventory";
 
 	}
@@ -88,9 +88,10 @@ public class ShopinventoryController {
 	public String AddLiquor(@RequestParam(name = "t1") String iName,
 			@RequestParam(name = "t2") String iImg,
 			@RequestParam(name = "t3") String iPlace,
-			@RequestParam(name = "t4") String iprice) {
+			@RequestParam(name = "t4") String iprice,
+			@RequestParam(name = "t4") String category) {
 		System.out.println(iprice);
-		ShopInventory sl =  new ShopInventory(iName,iImg,iPlace,iprice);
+		ShopInventory sl =  new ShopInventory(iName,iImg,iPlace,iprice,category);
 		
 		siService.insert(sl);
 		return "redirect:/addShopInventory";

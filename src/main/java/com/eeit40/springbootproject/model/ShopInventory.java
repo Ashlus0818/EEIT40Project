@@ -33,6 +33,9 @@ public class ShopInventory {
 	@Column(name = "iprice")
 	private String iprice;
 	
+	@Column(name = "category")
+	private String category;
+	
 	
 	public ShopInventory() {}
 
@@ -57,6 +60,33 @@ public class ShopInventory {
 		this.iImg = iImg;
 		this.iPlace = iPlace;
 		this.iprice = iprice;
+	}
+	
+	
+	
+	
+
+
+	public ShopInventory(String iName, String iImg, String iPlace, String iprice, String category) {
+		super();
+		this.iName = iName;
+		this.iImg = iImg;
+		this.iPlace = iPlace;
+		this.iprice = iprice;
+		this.category = category;
+	}
+
+
+
+
+	public ShopInventory(Integer id, String iName, String iImg, String iPlace, String iprice, String category) {
+		super();
+		this.id = id;
+		this.iName = iName;
+		this.iImg = iImg;
+		this.iPlace = iPlace;
+		this.iprice = iprice;
+		this.category = category;
 	}
 
 
@@ -109,6 +139,17 @@ public class ShopInventory {
 
 	public void setIprice(String iprice) {
 		this.iprice = iprice;
+	}
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	
