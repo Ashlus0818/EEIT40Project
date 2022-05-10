@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> --%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 	<!-- Main Content -->
@@ -175,6 +177,7 @@
 						class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas
 							McGee</span> <img class="img-profile rounded-circle"
 						src="${contextRoot}/BackPage/img/undraw_profile.svg">
+						
 				</a> <!-- Dropdown - User Information -->
 					<div
 						class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

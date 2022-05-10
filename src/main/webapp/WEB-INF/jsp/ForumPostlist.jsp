@@ -16,26 +16,18 @@
 	<jsp:include page="/WEB-INF/jsp/IncludePage/sidebar.jsp" />
 	<jsp:include page="/WEB-INF/jsp/IncludePage/topbar.jsp" />
 	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
-
 	<div class="container">
-
 		<c:forEach items="${allpost}" varStatus="theCount"
 			var="post">
 			<div class="col-6" id="${post.postID}">
 				<div class="card">
 					<div class="card-header">
-						<div class="edit-link">
-				<!--		 | -->
-						 
+						<div class="edit-link">				 
 							<a href="${contextRoot}/ForumEditpost?postID=${post.postID}">編輯</a> |
 							<a href="${contextRoot}/ForumAddreply?postID=${post.postID}">回應</a> |
 							<a href="${contextRoot}/ForumAddreport?postID=${post.postID}">檢舉</a> |
 							<a href="${contextRoot}/ForumOnepost?postID=${post.postID}">只看NO：${post.postID}的文及回應</a> |	
-
-						<!--	<a onclick="return confirm('確認刪除?')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a> |-->
-
 							<a onclick="return confirm('確認刪除?')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a> 
-
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${post.date}" />

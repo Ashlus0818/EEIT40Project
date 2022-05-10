@@ -32,7 +32,7 @@
 					<th>圖片</th>
 					<th>產地</th>
 					<th>價錢</th>
-					<th></th>
+					<th>分類</th>
 					
 				</tr>
 			</thead>
@@ -56,6 +56,9 @@
 
 							<td><input id="taskCreateAt${Product.id}"
 								name="InventoryPrice" type="text" value="${Product.iprice}" /></td>
+								
+							<td><input id="taskCategory${Product.id}"
+								name="InventoryCategory" type="text" value="${Product.category}" /></td>
 
 							<td><input
 								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
@@ -86,6 +89,9 @@
 									</div>
 									<div class="modal-body">
 										價錢:&nbsp<input id="dialogBodyPrice" name="InventoryPrice" />
+									</div>
+									<div class="modal-body">
+										分類:&nbsp<input id="dialogBodyCategory" name="InventoryCategory" />
 									</div>
 								</form>
 							</div>
@@ -121,6 +127,9 @@
 											<div class="modal-body">
 												價錢:&nbsp<input id="modalBodyPrice" name="InventoryPrice" />
 											</div>
+											<div class="modal-body">
+												分類:&nbsp<input id="modalBodyCategory" name="InventoryCategory" />
+											</div>
 											
 										</form>
 
@@ -152,8 +161,9 @@
 				<th><input name="t2" type="file" placeholder="請選擇要載入的圖片" value=""></input></th>
 				<th><input name="t3" type="text" placeholder="輸入產地" value=""></input></th>
 				<th><input name="t4" type="text" placeholder="輸入價錢" value=""></input></th>
-				<th><input name="t5" type="submit" name="AAA" value="新增" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"/></th>
-				<th><input name="t6" type="reset" name="BBB" value="清空" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"/></th>
+				<th><input name="t5" type="text" placeholder="增加分類" value=""></input></th>
+				<th><input name="t6" type="submit" name="AAA" value="新增" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"/></th>
+				<th><input name="t7" type="reset" name="BBB" value="清空" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"/></th>
 			</form>
 			</tr>
 		</thead>
@@ -180,6 +190,7 @@
 		$("#modalBodyName").val($("#InventoryName"+num).val());
 		$("#modalBodyImg").val($("#InventoryImg"+num).val());
 		$("#modalBodyPlace").val($("#InventoryPlace"+num).val());	
+		$("#modalBodyPrice").val($("#InventoryPrice"+num).val());
 		$("#modalBodyPrice").val($("#InventoryPrice"+num).val());
 		$("#confirmUpdateBtn").click(function(){
 			var yes = confirm("確認更新此筆紀錄?");

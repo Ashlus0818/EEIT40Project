@@ -27,8 +27,8 @@
 						<form:errors path="context" />
 						<form:input type="hidden" path="postID" />
 						<form:input type="hidden" path="userID" />
-						<form:input type="hidden" path="image" />
 						<form:input type="hidden" path="date" />
+						<form:input type="hidden" path="password" />
 						<div class="imput-group">
 						<p />
 							標題：

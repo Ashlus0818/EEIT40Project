@@ -2,14 +2,22 @@ package com.eeit40.springbootproject.logintest;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,6 +29,12 @@ public class AppUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
+	
+
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_appUserAuthority_id")
+	private AppUserAuthority appUserAuthority;
 	
 	@Column(name="userName")
 	private String userName;
@@ -50,7 +64,34 @@ public class AppUser {
 	@Column(name="lastModified", columnDefinition = "datetime")
 	private Date lastModified;
 
+	@PreUpdate
+	public void lastModified() {
+		if (lastModified == null) {
+			lastModified = new Date();
+		}else {
+			lastModified = new Date();
+		}
+	}
+	@PrePersist // 再轉換到 Persist 狀態以前去做以下方法
+	public void createAt() {
+		if (createAt == null) {
+			createAt = new Date();
+		}
+	}
 	public AppUser() {
+	}
+
+	public AppUser( String userName, String userPwd) {
+		this.userName = userName;
+		this.userPwd = userPwd;
+	}
+
+	public AppUserAuthority getAppUserAuthority() {
+		return appUserAuthority;
+	}
+	
+	public void setAppUserAuthority(AppUserAuthority appUserAuthority) {
+		this.appUserAuthority = appUserAuthority;
 	}
 
 	public Integer getId() {

@@ -49,7 +49,7 @@ public class CustomerMessageService {
 	}
 	
 	public Page<CustomerMessage> findByPage(Integer pageNumber){
-		Pageable pgb = PageRequest.of(pageNumber-1, 10, Sort.Direction.ASC, "messageId");
+		Pageable pgb = PageRequest.of(pageNumber-1, 20, Sort.Direction.ASC, "messageId");
 		
 		Page<CustomerMessage> page = cmdao.findAll(pgb);
 		
