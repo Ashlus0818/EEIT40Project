@@ -107,4 +107,9 @@ public class PageControllerFront {
 	public String ex() {
 		return "FrontJsp/複製用";
 	}
+	
+	@GetMapping("/front/ForumFrontAddpost")
+	public String forumFrontAddpost() {
+		return "FrontJsp/ForumFrontAddpost";
+	}
 }

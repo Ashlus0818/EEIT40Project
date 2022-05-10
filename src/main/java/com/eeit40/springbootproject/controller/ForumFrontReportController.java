@@ -31,7 +31,7 @@ public class ForumFrontReportController {
 		mav.getModel().put("lastreport", lastreport);
 		List<ForumReport> allreport = reportService.findAllreport();
 		mav.getModel().put("allreport", allreport);
-		mav.setViewName("ForumFrontReportlist");
+		mav.setViewName("FrontJsp/ForumFrontReportlist");
 		return mav;
 	}
 	@GetMapping("/ForumFrontAddreport")
@@ -42,19 +42,19 @@ public class ForumFrontReportController {
 		post = postService.getpostById(postID);
 		mav.getModel().put("post", post);
 		mav.getModel().put("forumReport", report);
-		mav.setViewName("ForumFrontAddreport");
+		mav.setViewName("FrontJsp/ForumFrontAddreport");
 		return mav;
 	}	
 	@PostMapping("/ForumFrontAddreport")
 	public ModelAndView insertreport(ModelAndView mav, @Valid @ModelAttribute(name = "forumreport") ForumReport report,
 			BindingResult br) {
-		mav.setViewName("ForumFrontAddreport");
+		mav.setViewName("FrontJsp/ForumFrontAddreport");
 
 		if (!br.hasErrors()) {
 			reportService.insertReport(report);
 			ForumReport newreport = new ForumReport();
 			mav.getModel().put("forumpost", newreport);
-			mav.setViewName("redirect:/ForumFrontReportlist");
+			mav.setViewName("redirect:/FrontJsp/ForumFrontReportlist");
 		}
 		return mav;
 	}

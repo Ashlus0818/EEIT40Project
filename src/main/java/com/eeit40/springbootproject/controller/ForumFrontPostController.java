@@ -29,25 +29,25 @@ public class ForumFrontPostController {
 		mav.getModel().put("lastpost", lastpost);
 		List<ForumPost> allpost = postService.findAllpost();
 		mav.getModel().put("allpost", allpost);
-		mav.setViewName("ForumFrontPostlist");
+		mav.setViewName("FrontJsp/ForumFrontPostlist");
 		return mav;
 	}
 	@GetMapping("/ForumFrontAddpost")
 	public ModelAndView AddForumpage(ModelAndView mav) {
 		ForumPost post = new ForumPost();
 		mav.getModel().put("forumpost", post);
-		mav.setViewName("ForumFrontAddpost");
+		mav.setViewName("FrontJsp/ForumFrontAddpost");
 		return mav;
 	}	
 	@PostMapping("/ForumFrontAddpost")
 	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
 			BindingResult br) {		
-		mav.setViewName("ForumFrontAddpost");	
+		mav.setViewName("FrontJsp/ForumFrontAddpost");	
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
 			ForumPost newpost = new ForumPost();
 			mav.getModel().put("forumpost", newpost);
-			mav.setViewName("redirect:/ForumFrontPostlist#" + post.getPostID());
+			mav.setViewName("redirect:/FrontJsp/ForumFrontPostlist#" + post.getPostID());
 		}
 		ForumPost latestpost = postService.getLastpost();
 		mav.getModel().put("lastpost", latestpost);
@@ -63,10 +63,10 @@ public class ForumFrontPostController {
 	@PostMapping("/ForumFrontEditpost")
 	public ModelAndView editPost(ModelAndView mav,@ModelAttribute(name = "forumpost") ForumPost post,
 			BindingResult br) {
-		mav.setViewName("ForumFrontEditpost");
+		mav.setViewName("FrontJsp/ForumFrontEditpost");
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
-			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + post.getPostID());
+			mav.setViewName("redirect:/FrontJsp/ForumFrontOnepost?postID=" + post.getPostID());
 		}
 		return mav;
 	}

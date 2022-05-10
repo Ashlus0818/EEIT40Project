@@ -26,6 +26,7 @@
 				<div class="edit-link">
 							<a href="${contextRoot}/ForumPostlist#${post.postID}">回文章列表</a> |
 							<a href="${contextRoot}/ForumReportlist">回檢舉列表</a> 
+							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a>
 						</div>
 						<br>
 					<span><fmt:formatDate

@@ -31,7 +31,7 @@ public class ForumFrontReplyController {
 		mav.getModel().put("lastreply", lastreply);
 		List<ForumReply> allreply = replyService.findAllreply();
 		mav.getModel().put("allreply", allreply);
-		mav.setViewName("ForumFrontReplylist");
+		mav.setViewName("FrontJsp/ForumFrontReplylist");
 		return mav;
 	}
 	@GetMapping("/ForumFrontOnepost")
@@ -41,7 +41,7 @@ public class ForumFrontReplyController {
 		mav.getModel().put("post", post);
 		List<ForumReply> getreply = replyService.getreplyBypostID(reply.getPostID());
 		mav.getModel().put("getreply", getreply);
-		mav.setViewName("ForumFrontOnepost");
+		mav.setViewName("FrontJsp/ForumFrontOnepost");
 		return mav;
 	}	
 	@GetMapping("/ForumFrontAddreply")
@@ -52,7 +52,7 @@ public class ForumFrontReplyController {
 		post = postService.getpostById(postID);
 		mav.getModel().put("post", post);
 		mav.getModel().put("forumReply", reply);
-		mav.setViewName("ForumFrontAddreply");
+		mav.setViewName("FrontJsp/ForumFrontAddreply");
 		return mav;
 	}	
 	@PostMapping("/ForumFrontAddreply")
@@ -61,7 +61,7 @@ public class ForumFrontReplyController {
 			replyService.insertReply(reply);
 			ForumReply newreply = new ForumReply();
 			mav.getModel().put("forumpost", newreply);
-			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + reply.getPostID());		
+			mav.setViewName("redirect:/FrontJsp/ForumFrontOnepost?postID=" + reply.getPostID());		
 		return mav;
 	}
 	@GetMapping("/ForumFrontEditreply")
@@ -73,10 +73,10 @@ public class ForumFrontReplyController {
 	@PostMapping("/ForumFrontEditreply")
 	public ModelAndView editreply(ModelAndView mav, @Valid @ModelAttribute(name = "forumreply") ForumReply reply,
 			BindingResult br) {
-		mav.setViewName("ForumFrontEditreply");
+		mav.setViewName("FrontJsp/ForumFrontEditreply");
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
-			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + reply.getPostID());
+			mav.setViewName("redirect:/FrontJsp/ForumFrontOnepost?postID=" + reply.getPostID());
 		}
 		return mav;
 	}
