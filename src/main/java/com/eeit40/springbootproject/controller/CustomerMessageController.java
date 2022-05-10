@@ -45,6 +45,7 @@ public class CustomerMessageController {
 		return mav;
 	
 	}
+	
 //================================================================	
 	@GetMapping("/AddCusMessage")
 	public ModelAndView AddCustomerMessage(ModelAndView mav) {
@@ -57,19 +58,21 @@ public class CustomerMessageController {
 	
 	
 	@PostMapping("/AddCusMessage")
-	public ModelAndView insertMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes) {
-		
+	public ModelAndView insertMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes , BindingResult br) {
+		mav.setViewName("AddCusMessage");
+		if (!br.hasErrors()) {
 			cmseService.insert(cusmes);
 			CustomerMessage cMes = new CustomerMessage();
 			mav.getModel().put("CusMes", cMes);
 			mav.setViewName("redirect:/front/CusMesFrontView");
-		
-		
+		}
+		CustomerMessage lastMes = cmseService.getLastmes();
+		mav.getModel().put("lastmes", lastMes);
 		System.out.print(cusmes+",");
 		return mav;
 	}
-	
-	@GetMapping("/CusMesbacks/EditCustomerMessage")
+//=================================================================
+	@GetMapping("/EditCustomerMessage")
 	public String editMessage(Model model, @RequestParam(name = "messageId") Integer messageId) {
 		CustomerMessage cMes = cmseService.findBymessagesId(messageId);
 		model.addAttribute("CusMesback", cMes);
@@ -77,7 +80,7 @@ public class CustomerMessageController {
 		return "EditCustomerMessage";
 	}
 	
-	@PostMapping("/CusMesbacks/EditCustomerMessage")
+	@PostMapping("/EditCustomerMessage")
 	public ModelAndView editMessage(ModelAndView mav, @Valid @ModelAttribute(name = "CustomerMessage") CustomerMessage cusmes,
 			BindingResult br) {
 
@@ -85,13 +88,13 @@ public class CustomerMessageController {
 
 		if (!br.hasErrors()) {
 			cmseService.insert(cusmes);
-			mav.setViewName("redirect:/CusMeslist");
+			mav.setViewName("redirect:/CusMesFrontView");
 		}
 
 		return mav;
 
 	}
-	
+//====================================================================	
 	@GetMapping("CusMesbacks/DeleteMessage")
 	public String deleteMessage(ModelAndView mav, @RequestParam(name = "messageId") Integer messageId) {
 		
@@ -100,6 +103,12 @@ public class CustomerMessageController {
 		//mav.setViewName("redirect:/CusMesbacks/findByPage");
 
 		return "redirect:/CusMesbacks/findByPage";
+	}
+	@GetMapping("/DeleteMesssage")
+	public ModelAndView deleteMes(ModelAndView mav, @RequestParam(name = "messageId") Integer messageId) {
+		cmseService.deleteBymesId(messageId);
+		mav.setViewName("redirect:/CusMesFrontView");
+		return mav;
 	}
 	
 	@PostMapping("CusMesbacks/delete")

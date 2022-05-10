@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.model.CustomerMessage;
 import com.eeit40.springbootproject.model.ReservationStore;
+import com.eeit40.springbootproject.service.CusMesFrontService;
 import com.eeit40.springbootproject.service.ReservationOrderService;
 import com.eeit40.springbootproject.service.ReservationStoreService;
 
@@ -23,6 +25,9 @@ public class PageControllerFront {
 
 	@Autowired
 	private ReservationOrderService ReOrderService;
+	
+	@Autowired
+	private CusMesFrontService cusmesfrontservice;
 
 	@GetMapping("/front/login")
 	public String login() {
@@ -49,11 +54,23 @@ public class PageControllerFront {
 	public String cusMesFront() {
 		return "FrontJsp/CusMesFront";
 	}
-	//查看留言
+//	//查看留言
+//	@GetMapping("/front/CusMesFrontView")
+//	public String cusMesFrontView() {
+//		return "FrontJsp/CusMesFrontView";
+//	}
+	
 	@GetMapping("/front/CusMesFrontView")
-	public String cusMesFrontView() {
-		return "FrontJsp/CusMesFrontView";
+	public ModelAndView cusMesFrontView(ModelAndView mav,
+			@RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+		Page<CustomerMessage> cpage = cusmesfrontservice.findByPage(pageNumber);
+
+		mav.getModel().put("cpage", cpage);
+		mav.setViewName("FrontJsp/CusMesFrontView"); 
+
+		return mav;
 	}
+	
 	
 	// 預約試喝頁面
 //	@GetMapping("/front/Re-Order")

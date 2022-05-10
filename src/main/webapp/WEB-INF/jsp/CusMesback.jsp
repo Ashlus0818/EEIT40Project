@@ -27,9 +27,9 @@
 	<table id="myTable" class="table table-sm table-dark"
 		style="text-align: center">
 		<tr>
-			<th style="text-align: center">ID
-			<th style="text-align: center">姓名
-			<th style="text-align: center">信箱
+			<th hidden style="text-align: center">ID
+			<th >姓名
+			<th >信箱
 			<th style="text-align: center">問題
 			<th style="text-align: center">留言内容 <c:forEach
 					items="${list.content}" var="backmessages" varStatus="s">
@@ -38,7 +38,7 @@
 						<tr>
 							<input hidden type="text" name="messageId"
 								value="${backmessages.messageId}" />
-							<td id="mesId${backmessages.messageId}">${backmessages.messageId}</td>
+							<td hidden id="mesId${backmessages.messageId}">${backmessages.messageId}</td>
 							
 							<td>${backmessages.messageName}</td>
 							

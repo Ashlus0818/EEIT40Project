@@ -68,11 +68,7 @@
           </ul><!-- /.sub-menu -->
         </li>
       </ul>
-      <form class="header-search-form" role="search" method="get" action="#">
-        <input type="text" value="" name="#" class="header-search-field" placeholder="Search...">
-        <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
-      </form>
     </div>
-  </div><!-- /container -->
+  </div>
 
 
