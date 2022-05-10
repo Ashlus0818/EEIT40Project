@@ -27,6 +27,9 @@ public class ReservationOrder {
 
 	@Column(name = "orderStoreName")
 	private String orderStoreName;
+	
+	@Column(name = "orderStorePop")
+	private Integer orderStorePop;
 
 	@Column(name = "orderDate")
 	private String orderDate;
@@ -50,6 +53,17 @@ public class ReservationOrder {
 
 	public ReservationOrder() {
 	}
+
+	
+	public Integer getOrderStorePop() {
+		return orderStorePop;
+	}
+
+
+	public void setOrderStorePop(Integer orderStorePop) {
+		this.orderStorePop = orderStorePop;
+	}
+
 
 	public String getOrderId() {
 		return orderId;
@@ -115,6 +129,17 @@ public class ReservationOrder {
 		this.modifiedAt = modifiedAt;
 	}
 
+
+	@Override
+	public String toString() {
+		return "ReservationOrder [orderId=" + orderId + ", orderMemberEmail=" + orderMemberEmail + ", orderStoreName="
+				+ orderStoreName + ", orderStorePop=" + orderStorePop + ", orderDate=" + orderDate + ", orderTime="
+				+ orderTime + ", orderWine=" + orderWine + ", createdAt=" + createdAt + ", modifiedAt=" + modifiedAt
+				+ "]";
+	}
+
+
+	
 
 
 }
