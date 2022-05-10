@@ -49,7 +49,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/addShopOrder").hasAnyRole("admin","manager")
 		.antMatchers("/addShopCart").hasAnyRole("admin","manager")
 		.antMatchers("/addShopInventory").hasAnyRole("admin","manager")
-		.antMatchers("/front/**").hasAnyRole("admin","manager","customer");
+		.antMatchers("/front/**").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontPostlist").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontAddpost").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontAddreply").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontAddreport").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontEditpost").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontEditreply").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontOnepost").hasAnyRole("admin","manager","customer");
 //		.antMatchers("/").authenticated();
 		
 //		.antMatchers("/").authenticated()
