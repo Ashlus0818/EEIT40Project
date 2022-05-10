@@ -25,6 +25,15 @@ width:800px;
   height:800px ;
 }
 
+.upload{
+/*   position: absolute; */
+/*   bottom: 40%; */
+/*   right: 29.5%; */
+  width: 210px;
+  border: 3px solid red;
+  background-color: #dfa5a5;
+}
+
 .button{
   margin: 10px;
 }
@@ -39,7 +48,7 @@ width:800px;
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
 	
-<form id="insertForm" method="POST" action=""  class="form">	
+<form id="insertForm" method="POST" action="" enctype="multipart/form-data"  class="form">	
 <!-- 			<div class="st1"> -->
 <!-- 				<label >店家編號:</label><br> -->
 <!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
@@ -81,15 +90,20 @@ width:800px;
 				<label >修改日期:</label><br>
 				<input id="modifiedAt" name="modifiedAt" value="" class="st2"/>  
 			</div> -->
+			
+			
+	<div class="upload">      
+         <input type="file" name="storeImg" />    
+    </div>
+			
 
 
 			<div class="button">
-				<input id="sendBtn" type="button" value="送出"/>
-				
+				<input id="sendBtn" type="button" value="送出"/>				
 				<a href="${contextRoot}/backStage/CancelReturnStore"> <input type="button" value="取消"></a>
 			</div>
 </form>
-	
+		
 	
 	
 <script>

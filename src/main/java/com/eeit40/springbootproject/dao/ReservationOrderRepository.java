@@ -21,5 +21,7 @@ public interface ReservationOrderRepository extends JpaRepository<ReservationOrd
 	List<ReservationOrder> checkTime(@Param("name") String storeName,@Param("day") String day);
 //---->ReservationStoreController最下面
 	
+//http://localhost:8080/myapp/front/orderList?orderStoreName=%E4%BF%A1%E7%BE%A9%E4%BF%A1%E5%AE%89%E5%BA%97&orderDate=2022-05-06	
+	
 }
 

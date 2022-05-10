@@ -4,7 +4,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <div class="container-fluid">
-    <a href="${contextRoot}/FrontPage/index.html" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
+    <a href="${contextRoot}/front" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
         data-retina="${contextRoot}/FrontPage/image/logo.png" data-width="147" data-height="21"></a>
     <div class="mobile-button">
       <span></span>
@@ -29,33 +29,27 @@
           <li class="active">
             <a href="#" title="">商品</a>
             <ul class="sub-menu">
-              <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-list.html" title="">Shop Full Width List</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">Shop Full Width Grid</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-list.html" title="">Shop Right Slidebar List</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-right-slidebar-grid.html" title="">Shop Right Slidebar Grid</a></li>
-
-              <li><a href="${contextRoot}/FrontPage/Shop-details-slidebar.html" title="">Shop Details Slidebar</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-details.html" title="">Shop Details </a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.html" title="">Shop Order Tracking</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-cart.html" title="">Shop Cart</a></li>
+                <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">全部商品</a></li>
+                <li><a href="${contextRoot}/FrontPage/Shop-details.html" title="">商品詳細</a></li>
+              <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.html" title="">客戶訂單</a></li>
+              <li><a href="${contextRoot}/FrontPage/Shop-cart.html" title="">購物車</a></li>
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">討稐/交流</a>
+            <a href="${contextRoot}/ForumFrontPostlist" title="">討稐/交流</a>
             <ul class="sub-menu">
-              <li><a href="${contextRoot}/FrontPage/Blog-grid-3column.html" title="">Blog Grid 3Column</a></li>
-              <li><a href="${contextRoot}/FrontPage/Blog-grid-2column.html" title="">Blog Grid 2Column</a></li>
+              <li><a href="${contextRoot}/ForumFrontAddpost.jsp" title="">Blog Grid 3Column</a></li>
+              <li><a href="${contextRoot}/FormuFrontAddpost1" title="">Blog Grid 2Column</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-Right-Slidebar.html" title="">Blog Right Slidebar</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-details-slidebar.html" title="">Blog Details Slidebar</a></li>
               <li><a href="${contextRoot}/FrontPage/Blog-details-fullwidth.html" title="">Blog Details FullWidth</a></li>
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="#" title="">聯絡我們</a>
+            <a href="${contextRoot}/front/CusMesFront" title="">聯絡我們</a>
             <ul class="sub-menu">
-              <li><a href="${contextRoot}/FrontPage/contact-1.html" title="">Contact Us 1</a></li>
-              <li><a href="${contextRoot}/FrontPage/Contact-2.html" title="">Contact Us 2</a></li>
-            </ul><!-- /.sub-menu -->
+            	 <li><a href="${contextRoot}/front/CusMesFrontView" title="">查看留言</a></li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -71,20 +65,10 @@
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Wishlist</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Cart</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Tracking Orders</a></li>
-            <li class="language"><a href="${contextRoot}/FrontPage/projects1.html" title="">LANGUAGE</a></li>
-            <li class="flag"><a href="${contextRoot}/FrontPage/projects1.html" title="">
-                <span><img src="${contextRoot}/FrontPage/image/flash3.png" alt="image"></span>
-                <span><img src="${contextRoot}/FrontPage/image/flash1.png" alt="image"></span>
-                <span><img src="${contextRoot}/FrontPage/image/flash2.png" alt="image"></span>
-              </a></li>
           </ul><!-- /.sub-menu -->
         </li>
       </ul>
-      <form class="header-search-form" role="search" method="get" action="#">
-        <input type="text" value="" name="#" class="header-search-field" placeholder="Search...">
-        <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
-      </form>
     </div>
-  </div><!-- /container -->
+  </div>
 
 

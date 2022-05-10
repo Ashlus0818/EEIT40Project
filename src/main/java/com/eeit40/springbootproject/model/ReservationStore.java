@@ -45,6 +45,10 @@ public class ReservationStore {
 	@Column(name = "storeOpendate")
 	private String storeOpendate;
 	
+	@Column(name = "storeImg", columnDefinition = "nvarchar(max)")
+	private String storeImg;
+	
+	//去看老師的範例 ->controller有BindingResult是為了顯示錯誤訊息的方法   會去抓bean裡面的message	ex: message = "請輸入 2 到 199 個字串"
 	// Date引入util話,要用@Temporal,表跟資料庫說明我的資料型別要裝什麼(年月日/年月日時分秒...等)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") // 年月日時分秒的格式,因為不同資料庫有不同存的格式,例如有些會存到秒數後三位
 	@Temporal(TemporalType.TIMESTAMP) // 年月日時分秒
@@ -96,7 +100,23 @@ public class ReservationStore {
 	}
 	
 
+	public ReservationStore(String storeImg) {
+		super();
+		this.storeImg = storeImg;
+	}
+
+
 	public ReservationStore() {
+	}
+
+
+	public String getStoreImg() {
+		return storeImg;
+	}
+
+
+	public void setStoreImg(String storeImg) {
+		this.storeImg = storeImg;
 	}
 
 

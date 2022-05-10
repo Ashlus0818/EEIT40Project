@@ -22,14 +22,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 //		 表單提交
+
 		http.formLogin()
 				// login.jsp 表單 action 內容(action="/login") spring boot預設的，不會經過controller的樣子，待驗證
 				.loginProcessingUrl("/login")
 				// 自定義登入頁面
 				.loginPage("/BackLogin");
 				// 登入成功之後要造訪的頁面
+
 //				.successForwardUrl("/index"); // welcome 頁面
-				// 登入失敗後要造訪的頁面
+//				 登入失敗後要造訪的頁面
 //				.failureForwardUrl("/loginFail");
 
 		http.authorizeHttpRequests()
@@ -51,13 +53,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/addShopOrder").hasAnyRole("admin","manager")
 		.antMatchers("/addShopCart").hasAnyRole("admin","manager")
 		.antMatchers("/addShopInventory").hasAnyRole("admin","manager")
-		.antMatchers("/front/**").hasAnyRole("admin","manager","customer");
+		.antMatchers("/front/**").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontPostlist").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontAddpost").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontAddreply").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontAddreport").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontEditpost").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontEditreply").hasAnyRole("admin","manager","customer")
+		.antMatchers("/ForumFrontOnepost").hasAnyRole("admin","manager","customer");
 //		.antMatchers("/").authenticated();
 		
 //		.antMatchers("/").authenticated()
 		
+
 //		http.csrf().disable();
 //			
+
 	}
 	// 注意！規定！要建立密碼演算的實例
 		@Bean
