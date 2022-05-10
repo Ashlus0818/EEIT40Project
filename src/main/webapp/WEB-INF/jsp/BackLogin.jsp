@@ -54,7 +54,8 @@
                                         </div>
                                         <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                                         <hr>
-<%--                                          <input type="text" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
+                                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            
                                     </form>
 
                                     

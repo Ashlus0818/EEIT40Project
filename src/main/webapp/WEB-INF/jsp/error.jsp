@@ -127,7 +127,13 @@
                     <div class="wrap-error text-center">
                         <h1 class="heading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>404</h1>
                         <h1 class="title-error">Opps! page not found</h1>
+
+                        <p>It looks like nothing was found at this location. Click the link to return <span class="link"><a href="${contextRoot}/FrontPage/index.html">Home</a></span></p>
+                        <input type="search" id="search-bug" placeholder="Search..." >
+                        <br/><c:out value="${message}"></c:out>
+
                         <p><span class="link"><a href="${contextRoot}/front">返回首頁</a></span></p>
+
                     </div>
                 </div>
                 <div class="col-lg-2"></div>

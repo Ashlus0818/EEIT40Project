@@ -5,11 +5,15 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,12 +30,10 @@ public class AppUser {
 	@Column(name="id")
 	private Integer id;
 	
-	@Transient // 不讓 Hibernat 做對應
-	@Column(name="fk_appUserAuthority_authority")
-	private String userauthority;
+
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_appUserAuthority_authority", referencedColumnName = "authority")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "fk_appUserAuthority_id")
 	private AppUserAuthority appUserAuthority;
 	
 	@Column(name="userName")
@@ -62,6 +64,20 @@ public class AppUser {
 	@Column(name="lastModified", columnDefinition = "datetime")
 	private Date lastModified;
 
+	@PreUpdate
+	public void lastModified() {
+		if (lastModified == null) {
+			lastModified = new Date();
+		}else {
+			lastModified = new Date();
+		}
+	}
+	@PrePersist // 再轉換到 Persist 狀態以前去做以下方法
+	public void createAt() {
+		if (createAt == null) {
+			createAt = new Date();
+		}
+	}
 	public AppUser() {
 	}
 
