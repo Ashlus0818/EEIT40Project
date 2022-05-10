@@ -14,14 +14,12 @@
     .st1 {
       width: 750px;
       margin: 10px;
-
     }
 
     .st2 {
       width: 750px;
       height: 40px;
       width: 800px;
-
     }
 
     .form {
@@ -31,19 +29,40 @@
     }
 
     .button {
-      margin-top: -30px;
-      margin-left: 50px;
+      position: absolute;
+      bottom: 7%;
+      right: 80%;
+      /* margin-top: 0px;
+      margin-left: 30px; */
     }
 
     .upload {
-      position: relative;
+      position: absolute;
+      bottom: 40%;
+      right: 29.5%;
       border: 3px solid red;
-      top: 20px;
+      /* top: 20px; */
       /*-30*/
-      left: 950px;
+      /* left: 950px; */
       background-color: #dfa5a5;
-      width: 500px;
+      width: 210px;
+    }
 
+    .divImg {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      bottom: 50%;
+      right: 30%;
+      /* object-fit: contain;
+      margin: 0 auto;
+      margin-top: 150px; */
+    }
+
+    .divImg img {
+      border: 3px solid black;
+      width: 100%;
+      height: 100%;
     }
 
     /* type="text" id="name" name="name"  */
@@ -59,7 +78,7 @@
 
 
 
-  <form:form class="form" method="POST" modelAttribute="modAtt-Re-show-a-store1">
+  <form:form class="form" method="POST" enctype="multipart/form-data" modelAttribute="modAttReShowAStore">
 
     <fieldset class="fieldset">
       <legend>店家資訊</legend>
@@ -106,15 +125,17 @@
         <form:input name="modifiedAt" path="modifiedAt" class="st2" />
       </div>
 
-
+<!-- 上傳圖片 -->
       <div class="upload">
-        <form action="upload" method="post" enctype="multipart/form-data">
-          選擇圖片:<input type="file" name="file" accept="image/*" /> <br>
-          <input type="submit" value="立刻上傳">
-
-        </form>
+        <!-- 選擇圖片: -->
+        <input type="file" name="storeImgNew" /> <br>
       </div>
-
+<!-- 顯示圖片 -->
+      <div class="divImg">
+        <img class="img" src="${contextRoot}/Img/${modAttReShowAStore.storeImg}">
+      </div>
+<!-- 若沒有上傳新圖片則走這方法上傳舊圖片 -->
+      <input type="text" hidden name="storeImg" value="${modAttReShowAStore.storeImg}">
 
 
       <div class="button">

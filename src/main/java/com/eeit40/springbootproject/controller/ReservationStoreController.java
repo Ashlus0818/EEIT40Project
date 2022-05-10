@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -245,15 +246,16 @@ public class ReservationStoreController {
 //  		}
         
 	
-		//修改一筆資料
+		//修改一筆資料  抓到資料導入頁面
         //ReservationStore.jsp 導向 Re-show-a-store2
   		@GetMapping(value = "backstage/ReservationStore/editStore")
   		public String editStore(Model model,@RequestParam(name="storeIDnumberView") Integer storeId) {
-  			System.out.println(storeId);
-//  			System.out.println(model.getAttribute("storeIDnumberView"));
+//  		System.out.println(storeId);
+//  		System.out.println(model.getAttribute("storeIDnumberView"));
   			ReservationStore reS = service.findById(storeId);
-  			model.addAttribute("modAtt-Re-show-a-store1", reS);   			
-//  			System.out.println(reS.getStoreName());
+
+  			model.addAttribute("modAttReShowAStore", reS);  
+//  		System.out.println(reS.getStoreName());
   			
   		    return "Re-show-a-store2";				
   		}
@@ -261,21 +263,45 @@ public class ReservationStoreController {
         //修改一筆資料 輸入後匯出並導向新頁面
   		//Re-show-a-store2 導向 ReservationStore.jsp
   		@PostMapping(value = "backstage/ReservationStore/editStore")
-  		public ModelAndView editAStore(ModelAndView mav, @Valid @ModelAttribute(name="modAtt-Re-show-a-store1") ReservationStore reS, BindingResult br) throws ParseException {  		
-  			System.out.println(reS.getStoreName());
-  			System.out.println(reS.getCreatedAt());
-  
+  		public ModelAndView editAStore(ModelAndView mav, @Valid @ModelAttribute(name="modAttReShowAStore") ReservationStore reS,
+  			@RequestParam("storeImgNew") MultipartFile file,HttpServletRequest request,BindingResult br) throws ParseException {  		
+  			//System.out.println(reS.getStoreName());
+  			//System.out.println(reS.getCreatedAt());
+  			 		 			
+  		
+  			if(!file.isEmpty()) {   //如果要改檔案就做這件事
+  				String filePath = request.getServletContext().getRealPath("") + "\\Img\\";  //抓出${contextRoot}
+  	  			String fileName = file.getOriginalFilename();  //抓出file上傳的原始檔名
+  	  			String suffixName = fileName.substring(fileName.lastIndexOf("."));  //副檔名
+  	  			fileName = UUID.randomUUID() + suffixName;  //原始檔名加上亂數後加上副檔名
+  	  			
+  	  			File dest = new File(filePath + fileName);  
+  	  			
+  	  			if(!dest.getParentFile().exists()) {  //如果img資料夾存在就存進去
+  	  				dest.getParentFile().mkdirs();   //如果不存在就做一個資料夾
+  	  			}try {
+  	  				file.transferTo(dest);
+  	  			}catch(Exception e){
+  	  				e.printStackTrace();
+  	  			}
+  	  			System.out.println(fileName);
+  	  			
+  				reS.setStoreImg(fileName);   //存檔案
+  			}
+
   			reS.setModifiedAt(new Date());
-  			System.out.println(reS.getModifiedAt());
+  			//System.out.println(reS.getModifiedAt());
   			
 			//mav.setViewName("Re-show-a-store2");	有錯才導回去?
-  			if(!br.hasErrors()) {
+  			// if(!br.hasErrors()) {
 
-  				service.insert(reS);
-  				mav.setViewName("redirect:/backstage/ReservationStore");
-  			}			
+  			service.insert(reS);
+  			mav.setViewName("redirect:/backstage/ReservationStore");
+  			//  }			
   			return mav;	 			
   		}
+  		
+  		
 //遇到問題:https://neillin1415.pixnet.net/blog/post/362128512-%E3%80%90%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%91spring-mvc---request-method-'post'-not-sup
   		
   		
@@ -302,7 +328,50 @@ public class ReservationStoreController {
   		}
   		
   		
-  		//新增一筆店家資訊 輸入後匯出並導向新頁面  舊的-formform表單用
+
+  		
+  		//新增一筆店家資訊 輸入後匯出並導向新頁面  form表單
+  		@PostMapping(value="/backstage/ReservationStore/insert")
+  		public String insertBackTaskes(@RequestParam("storeDepartmentNumber") Integer storeDepartmentNumber, 
+  				@RequestParam("storeName")String storeName, 
+  				@RequestParam("storePhone") String storePhone, 
+  				@RequestParam("storeAddress") String storeAddress, 
+  				@RequestParam("storeOpendate") String storeOpendate,
+  				@RequestParam("storeImg") MultipartFile file, HttpServletRequest request
+  				){  			
+  			ReservationStore bean = new ReservationStore(storeDepartmentNumber, storeName, 
+  					storePhone, storeAddress, 
+  					storeOpendate);
+  			String filePath = request.getServletContext().getRealPath("") + "\\Img\\";
+  			
+  			String fileName = file.getOriginalFilename();
+  			String suffixName = fileName.substring(fileName.lastIndexOf("."));
+  			fileName = UUID.randomUUID() + suffixName;
+  			
+  			File dest = new File(filePath + fileName);
+  			
+  			if(!dest.getParentFile().exists()) {
+  				dest.getParentFile().mkdirs();
+  			}try {
+  				file.transferTo(dest);
+  			}catch(Exception e){
+  				e.printStackTrace();
+  			}
+  			
+  			bean.setStoreImg(fileName);
+  			
+  			service.insert(bean);
+  			return "redirect:/backstage/ReservationStore";
+  		}
+
+
+  	   //取消按鈕
+        @GetMapping("/backStage/CancelReturnStore")
+        public String CancelReturnStore() {
+            return "redirect:/backstage/ReservationStore";
+        }	            
+
+        //新增一筆店家資訊 輸入後匯出並導向新頁面  舊的-formform表單用
 //  		@PostMapping("/backstage/ReservationStore/addAStore")
 //  		public ModelAndView addStore(ModelAndView mav, @Valid @ModelAttribute(name = "modAtt-Re-new-a-store") ReservationStore reS,
 //  				BindingResult br) {
@@ -317,33 +386,6 @@ public class ReservationStoreController {
 //
 //  			return mav;
 //  		}
-
-  		
-  		//新增一筆店家資訊 輸入後匯出並導向新頁面  form表單
-  		@PostMapping(value="/backstage/ReservationStore/insert")
-  		public String insertBackTaskes(@RequestParam("storeDepartmentNumber") Integer storeDepartmentNumber, 
-  				@RequestParam("storeName")String storeName, 
-  				@RequestParam("storePhone") String storePhone, 
-  				@RequestParam("storeAddress") String storeAddress, 
-  				@RequestParam("storeOpendate") String storeOpendate
-  				){  			
-  			ReservationStore bean = new ReservationStore(storeDepartmentNumber, storeName, 
-  					storePhone, storeAddress, 
-  					storeOpendate);
-  			service.insert(bean);
-  			return "redirect:/backstage/ReservationStore";
-  		}
-
-
-  	   //取消按鈕
-        @GetMapping("/backStage/CancelReturnStore")
-        public String CancelReturnStore() {
-            return "redirect:/backstage/ReservationStore";
-        }
-	
-        
-        
-
  
    
 //          // 因為uploadPage.jsp 在WEB-INF下，不能直接從瀏覽器訪問，所以要在這裡加一個uploadPage跳轉，這樣就可以通過
