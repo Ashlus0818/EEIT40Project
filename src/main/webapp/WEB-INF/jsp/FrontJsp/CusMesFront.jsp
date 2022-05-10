@@ -63,8 +63,13 @@
                       <input type="email" tabindex="3" id="messageEmail" name="messageEmail" value="" class="wpcf7-form-control" placeholder="example@gmail.com" required>
                   </span>
                   <div class="flat-divider-margintop16px"></div>
-                  <span class="wpcf7-form-control-wrap your-question">
-                      <input type="text" tabindex="2" id="messageQuest" name="messageQuest" value="" class="wpcf7-form-control" placeholder="問題">
+                  <span >
+                      <select id="messageQuest" name="messageQuest" class="wpcf7-form-control" aria-label="Default select example">
+						  <option selected disabled>選擇下列問題</option>
+						  <option value="產品問題">產品問題</option>
+						  <option value="訂單問題">訂單問題</option>
+						  <option value="品項問題">品項問題</option>
+					</select>
                   </span> 
                   <div class="flat-divider-margintop12px"></div>
                   <span class="wpcf7-form-control-wrap your-message">

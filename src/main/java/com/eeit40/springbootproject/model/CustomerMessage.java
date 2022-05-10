@@ -25,14 +25,14 @@ public class CustomerMessage {
 	@Column(name="messageId")
 	private Integer messageId;
 	
-	@Column(name="messageName")
+	@Column(name="messageName", columnDefinition = "nvarchar(300)")
 	private String messageName;
 	
 	@Email(message = "請輸入 Email")
 	@Column(name="messageEmail")
 	private String messageEmail;
 	
-	@Column(name="messageQuest")
+	@Column(name="messageQuest", columnDefinition = "nvarchar(300)")
 	private String messageQuest;
 	
 	@Size(min = 2, max = 30, message = "請輸入 2 到 30 個字串")
@@ -122,8 +122,8 @@ public class CustomerMessage {
 		return builder.toString();
 	}
 
-	public CustomerMessage(Integer messageId, String messageName, @Email(message = "請輸入 Email") String messageEmail,
-			String messageQuest, String messagetext, Date date) {
+	public CustomerMessage(Integer messageId, String messageName, String messageEmail,
+			String messageQuest,String messagetext, Date date) {
 		super();
 		this.messageId = messageId;
 		this.messageName = messageName;
@@ -132,6 +132,8 @@ public class CustomerMessage {
 		this.messagetext = messagetext;
 		this.date = date;
 	}
+
+	
 
 	
 	
