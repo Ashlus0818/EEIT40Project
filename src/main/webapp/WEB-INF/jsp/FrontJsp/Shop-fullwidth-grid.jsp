@@ -8,12 +8,12 @@
 			<jsp:include page="IncludePage/head.jsp" />
 			<title>Shop-fullwidth-grid</title>
 		</head>
-
-		<body>
-			<div id="loading-overlay">
-				<div class="loader"></div>
-			</div>
-			<!-- /.loading-overlay -->
+<body>
+	<div id="loading-overlay">
+		<div class="loader"></div>
+	</div>
+	<!-- /.loading-overlay -->
+	
 			<header class="style1">
 				<div id="site-header">
 					<jsp:include page="IncludePage/topBar.jsp" />

@@ -13,6 +13,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,6 +32,7 @@ public class ForumReply {
 	@Column(name = "userID")
 	private Integer userID;
 
+	@Size(min = 1, max = 100, message = "標題請輸入1到100個字串")
 	@Column(name = "recontext")
 	private String recontext;
 

@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,6 +35,7 @@ public class CustomerMessage {
 	@Column(name="messageQuest")
 	private String messageQuest;
 	
+	@Size(min = 2, max = 30, message = "請輸入 2 到 30 個字串")
 	@Column(name="messagetext", columnDefinition = "nvarchar(300)")
 	private String messagetext;
 	

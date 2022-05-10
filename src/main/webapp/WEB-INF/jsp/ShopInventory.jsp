@@ -28,8 +28,8 @@
 				<tr>
 
 					<th>ID</th>
-					<th>圖片</th>
 					<th>產品名稱</th>
+					<th>圖片</th>
 					<th>產地</th>
 					<th>價錢</th>
 					<th></th>
@@ -113,7 +113,7 @@
 												產品名稱:&nbsp<input id="modalBodyName" name="InventoryName" />
 											</div>
 											<div class="modal-body">
-												圖片:&nbsp<input id="modalBodyImg" name="InventoryImg" />
+												圖片:&nbsp<input id="modalBodyImg" name="InventoryImg" type="file" />
 											</div>
 											<div class="modal-body">
 												產地:&nbsp<input id="modalBodyPlace" name="InventoryPlace" />
@@ -140,35 +140,24 @@
 
 				
 			</thead>
-			<thead>
+				
+		</table >
+		<table class="table table-striped table-bordered zero-configuration">
+		<h3>商品新增</h3>
+		<thead>
 			<tr>
-
 			<form action="${contextRoot}/insertInventory" method="get" >
 			<th><input type="text" placeholder="會自動載入ID"  readonly></input></th>
 				<th><input name="t1" type="text" placeholder="請輸入產品名稱" value=""></input></th>
-				<th><input name="t2" type="text" placeholder="請選擇要載入的圖片" value=""></input></th>
+				<th><input name="t2" type="file" placeholder="請選擇要載入的圖片" value=""></input></th>
 				<th><input name="t3" type="text" placeholder="輸入產地" value=""></input></th>
 				<th><input name="t4" type="text" placeholder="輸入價錢" value=""></input></th>
-				<th><input name="t5" type="submit" name="AAA" value="確定"/>
-				<input name="t6" type="reset" name="BBB" value="清空"/></th>
+				<th><input name="t5" type="submit" name="AAA" value="新增" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"/></th>
+				<th><input name="t6" type="reset" name="BBB" value="清空" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"/></th>
 			</form>
 			</tr>
 		</thead>
-			
-
-			<form action="${contextRoot}/InsertInventory" method="get" >
-			<th><input  type="text" placeholder="ID會自動產生" ></input></th>
-				<th><input name="t1" type="text" placeholder="請選擇要載入的圖片" value=""></input></th>
-				<th><input name="t2" type="text" placeholder="輸入產品名稱" value=""></input></th>
-				<th><input name="t3" type="text" placeholder="輸入產地" value=""></input></th>
-				<th><input name="t4" type="text" placeholder="輸入價錢" value=""></input></th>
-				<th><input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" name="t5" type="submit" name="AAA" value="確定"/></th>
-				<th><input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" name="t6" type="reset" name="BBB" value="清空"/></th>
-			</form>
-			</tr>
-		</thead>
-
-		</table>
+		</table>				
 	</div>
 	
 	<jsp:include page="IncludePage/script.jsp" />

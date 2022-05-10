@@ -1,23 +1,25 @@
 package com.eeit40.springbootproject.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.model.ReservationMessageTest;
 import com.eeit40.springbootproject.model.ReservationStore;
 import com.eeit40.springbootproject.model.ShopInventory;
-
+import com.eeit40.springbootproject.service.BackTaskesService;
+import com.eeit40.springbootproject.service.CustomerMessageService;
 import com.eeit40.springbootproject.service.ReservationMessageTestService;
 import com.eeit40.springbootproject.service.ReservationStoreService;
 import com.eeit40.springbootproject.service.ShopInventoryService;
-import com.eeit40.springbootproject.service.CustomerMessageService;
-
-import com.eeit40.springbootproject.model.BackTaskes;
-import com.eeit40.springbootproject.service.BackTaskesService;
 
 @Controller
 public class PageController {
@@ -32,17 +34,38 @@ public class PageController {
 
 	@Autowired
 	private ReservationMessageTestService messageService;
-	
+
 	@Autowired
 	private ShopInventoryService siService;
 
-	@GetMapping("/")
-	public String index() {
+//	@GetMapping("/")
+//	public String index(HttpSession session) {
+//		System.out.println(session.getAttribute("status"));
+//		return "index";
+//	}
+
+	@PostMapping("/index")
+	public String index(HttpSession session) {
+		System.out.println(session.getAttribute("status")+"session.getAttribute()");
 		return "index";
+	}
+
+	@GetMapping("/BackLogin")
+	public String backLogin() {
+		System.out.println("/BackLogin");
+		return "BackLogin";
+	}
+
+	@ResponseBody
+	@GetMapping("/loginFail")
+	public String loginFain() {
+		System.out.println("/loginFail");
+		return "/loginFail";
 	}
 
 	@GetMapping("/backTask")
 	public ModelAndView BackTask(ModelAndView mav, @RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+		System.out.println("/backTask");
 		Page<BackTaskes> page = bService.findByPage(pageNumber);
 		mav.getModel().put("page", page);
 		mav.setViewName("backTask");
@@ -73,7 +96,6 @@ public class PageController {
 	public String welcomIndex() {
 		return "indexReMsgTest";
 	}
-
 
 	// 課堂範例測試
 	// 3/31錄影 10點的 1:00:00 & 1:05:00成功
@@ -130,35 +152,34 @@ public class PageController {
 	public String backmessage() {
 		return "CusMesback";
 	}
-	
+
 	@GetMapping("/addShopLiquor")
 	public String addShopLiquor() {
 		return "ShopLiquor";
 	}
-	
+
 	@GetMapping("/addShopOrder")
 	public String addShopOrder() {
-		return"ShopOrder";
+		return "ShopOrder";
 	}
-	
+
 	@GetMapping("/addShopCart")
 	public String addShopCart() {
 		return "ShopCart";
 	}
-	
+
 //	@GetMapping("/addShopInventory")
 //	public String ShopInventory() {
 //		return "ShopInventory";
 //	}
 	@GetMapping("/addShopInventory")
-	public ModelAndView ShopInventory(ModelAndView mav, @RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+	public ModelAndView ShopInventory(ModelAndView mav,
+			@RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
 		Page<ShopInventory> page = siService.findByPage(pageNumber);
 
 		mav.getModel().put("page", page);
 		mav.setViewName("ShopInventory");
 		return mav;
 	}
-	
-
 
 }

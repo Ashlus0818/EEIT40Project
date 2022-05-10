@@ -48,8 +48,6 @@ public class ReservationStoreController {
 	@Autowired
 	private ReservationStoreRepository dao;
 	
-	@Autowired
-	private ReservationOrderRepository rrrepository;
 
 	// insert店家資料(僅限一筆)
 	//使用crudRepository的save方法
@@ -422,21 +420,7 @@ public class ReservationStoreController {
 //            return "showImg";       
 //          }
         
-@GetMapping("texttttt")
-@ResponseBody
-public List<ReservationOrder> text(@RequestParam("storeName") String storeName,@RequestParam("day") String day){
-	
-	List<ReservationOrder> result=  rrrepository.checkTime(storeName, day);
-	for(ReservationOrder  r : result) {
-System.out.println(r.getReCustomerEmail());
-//for迴圈裡再比較時間
-// 比較時間有沒依樣   //失敗回傳
-	}
-	
-	return result;  //成功回傳
-}
-       //ajax 
-      //success function裡要寫成功和失敗(失敗回傳失敗)  
+
         
 	
 }

@@ -11,12 +11,14 @@
 			<link rel="stylesheet" type="text/css" href="${contextRoot}/FrontPage/stylesheets/t1.css">
 			<title>Reservation</title>
 		</head>
+	
 
-		<body>
-			<!-- /.loading-overlay -->
-			<div id="loading-overlay">
-				<div class="loader"></div>
-			</div>
+<body>
+	<!-- /.loading-overlay -->
+	<div id="loading-overlay">
+		<div class="loader"></div>
+	</div>
+
 			<header class="style1">
 				<div id="site-header">
 					<jsp:include page="IncludePage/topBar.jsp" />
