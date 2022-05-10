@@ -22,14 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 //		 表單提交
-		http.formLogin()
-				// login.jsp 表單 action 內容(action="/login") spring boot預設的，不會經過controller的樣子，待驗證
-				.loginProcessingUrl("/login")
-				// 自定義登入頁面
-				.loginPage("/BackLogin");	
-				// 登入成功之後要造訪的頁面
+		http.formLogin()   //這個要
+//				 login.jsp 表單 action 內容(action="/login") spring boot預設的，不會經過controller的樣子，待驗證
+				.loginProcessingUrl("/login")  //這個要
+//				 自定義登入頁面
+				.loginPage("/BackLogin");	//這個要
+//				 登入成功之後要造訪的頁面
 //				.successForwardUrl("/index"); // welcome 頁面
-				// 登入失敗後要造訪的頁面
+//				 登入失敗後要造訪的頁面
 //				.failureForwardUrl("/loginFail");
 
 		http.authorizeHttpRequests()
@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		.antMatchers("/").authenticated()
 		
 		http.csrf().disable();
-//			
+			
 	}
 	// 注意！規定！要建立密碼演算的實例
 		@Bean
