@@ -34,7 +34,7 @@ public class CustomerMessageController {
 	@Autowired
 	private CustomerMessageService cmseService;
 	
-	@GetMapping("/CusMesbacks/findByPage")
+	@GetMapping("/message/findByPage")
 	public ModelAndView findByPage(ModelAndView mav,@RequestParam(name="p", defaultValue = "1") Integer pageNumber)
 	{
 		System.out.print(pageNumber);
@@ -57,7 +57,7 @@ public class CustomerMessageController {
 	}
 	
 	
-	@PostMapping("/AddCusMessage")
+	@PostMapping("/message/AddCusMessage")
 	public ModelAndView insertMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes , BindingResult br) {
 		mav.setViewName("AddCusMessage");
 		if (!br.hasErrors()) {

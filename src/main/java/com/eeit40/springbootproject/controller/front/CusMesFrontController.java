@@ -38,6 +38,6 @@ public class CusMesFrontController {
 	public String updateById(ModelAndView mav, @RequestParam("messageId") Integer messageId, @RequestParam("messageName") String messageName, 
 			@RequestParam("messageEmail") String messageEmail, @RequestParam("messageQuest") String messageQuest, @RequestParam("messagetext") String messagetext) {
 		cusmess.insert(new CustomerMessage(messageId, messageName, messageEmail, messageQuest,messagetext,new Date()));
-		return "redirect:/CusMesFrontView";
+		return "redirect:/message/CusMesFrontView";
 	}
 }

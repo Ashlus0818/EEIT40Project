@@ -69,7 +69,7 @@
 	<table id="myTable" class="table table-sm table-dark"
 		style="text-align: center">
 		<tr>
-			<th style="text-align: center">ID
+			<th hidden style="text-align: center">ID
 			<th style="text-align: center">姓名
 			<th style="text-align: center">信箱
 			<th style="text-align: center">問題
@@ -79,7 +79,7 @@
 			<form id='CusFormId${cpage.messageId}' action=""
 				method="post">
 				<tr>
-					<td name="messageId" value="${cpage.messageId}"
+					<td hidden name="messageId" value="${cpage.messageId}"
 						id="mesId${cpage.messageId}">${cpage.messageId}</td>
 
 
