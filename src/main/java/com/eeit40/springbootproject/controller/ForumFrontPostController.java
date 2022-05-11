@@ -41,35 +41,36 @@ public class ForumFrontPostController {
 	}	
 	@PostMapping("/ForumFrontAddpost")
 	public ModelAndView insertPost(ModelAndView mav, @Valid @ModelAttribute(name = "forumpost") ForumPost post,
-			BindingResult br) {		
+			BindingResult br) {					
 		mav.setViewName("FrontJsp/ForumFrontAddpost");	
 		if (!br.hasErrors()) {
 			postService.insertPost(post);
 			ForumPost newpost = new ForumPost();
 			mav.getModel().put("forumpost", newpost);
-			mav.setViewName("redirect:/FrontJsp/ForumFrontPostlist#" + post.getPostID());
+			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + post.getPostID());
 		}
-		ForumPost latestpost = postService.getLastpost();
-		mav.getModel().put("lastpost", latestpost);
 		return mav;
 	}
 	@GetMapping("/ForumFrontEditpost")
 	public String editPost(Model model,@ModelAttribute(name = "forumPost") ForumPost forumPost ) {
+		System.out.println(forumPost);
 		Integer postid = forumPost.getPostID();
 		ForumPost getpost = postService.getpostById(postid);
 		model.addAttribute("forumpost", getpost);
-		return "ForumFrontEditpost";
+		return "FrontJsp/ForumFrontEditpost";
 	}
 	@PostMapping("/ForumFrontEditpost")
-	public ModelAndView editPost(ModelAndView mav,@ModelAttribute(name = "forumpost") ForumPost post,
-			BindingResult br) {
+	public ModelAndView editPost(ModelAndView mav,@ModelAttribute(name = "forumpost") ForumPost post) {
 		mav.setViewName("FrontJsp/ForumFrontEditpost");
-		if (!br.hasErrors()) {
+		ForumPost oldpost = postService.getpostById(post.getPostID());
+		String pass = oldpost.getPassword();
+		String password = post.getPassword();
+		if (pass.equals(password)) {
 			postService.insertPost(post);
-			mav.setViewName("redirect:/FrontJsp/ForumFrontOnepost?postID=" + post.getPostID());
+			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + post.getPostID());
 		}
 		return mav;
-	}
+	}	
 	@GetMapping("/DeleteFrontForumpost")
 	public ModelAndView deletePost(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
 		postService.deleteBypostId(postID);
