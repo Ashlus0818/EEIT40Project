@@ -20,7 +20,7 @@ public class ReservationOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "orderId")
-	private String orderId;
+	private Integer orderId;
 
 	@Column(name = "orderMemberEmail")
 	private String orderMemberEmail;
@@ -54,22 +54,11 @@ public class ReservationOrder {
 	public ReservationOrder() {
 	}
 
-	
-	public Integer getOrderStorePop() {
-		return orderStorePop;
-	}
-
-
-	public void setOrderStorePop(Integer orderStorePop) {
-		this.orderStorePop = orderStorePop;
-	}
-
-
-	public String getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(String orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 
@@ -87,6 +76,14 @@ public class ReservationOrder {
 
 	public void setOrderStoreName(String orderStoreName) {
 		this.orderStoreName = orderStoreName;
+	}
+
+	public Integer getOrderStorePop() {
+		return orderStorePop;
+	}
+
+	public void setOrderStorePop(Integer orderStorePop) {
+		this.orderStorePop = orderStorePop;
 	}
 
 	public String getOrderDate() {
@@ -129,7 +126,6 @@ public class ReservationOrder {
 		this.modifiedAt = modifiedAt;
 	}
 
-
 	@Override
 	public String toString() {
 		return "ReservationOrder [orderId=" + orderId + ", orderMemberEmail=" + orderMemberEmail + ", orderStoreName="
@@ -137,6 +133,8 @@ public class ReservationOrder {
 				+ orderTime + ", orderWine=" + orderWine + ", createdAt=" + createdAt + ", modifiedAt=" + modifiedAt
 				+ "]";
 	}
+
+	
 
 
 	
