@@ -2,7 +2,7 @@
   * Name: Wizym
   * Version: 1.0
   * Author: Themesflat
-  * ¸ü¶à¾«Æ·BootstrapÄ£°åÇë·ÃÎÊ£ºhttp://www.bootstrapmb.com
+  * ï¿½ï¿½ï¿½à¾«Æ·BootstrapÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½http://www.bootstrapmb.com
 */
 
 @import url("font-awesome.css");
@@ -1125,6 +1125,7 @@ article.post-list {
 }
 
 article .featured-post {
+    width: 420px;
 	position: relative;
 	display: inline-block;
 	overflow: hidden;
