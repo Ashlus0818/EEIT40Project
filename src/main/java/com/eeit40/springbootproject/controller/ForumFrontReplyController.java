@@ -61,7 +61,7 @@ public class ForumFrontReplyController {
 			replyService.insertReply(reply);
 			ForumReply newreply = new ForumReply();
 			mav.getModel().put("forumpost", newreply);
-			mav.setViewName("redirect:/FrontJsp/ForumFrontOnepost?postID=" + reply.getPostID());		
+			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + reply.getPostID());		
 		return mav;
 	}
 	@GetMapping("/ForumFrontEditreply")
@@ -76,7 +76,7 @@ public class ForumFrontReplyController {
 		mav.setViewName("FrontJsp/ForumFrontEditreply");
 		if (!br.hasErrors()) {
 			replyService.insertReply(reply);
-			mav.setViewName("redirect:/FrontJsp/ForumFrontOnepost?postID=" + reply.getPostID());
+			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + reply.getPostID());
 		}
 		return mav;
 	}
