@@ -9,13 +9,11 @@
 <title>Shop-details</title>
 </head>
 <body>
-	<div id="loading-overlay">
-		<div class="loader"></div>
-	</div>
-	<!-- /.loading-overlay -->
 	<header class="style1">
 		<div id="site-header">
+
 			<jsp:include page="IncludePage/topBar.jsp" />
+
 		</div>
 	</header>
 	<div class="page-title parallax parallax1 ">
@@ -25,9 +23,9 @@
 					<div class="page-title-content text-center">
 						<div class="breadcrumbs">
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Product</a></li>
-								<li class="blog"><a href="#">Product Details</a></li>
+								<li><a href="#">首頁</a></li>
+								<li><a href="#">產品</a></li>
+								<li class="blog"><a href="#">詳細介紹</a></li>
 							</ul>
 						</div>
 						<div class="page-title-heading">
@@ -56,48 +54,18 @@
 										<div class="gallery-item">
 											<div class="inner">
 												<div class="thumb">
-													<img src="${contextRoot}/FrontPage/image/homepage152.png"
+													<img src="${contextRoot}/FrontPage/image/ID1.jpg"
 														alt="Image">
 													<div class="search-images">
 														<a data-type="iframe"
-															href="${contextRoot}/FrontPage/image/homepage127.png"
+															href="${contextRoot}/FrontPage/image/ID1.jpg"
 															class="zoom-pic"> <i class="icon_zoom-in_alt "
 															aria-hidden="true"></i>
 														</a>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="gallery-item">
-											<div class="inner">
-												<div class="thumb">
-													<img src="${contextRoot}/FrontPage/image/homepage152.png"
-														alt="Image">
-													<div class="search-images">
-														<a data-type="iframe"
-															href="${contextRoot}/FrontPage/image/homepage127.png"
-															class="zoom-pic"> <i class="icon_zoom-in_alt "
-															aria-hidden="true"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="gallery-item active">
-											<div class="inner">
-												<div class="thumb">
-													<img src="${contextRoot}/FrontPage/image/homepage152.png"
-														alt="Image">
-													<div class="search-images">
-														<a data-type="iframe"
-															href="${contextRoot}/FrontPage/image/homepage127.png"
-															class="zoom-pic"> <i class="icon_zoom-in_alt "
-															aria-hidden="true"></i>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
+										</div>						
 									</div>
 								</div>
 								<!-- /.themesflat-cousel-box -->
@@ -107,16 +75,10 @@
 					<div class="col-lg-6 col-md-6">
 						<div class="content-wrap">
 							<h2 class="heading">
-								<a href="">Vivonne sauvignon 1988</a>
+								<a href="">三得利 響 Japanese Harmony威士忌 43% 0.7L</a>
 							</h2>
-							<div class="post-rating">
-								<i class="fa fa-star" aria-hidden="true"></i> <i
-									class="fa fa-star" aria-hidden="true"></i> <i
-									class="fa fa-star" aria-hidden="true"></i> <i
-									class="fa fa-star" aria-hidden="true"></i> <i
-									class="fa fa-star" aria-hidden="true"></i>
-							</div>
-							<h2 class="dolar">$19.99</h2>
+						
+							<h2 class="dolar">$4000</h2>
 							<div class="content-text">
 								<p>A New Generation of Winernakers Lorem ipsum dolor sit
 									amet sectetu adipiscing elit. Aenean commodo ligula eget dolor.</p>
@@ -133,14 +95,7 @@
 									</span></li>
 								</ul>
 							</div>
-							<div class="size">
-								<span>Size</span> <select>
-									<option value="volvo">Choosing Bottle Sizes</option>
-									<option value="saab">Saab</option>
-									<option value="opel">Opel</option>
-									<option value="audi">Audi</option>
-								</select>
-							</div>
+						
 							<div class="content-cart clearfix">
 								<form class="cart clearfix" method="post">
 									<div class="quantity">
@@ -148,7 +103,7 @@
 											value="1" title="Qty" class="input-text qty text" size="4">
 									</div>
 									<div class="elm-btn">
-										<a href="#"
+										<a href="${contextRoot}/front/Shop-cart"
 											class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontall"><i
 											class="fa fa-shopping-cart" aria-hidden="true"></i> ADD TO
 											CART</a>
@@ -165,9 +120,7 @@
 							<ul class="tabs">
 								<li><a class="tab active" data-id='#tab-description'
 									href="#">Description</a></li>
-								<li><a class="tab" data-id='#tab-reviews' href="#">Reviews
-										(1)</a></li>
-							</ul>
+									</ul>
 							<div id="tab-description" class="tab-content">
 								<p>This wine is deeply coloured and brightly scented with
 									intense aromas of cassis, dark cherries and dried herbs
@@ -180,72 +133,9 @@
 									a fourth-generation vigneron. The vines are aged from 10 to 15
 									years and are trained on a vertical shoot positioning trellis.</p>
 							</div>
-							<div id="tab-reviews" class="tab-content">
-								<div id="reviews" class="woocommerce-Reviews">
-									<div class="post-bottom-second post-bottom">
-										<div class="avatar">
-											<img src="${contextRoot}/FrontPage/image/comment1.jpg"
-												alt="image">
-											<div class="post-rating">
-												<i class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i>
-											</div>
-										</div>
-										<div class="post-comment">
-											<div class="comment-meta comment">
-												<a href="#"> May 28, 2018</a>
-											</div>
-											<div class="comment-title comment">
-												<a href="#">Brandon Kelley</a>
-											</div>
-											<div class="comment-text comment">
-												<a href="#">Vasse Felix chief executive, Paul Holmes a
-													Court said no plans have yet been made for the buildings on
-													the property</a>
-											</div>
-										</div>
-									</div>
+							
 									<!-- /post-bottom-second -->
-									<div class="comment-respond">
-										<form class="comment-form">
-											<p>
-												<a href="#">Add Preview</a>
-											</p>
-											<p class="comment-form-author">
-												<!-- <label>Name *</label> -->
-												<input name="author" type="text" placeholder="Name"
-													required="required">
-											</p>
-											<p class="comment-form-email">
-												<!-- <label>Email *</label> -->
-												<input name="email" type="email" placeholder="Email"
-													required="required">
-											</p>
-											<div class="clearfix"></div>
-											<p class="your-rating">
-												<a href="#">Your Rating</a>
-											</p>
-											<div class="post-rating">
-												<i class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i> <i
-													class="fa fa-star" aria-hidden="true"></i>
-											</div>
-											<p class="comment-form-comment">
-												<!-- <label>Comment</label>  -->
-												<textarea name="comment" placeholder="Comment"
-													required="required"></textarea>
-											</p>
-											<p class="submit-form">
-												<button name="submit" type="submit"
-													class="submit btn btn-styl hvr-shutter-out-horizontal">SUBMIT</button>
-											</p>
-										</form>
-									</div>
+									
 									<!-- /comment-respond -->
 								</div>
 							</div>
@@ -256,163 +146,7 @@
 			</div>
 			<!-- /container -->
 		</section>
-		<!-- /main-shop-detail -->
-		<section class="flat-products style2">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="title-section">
-							<h3 class="our-product-title">
-								<a href="#"> Our Products </a>
-							</h3>
-							<h1 class="our-product-main">
-								<a href="#"> Popular This Month </a>
-							</h1>
-							<div class="our-product-image">
-								<img src="${contextRoot}/FrontPage/image/homepage14.png"
-									alt="image">
-							</div>
-						</div>
-						<!-- /title-section -->
-						<div class="product-content product-fourcolumn clearfix">
-							<ul class="product style2 isotope-product clearfix">
-								<li class="product-item features arrivals">
-									<div class="product-thumb clearfix">
-										<a href="#" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/homepage55.png"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info text-center clearfix">
-										<span class="product-title">Laboure Chardonnay</span>
-										<div class="price">
-											<ins>
-												<span class="amount">$19.99</span>
-											</ins>
-										</div>
-
-									</div>
-									<div class="product-review">
-										<div class="add-cart">
-											<a href="#" class="like1"><i class="fa fa-refresh"
-												aria-hidden="true"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like2"><i class="fa fa-heart-o"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like3"><i class="fa fa-shopping-cart"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</li>
-								<!-- /product-item -->
-								<li class="product-item features sale">
-									<div class="product-thumb clearfix">
-										<a href="#" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/homepage150.png"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">Josh Cellars Cabarnet</span>
-										<div class="price">
-											<ins>
-												<span class="amount">$29.99</span>
-												<del>$38.99</del>
-											</ins>
-										</div>
-
-									</div>
-									<div class="product-review">
-										<div class="add-cart">
-											<a href="#" class="like1"><i class="fa fa-refresh"
-												aria-hidden="true"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like2"><i class="fa fa-heart-o"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like3"><i class="fa fa-shopping-cart"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</li>
-								<!-- /product-item -->
-								<li class="product-item features">
-									<div class="product-thumb clearfix">
-										<a href="#" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/homepage57.png"
-											alt="image">
-										</a>
-
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">Dark Horse Rosé</span>
-										<div class="price">
-											<ins>
-												<span class="amount">$38.49</span>
-											</ins>
-										</div>
-									</div>
-									<div class="product-review">
-										<div class="add-cart">
-											<a href="#" class="like1"><i class="fa fa-refresh"
-												aria-hidden="true"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like2"><i class="fa fa-heart-o"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like3"><i class="fa fa-shopping-cart"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</li>
-								<!-- /product-item -->
-								<li class="product-item arrivals">
-									<div class="product-thumb clearfix">
-										<a href="#" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/homepage150.png"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">Dark Hose Rosé</span>
-										<div class="price">
-											<ins>
-												<span class="amount">$38.49</span>
-											</ins>
-										</div>
-
-									</div>
-									<div class="product-review">
-										<div class="add-cart">
-											<a href="#" class="like1"><i class="fa fa-refresh"
-												aria-hidden="true"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like2"><i class="fa fa-heart-o"></i></a>
-										</div>
-										<div class="add-cart">
-											<a href="#" class="like3"><i class="fa fa-shopping-cart"
-												aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</li>
-								<!-- /product-item -->
-							</ul>
-						</div>
-					</div>
-					<!-- /col-lg-12 -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</section>
-		<!-- /flat-products-->
-	</div>
-	
+		
 	<jsp:include page="IncludePage/footer.jsp" />
 
 	<a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -428,5 +162,31 @@
 	<script src="${contextRoot}/FrontPage/javascript/jquery-waypoints.js"></script>
 	<script src="${contextRoot}/FrontPage/javascript/bootstrap.min.js"></script>
 	<script src="${contextRoot}/FrontPage/javascript/main.js"></script>
+	<!-- Slider -->
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="${contextRoot}/FrontPage/javascript/rev-slider.js"></script>
+	<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
 </body>
+
 </html>
