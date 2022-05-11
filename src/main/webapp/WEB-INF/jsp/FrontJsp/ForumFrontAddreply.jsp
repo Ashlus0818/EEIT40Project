@@ -30,12 +30,10 @@
 					<p />
 					<p />
 					文章標題：
-					<p />
-					<p />
 					<c:out value="${post.title}" />
 					<p />
-					<p />
 					----------------------------------------------------------------------
+					<p />
 					文章內容：
 					<p />
 					<c:out value="${post.context}" />
@@ -45,14 +43,14 @@
 		<p/>
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">回覆文章</div>
+				<div class="card-header"></div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumReply">
 						<form:errors path="recontext" />
 						<form:input type="hidden" path="postID"
 							value="${forumReply.postID}" />
 						<div class="imput-group">
-							>> NO.${forumReply.postID}
+						<br>
 							<p />
 							<p />
 							回覆內容：

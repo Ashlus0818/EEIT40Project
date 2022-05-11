@@ -63,9 +63,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/ForumFrontEditpost").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontEditreply").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontOnepost").hasAnyRole("admin","manager","customer")
+
+		.antMatchers("/ForumFrontDelete").hasAnyRole("admin","manager","customer");
+
 		.antMatchers("/front/orderList").hasAnyRole("admin","manager")
 		.antMatchers("/front/Re-Order").hasAnyRole("admin","manager")
 		.antMatchers("/saveReservation").hasAnyRole("admin","manager");
+
 //		.antMatchers("/").authenticated();
 		
 //		.antMatchers("/").authenticated()

@@ -22,30 +22,23 @@
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header"></div>
+				<div class="card-header">刪除文章</div>
 				<div class="card-body">
-					<form:form class="form" method="POST" modelAttribute="forumpost">
+					<form:form class="form" method="GET" modelAttribute="forumpost">
 						<form:errors path="title" />
 						<form:errors path="context" />
 						<form:input type="hidden" path="postID" />
 						<form:input type="hidden" path="userID" />
 						<form:input type="hidden" path="date" />
+						<form:input type="hidden" path="title" />
+						<form:input type="hidden" path="context" />
 						<div class="imput-group">
 						<p />
-							標題：
-							<p />
-							<p />
-							<form:textarea path="title" class="form-control"></form:textarea>
-							<p />
-							<p />
-							內容：
-							<p />
-							<form:textarea path="context" class="form-control"></form:textarea>
 							<p />
 							驗證用密碼：<input type="password" name="password">
 						</div>
 						<p />
-						<input type="submit" name="submit" value="修改">
+						<input type="submit" name="submit" value="刪除">
 					</form:form>
 				</div>
 			</div>

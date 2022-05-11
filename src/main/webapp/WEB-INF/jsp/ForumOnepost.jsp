@@ -25,7 +25,7 @@
 				<div class="card-header">
 				<div class="edit-link">
 							<a href="${contextRoot}/ForumPostlist#${post.postID}">回文章列表</a> |
-							<a href="${contextRoot}/ForumReportlist">回檢舉列表</a> 
+							<a href="${contextRoot}/ForumReportlist">回檢舉列表</a> |
 							<a onclick="return confirm('刪除')" href="${contextRoot}/DeleteForumpost?postID=${post.postID}">刪除</a>
 						</div>
 						<br>
@@ -39,9 +39,6 @@
 					標題：
 					<p/>
 					<p/>
-				<!--	<p />-->
-				<!--	<p />-->
-				<!--	<p />-->
 					<c:out value="${post.title}" />
 					<p />
 										----------------------------------------------------------------------
@@ -49,7 +46,6 @@
 					內容：
 					<p/>
 					<p/>
-				<!--	<p />-->
 					<c:out value="${post.context}" />
 					<p />
 				</div>
