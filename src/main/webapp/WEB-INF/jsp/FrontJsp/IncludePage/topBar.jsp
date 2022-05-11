@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
@@ -29,14 +29,14 @@
           <li class="active">
             <a href="#" title="">商品</a>
             <ul class="sub-menu">
-                <li><a href="${contextRoot}/FrontPage/Shop-fullwidth-grid.html" title="">全部商品</a></li>
-                <li><a href="${contextRoot}/FrontPage/Shop-details.html" title="">商品詳細</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-order-tracking.html" title="">客戶訂單</a></li>
-              <li><a href="${contextRoot}/FrontPage/Shop-cart.html" title="">購物車</a></li>
+                <li><a href="${contextRoot}/front/Shop-fullwidth-grid" title="">全部商品</a></li>
+                <li><a href="${contextRoot}/front/Shop-details" title="">商品詳細</a></li>
+              <li><a href="${contextRoot}/front/Shop-order-tracking" title="">客戶訂單</a></li>
+              <li><a href="${contextRoot}/front/Shop-cart" title="">購物車</a></li>
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="${contextRoot}/ForumFrontPostlist" title="">討稐/交流</a>
+            <a href="${contextRoot}/ForumFrontPostlist" title="">討論區</a>
             <ul class="sub-menu">
               <li><a href="${contextRoot}/ForumFrontAddpost" title="">新增文章</a></li>
               <li><a href="${contextRoot}/ForumFrontPostlist" title="">文章列表</a></li>

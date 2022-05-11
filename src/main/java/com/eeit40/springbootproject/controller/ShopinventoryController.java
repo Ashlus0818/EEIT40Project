@@ -89,7 +89,7 @@ public class ShopinventoryController {
 			@RequestParam(name = "t2") String iImg,
 			@RequestParam(name = "t3") String iPlace,
 			@RequestParam(name = "t4") String iprice,
-			@RequestParam(name = "t4") String category) {
+			@RequestParam(name = "t5") String category) {
 		System.out.println(iprice);
 		ShopInventory sl =  new ShopInventory(iName,iImg,iPlace,iprice,category);
 		
