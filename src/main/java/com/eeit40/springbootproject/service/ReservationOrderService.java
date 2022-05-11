@@ -38,7 +38,7 @@ public class ReservationOrderService {
 	}
 
 	
-	//根據id找整筆資料 from ReservationStoreController
+	//根據id找整筆資料 from ReservationOrderController
 		public ReservationOrder findById(Integer storeId) {
 			Optional<ReservationOrder> responseReS = ReservationOrderDao.findById(storeId);
 
