@@ -135,7 +135,7 @@
                                 action="${contextRoot}/backstage/ReservationStore/delAStore" method="get">
                                 <input class="${pageStore.storeId}" name="storeIDnumberDel" value="${pageStore.storeId}"
                                   type="hidden" />
-                                <input id="testname" type="button" value="刪除" onclick="del(${pageStore.storeId})" />
+                                <input id="deleteButton${pageStore.storeId}" type="button" value="刪除" onclick="del(${pageStore.storeId})" />
                               </form>
 
                           </tr>
@@ -203,12 +203,23 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
   <script>
     // 為了在檢視或刪除時根據"id"去刪除,要先抓到storeId的前置作業
     //formStoreID 連結 90行前後的form id欄位
     function show(count) {
       document.getElementById("formStoreID" + count).submit();
+      
+      function del(${pageStore.storeId}) {
+            Swal.fire(
+                "查詢作業失敗", //標題 
+                "您所輸入的序號不存在或是系統被玩壞了!", //訊息內容(可省略)
+                "error" //圖示(可省略) success/info/warning/error/question
+                //圖示範例：https://sweetalert2.github.io/#icons
+            );
+        }
+      
     }
 
 

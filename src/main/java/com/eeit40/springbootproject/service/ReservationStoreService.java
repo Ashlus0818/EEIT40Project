@@ -24,7 +24,7 @@ public class ReservationStoreService {
 
 	// store showALL + PageController(showAll)
 	public Page<ReservationStore> findByPage(Integer pageNumber) {
-		Pageable pgb = PageRequest.of(pageNumber - 1, 10, Sort.Direction.ASC, "storeId");
+		Pageable pgb = PageRequest.of(pageNumber - 1, 10, Sort.Direction.DESC, "storeId");
 		Page<ReservationStore> page = ReservationStoreDao.findAll(pgb);
 		// List<ReservationStore> list = page.getContent();
 
