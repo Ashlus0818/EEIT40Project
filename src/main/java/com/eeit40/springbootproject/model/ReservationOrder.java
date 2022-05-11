@@ -54,13 +54,29 @@ public class ReservationOrder {
 	public ReservationOrder() {
 	}
 
+
+	
+	public Integer getOrderStorePop() {
+		return orderStorePop;
+	}
+
+
+	public void setOrderStorePop(Integer orderStorePop) {
+		this.orderStorePop = orderStorePop;
+	}
+
+
+
+
 	public Integer getOrderId() {
 		return orderId;
 	}
 
+
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
+
 
 	public String getOrderMemberEmail() {
 		return orderMemberEmail;
