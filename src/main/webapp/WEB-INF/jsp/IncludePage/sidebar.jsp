@@ -76,7 +76,7 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Custom Components:</h6>
-					<a class="collapse-item" href="${contextRoot}/message/findByPage">查看留言</a>
+					<a class="collapse-item" href="${contextRoot}/CusMesbacks/findByPage">查看留言</a>
 				</div>
 			</div></li>
 	
