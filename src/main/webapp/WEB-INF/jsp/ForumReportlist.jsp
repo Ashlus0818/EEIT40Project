@@ -27,7 +27,8 @@
 						<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${lastreport.date}" /></span>
 					</div>
 					<div class="card-body">
-						<a href="${contextRoot}/ForumOnepost?postID=${lastreport.postID}">NO：${lastreport.postID}</a>
+						<a href="${contextRoot}/ForumOnepost?postID=${lastreport.postID}">看NO：${lastreport.postID}的文</a>
+						<p />
 						<p />
 						理由：
 						<p />
@@ -48,7 +49,7 @@
 						</div>
 						<div class="card-body">
 					<div class="edit-link">
-						<a href="${contextRoot}/ForumOnepost?postID=${report.postID}">看NO：${report.postID}的文及回應</a>|
+						<a href="${contextRoot}/ForumOnepost?postID=${report.postID}">看NO：${report.postID}的文</a>|
 						<a onclick="return confirm('刪除')"
 							href="${contextRoot}/DeleteForumreport?reportID=${report.reportID}">刪除</a>
 					</div>

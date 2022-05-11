@@ -23,12 +23,13 @@
 			<div class="card">
 				<div class="card-header">
 				<div class="edit-link">
-							<a href="${contextRoot}/ForumFrontPostlist#${post.postID}">回文章列表</a> |
+							<a href="${contextRoot}/ForumFrontPostlist#${post.postID}">回文章列表</a> 
 						</div>
 					<span><fmt:formatDate
 							pattern="yyyy-MM-dd HH:mm:ss EEEE" value="${post.date}" /></span>
 				</div>
 				<div class="card-body">
+											<br>
 				No.${post.postID}
 				<p />
 				<p />
