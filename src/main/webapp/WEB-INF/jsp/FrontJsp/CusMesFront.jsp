@@ -54,7 +54,7 @@
                   </div>
               </div> <!-- /title-section -->
          
-               <form id="contactform" action="${contextRoot}/message/AddCusMessage" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
+               <form id="contactform" action="${contextRoot}/message/addCusMessage" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
                   <span class="wpcf7-form-control-wrap your-name">
                       <input type="text" tabindex="1" id="messageName" name="messageName" value="" class="wpcf7-form-control" placeholder="姓名" required>
                   </span>
@@ -117,9 +117,9 @@
 
 
   $(document).ready(function (){
-    $('#submitButton').click(function(){
-
-
+    $("#submitButton").click(function(){
+    	 document.getElementById('messageEmail').action="${contextRoot}/sendMail";
+    	 document.getElementById('messageEmail').submit();
     })
   }) 
 

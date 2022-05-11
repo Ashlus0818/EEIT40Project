@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/message/viewMessages").hasAnyRole("admin","manager")
 		.antMatchers("/backstage/ReservationStore").hasAnyRole("admin","manager")
 		.antMatchers("/CusMesback").hasAnyRole("admin","manager")
+		.antMatchers("/message/**").hasAnyRole("admin","manager","customer")
 		.antMatchers("/addShopLiquor").hasAnyRole("admin","manager")
 		.antMatchers("/addShopOrder").hasAnyRole("admin","manager")
 		.antMatchers("/addShopCart").hasAnyRole("admin","manager")
@@ -75,7 +76,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		.antMatchers("/").authenticated()
 		
 
+
 		http.csrf().disable(); // 因為這段註解掉所以ajax post請求會出403
+
 //			
 
 	}
