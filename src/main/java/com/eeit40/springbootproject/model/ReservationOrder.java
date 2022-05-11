@@ -55,10 +55,6 @@ public class ReservationOrder {
 	}
 
 
-	
-
-
-
 
 
 	public Integer getOrderId() {

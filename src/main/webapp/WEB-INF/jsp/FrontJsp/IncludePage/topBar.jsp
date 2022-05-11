@@ -36,7 +36,7 @@
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
-            <a href="${contextRoot}/ForumFrontPostlist" title="">討稐/交流</a>
+            <a href="${contextRoot}/ForumFrontPostlist" title="">討論區</a>
             <ul class="sub-menu">
               <li><a href="${contextRoot}/ForumFrontAddpost" title="">新增文章</a></li>
               <li><a href="${contextRoot}/ForumFrontPostlist" title="">文章列表</a></li>

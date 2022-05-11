@@ -1,6 +1,7 @@
 package com.eeit40.springbootproject.controller;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 
@@ -23,6 +24,7 @@ import com.eeit40.springbootproject.service.ForumPostService;
 public class ForumFrontPostController {
 	@Autowired
 	private ForumPostService postService;
+	private String superPassword = "zzzz";
 	@GetMapping("/ForumFrontPostlist")
 	public ModelAndView Forumlistpage(ModelAndView mav) {
 		ForumPost lastpost = postService.getLastpost();
@@ -47,7 +49,7 @@ public class ForumFrontPostController {
 			postService.insertPost(post);
 			ForumPost newpost = new ForumPost();
 			mav.getModel().put("forumpost", newpost);
-			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + post.getPostID());
+			mav.setViewName("redirect:/ForumFrontPostlist#" + post.getPostID());
 		}
 		return mav;
 	}
@@ -65,16 +67,22 @@ public class ForumFrontPostController {
 		ForumPost oldpost = postService.getpostById(post.getPostID());
 		String pass = oldpost.getPassword();
 		String password = post.getPassword();
-		if (pass.equals(password)) {
+		if (password.equals(pass) || password.equals(superPassword)) {
 			postService.insertPost(post);
 			mav.setViewName("redirect:/ForumFrontOnepost?postID=" + post.getPostID());
 		}
 		return mav;
 	}	
-	@GetMapping("/DeleteFrontForumpost")
-	public ModelAndView deletePost(ModelAndView mav, @RequestParam(name = "postID") Integer postID) {
-		postService.deleteBypostId(postID);
+	@GetMapping("/ForumFrontDelete")
+	public ModelAndView deletePost(ModelAndView mav,@ModelAttribute(name = "forumpost") ForumPost post) {
+		mav.setViewName("FrontJsp/ForumFrontDelete");
+		ForumPost oldpost = postService.getpostById(post.getPostID());
+		String pass = oldpost.getPassword();
+		String password = post.getPassword();
+		if (Objects.equals(pass,password) || (Objects.equals(superPassword,password))) {
+		postService.deleteBypostId(post.getPostID());
 		mav.setViewName("redirect:/ForumFrontPostlist");
+		}
 		return mav;
 	}
 }

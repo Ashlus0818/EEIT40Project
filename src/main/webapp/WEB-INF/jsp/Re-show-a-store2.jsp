@@ -69,6 +69,7 @@
   </style>
 
   <jsp:include page="IncludePage/css.jsp" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -78,7 +79,7 @@
 
 
 
-  <form:form class="form" method="POST" enctype="multipart/form-data" modelAttribute="modAttReShowAStore">
+  <form:form id="updateForm" class="form" method="POST" enctype="multipart/form-data" modelAttribute="modAttReShowAStore">
 
     <fieldset class="fieldset">
       <legend>店家資訊</legend>
@@ -139,7 +140,8 @@
 
 
       <div class="button">
-        <input type="submit" name="submit" value="送出" />
+        <input type="button" onclick="update()" name="" value="送出" />
+<!--         <input type="submit"  name="" value="送出" /> -->
 
         <a href="${contextRoot}/backStage/CancelReturnStore"> <input type="button" value="取消"></a>
       </div>
@@ -149,6 +151,34 @@
 
 
   <jsp:include page="IncludePage/script.jsp" />
+
+<script src="${contextRoot}/BackPage/js/jquery-3.6.0.js"></script>
+<script>
+
+function update(){
+Swal.fire({
+	  title: '確定更改?',
+	  showDenyButton: true,
+	  showCancelButton: true,
+	  confirmButtonText: 'Save',
+	  denyButtonText: `Don't save`,
+	}).then((result) => {
+	  /* Read more about isConfirmed, isDenied below */
+	  if (result.isConfirmed) {
+		  //console.log(document.getElementById('updateForm'));
+      //console.log($('#updateForm'))
+		  Swal.fire('Saved!', '', 'success').then(function(){document.getElementById("updateForm").submit();})		
+	  } else if (result.isDenied) {
+	    Swal.fire('未完成修改', '', 'info')
+	  }
+	})
+}
+
+
+
+
+
+</script>
 
 </body>
 

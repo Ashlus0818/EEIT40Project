@@ -143,10 +143,10 @@
                 <div class="st2">
                   <label for="">產地</label>
                   <select name="" id="selectPlace">
-                    <option value="">蘇格蘭</option>
-                    <option value="">英格蘭</option>
-                    <option value="">愛爾蘭</option>
+                    <option value="">英國</option>
                     <option value="">美國</option>
+                    <option value="">日本</option>
+                    <option value="">台灣</option>
                   </select>
                 </div>
                 <div class="st3">

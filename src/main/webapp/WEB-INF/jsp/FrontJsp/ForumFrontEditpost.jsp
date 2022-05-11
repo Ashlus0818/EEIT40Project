@@ -22,7 +22,7 @@
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">編輯文章</div>
+				<div class="card-header"></div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumpost">
 						<form:errors path="title" />
