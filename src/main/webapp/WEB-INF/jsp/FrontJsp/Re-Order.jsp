@@ -101,7 +101,8 @@
           <div class="container">
             <div class="filter-post">
               <div class="featured-post">
-                <img src="${contextRoot}/FrontPage/image/homepage120.png" alt="image">
+                <img src="${contextRoot}/Img/${pageOrder.storeImg}" alt="image">
+<%--            ${contextRoot}/FrontPage/image/homepage120.png --%>
                 <!--               <div class="date-time"> -->
                 <!--                 <h2>02</h2> -->
                 <!--                 <h2>JULY</h2> -->
@@ -170,6 +171,8 @@
         </c:forEach>
       </article>
     </div>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+<!--     不加上面這段會出403的原因->https://www.cnblogs.com/midworld/p/10996850.html ->SecurityConfig.java ->原因註解掉http.csrf().disable(); -->
   </form>
 
   <!-- 顯示page頁數按鈕				 -->
@@ -197,18 +200,7 @@
     </div>
   </div>
 
-  <script>
-    $("#searchStore").click(function () {
-      $.ajax({
-        url: "${contextRoot}/saveReservation",
-        type: "POST",
-        data: $("form").serialize(),
-        success: function () {
-          alert("新增成功")
-        }
-      })
-    })
-  </script>
+ 
 
   <jsp:include page="IncludePage/footer.jsp" />
   <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
@@ -222,7 +214,21 @@
   <script src="${contextRoot}/FrontPage/javascript/jquery.isotope.min.js"></script>
   <script src="${contextRoot}/FrontPage/javascript/jquery-waypoints.js"></script>
   <script src="${contextRoot}/FrontPage/javascript/bootstrap.min.js"></script>
-  <script src="${contextRoot}/FrontPage/javascript/main.js"></script>
+  <script src="${contextRoot}/FrontPage/javascript/main.js"></script> 
+  
+  <script>
+    $("#searchStore").click(function () {
+      $.ajax({
+        url: "${contextRoot}/re/saveReservation",
+        type: "POST",
+        data: $("form").serialize(),
+        success: function (result) {
+          alert("新增成功")
+        }
+      })
+    })
+  </script>
+  
 </body>
 
 </html>

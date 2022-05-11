@@ -93,12 +93,18 @@
 			<artifactId>httpclient</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		
+		<!-- spring security  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
+		<!-- spring security taglib -->
+		<dependency>
+		      <groupId>org.springframework.security</groupId>
+		      <artifactId>spring-security-taglibs</artifactId>
+		</dependency>
 
 	</dependencies>
 

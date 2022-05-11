@@ -43,6 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/index").hasAnyRole("admin","manager")
 		.antMatchers("/backTask").hasAnyRole("admin","manager")
 		.antMatchers("/BackInsert").hasAnyRole("admin","manager")
+		.antMatchers("/back/**").hasAnyRole("admin","manager")
 		.antMatchers("/post").hasAnyRole("admin","manager")
 		.antMatchers("/ReMsgTest").hasAnyRole("admin","manager")
 		.antMatchers("/message/add").hasAnyRole("admin","manager")
@@ -54,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/addShopCart").hasAnyRole("admin","manager")
 		.antMatchers("/addShopInventory").hasAnyRole("admin","manager")
 		.antMatchers("/front/**").hasAnyRole("admin","manager","customer")
+		.antMatchers("/re/**").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontPostlist").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontAddpost").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontAddreply").hasAnyRole("admin","manager","customer")
@@ -61,13 +63,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/ForumFrontEditpost").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontEditreply").hasAnyRole("admin","manager","customer")
 		.antMatchers("/ForumFrontOnepost").hasAnyRole("admin","manager","customer")
+
 		.antMatchers("/ForumFrontDelete").hasAnyRole("admin","manager","customer");
+
+		.antMatchers("/front/orderList").hasAnyRole("admin","manager")
+		.antMatchers("/front/Re-Order").hasAnyRole("admin","manager")
+		.antMatchers("/saveReservation").hasAnyRole("admin","manager");
+
 //		.antMatchers("/").authenticated();
 		
 //		.antMatchers("/").authenticated()
 		
 
-//		http.csrf().disable();
+//		http.csrf().disable();  因為這段註解掉所以ajax post請求會出403
 //			
 
 	}

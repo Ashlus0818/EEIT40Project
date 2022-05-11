@@ -23,6 +23,7 @@ public class ReservationOrderController {
 
 	@Autowired
 	private ReservationOrderRepository dao;
+
 	@Autowired
 	private ReservationOrderService reservationOrderService;
 	
@@ -43,7 +44,9 @@ public class ReservationOrderController {
 	        
 	// postman   http://localhost:8080/myapp/front/orderList?orderStoreName=信義信安店&orderDate=2202-05-06  已改過不確定	
 	
-	@PostMapping("/saveReservation")
+	
+	//接Ajax傳的日期、店名、人數
+	@PostMapping("/re/saveReservation")
     @ResponseBody
     public String addReservation(ModelAndView mav,@Valid @ModelAttribute(name = "ReservationOrder") ReservationOrder reS,
             BindingResult br) {
@@ -54,7 +57,8 @@ public class ReservationOrderController {
 
             mav.getModel().put("ReservationOrder", newreS);
         } 
-        mav.setViewName("/FrontJsp/Re-Order");
+        mav.setViewName("/FrontJsp/Re-Order"); //這段沒用?
         return "新增成功";
 	}
+
 }

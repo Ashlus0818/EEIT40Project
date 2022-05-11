@@ -49,4 +49,8 @@ public class AppUserService implements UserDetailsService{
 		appUserAuthority.setAppuser(appUserSet);//把AppUser Bean放進AppUserAuthority Bean(多對一)
 		appUserAuthorityRepository.save(appUserAuthority);
 	}
+	
+	public void Update(AppUser appUser) {
+		appUserRepository.save(appUser);
+	}
 }

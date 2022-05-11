@@ -51,9 +51,9 @@
 							<td><input class="row justify-content-center"
 								id="btn${s.count}" type="button" value="刪除" name="delebtn"
 								onclick=deleteForm(${backmessages.messageId})></td>
-              <td><input class="row justify-content-center"
+          <%--     <td><input class="row justify-content-center"
                 id="btn${s.count}" type="button" value="回覆" name="ansbtn"
-                onclick=answerquest(${backmessages.messageId})></td>
+                onclick=answerquest(${backmessages.messageId})></td> --%>
 
 
 
