@@ -34,7 +34,7 @@ public class AppUserController {
 	}
 
 	@ResponseBody
-	@PostMapping("/back/viewAccount")
+	@PostMapping("/back/updateAppUser")
 	public String updateAppUser(@ModelAttribute("bean")AppUser appUser, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
 			return "error";
