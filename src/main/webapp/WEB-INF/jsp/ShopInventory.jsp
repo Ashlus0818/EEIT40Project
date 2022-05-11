@@ -167,7 +167,18 @@
 			</form>
 			</tr>
 		</thead>
-		</table>				
+		
+		</table>	
+		
+<!-- 		分頁 -->
+		<div class="row justify-content-center">
+		<div class="col-9">
+		<c:forEach var="pageNumber" begin="1" end="${page.totalPages}">
+		<a class=" hvr-shutter-out-horizontal" href="${contextRoot}/addShopInventory?p=${pageNumber}"><c:out value="${pageNumber}" /></a>
+		</c:forEach>	
+		
+		</div>
+		</div>			
 	</div>
 	
 	<jsp:include page="IncludePage/script.jsp" />
