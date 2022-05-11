@@ -24,7 +24,7 @@ public class CusMesFrontService {
 	private CustomerMessageFrontRepository dao;
 	
 	public Page<CustomerMessage> findByPage(Integer pageNumber){
-		Pageable pgb = PageRequest.of(pageNumber-1, 5, Sort.Direction.ASC, "messageId");
+		Pageable pgb = PageRequest.of(pageNumber-1, 5, Sort.Direction.DESC, "messageId");
 		
 		Page<CustomerMessage> page = dao.findAll(pgb);
 		

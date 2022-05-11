@@ -56,14 +56,7 @@ public class ReservationOrder {
 
 
 	
-	public Integer getOrderStorePop() {
-		return orderStorePop;
-	}
 
-
-	public void setOrderStorePop(Integer orderStorePop) {
-		this.orderStorePop = orderStorePop;
-	}
 
 
 
