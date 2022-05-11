@@ -20,7 +20,7 @@ public class ReservationOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "orderId")
-	private String orderId;
+	private Integer orderId;
 
 	@Column(name = "orderMemberEmail")
 	private String orderMemberEmail;
@@ -65,13 +65,17 @@ public class ReservationOrder {
 	}
 
 
-	public String getOrderId() {
+
+
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(String orderId) {
+
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
+
 
 	public String getOrderMemberEmail() {
 		return orderMemberEmail;

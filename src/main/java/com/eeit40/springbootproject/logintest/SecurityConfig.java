@@ -43,6 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/index").hasAnyRole("admin","manager")
 		.antMatchers("/backTask").hasAnyRole("admin","manager")
 		.antMatchers("/BackInsert").hasAnyRole("admin","manager")
+		.antMatchers("/back/**").hasAnyRole("admin","manager")
 		.antMatchers("/post").hasAnyRole("admin","manager")
 		.antMatchers("/ReMsgTest").hasAnyRole("admin","manager")
 		.antMatchers("/message/add").hasAnyRole("admin","manager")
