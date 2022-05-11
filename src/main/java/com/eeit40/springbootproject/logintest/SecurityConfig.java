@@ -71,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		.antMatchers("/").authenticated()
 		
 
-//		http.csrf().disable();  因為這段註解掉所以ajax post請求會出403
+		http.csrf().disable(); // 因為這段註解掉所以ajax post請求會出403
 //			
 
 	}
