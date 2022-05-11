@@ -23,6 +23,7 @@ public class ReservationOrderController {
 
 	@Autowired
 	private ReservationOrderRepository dao;
+
 	@Autowired
 	private ReservationOrderService reservationOrderService;
 	
@@ -57,4 +58,5 @@ public class ReservationOrderController {
         mav.setViewName("/FrontJsp/Re-Order");
         return "新增成功";
 	}
+
 }
