@@ -1,4 +1,4 @@
-package com.eeit40.springbootproject.logintest;
+package com.eeit40.springbootproject.loginTest;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

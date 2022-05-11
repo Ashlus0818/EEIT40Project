@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.eeit40.springbootproject.logintest.AppUser;
-import com.eeit40.springbootproject.logintest.AppUserService;
+import com.eeit40.springbootproject.loginTest.AppUser;
+import com.eeit40.springbootproject.loginTest.AppUserService;
 
 @Controller
 public class AppUserController {
@@ -34,7 +34,7 @@ public class AppUserController {
 	}
 
 	@ResponseBody
-	@PostMapping("/back/viewAccount")
+	@PostMapping("/back/updateAppUser")
 	public String updateAppUser(@ModelAttribute("bean")AppUser appUser, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
 			return "error";

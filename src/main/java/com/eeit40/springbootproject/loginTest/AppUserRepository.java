@@ -1,4 +1,4 @@
-package com.eeit40.springbootproject.logintest;
+package com.eeit40.springbootproject.loginTest;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
