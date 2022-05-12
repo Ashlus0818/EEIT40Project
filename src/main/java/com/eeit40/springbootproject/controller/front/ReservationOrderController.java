@@ -31,6 +31,8 @@ public class ReservationOrderController {
 	@ResponseBody
 	public List<ReservationOrder> text(@RequestParam("orderStoreName") String storeName,@RequestParam("orderDate") String day){
 		
+		System.out.println(storeName);
+		System.out.println(day);
 		List<ReservationOrder> result=  dao.checkTime(storeName, day);
 		for(ReservationOrder  r : result) {
 	//System.out.println(r.getOrderStoreName());
@@ -48,16 +50,29 @@ public class ReservationOrderController {
 	//接Ajax傳的日期、店名、人數
 	@PostMapping("/re/saveReservation")
     @ResponseBody
-    public String addReservation(ModelAndView mav,@Valid @ModelAttribute(name = "ReservationOrder") ReservationOrder reS,
-            BindingResult br) {
+//    public String addReservation(ModelAndView mav,@Valid @ModelAttribute(name = "ReservationOrder") ReservationOrder reS,
+//            BindingResult br) {
+    public String addReservation(@RequestParam("orderStoreName") String orderStoreName,
+    		@RequestParam("orderTime") String orderTime,
+    		@RequestParam("orderDate") String orderDate,
+    		@RequestParam("orderStorePop") Integer orderStorePop
+            ) {
 		ReservationOrder newreS = new ReservationOrder();
-
-        if (!br.hasErrors()) {
-        	reservationOrderService.insert(reS);
-
-            mav.getModel().put("ReservationOrder", newreS);
-        } 
-        mav.setViewName("/FrontJsp/Re-Order"); //這段沒用?
+		System.out.println(orderStoreName);
+		System.out.println(orderTime);
+		System.out.println(orderDate);
+		System.out.println(orderStorePop);
+		newreS.setOrderDate(orderDate);
+		
+		
+		reservationOrderService.insert(newreS);
+//
+//        if (!br.hasErrors()) {
+//        	reservationOrderService.insert(reS);
+//
+//            mav.getModel().put("ReservationOrder", newreS);
+//        } 
+//        mav.setViewName("/FrontJsp/Re-Order"); //這段沒用?
         return "新增成功";
 	}
 
