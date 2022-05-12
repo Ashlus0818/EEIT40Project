@@ -330,7 +330,7 @@
           url: "${contextRoot}/re/saveReservation",
           type: "POST",
           data: formdata,
-          processData:false,
+          processData:false,  //google這兩個
           contentType:false,
           success: function (result) {
             console.log(result)
