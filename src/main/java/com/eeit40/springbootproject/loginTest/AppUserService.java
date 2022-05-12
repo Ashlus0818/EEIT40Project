@@ -53,4 +53,8 @@ public class AppUserService implements UserDetailsService{
 	public void Update(AppUser appUser) {
 		appUserRepository.save(appUser);
 	}
+	public int find1(String text1) {
+		return appUserRepository.findByAuthority(text1).size();
+	}
+	
 }

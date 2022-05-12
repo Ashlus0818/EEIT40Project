@@ -1,5 +1,6 @@
 package com.eeit40.springbootproject.dao;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.eeit40.springbootproject.loginTest.AppUser;
 import com.eeit40.springbootproject.model.ReservationStore;
 
 @Repository 
@@ -53,4 +55,7 @@ public interface ReservationStoreRepository extends JpaRepository<ReservationSto
 	public List<ReservationStore> findByStoreDepartmentNumberOrderByStoreNameDesc(Integer StoreDepartmentNumber);
 	
 	//controller-->呼叫service-->呼叫DAO-->DAO去找bean
+	
+	@Query("FROM ReservationStore a WHERE storeDepartmentNumber = ?1")
+	public Collection<ReservationStore> find1(int text1);
 }

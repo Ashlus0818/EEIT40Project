@@ -66,6 +66,8 @@
                                     <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
                                     </div>
+                                    <div class="text-center">
+                                    <input class="btn btn-primary" id="autoinsert" type="button" value="一鍵輸入"/></div>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +81,13 @@
     </div>
 
 	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
-
+<script>
+//一鍵輸入
+$('#autoinsert').click(function(){
+	$('input[name="username"]')  .val("ashleyashlus@gmail.com")
+	$('input[name="password"]')  .val("1234")
+});
+</script>
 </body>
 
 </html>

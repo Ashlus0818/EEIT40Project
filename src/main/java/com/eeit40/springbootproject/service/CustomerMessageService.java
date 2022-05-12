@@ -1,5 +1,6 @@
 package com.eeit40.springbootproject.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,4 +72,13 @@ public class CustomerMessageService {
 		
 		
 	}
+	public int find1(){
+		return cmdao.find1("產品問題").size();
+	};
+	public int find2(){
+		return cmdao.find1("訂單問題").size();
+	};
+	public int find3(){
+		return cmdao.find1("品項問題").size();
+	};
 }
