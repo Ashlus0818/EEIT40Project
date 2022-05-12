@@ -54,7 +54,6 @@ public class ReservationOrder {
 	public ReservationOrder() {
 	}
 
-
 	public Integer getOrderId() {
 		return orderId;
 	}
