@@ -22,14 +22,13 @@
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">編輯文章</div>
+				<div class="card-header"></div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumpost">
 						<form:errors path="title" />
 						<form:errors path="context" />
 						<form:input type="hidden" path="postID" />
 						<form:input type="hidden" path="userID" />
-						<form:input type="hidden" path="image" />
 						<form:input type="hidden" path="date" />
 						<div class="imput-group">
 						<p />
@@ -42,6 +41,8 @@
 							內容：
 							<p />
 							<form:textarea path="context" class="form-control"></form:textarea>
+							<p />
+							驗證用密碼：<input type="password" name="password">
 						</div>
 						<p />
 						<input type="submit" name="submit" value="修改">

@@ -13,29 +13,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Quixlab - Bootstrap Admin Dashboard Template by
     Themefisher.com</title>
-    
-    <style>
-    
-    .newSrore{
+
+  <style>
+    .newSrore {
       width: 90px;
       /* position:absolute;
       top: 80px;
       left: 150px; */
-      border:3px solid green;	
+      border: 3px solid green;
     }
-    
-    .delAll{
+
+    .delAll {
       width: 90px;
-        /* position:absolute;
+      /* position:absolute;
         top: 20px;
         left: 30px; */
-      border:3px solid yellow;
+      border: 3px solid yellow;
     }
-    
-    </style>
-    
-    
-    
+  </style>
+
+
+
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
   <!-- Custom Stylesheet -->
@@ -43,7 +41,7 @@
   <link href="${contextRoot}/BackPage/css/ReservationStore/style.css" rel="stylesheet">
 
   <jsp:include page="IncludePage/css.jsp" />
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -70,7 +68,7 @@
                           value="新增一筆"></a>
                     </div><br>
 
-                    <form id='delData' action="" method="get" class="delAll" >
+                    <form id='delData' action="" method="get" class="delAll">
                       <input class="" name="" value="" type="hidden" />
                       <input id="testname" type="button" value="整筆刪除" onclick="return confirm('確認刪除?')" />
                     </form>
@@ -110,14 +108,30 @@
                                 <input type="checkbox" name="Checkbox[]" value="" id=""><span class="check"></span>
                               </label>
                             </td>
-                            <td id="storeId${pageStore.storeId}"> <c:out value="${pageStore.storeId}" /> </td>
-                            <td> <c:out value="${pageStore.storeDepartmentNumber}" /> </td>
-                            <td> <c:out value="${pageStore.storeName}" /> </td>
-                            <td> <c:out value="${pageStore.storePhone}" /> </td>
-                            <td> <c:out value="${pageStore.storeAddress}" /> </td>
-                            <td> <c:out value="${pageStore.storeOpendate}" /> </td>
-                            <td> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageStore.createdAt}" /> </td>
-                            <td> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageStore.modifiedAt}" /> </td>
+                            <td id="storeId${pageStore.storeId}">
+                              <c:out value="${pageStore.storeId}" />
+                            </td>
+                            <td>
+                              <c:out value="${pageStore.storeDepartmentNumber}" />
+                            </td>
+                            <td>
+                              <c:out value="${pageStore.storeName}" />
+                            </td>
+                            <td>
+                              <c:out value="${pageStore.storePhone}" />
+                            </td>
+                            <td>
+                              <c:out value="${pageStore.storeAddress}" />
+                            </td>
+                            <td>
+                              <c:out value="${pageStore.storeOpendate}" />
+                            </td>
+                            <td>
+                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageStore.createdAt}" />
+                            </td>
+                            <td>
+                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageStore.modifiedAt}" />
+                            </td>
 
                             <!--  storeIDnumberView和Del  連結 ReservationStoreController 第94行的getStoreById方法 -->
                             <%-- ${vs.count}的vs是69行varStatus="vs",count是計數,為了抓到第幾筆資料,但不是抓到id,只有ASC排序適用,因為是根據抓到的第幾筆代入storeId去找整筆資料 --%>
@@ -208,6 +222,28 @@
   <script>
     // 為了在檢視或刪除時根據"id"去刪除,要先抓到storeId的前置作業
     //formStoreID 連結 90行前後的form id欄位
+
+
+function del(count) {
+
+    Swal.fire({
+      title: '確定刪除?',
+      text: "此動作將無法回復!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '刪除!'
+    }).then((result) => {     
+      if (result.isConfirmed) {                   
+        Swal.fire('刪除成功!','','success').then(function(){document.getElementById("formStoreID1" + count).submit()})    
+      }
+    })
+}
+//注意! 要用then接下段要跑的程式 要先用function包起來,也就是要 .then(function(){要跑的程式})
+
+
+
     function show(count) {
       document.getElementById("formStoreID" + count).submit();
       
@@ -222,10 +258,11 @@
       
     }
 
+    //舊del 方法
+    // function del(count) {
+    //   document.getElementById("formStoreID1" + count).submit();
+    // }
 
-    function del(count) {
-      document.getElementById("formStoreID1" + count).submit();
-    }
 
     // //全選功能
     // $("#check_all").click(function (){
@@ -264,12 +301,12 @@
     })
 
 
-    $('input:CheckAll').each(function() {
-if ($(this).attr('checked') ==true) {
-alert($(this).val());
-console.log($(this).val());
-}
-});
+    $('input:CheckAll').each(function () {
+      if ($(this).attr('checked') == true) {
+        alert($(this).val());
+        console.log($(this).val());
+      }
+    });
 
 
 

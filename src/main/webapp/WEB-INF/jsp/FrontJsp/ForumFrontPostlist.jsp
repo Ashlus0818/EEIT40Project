@@ -24,9 +24,11 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="edit-link">						 
+						    <a href="${contextRoot}/ForumFrontEditpost?postID=${post.postID}">編輯</a> |
 							<a href="${contextRoot}/ForumFrontAddreply?postID=${post.postID}">回應</a> |
 							<a href="${contextRoot}/ForumFrontAddreport?postID=${post.postID}">檢舉</a> |
-							<a href="${contextRoot}/ForumFrontOnepost?postID=${post.postID}">只看NO：${post.postID}的文及回應</a> |	
+							<a href="${contextRoot}/ForumFrontDelete?postID=${post.postID}">刪除</a> |
+							<a href="${contextRoot}/ForumFrontOnepost?postID=${post.postID}">只看NO：${post.postID}的文及回應</a> 	
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${post.date}" />

@@ -58,9 +58,11 @@ public class ReservationOrder {
 		return orderId;
 	}
 
+
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
+
 
 	public String getOrderMemberEmail() {
 		return orderMemberEmail;

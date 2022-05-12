@@ -30,12 +30,11 @@
 					<p />
 					<p />
 					文章標題：
-					<p />
-					<p />
 					<c:out value="${post.title}" />
 					<p />
 					<p />
 					----------------------------------------------------------------------
+					<br>
 					文章內容：
 					<p />
 					<c:out value="${post.context}" />
@@ -45,14 +44,14 @@
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">檢舉文章</div>
+				<div class="card-header"></div>
 				<div class="card-body">
 					<form:form class="form" method="POST" modelAttribute="forumReport">
 						<form:errors path="reportReason" />
 						<form:input type="hidden" path="postID"
 							value="${forumReport.postID}" />
 						<div class="imput-group">
-							>> NO.${forumReport.postID}
+						<br>
 							<p />
 							<p />
 							檢舉原因：

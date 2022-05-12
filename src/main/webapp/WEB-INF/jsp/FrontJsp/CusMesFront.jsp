@@ -54,7 +54,7 @@
                   </div>
               </div> <!-- /title-section -->
          
-               <form id="contactform" action="${contextRoot}/AddCusMessage" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
+               <form id="contactform" action="${contextRoot}/message/addCusMessage" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
                   <span class="wpcf7-form-control-wrap your-name">
                       <input type="text" tabindex="1" id="messageName" name="messageName" value="" class="wpcf7-form-control" placeholder="姓名" required>
                   </span>
@@ -97,29 +97,40 @@
   <script src="${contextRoot}/FrontPage/javascript/jquery.easing.js"></script>
   <script src="${contextRoot}/FrontPage/javascript/main.js"></script>
 
-  <!-- Slider -->
-  <script src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.tools.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
-  <script src="${contextRoot}/FrontPage/javascript/rev-slider.js"></script>
-  <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
-  <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+	<!-- Slider -->
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.tools.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="${contextRoot}/FrontPage/javascript/rev-slider.js"></script>
+	<!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.actions.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.migration.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script
+		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
 </body>
 <script>
  
 
 
   $(document).ready(function (){
-    $('#submitButton').click(function(){
-
-
+    $("#submitButton").click(function(){
+    	 document.getElementById('messageEmail').action="${contextRoot}/sendMail";
+    	 document.getElementById('messageEmail').submit();
     })
   }) 
 
