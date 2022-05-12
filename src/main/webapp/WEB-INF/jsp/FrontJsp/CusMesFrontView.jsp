@@ -86,16 +86,15 @@
 
 					<td>${cpage.messageName}</td>
 					<td>${cpage.messageEmail}</td>
-					<td><input disabled="disabled" type="text"
+					<td>${cpage.messageQuest}</td>
+					<td>${cpage.messagetext}</td>
+					<%-- <td><input disabled="disabled" type="text"
 						id="mesId${cpage.messageId}" value="${cpage.messageQuest}"
 						name="messageQuest" /></td>
 					<td><input disabled="disabled" type="text"
 						id="mesId${cpage.messageId}" value="${cpage.messagetext}"
-						name="messagetext" /></td>
-					<td><input data-toggle="modal" data-target="#logoutModal"
-						class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-						id="updateButton${cpage.messageId}" type="button" value="修改"
-						onclick="updateBox(${cpage.messageId})"></td>
+						name="messagetext" /></td> --%>
+					
 				</tr>
 			</form>
 		</c:forEach>

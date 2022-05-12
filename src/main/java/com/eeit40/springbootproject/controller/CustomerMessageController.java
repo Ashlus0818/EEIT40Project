@@ -4,10 +4,16 @@ package com.eeit40.springbootproject.controller;
 import java.util.List;
 //import java.util.Map;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 //import org.springframework.data.domain.PageRequest;
 //import org.springframework.data.domain.Pageable;
 //import org.springframework.data.domain.Sort;
@@ -24,12 +30,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.model.CustomerMessage;
 import com.eeit40.springbootproject.service.CustomerMessageService;
 
 @Controller
 public class CustomerMessageController {
+	
+	private CustomerMessage cusmodel;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	@Autowired
 	private CustomerMessageService cmseService;
@@ -58,17 +69,34 @@ public class CustomerMessageController {
 	
 	
 	@PostMapping("/message/addCusMessage")
-	public ModelAndView AddCusMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes , BindingResult br) {
-		mav.setViewName("AddCusMessage");
-		if (!br.hasErrors()) {
-			cmseService.insert(cusmes);
-			CustomerMessage cMes = new CustomerMessage();
-			mav.getModel().put("CusMes", cMes);
-			mav.setViewName("redirect:/front/CusMesFrontView");
-		}
-		CustomerMessage lastMes = cmseService.getLastmes();
-		mav.getModel().put("lastmes", lastMes);
-		System.out.print(cusmes+",");
+	public ModelAndView AddCusMessage(ModelAndView mav,@Valid @ModelAttribute(name="CustomerMessages") CustomerMessage cusmes , BindingResult br,HttpServletRequest request,Model model) throws MessagingException {
+		
+		cmseService.insert(cusmes);
+		String from = "客服通知信<service.liqer@gmail.com>";
+		String to = cusmes.getMessageEmail();
+		
+		MimeMessage message = mailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message);
+		
+		helper.setFrom(from);
+		helper.setTo(to);
+		helper.setSubject("感謝您留言");
+//		message.setText("將在48小時內回覆您");
+		boolean html = true;
+		helper.setText("<b>您好</b>,<br><i>將在48小時內回覆您</i>", html);
+
+		mailSender.send(message);
+		
+		model.addAttribute("message", "An HTML email has been sent");
+
+		
+		CustomerMessage cMes = new CustomerMessage();
+		
+		
+		mav.getModel().put("CusMes", cMes);
+		mav.setViewName("redirect:/front/CusMesFrontView");
+		
+		
 		return mav;
 	}
 //=================================================================
@@ -117,6 +145,7 @@ public class CustomerMessageController {
 		System.out.print(id);
 		return "redirect:/CusMesback";
 	}
+//=========================================================================
 	
 
 }
