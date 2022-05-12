@@ -1,4 +1,4 @@
-package com.eeit40.springbootproject.loginTest;
+package com.eeit40.springbootproject.logintest;
 //package com.eeit40.springbootproject.logintest;
 //
 //import javax.servlet.http.HttpSession;

@@ -1,4 +1,4 @@
-package com.eeit40.springbootproject.loginTest;
+package com.eeit40.springbootproject.logintest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
