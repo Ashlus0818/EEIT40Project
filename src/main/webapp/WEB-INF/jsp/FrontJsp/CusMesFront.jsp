@@ -53,7 +53,7 @@
                        <img src="${contextRoot}/FrontPage/image/homepage14.png" alt="image">
                   </div>
               </div> <!-- /title-section -->
-         
+       
                <form id="contactform" action="${contextRoot}/message/addCusMessage" method="post" accept-charset="utf-8" class="form-submit contact-form wpcf7-form">
                   <span class="wpcf7-form-control-wrap your-name">
                       <input type="text" tabindex="1" id="messageName" name="messageName" value="" class="wpcf7-form-control" placeholder="姓名" required>
@@ -79,6 +79,7 @@
                       <button name="submit" type="submit" id="submitButton" class="submit btn btn-styl hvr-shutter-out-horizontal wpcf7-form-control wpcf7-submit" >提交</button>
                   </span>                                                        
               </form>
+              
           </div>
       </div>
   </div>

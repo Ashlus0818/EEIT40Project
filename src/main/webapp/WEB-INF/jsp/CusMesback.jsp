@@ -15,12 +15,14 @@
 <link
 	href="${contextRoot}/BackPage/jquery-ui-1.13.1.custom/jquery-ui.css"
 	rel="stylesheet" />
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body>
 	<jsp:include page="IncludePage/sidebar.jsp" />
 	<jsp:include page="IncludePage/topbar.jsp" />
 	<jsp:include page="IncludePage/pageheading.jsp" />
-
+	
+	
 	<div>
 		<h1>客服 留言管理</h1>
 	</div>
@@ -28,8 +30,8 @@
 		style="text-align: center">
 		<tr>
 			<th hidden style="text-align: center">ID
-			<th >姓名
-			<th >信箱
+			<th>姓名
+			<th>信箱
 			<th style="text-align: center">問題
 			<th style="text-align: center">留言内容 <c:forEach
 					items="${list.content}" var="backmessages" varStatus="s">
@@ -39,11 +41,12 @@
 							<input hidden type="text" name="messageId"
 								value="${backmessages.messageId}" />
 							<td hidden id="mesId${backmessages.messageId}">${backmessages.messageId}</td>
-							
+
 							<td>${backmessages.messageName}</td>
-							
-							
-							<td>${backmessages.messageEmail}</td>
+
+
+							<td><input hidden type="text" name="messageEmail"
+								value="${backmessages.messageEmail}" /><a href="mailto:${backmessages.messageEmail}">${backmessages.messageEmail}</a></td>
 							<td><input hidden type="text" name="messageQuest"
 								value="${backmessages.messageQuest}" />${backmessages.messageQuest}</td>
 							<td><input hidden type="text" name="messagetext"
@@ -51,81 +54,30 @@
 							<td><input class="row justify-content-center"
 								id="btn${s.count}" type="button" value="刪除" name="delebtn"
 								onclick=deleteForm(${backmessages.messageId})></td>
-          <%--     <td><input class="row justify-content-center"
-                id="btn${s.count}" type="button" value="回覆" name="ansbtn"
-                onclick=answerquest(${backmessages.messageId})></td> --%>
-
+							<td><input class="d-sm-flex align-items-center justify-content-between mb-4"
+								id="ReplyBtn" type="button" value="回覆" name="ansbtn"
+								onclick="sendEmail()"></td>
+	
 
 
 						</tr>
 					</form>
-				</c:forEach>
-				<!-- update Modal-->
-        <div id="insertDialog" hidden>
-          <form id="DialogForm" method="post">
-            <div class="modal-body">
-              Id:&nbsp <input id="dialogId" name="cusmesId" readonly />
-            </div>
-            <div class="modal-body">
-              姓名:&nbsp <input id="dialogname" name="cusmesname" />
-            </div>
-            <div class="modal-body">
-              信箱:&nbsp<input id="dialogemail" name="cusmesemail" />
-            </div>
-            <div class="modal-body">
-              問題:&nbsp<input id="dialogquest" name="cusmesquest" />
-            </div>
-            <div class="modal-body">
-              留言內容:&nbsp<input id="dialogtext" name="cusmestext" />
-            </div>
-          </form>
-        </div>
-        <!--end of update Modal-->
-
-        <!-- update Modal-->
-        <div class="modal fade" id="triggerModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">請選擇欲更改的欄位</h5>
-                <button class="close" type="button" data-dismiss="modal"
-                  aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">Select "Logout" below if you are
-                ready to end your current session.</div>
-              <form id="ansForm" method="post">
-                <div class="modal-body">
-                  Id:&nbsp <input id="modalId" name="cusmesId" readonly />
-                </div>
-                <div class="modal-body">
-                  姓名:&nbsp<input id="modalName" name="cusmesname" />
-                </div>
-                <div class="modal-body">
-                  信箱:&nbsp<input id="modalemail" name="cusmesemail" type="file" />
-                </div>
-                <div class="modal-body">
-                  問題:&nbsp<input id="modalquest" name="cusmesquest" />
-                </div>
-                <div class="modal-body">
-                  留言內容:&nbsp<input id="modaltext" name="cusmestext" />
-                </div>
-                
-              </form>
-
-              <div class="modal-footer">
-                <button class="btn btn-secondary" type="button"
-                  data-dismiss="modal">取消</button>
-
-                <button id="confirmUpdateBtn" class="btn btn-primary">更新</button>
-              </div>
-            </div>
-          </div>
-        </div>
+				</c:forEach> <!-- update Modal-->
+	<div id="insertDialog" hidden>
+		<form id="ReplyForm" method="post">
+			<div class="modal-body">
+				寄件人:&nbsp<input id="dialogformEmail" name="formEmail" />
+			</div>
+			<div class="modal-body">
+				收信人:&nbsp<input id="dialogtoEmail" name="toEmail" />
+			</div>
+			<div class="modal-body">
+				回覆訊息:&nbsp<textarea rows="10" cols="20" id="dialogReplyMes" name="ReplyMes" /></textarea>
+			</div>
+		</form>
+	</div>
 	</table>
-	
+
 	<jsp:include page="IncludePage/script.jsp" />
 	<script charset="utf8"
 		src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
@@ -142,44 +94,41 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 	
 	
 	function deleteForm(count){
-
-
-
 		var yes = confirm("確認刪除此筆紀錄?");
 		if(yes){
 		   document.getElementById('CusFormId'+count).action="${contextRoot}/CusMesbacks/DeleteMessage";
  		document.getElementById('CusFormId'+count).submit();
 		} else{}
-
 	};	
 
-  function answerquest(count){
-    $("#modalId").val(count);
-		$("#modalName").val($("#cusmesname"+count).val());
-		$("#modalemail").val($("#cusmesemail"+count).val());
-		$("#modalquest").val($("#cusmesquest"+count).val());	
-		$("#modaltext").val($("#cusmestext"+count).val());
-		$("#confirmUpdateBtn").click(function(){
-			var yes = confirm("確認更新此筆紀錄?");
-			if(yes){
-				document.getElementById("ansForm").action = '';
-				document.getElementById("ansForm").submit();
-			} else{}
-		})
+  
 
-  }
- 		
-	
+  $("#insertDialog").dialog({
+		modal: true,
+		title: "ReplyEmail",
+		buttons: {
+			ok:function() {
+				var yes = confirm("確認傳送郵件?");
+				if(yes){
+					document.getElementById("ReplyForm").action = 'backtaskes/insert';
+					document.getElementById("ReplyForm").submit();
+				} else{}
+			},
+		cancle:function() {
+				$(this).dialog("close");
+			}
+		},
+		autoOpen:false
+	});
+  $("#ReplyBtn").click(function(){
+		$("#insertDialog").removeAttr('hidden').dialog('open');
 
-	
-   
-		
+	});	
+
+  
+  
+  
+  
 	</script>
-	<div id="dialog-form" title="視窗">
-		<p></p>
-	</div>
-
-
-
 </body>
 </html>
