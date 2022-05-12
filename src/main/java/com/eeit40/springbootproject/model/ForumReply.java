@@ -31,6 +31,9 @@ public class ForumReply {
 
 	@Column(name = "userID")
 	private Integer userID;
+	
+	@Column(name = "password")
+	private String password;
 
 	@Size(min = 1, max = 100, message = "標題請輸入1到100個字串")
 	@Column(name = "recontext")
@@ -90,11 +93,19 @@ public class ForumReply {
 	public void setPostID(Integer postID) {
 		this.postID = postID;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {
 		return "ForumReply [replyID=" + replyID + ", postID=" + postID + ", userID=" + userID + ", recontext="
-				+ recontext + ", date=" + date + "]";
+				+ recontext + ", password=" + password+ ", date=" + date + "]";
 	}
 
 }

@@ -17,7 +17,7 @@
       <jsp:include page="IncludePage/topBar.jsp" />
     </div>
   </header>
-	<div class="container">
+	<div class="container" style="background-color:#FFD2D2">
 		<p />
 		<p />
 		<div class="col-6">
@@ -30,7 +30,8 @@
 						<form:input type="hidden" path="postID" />
 						<form:input type="hidden" path="userID" />
 						<form:input type="hidden" path="date" />
-						<div class="imput-group">
+						<div class="imput-group" style="font-size:18px;font-weight:bolder">
+						<br>
 						<p />
 							標題：
 							<p />
@@ -45,7 +46,7 @@
 							驗證用密碼：<input type="password" name="password">
 						</div>
 						<p />
-						<input type="submit" name="submit" value="修改">
+						<input type="submit" name="submit" value="新增修改" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 					</form:form>
 				</div>
 			</div>

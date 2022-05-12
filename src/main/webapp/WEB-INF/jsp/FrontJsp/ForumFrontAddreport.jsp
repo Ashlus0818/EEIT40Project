@@ -17,15 +17,16 @@
       <jsp:include page="IncludePage/topBar.jsp" />
     </div>
   </header>
-<div class="container">
+<div class="container" style="background-color:#FFE6FF">
 		<p />
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">
+				<div class="card-header" style="font-style:italic">
 					<span><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 							value="${post.date}" /></span>
 				</div>
-				<div class="card-body">
+				<br>
+				<div class="card-body" style="font-weight:bolder">
 					NO.${forumReport.postID}
 					<p />
 					<p />
@@ -33,7 +34,7 @@
 					<c:out value="${post.title}" />
 					<p />
 					<p />
-					----------------------------------------------------------------------
+					------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 					<br>
 					文章內容：
 					<p />
@@ -50,7 +51,7 @@
 						<form:errors path="reportReason" />
 						<form:input type="hidden" path="postID"
 							value="${forumReport.postID}" />
-						<div class="imput-group">
+						<div class="imput-group" style="font-size:18px;font-weight:bolder">
 						<br>
 							<p />
 							<p />
@@ -60,7 +61,7 @@
 							<form:textarea path="reportReason" class="form-control" />
 						</div>
 						<p />
-						<input type="submit" name="submit" value="新增檢舉">
+						<input type="submit" name="submit" value="新增檢舉" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 					</form:form>
 				</div>
 			</div>
