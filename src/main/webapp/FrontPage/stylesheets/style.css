@@ -440,10 +440,15 @@ header.style1 #site-header {
 }
 
 header.style1 .logo {
-	padding-top: 31px; 
-	display: inline-block;
+/* 	padding-top: 31px;  */
+/* 	display: inline-block; */
 	float: left;
-	margin-left: 53px;
+/* 	margin-left: 53px; */
+}
+
+#logoimg{
+	width:252px;
+	height:110px;
 }
 
 header.style1 .nav-wrap {

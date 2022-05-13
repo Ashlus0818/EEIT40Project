@@ -4,7 +4,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <div class="container-fluid">
-    <a href="${contextRoot}/front" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
+    <a href="${contextRoot}/front" class="logo"><img id="logoimg" src="${contextRoot}/FrontPage/image/1logo.png" alt="image" width="129" height="37"
         data-retina="${contextRoot}/FrontPage/image/logo.png" data-width="147" data-height="21"></a>
     <div class="mobile-button">
       <span></span>
