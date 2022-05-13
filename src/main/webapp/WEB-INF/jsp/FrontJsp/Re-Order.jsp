@@ -147,26 +147,26 @@
                   </select>
                 </div>
 
-                <div>選擇酒</div>
+<!--                 <div>選擇酒</div> -->
 
-                <div class="st2">
-                  <label for="">產地</label>
-                  <select name="" id="selectPlace">
-                    <option value="">英國</option>
-                    <option value="">美國</option>
-                    <option value="">日本</option>
-                    <option value="">台灣</option>
-                  </select>
-                </div>
-                <div class="st3">
-                  <label for="">酒</label>
-                  <select name="" id="selectWhisky">
-                    <option value="">x</option>
-                    <option value="">xx</option>
-                    <option value="">xxx</option>
-                    <option value="">xxxx</option>
-                  </select>
-                </div>
+<!--                 <div class="st2"> -->
+<!--                   <label for="">產地</label> -->
+<!--                   <select name="" id="selectPlace"> -->
+<!--                     <option value="">英國</option> -->
+<!--                     <option value="">美國</option> -->
+<!--                     <option value="">日本</option> -->
+<!--                     <option value="">台灣</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--                 <div class="st3"> -->
+<!--                   <label for="">酒</label> -->
+<!--                   <select name="" id="selectWhisky"> -->
+<!--                     <option value="">x</option> -->
+<!--                     <option value="">xx</option> -->
+<!--                     <option value="">xxx</option> -->
+<!--                     <option value="">xxxx</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
                 <!--                          <h3 class="content-price"><a href="">施工中</a></h3> -->
                 <!--                 <div class="elm-btn"> -->
                 <!--                   <a href="#" -->
@@ -266,7 +266,7 @@
 
           $.ajax({
             url: '${contextRoot}/front/orderList?orderStoreName=' + storeName + '&orderDate=' +
-              searchDate,
+            searchDate,
             type: 'GET',
             success: function (res) {
               // console.log(res);
@@ -334,7 +334,7 @@
           contentType:false,
           success: function (result) {
             console.log(result)
-            // alert("新增成功")
+             alert("新增成功")
           },
           error: function (err) {
             console.log(err);

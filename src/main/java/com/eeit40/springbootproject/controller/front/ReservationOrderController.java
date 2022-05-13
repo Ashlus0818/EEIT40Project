@@ -62,7 +62,10 @@ public class ReservationOrderController {
 		System.out.println(orderTime);
 		System.out.println(orderDate);
 		System.out.println(orderStorePop);
+		newreS.setOrderStoreName(orderStoreName);
+		newreS.setOrderTime(orderTime);
 		newreS.setOrderDate(orderDate);
+		newreS.setOrderStorePop(orderStorePop);
 		
 		
 		reservationOrderService.insert(newreS);
