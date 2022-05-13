@@ -190,6 +190,11 @@
                             value="取消"></a>
                       </div>
 
+                      <!-- 一鍵輸入 -->
+                      <div>
+                        <input type="button" id="autoInsert" value="一鍵輸入" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                      </div>
+
                     </fieldset>
                   </form:form>
                 </div>
@@ -224,6 +229,16 @@
         }
       })
     }
+
+//一鍵輸入
+$('#autoInsert').on("click",function(){
+      $('#storeDepartmentNumber').val("100");
+      $('#storeName').val("100");
+      $('#storePhone').val("100");
+      $('#storeAddress').val("100");
+      $('#storeOpendate').val("100");
+    })
+
   </script>
 
 </body>

@@ -126,7 +126,14 @@
                       <a href="${contextRoot}/backStage/CancelReturnStore"> <input
                           class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button"
                           value="取消"></a>
+                        
                     </div>
+
+                    <!-- 一鍵輸入 -->
+                    <div>
+                      <input type="button" id="autoInsert" value="一鍵輸入" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    </div>
+                  
                   </form>
                 </div>
               </div>
@@ -177,6 +184,16 @@
     //           document.getElementById("insertForm").action = '${contextRoot}/backstage/ReservationStore/insert';
     //           document.getElementById("insertForm").submit();
     //         })
+
+
+    //一鍵輸入
+    $('#autoInsert').on("click",function(){
+      $('#storeDepartmentNumber').val("100");
+      $('#storeName').val("100");
+      $('#storePhone').val("100");
+      $('#storeAddress').val("100");
+      $('#storeOpendate').val("100");
+    })
   </script>
 
 </body>
