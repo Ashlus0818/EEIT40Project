@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>後台首頁</title>
 <jsp:include page="IncludePage/css.jsp" />
 </head>
 <body>

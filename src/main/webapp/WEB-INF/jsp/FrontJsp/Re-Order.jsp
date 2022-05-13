@@ -66,7 +66,7 @@
 
     </div>
   </header>
-  <form id="insertOrder" method="POST" action="" enctype="multipart/form-data" class="form">
+  <form id="insertOrder" method="POST" enctype="multipart/form-data" class="form">
     <div class="main-event">
       <section class="flat-filter">
         <div class="container">
@@ -102,19 +102,29 @@
             <div class="filter-post">
               <div class="featured-post">
                 <img src="${contextRoot}/Img/${pageOrder.storeImg}" alt="image">
-<%--            ${contextRoot}/FrontPage/image/homepage120.png --%>
+                <%--            ${contextRoot}/FrontPage/image/homepage120.png --%>
                 <!--               <div class="date-time"> -->
                 <!--                 <h2>02</h2> -->
                 <!--                 <h2>JULY</h2> -->
                 <!--               </div> -->
               </div>
               <div class="content-post">
-                <h2 class="content-title"><a href="">
-                    <c:out value="${pageOrder.storeName}" /></a></h2>
-                <p class="content-meta"><a href=""><i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <c:out value="${pageOrder.storeOpendate}" /></a></p>
-                <p class="content-address"><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <c:out value="${pageOrder.storeAddress}" /></a>
+                <h2 class="content-title">
+                  <a href="">
+                    <span id="storeName${pageOrder.storeId}">${pageOrder.storeName}</span>
+                  </a>
+                </h2>
+                <p class="content-meta">
+                  <a href="">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    ${pageOrder.storeOpendate}
+                  </a>
+                </p>
+                <p class="content-address">
+                  <a href="">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <c:out value="${pageOrder.storeAddress}" />
+                  </a>
                 </p>
                 <div class="content-phone">
                   <ul>
@@ -123,56 +133,60 @@
                         <c:out value="${pageOrder.storePhone}" /></a></li>
                   </ul>
                 </div>
-
                 <div class="st1">
                   <label for="" class="">選擇時段</label>
-                  <select name="" id="selectTime">
+                  <select name="selectTime">
                     <!-- <select 下拉式選單 > -->
-                    <option value="">9:30~10:30</option>
-                    <option value="">10:30~11:30</option>
-                    <option value="">13:30~14:30</option>
-                    <option value="">14:30~15:30</option>
-                    <option value="">15:30~16:30</option>
-                    <option value="">16:30~17:30</option>
+                    <!-- <option value="0930">9:30~10:30</option>
+                    <option value="1030">10:30~11:30</option>
+                    <option value="1330">13:30~14:30</option>
+                    <option value="1430">14:30~15:30</option>
+                    <option value="1530">15:30~16:30</option>
+                    <option value="1630">16:30~17:30</option> -->
                     <!-- 用option -->
                   </select>
                 </div>
 
-                <div>選擇酒</div>
+<!--                 <div>選擇酒</div> -->
 
-                <div class="st2">
-                  <label for="">產地</label>
-                  <select name="" id="selectPlace">
-                    <option value="">英國</option>
-                    <option value="">美國</option>
-                    <option value="">日本</option>
-                    <option value="">台灣</option>
-                  </select>
-                </div>
-                <div class="st3">
-                  <label for="">酒</label>
-                  <select name="" id="selectWhisky">
-                    <option value="">x</option>
-                    <option value="">xx</option>
-                    <option value="">xxx</option>
-                    <option value="">xxxx</option>
-                  </select>
-                </div>
-
-
+<!--                 <div class="st2"> -->
+<!--                   <label for="">產地</label> -->
+<!--                   <select name="" id="selectPlace"> -->
+<!--                     <option value="">英國</option> -->
+<!--                     <option value="">美國</option> -->
+<!--                     <option value="">日本</option> -->
+<!--                     <option value="">台灣</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
+<!--                 <div class="st3"> -->
+<!--                   <label for="">酒</label> -->
+<!--                   <select name="" id="selectWhisky"> -->
+<!--                     <option value="">x</option> -->
+<!--                     <option value="">xx</option> -->
+<!--                     <option value="">xxx</option> -->
+<!--                     <option value="">xxxx</option> -->
+<!--                   </select> -->
+<!--                 </div> -->
                 <!--                          <h3 class="content-price"><a href="">施工中</a></h3> -->
+                <!--                 <div class="elm-btn"> -->
+                <!--                   <a href="#" -->
+                <!--                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</a> -->
+                <!--                 </div> -->
+                <!-- <form id='' action="" method=""> -->
                 <div class="elm-btn">
-                  <a href="#"
-                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</a>
+                  <button type="button" name="reservation"
+                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</button>
                 </div>
+                <!-- </form> -->
+
               </div>
             </div>
           </div>
         </c:forEach>
       </article>
     </div>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-<!--     不加上面這段會出403的原因->https://www.cnblogs.com/midworld/p/10996850.html ->SecurityConfig.java ->原因註解掉http.csrf().disable(); -->
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    <!--     不加上面這段會出403的原因->https://www.cnblogs.com/midworld/p/10996850.html ->SecurityConfig.java ->原因註解掉http.csrf().disable(); -->
   </form>
 
   <!-- 顯示page頁數按鈕				 -->
@@ -200,7 +214,7 @@
     </div>
   </div>
 
- 
+
 
   <jsp:include page="IncludePage/footer.jsp" />
   <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <!-- /#scroll-top -->
@@ -214,21 +228,127 @@
   <script src="${contextRoot}/FrontPage/javascript/jquery.isotope.min.js"></script>
   <script src="${contextRoot}/FrontPage/javascript/jquery-waypoints.js"></script>
   <script src="${contextRoot}/FrontPage/javascript/bootstrap.min.js"></script>
-  <script src="${contextRoot}/FrontPage/javascript/main.js"></script> 
-  
+  <script src="${contextRoot}/FrontPage/javascript/main.js"></script>
+
   <script>
-    $("#searchStore").click(function () {
-      $.ajax({
-        url: "${contextRoot}/re/saveReservation",
-        type: "POST",
-        data: $("form").serialize(),
-        success: function (result) {
-          alert("新增成功")
-        }
+    $(function () {
+
+      // 日期更換時觸發
+      $('#inputDate').on('change', function () {
+
+        // 取得輸入日期
+        let searchDate = $(this).val();
+        // console.log(searchDate);
+
+        // 找到每個select給全部的option
+        $('select[name="selectTime"]').each(function () {
+          $(this).html(
+            `<option value="0930">9:30~10:30</option>
+                    <option value="1030">10:30~11:30</option>
+                    <option value="1330">13:30~14:30</option>
+                    <option value="1430">14:30~15:30</option>
+                    <option value="1530">15:30~16:30</option>
+                    <option value="1630">16:30~17:30</option>`
+          );
+        });
+
+        // 整個畫面中所有店名的span , 迴圈處理每一個span
+        $('span[id^="storeName"]').each(function () {
+
+          // 這裡的$(this)代表當下的那個span 
+          // console.log($(this).text());
+          let storeName = $(this).text();
+
+          // 取得當下那個span最靠近的下拉選單的所有option
+          // console.log($(this).closest('div[class="content-post"]').find('select[name="selectTime"] > option'));
+          let options = $(this).closest('div[class="content-post"]').find(
+            'select[name="selectTime"] > option');
+
+          $.ajax({
+            url: '${contextRoot}/front/orderList?orderStoreName=' + storeName + '&orderDate=' +
+            searchDate,
+            type: 'GET',
+            success: function (res) {
+              // console.log(res);
+              $.each(res, function (index, value) {
+                // console.log(value.orderTime);
+
+                //比較每個option的value是否與回傳的orderTime相等
+                options.each(function () {
+                  if ($(this).val() == value.orderTime) {
+                    $(this).remove();
+                    // $(this).addClass('text-danger')
+                  }
+                });
+
+              });
+            },
+            error: function (err) {
+              console.log(err)
+            }
+          });
+
+
+
+
+
+        });
+
+      });
+
+
+
+      $("#searchStore").click(function () {
+
+        $.ajax({
+          url: "${contextRoot}/re/saveReservation",
+          type: "POST",
+          data: $("form").serialize(),
+          success: function (result) {
+            alert("新增成功")
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        })
+      });
+
+      $('button[name=reservation]').on('click', function () {
+        // console.log(document.getElementById("#selectTime"));
+        // console.log(document.getElementById("#selectPlace"));
+
+        let formdata = new FormData();
+        let orderTime = $(this).closest('div[class="content-post"]').find(
+          'select[name="selectTime"] > option:selected').val();
+
+        formdata.append("orderTime", orderTime);
+        formdata.append("orderDate", $('#inputDate').val());
+        formdata.append("orderStoreName", $('#inputName').val());
+        formdata.append("orderStorePop", $('#inputNumber').val());
+
+        $.ajax({
+          url: "${contextRoot}/re/saveReservation",
+          type: "POST",
+          data: formdata,
+          processData:false,  //google這兩個
+          contentType:false,
+          success: function (result) {
+            console.log(result)
+             alert("新增成功")
+          },
+          error: function (err) {
+            console.log(err);
+          }
+        })
+
       })
-    })
+
+
+
+
+    });
   </script>
-  
+
 </body>
 
 </html>

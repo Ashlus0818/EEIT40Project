@@ -4,6 +4,7 @@
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.core.annotation.Order;
+
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -65,12 +66,17 @@
 //    	@Bean
 //    	public PasswordEncoder getPasswordEncoder() {
 //    		return new BCryptPasswordEncoder();
-//    	}
-//    }
-//	
+        }
+}
 //	// 注意！規定！要建立密碼演算的實例
+
 ////	@Bean
 ////	public BCryptPasswordEncoder getPasswordEncoder() {
 ////		return new BCryptPasswordEncoder();
 ////	}
+
+//	@Bean
+//	public PasswordEncoder getPasswordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
 //}

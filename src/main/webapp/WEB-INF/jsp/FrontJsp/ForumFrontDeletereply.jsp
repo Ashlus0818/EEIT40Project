@@ -17,33 +17,33 @@
       <jsp:include page="IncludePage/topBar.jsp" />
     </div>
   </header>
-	<jsp:include page="/WEB-INF/jsp/IncludePage/sidebar.jsp" />
-	<jsp:include page="/WEB-INF/jsp/IncludePage/topbar.jsp" />
-	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
-	<div class="container">
+	<div class="container" style="background-color:#FFE6FF">
 		<p />
 		<p />
+    <br>
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">編輯回覆</div>
+				<div class="card-header"></div>
 				<div class="card-body">
-					<form:form class="form" method="POST" modelAttribute="forumreply">
-						<form:errors path="recontext" />
-						<form:input type="hidden" path="replyID" />
+					<form:form class="form" method="GET" modelAttribute="forumReply">
+						<form:input type="hidden" path="postID" />
 						<form:input type="hidden" path="userID" />
+						<form:input type="hidden" path="replyID" />
 						<form:input type="hidden" path="date" />
-						<div class="imput-group">
+						<form:input type="hidden" path="recontext" />
+						<div class="imput-group" style="font-size:18px;font-weight:bolder">
+						<p />
 							<p />
-							回覆內容：
-							<p/>
-							<form:textarea path="recontext" class="form-control"></form:textarea>
+							驗證用密碼：<input type="password" name="password">
 						</div>
-						<input type="submit" name="submit" value="修改">
+						<p />
+						<input type="submit" name="submit" value="刪除" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 					</form:form>
 				</div>
 			</div>
 		</div>
-	</div>  
+	</div>
+  
   
   <jsp:include page="IncludePage/footer.jsp" />
   <a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
