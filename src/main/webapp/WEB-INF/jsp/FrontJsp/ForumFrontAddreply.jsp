@@ -9,7 +9,7 @@
 <head>
 <jsp:include page="IncludePage/head.jsp" />
 <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<title>新增回應</title>
 </head>
 <body>
 	<header class="style1">
@@ -56,15 +56,16 @@
 							<p />
 							回覆內容：
 							<p />
-							<form:textarea path="recontext" class="form-control" />
+							<form:textarea path="recontext" id="recontext" class="form-control" />
 							<p />
-							驗證用密碼(編輯用)：<input type="password" name="password">
+							驗證用密碼(編輯用)：<input type="password" id="password" name="password">
 							<p />
 						</div>
 						<p />
 						<input type="submit" name="submit" value="新增回覆"
 							style="background-color: gray; font-family: 新細明體; font-size: 18px; font-weight: 400">
 					</form:form>
+					<button id="1" style="background-color:	#FFE6FF">.</button>
 				</div>
 			</div>
 		</div>
@@ -104,5 +105,13 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+	
+<script>
+$('#1').on("click",function () {
+  $('#recontext').val("酒者，水谷之精，熟谷之液");
+  $('#password').val("1234");
+})
+  </script>
+
 </body>
 </html>

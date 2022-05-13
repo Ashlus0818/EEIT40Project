@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>編輯文章(後台)</title>
 <jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
 </head>
 <body>

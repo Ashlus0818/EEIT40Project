@@ -9,7 +9,7 @@
 <head>
   <jsp:include page="IncludePage/head.jsp" />
   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<title>刪除回應</title>
 </head>
 <body>
  <header class="style1">
@@ -34,11 +34,13 @@
 						<div class="imput-group" style="font-size:18px;font-weight:bolder">
 						<p />
 							<p />
-							驗證用密碼：<input type="password" name="password">
+							驗證用密碼：<input type="password" id="password" name="password">
 						</div>
 						<p />
 						<input type="submit" name="submit" value="刪除" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 					</form:form>
+          										<button id="1" style="background-color:	#FFE6FF">.</button>
+
 				</div>
 			</div>
 		</div>
@@ -67,5 +69,12 @@
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+
+      <script>
+$('#1').on("click",function () {
+  $('#password').val("1234");
+})
+
+  </script>
 </body>
 </html>

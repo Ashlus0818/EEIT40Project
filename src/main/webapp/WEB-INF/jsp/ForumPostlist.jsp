@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>文章列表(後台)</title>
 <jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
 </head>
 <body>
