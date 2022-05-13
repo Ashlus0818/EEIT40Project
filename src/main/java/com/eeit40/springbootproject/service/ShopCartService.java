@@ -11,7 +11,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.eeit40.springbootproject.dao.ShopCartRepository;
+import com.eeit40.springbootproject.loginTest.AppUser;
 import com.eeit40.springbootproject.model.ShopCart;
+import com.eeit40.springbootproject.model.ShopInventory;
 
 
 
@@ -52,5 +54,14 @@ public class ShopCartService {
 		Page<ShopCart> page = scdao.findAll(pgb);
 		
 		return page;
+	}
+	
+	public void insertProductToCart(ShopInventory shopInventoryBean,AppUser appUserBean,Integer quantity) {
+		
+		ShopCart sB = new ShopCart();
+		sB.setAppUser(appUserBean);
+		sB.setShopInventory(shopInventoryBean);
+		sB.setQuantity(quantity);
+		scdao.save(sB);
 	}
 }

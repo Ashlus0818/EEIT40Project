@@ -1,12 +1,19 @@
 package com.eeit40.springbootproject.controller.front;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,27 +21,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.loginTest.AppUser;
+import com.eeit40.springbootproject.loginTest.AppUserRepository;
+import com.eeit40.springbootproject.loginTest.AppUserService;
 import com.eeit40.springbootproject.model.CustomerMessage;
 import com.eeit40.springbootproject.model.ReservationStore;
+import com.eeit40.springbootproject.model.ShopCart;
+import com.eeit40.springbootproject.model.ShopInventory;
 import com.eeit40.springbootproject.service.CusMesFrontService;
 import com.eeit40.springbootproject.service.ReservationOrderService;
 import com.eeit40.springbootproject.service.ReservationStoreService;
+import com.eeit40.springbootproject.service.ShopCartService;
+import com.eeit40.springbootproject.service.ShopInventoryService;
 
 @Controller
 public class PageControllerFront {
 
 	@Autowired
 	private ReservationOrderService ReOrderService;
-	
+
 	@Autowired
 	private CusMesFrontService cusmesfrontservice;
 
+	@Autowired
+	private ShopInventoryService siService;
+
+	@Autowired
+	private ShopCartService scService;
+
+	@Autowired
+	private AppUserRepository aDao;
+	
 	@GetMapping("/front/login")
 	public String login() {
 		return "FrontJsp/FrontLogin";
 	}
-	
-	//前臺首頁
+
+	// 前臺首頁
 	@GetMapping("/front")
 	public String front() {
 		return "FrontJsp/index";
@@ -59,19 +82,18 @@ public class PageControllerFront {
 //	public String cusMesFrontView() {
 //		return "FrontJsp/CusMesFrontView";
 //	}
-	
+
 	@GetMapping("/front/CusMesFrontView")
 	public ModelAndView cusMesFrontView(ModelAndView mav,
 			@RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
 		Page<CustomerMessage> cpage = cusmesfrontservice.findByPage(pageNumber);
 
 		mav.getModel().put("cpage", cpage);
-		mav.setViewName("FrontJsp/CusMesFrontView"); 
+		mav.setViewName("FrontJsp/CusMesFrontView");
 
 		return mav;
 	}
-	
-	
+
 	// 預約試喝頁面
 //	@GetMapping("/front/Re-Order")
 //	public String reOrder() {
@@ -101,18 +123,47 @@ public class PageControllerFront {
 	}
 
 	@GetMapping("/front/Shop-cart")
-	public String shopCart() {
-		return "FrontJsp/Shop-cart";
+	public String shopCart(HttpSession session, @RequestParam(name = "productId") Integer productId,
+			@RequestParam(name = "quantity") Integer quantity) {
+		System.out.println("AAAAAAAAAAA"+productId+",,"+quantity);
+
+//		session.getAttribute("username");
+//		AppUser user = new AppUser(,"admin@gmail.com","1234");
+		Optional<AppUser> bean = aDao.findById(2);
+		AppUser user = bean.get();
+		System.out.println(productId);
+	
+		ShopInventory siBean = new ShopInventory(productId);
+		scService.insertProductToCart(siBean, user, quantity);
+		
+		return "redirect:/front/Shop-fullwidth-grid";
+	}
+	
+	@GetMapping("/front/showCartList")
+	public ModelAndView getAllproduct(ModelAndView mav) {
+	List<ShopCart> list = scService.findAllCart();
+	mav.getModel().put("myList", list);
+
+	mav.setViewName("FrontJsp/Shop-cart");
+	return mav;
 	}
 
 	@GetMapping("/front/Shop-details")
-	public String shopdetails() {
-		return "FrontJsp/Shop-details";
+	public ModelAndView shopdetails(@RequestParam(name = "liquorId") String myLiquorId, ModelAndView mav) {
+
+		ShopInventory iBean = siService.findByinventoryId(Integer.valueOf(myLiquorId));
+		mav.getModel().put("liquorDetial", iBean);
+		mav.setViewName("FrontJsp/Shop-details");
+
+		return mav;
 	}
 
 	@GetMapping("/front/Shop-fullwidth-grid")
-	public String shopFullWidthGrid() {
-		return "FrontJsp/Shop-fullwidth-grid";
+	public ModelAndView shopFullWidthGrid(ModelAndView mav) {
+		List<ShopInventory> inventortyList = siService.findAllinventory();
+		mav.getModel().put("inventortyList", inventortyList);
+		mav.setViewName("FrontJsp/Shop-fullwidth-grid");
+		return mav;
 	}
 
 	@GetMapping("/front/Shop-order-tracking")
@@ -124,7 +175,7 @@ public class PageControllerFront {
 	public String ex() {
 		return "FrontJsp/複製用";
 	}
-	
+
 	@GetMapping("/front/ForumFrontAddpost")
 	public String forumFrontAddpost() {
 		return "FrontJsp/ForumFrontAddpost";

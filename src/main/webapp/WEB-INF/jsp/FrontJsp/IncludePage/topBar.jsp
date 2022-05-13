@@ -32,7 +32,7 @@
                 <li><a href="${contextRoot}/front/Shop-fullwidth-grid" title="">全部商品</a></li>
                 <li><a href="${contextRoot}/front/Shop-details" title="">商品詳細</a></li>
               <li><a href="${contextRoot}/front/Shop-order-tracking" title="">客戶訂單</a></li>
-              <li><a href="${contextRoot}/front/Shop-cart" title="">購物車</a></li>
+              <li><a href="${contextRoot}/front/showCartList" title="">購物車</a></li>
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">

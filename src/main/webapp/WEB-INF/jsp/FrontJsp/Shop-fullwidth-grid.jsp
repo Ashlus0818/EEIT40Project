@@ -9,8 +9,16 @@
 
 <jsp:include page="IncludePage/head.jsp" />
 <title>Shop-fullwidth-grid</title>
+
+<style type="text/css">
+.lquorImg {
+	height: 296px;
+	width: 180px
+}
+</style>
 </head>
 <body>
+
 	<div id="loading-overlay">
 		<div class="loader"></div>
 	</div>
@@ -51,18 +59,17 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="filter-shop clearfix">
-						
-						<span class="filter-icon">
-						<i class=""	aria-hidden="true">分類</i>																						
+
+						<span class="filter-icon"> <i class="" aria-hidden="true">分類</i>
 							<select>
-										<option value="volvo">日本</option>
-										<option value="saab">英國</option>
-										<option value="opel">愛爾蘭</option>
-										<option value="audi">台灣</option>
-										<option value="audi">美國</option>
-									</select>	
-															
-							</span>
+								<option value="volvo">日本</option>
+								<option value="saab">英國</option>
+								<option value="opel">愛爾蘭</option>
+								<option value="audi">台灣</option>
+								<option value="audi">美國</option>
+						</select>
+
+						</span>
 					</div>
 				</div>
 			</div>
@@ -73,245 +80,39 @@
 					<div class="col-lg-12">
 						<div class="product-content product-fourcolumn clearfix">
 							<ul class="product style2 isotope-product clearfix">
-								<li class="product-item features arrivals">
-									<div  id="img" class="product-thumb clearfix">
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID1.jpg"
-											alt="image" >
-										</a>
-									</div>
-									<div class="product-info text-center clearfix">
-										<span class="product-title">三得利 山崎單一麥芽威士忌 43% 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$4000</span>
-											</ins>
-										</div>										
-									</div>
-									</li>
-								<!-- /product-item -->
-								<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> 
-										<img src="${contextRoot}/FrontPage/image/ID2.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">三得利 響 Japanese Harmony威士忌 43% 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$4000</span>
-									
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-								<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID3.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">三得利山崎18年單一麥芽威士忌 43% 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$42000</span>
-									
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-									<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID4.jpg"
-											alt="image">
-										</a> <span class="new">Sale</span>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">三得利日本知多單一穀物威士忌 43% 0.7L </span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$1450</span>
-													<del>$1650</del>
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-								<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID5.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">英國勞德15年雪莉蘇格蘭威士忌黑金禮盒 1L 40%</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$1600</span>
-										
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-									<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID6.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">格蘭菲迪22年雪莉酒桶單一麥芽蘇格蘭威士忌 44.3% 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$7400</span>
-										
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-									<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID7.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">英國愛倫黃金威士忌奶油香甜酒0.7L New Pack (O)</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$740</span>
-											
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-									<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID8.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">三得利白州18年單一麥芽威士忌 43% 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$30000</span>
-											
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-							</ul>
-						</div>
-						<div class="product-content product-fourcolumn clearfix">
-							<ul class="product style2 isotope-product clearfix">
-								<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID9.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">三得利角瓶 40% 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$550</span>
-											
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-							<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID10.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">三得利響21年調和威士忌 0.7L</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$36842</span>
-											
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-								<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID11.jpg"
-											alt="image">
-										</a>
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">日本雲鶴單一麥芽威士忌 0.75L 43%</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$4200</span>
-											
-											</ins>
-										</div>										
-									</div>								
-								</li>
-								<!-- /product-item -->
-								<li class="product-item features sale">
-									<div id="img" class="product-thumb clearfix" >
-										<a href="${contextRoot}/front/Shop-details" class="product-thumb"> <img
-											src="${contextRoot}/FrontPage/image/ID12.jpg"
-											alt="image">
-										</a> 
-									</div>
-									<div class="product-info clearfix">
-										<span class="product-title">英國格蘭登納雪莉桶單一麥芽蘇格蘭威士忌 0.7L 40%</span>
-									
-										<div class="price">
-											<ins>
-												<span class="amount">$890</span>
+							
+								<c:forEach var="product" items="${inventortyList }">
+								
+									<li class="product-item features arrivals">
+										<div id="img" class="product-thumb clearfix">
+											<a href="${contextRoot}/front/Shop-details?liquorId=${product.id}"
+												class="product-thumb"> 
+												<img class="lquorImg" src="${contextRoot}/FrontPage/image/ID${product.id }.jpg">
+											</a>
+										</div>
+										<div class="product-info text-center clearfix">
+											<span class="product-title">${product.iName }</span>
+
+											<div class="price">
+												<ins>
+													<span class="amount">${product.iprice }</span>
 												</ins>
-										</div>										
-									</div>								
-								</li>
+											</div>
+										</div>
+									</li>
+								</c:forEach>
 								<!-- /product-item -->
+
 							</ul>
 						</div>
+
 					</div>
 					<!-- /col-lg-12 -->
 					<div class="blog-pagination text-center">
 						<ul class="flat-pagination">
-							<li class="prev">
-							<a href="#" class=" hvr-shutter-out-horizontal"> 
-							<i	class="fa fa-angle-left" aria-hidden="true"></i>
+							<li class="prev"><a href="#"
+								class=" hvr-shutter-out-horizontal"> <i
+									class="fa fa-angle-left" aria-hidden="true"></i>
 							</a></li>
 							<li><a href="#" class=" hvr-shutter-out-horizontal"> 1 </a></li>
 							<li><a href="#" class=" hvr-shutter-out-horizontal"> 2 </a></li>
@@ -334,6 +135,7 @@
 
 	<a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<!-- /#scroll-top -->
+
 
 	<script src="${contextRoot}/FrontPage/javascript/jquery.min.js"></script>
 	<script src="${contextRoot}/FrontPage/javascript/jquery-waypoints.js"></script>
@@ -364,7 +166,7 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
-		
+
 
 </body>
 
