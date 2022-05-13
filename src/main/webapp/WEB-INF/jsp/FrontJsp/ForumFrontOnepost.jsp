@@ -23,6 +23,7 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="edit-link" style="font-weight: bolder ; font-size :18px"">
+					<br>
 						<a href="${contextRoot}/ForumFrontPostlist#${post.postID}">回文章列表</a> |
 						<a href="${contextRoot}/ForumFrontEditpost?postID=${post.postID}">編輯</a> |
 						<a href="${contextRoot}/ForumFrontAddreply?postID=${post.postID}">回應</a> |
@@ -52,8 +53,9 @@
 		<c:forEach var="getreply" items="${getreply}">
 			<div class="col-6">
 				<div class="card">
-					<div class="card-header">
-						<div class="edit-link">
+					<div class="card-header" >
+					------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						<div class="edit-link"  style="font-weight: bolder ; font-size:18px">
 							<a href="${contextRoot}/ForumFrontDeletereply?replyID=${getreply.replyID}">刪除回應</a>
 						</div>
 						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"

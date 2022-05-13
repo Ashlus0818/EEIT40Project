@@ -22,6 +22,7 @@
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header" style="font-style: italic">
+				<br>
 					<span><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 							value="${post.date}" /></span>
 				</div>
