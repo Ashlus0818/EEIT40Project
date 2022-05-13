@@ -109,7 +109,7 @@ public class ForumPost {
 	@Override
 	public String toString() {
 		return "Forumpost postID=" + postID + ", userID=" + userID + ", title=" + title + ", context=" + context
-				+ ", image=" + "password=" + password + ", date=" + date + "]";
+				+ "password=" + password + ", date=" + date + "]";
 	}
 
 }

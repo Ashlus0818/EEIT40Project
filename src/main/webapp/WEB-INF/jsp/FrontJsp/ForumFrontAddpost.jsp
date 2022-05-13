@@ -17,7 +17,7 @@
       <jsp:include page="IncludePage/topBar.jsp" />
     </div>
   </header>
-<div class="container">
+<div class="container" style="background-color:	#FFE6FF">
 <p />
 <p />
  <div class="col-6">
@@ -28,7 +28,8 @@
 <form:form class="form" method="POST" modelAttribute="forumpost" enctype="multipart/form-data">
 <form:errors path="title"/>
 <form:errors path="context"/>
-<div class="imput-group">
+<div class="imput-group" style="font-size:18px;font-weight:bolder">
+<br>
 <p />
 標題：
 <p />
@@ -38,11 +39,11 @@
 <p />
 <form:textarea path="context" class="form-control"></form:textarea>
 <p />
-密碼(編輯用)：<input type="password" name="password">
+驗證用密碼(編輯用)：<input type="password" name="password">
 <p />
 </div>
 <p />
-<input type="submit" name="submit" value="新增文章">
+<input type="submit" name="submit" value="新增文章" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 </form:form>
 </div>
 </div>

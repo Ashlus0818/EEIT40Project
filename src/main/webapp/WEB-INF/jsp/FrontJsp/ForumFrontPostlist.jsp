@@ -17,32 +17,33 @@
       <jsp:include page="IncludePage/topBar.jsp" />
     </div>
   </header>
-	<div class="container">
+	<div class="container" style="background-color:#FFECEC">
 		<c:forEach items="${allpost}" varStatus="theCount"
 			var="post">
 			<div class="col-6" id="${post.postID}">
 				<div class="card">
 					<div class="card-header">
-						<div class="edit-link">						 
+										------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+						<br>
+						<div class="edit-link" style="font-weight: bolder;font-size :18px">						 
 						    <a href="${contextRoot}/ForumFrontEditpost?postID=${post.postID}">編輯</a> |
 							<a href="${contextRoot}/ForumFrontAddreply?postID=${post.postID}">回應</a> |
 							<a href="${contextRoot}/ForumFrontAddreport?postID=${post.postID}">檢舉</a> |
 							<a href="${contextRoot}/ForumFrontDelete?postID=${post.postID}">刪除</a> |
 							<a href="${contextRoot}/ForumFrontOnepost?postID=${post.postID}">只看NO：${post.postID}的文及回應</a> 	
 						</div>
-						<span> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
+						<br>
+						<span style="font-size :16px"> <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 								value="${post.date}" />
 								 <br>
-								 No： <c:out value="${post.postID}" />
-								 <br>
-					----------------------------------------------------------------------
+								 No.<c:out value="${post.postID}" />
 								  <br> 
-								 標題：
-								  <br> <c:out value="${post.title}" />
+								 標題：<c:out value="${post.title}" />
 								  <br>
 								  <br>
 								 內容： 
 								  <br><c:out value="${post.context}" />
+								  <br>
 						</span>
 					</div>
 				</div>

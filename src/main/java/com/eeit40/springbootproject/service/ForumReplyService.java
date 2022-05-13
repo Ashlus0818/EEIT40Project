@@ -21,16 +21,17 @@ public class ForumReplyService {
 		forumreplyDao.save(reply);
 	}
 
-	public ForumReply getreplyById(Integer reply) {
-		Optional<ForumReply> option = forumreplyDao.findById(reply);
+	public ForumReply getreplyById(Integer replyID) {
+
+		Optional<ForumReply> option = forumreplyDao.findById(replyID);
 		if (option.isPresent()) {
 			return option.get();
 		}
 		return null;
 	}
 
-	public void deleteByreplyId(Integer replyid) {
-		forumreplyDao.deleteById(replyid);
+	public void deleteByreplyId(Integer replyID) {
+		forumreplyDao.deleteById(replyID);
 	}
 
 	public List<ForumReply> findAllreply() {
