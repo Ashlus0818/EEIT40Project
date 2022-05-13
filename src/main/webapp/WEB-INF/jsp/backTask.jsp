@@ -58,7 +58,7 @@
 				</c:forEach>
 	</table>
 	
-	<!-- update Modal-->
+	<!-- insert Modal-->
 	<div id="insertDialog" hidden>
 		<form id="insertForm" method="post">
 			<div class="modal-body">
@@ -73,6 +73,7 @@
 			<div class="modal-body">
 				發文時間:&nbsp<input id="dialogBodyCreate_At" name="taskCreateAt" />
 			</div>
+			<input type="button" id="autoinsert" value="一鍵輸入"/>
 		</form>
 	</div>
 	<!--end of update Modal-->
@@ -172,7 +173,11 @@ function updateBox(num){
 	})
 };
 
-
+// 一鍵輸入
+$('#autoinsert').click(function(){
+	$('#dialogBodyName').val("Jenny")
+	$('#dialogBodyTitle').val("成績單")
+});
 
 </script>
 

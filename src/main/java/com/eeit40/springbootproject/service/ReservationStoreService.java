@@ -65,5 +65,7 @@ public class ReservationStoreService {
 		ReservationStoreDao.deleteById(storeId);
 	}
 	
-	
+	public int find1(int text1) {
+		return ReservationStoreDao.find1(text1).size();
+	}
 }

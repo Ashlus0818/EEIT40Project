@@ -111,6 +111,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .passwordEncoder(new BCryptPasswordEncoder());
 //    }
 
+
+
+
 //	@Autowired
 //	DataSource ds;
 //	@Bean
@@ -119,5 +122,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		JdbcUserDetailsManager mananger = new JdbcUserDetailsManager();
 //		mananger.setDataSource(ds);
 //	}
+
 
 }

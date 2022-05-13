@@ -53,7 +53,7 @@
     </div>
     <div class="search clearfix">
       <ul>
-        <li><input type="search" id="search" placeholder="Search..."></li>
+        <li></li>
         <li><a href="#" class="header-search-icon"><i class="ti-search" aria-hidden="true"></i></a></li>
         <li><a href="#"> <i class="ti-align-justify" aria-hidden="true"></i> </a>
           <ul class="sub-menu">

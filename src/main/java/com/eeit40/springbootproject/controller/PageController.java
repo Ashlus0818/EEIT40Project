@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.loginTest.AppUserService;
 import com.eeit40.springbootproject.model.BackTaskes;
 import com.eeit40.springbootproject.model.ReservationMessageTest;
 import com.eeit40.springbootproject.model.ReservationStore;
@@ -27,6 +28,9 @@ import com.sun.net.httpserver.HttpsParameters;
 
 @Controller
 public class PageController {
+	@Autowired
+	private AppUserService aService;
+	
 	@Autowired
 	private BackTaskesService bService;
 
@@ -42,15 +46,33 @@ public class PageController {
 	@Autowired
 	private ShopInventoryService siService;
 
-//	@GetMapping("/")
-//	public String index(HttpSession session) {
-//		System.out.println(session.getAttribute("status"));
-//		return "index";
-//	}
+	@GetMapping("/")
+	public String indexGet(HttpSession session) {
+		System.out.println(session.getAttribute("status"));
+		System.out.println("/");
+		session.setAttribute("authorityNum1", aService.find1("1"));
+		session.setAttribute("authorityNum2", aService.find1("2"));
+		session.setAttribute("authorityNum3", aService.find1("3"));
+		session.setAttribute("storeNum1", ReStoreService.find1(100));
+		session.setAttribute("storeNum2", ReStoreService.find1(200));
+		session.setAttribute("pieNum1", cums.find1());
+		session.setAttribute("pieNum2", cums.find2());
+		session.setAttribute("pieNum3", cums.find3());
+		return "index";
+	}
 
+	@PostMapping("/login/front")
+	public String loginFront(@RequestParam("username")String username, @RequestParam("password")String password){
+		return "redirect:/front/index";
+	}
+	@PostMapping("/login/back")
+	public String loginBack(@RequestParam("username")String username, @RequestParam("password")String password){
+		return "redirect:/";
+	}
 	@PostMapping("/index")
 	public String index(HttpSession session) {
 		System.out.println(session.getAttribute("status")+"session.getAttribute()");
+		System.out.println("/index");
 		return "index";
 	}
 
