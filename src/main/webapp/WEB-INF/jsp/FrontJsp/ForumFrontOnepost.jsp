@@ -17,29 +17,30 @@
 			<jsp:include page="IncludePage/topBar.jsp" />
 		</div>
 	</header>
-	<div class="container">
+	<div class="container" style="background-color:#FFECEC">
 		<p />
 		<div class="col-6">
 			<div class="card">
 				<div class="card-header">
-					<div class="edit-link">
-						<a href="${contextRoot}/ForumFrontPostlist#${post.postID}">回文章列表</a>
+					<div class="edit-link" style="font-weight: bolder ; font-size :18px"">
+						<a href="${contextRoot}/ForumFrontPostlist#${post.postID}">回文章列表</a> |
+						<a href="${contextRoot}/ForumFrontEditpost?postID=${post.postID}">編輯</a> |
+						<a href="${contextRoot}/ForumFrontAddreply?postID=${post.postID}">回應</a> |
+						<a href="${contextRoot}/ForumFrontAddreport?postID=${post.postID}">檢舉</a> |
+						<a href="${contextRoot}/ForumFrontDelete?postID=${post.postID}">刪除</a> 
 					</div>
-					<span><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
+					<br>
+					<span style="font-size :16px"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss EEEE"
 							value="${post.date}" /></span>
 				</div>
-				<div class="card-body">
-					<br> No.${post.postID}
+				<div class="card-body" style="font-size :16px">
+					No.${post.postID}
 					<p />
 					<p />
 					標題：
-					<p />
-					<p />
-					<p />
 					<c:out value="${post.title}" />
-					<p />
-					----------------------------------------------------------------------
-					<p />
+<br>
+<br>
 					內容：
 					<p />
 					<c:out value="${post.context}" />
