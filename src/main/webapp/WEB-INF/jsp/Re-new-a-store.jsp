@@ -28,7 +28,7 @@
 
     .form {
       margin: 20px;
-      border: 1px solid gray;
+      /* border: 1px solid gray; */
       height: 800px;
     }
 
@@ -46,6 +46,12 @@
       bottom: 30%;
       right: 82%;
       margin: 10px;
+    }
+
+    .oneclick {
+      position: absolute;
+      bottom: 31%;
+      right: 73%;
     }
   </style>
 
@@ -70,6 +76,7 @@
               <div class="card">
                 <div class="card-body">
                   <form id="insertForm" method="POST" action="" enctype="multipart/form-data" class="form">
+                    <legend>店家資訊</legend>
                     <!-- 			<div class="st1"> -->
                     <!-- 				<label >店家編號:</label><br> -->
                     <!-- 				<input id="storeId" name="storeId" class="st2"  /> -->
@@ -130,7 +137,7 @@
                     </div>
 
                     <!-- 一鍵輸入 -->
-                    <div>
+                    <div class="oneclick">
                       <input type="button" id="autoInsert" value="一鍵輸入" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     </div>
                   
@@ -189,10 +196,10 @@
     //一鍵輸入
     $('#autoInsert').on("click",function(){
       $('#storeDepartmentNumber').val("100");
-      $('#storeName').val("100");
-      $('#storePhone').val("100");
-      $('#storeAddress').val("100");
-      $('#storeOpendate').val("100");
+      $('#storeName').val("北車店");
+      $('#storePhone').val("02-5568-8888");
+      $('#storeAddress').val("台北市中正區忠孝西路1段49號");
+      $('#storeOpendate').val("週一至週五：9:00 ～ 18:30,週六：10:30 ～ 18:30,週日：公休");
     })
   </script>
 

@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <title>Store Form</title>
   <style>
-/* .st1disable {
+    /* .st1disable {
   
     position: relative; unselectable ="on";
     -webkit-user-select: none;
@@ -55,7 +55,7 @@
 
     .form {
       margin: 20px;
-      border: 1px solid gray;
+      /* border: 1px solid gray; */
       height: 800px;
     }
 
@@ -70,7 +70,7 @@
     .upload {
       position: absolute;
       bottom: 20%;
-      right: 20%;
+      right: 23%;
       /*       border: 3px solid red; */
       /* top: 20px; */
       /*-30*/
@@ -94,6 +94,12 @@
       border: 1px solid black;
       width: 100%;
       height: 100%;
+    }
+
+    .oneclick {
+      position: absolute;
+      bottom: 10%;
+      right: 77%;
     }
 
     /* type="text" id="name" name="name"  */
@@ -126,7 +132,7 @@
 
                       <div class="st1">
                         <label>店家編號:</label><br>
-                        <form:input name="storeId" path="storeId"  />
+                        <form:input name="storeId" path="storeId" />
                       </div>
 
                       <div class="st1">
@@ -191,8 +197,9 @@
                       </div>
 
                       <!-- 一鍵輸入 -->
-                      <div>
-                        <input type="button" id="autoInsert" value="一鍵輸入" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                      <div class="oneclick">
+                        <input type="button" id="autoInsert" value="一鍵輸入"
+                          class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                       </div>
 
                     </fieldset>
@@ -230,15 +237,14 @@
       })
     }
 
-//一鍵輸入
-$('#autoInsert').on("click",function(){
+    //一鍵輸入
+    $('#autoInsert').on("click", function () {
       $('#storeDepartmentNumber').val("100");
-      $('#storeName').val("100");
-      $('#storePhone').val("100");
-      $('#storeAddress').val("100");
-      $('#storeOpendate').val("100");
+      $('#storeName').val("西門店");
+      $('#storePhone').val("02-2120-3999");
+      $('#storeAddress').val("台北市萬華區成都路10號");
+      $('#storeOpendate').val("週一至週五：9:00 ～ 18:30,週六：10:30 ～ 18:30,週日：公休");
     })
-
   </script>
 
 </body>

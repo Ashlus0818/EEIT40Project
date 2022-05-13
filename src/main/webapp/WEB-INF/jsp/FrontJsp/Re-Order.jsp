@@ -11,6 +11,7 @@
 
   <style>
     .st1 {
+      padding-top: 2%;
       width: 200px;
 
     }
