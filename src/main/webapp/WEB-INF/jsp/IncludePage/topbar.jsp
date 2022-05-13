@@ -25,7 +25,7 @@
 				<div class="input-group">
 					<button type="button" class="btn btn-primary"
 						value="前台" 
-						>&nbsp;&nbsp;前台</button>
+						>前台&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
 					<div class="input-group-append">
 <!-- 						<i class="fas fa-search fa-sm"></i> -->
 					</div>
