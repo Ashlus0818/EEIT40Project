@@ -46,7 +46,7 @@
 
 		<div class="card mb-4 py-3 border-left-danger">
 			<div class="card-body">上次修改時間: ${bean.getLastModified()}
-				<form:input path="lastModified" value="${bean.getUserAddress()}" type="text" />
+<%-- 				<form:input path="lastModified" value="" type="text" /> --%>
 			</div>
 		</div>
 
@@ -58,7 +58,8 @@
 
 		<div class="card mb-4 py-3 border-left-secondary">
 			<div class="card-body">
-				輸入密碼來更新資料: <form:input path="userPwd" value="" type="text" />
+				輸入密碼來更新資料: <input />
+<%-- 				<form:input path="userPwd" value="" type="text" /> --%>
 			</div>
 		</div>
 
