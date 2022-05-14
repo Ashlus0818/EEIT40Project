@@ -4,7 +4,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <div class="container-fluid">
-    <a href="${contextRoot}/front" class="logo"><img src="${contextRoot}/FrontPage/image/logo.png" alt="image" width="129" height="37"
+    <a href="${contextRoot}/front" class="logo"><img id="logoimg" src="${contextRoot}/FrontPage/image/1logo.png" alt="image" width="129" height="37"
         data-retina="${contextRoot}/FrontPage/image/logo.png" data-width="147" data-height="21"></a>
     <div class="mobile-button">
       <span></span>
@@ -53,7 +53,7 @@
     </div>
     <div class="search clearfix">
       <ul>
-        <li><input type="search" id="search" placeholder="Search..."></li>
+        <li></li>
         <li><a href="#" class="header-search-icon"><i class="ti-search" aria-hidden="true"></i></a></li>
         <li><a href="#"> <i class="ti-align-justify" aria-hidden="true"></i> </a>
           <ul class="sub-menu">

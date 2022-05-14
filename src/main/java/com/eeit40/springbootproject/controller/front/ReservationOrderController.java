@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.eeit40.springbootproject.dao.ReservationOrderRepository;
 import com.eeit40.springbootproject.model.ReservationOrder;
+import com.eeit40.springbootproject.model.ReservationStore;
 import com.eeit40.springbootproject.service.ReservationOrderService;
 
 @Controller
@@ -33,6 +35,7 @@ public class ReservationOrderController {
 		
 		System.out.println(storeName);
 		System.out.println(day);
+	
 		List<ReservationOrder> result=  dao.checkTime(storeName, day);
 		for(ReservationOrder  r : result) {
 	//System.out.println(r.getOrderStoreName());
@@ -52,23 +55,26 @@ public class ReservationOrderController {
     @ResponseBody
 //    public String addReservation(ModelAndView mav,@Valid @ModelAttribute(name = "ReservationOrder") ReservationOrder reS,
 //            BindingResult br) {
-    public String addReservation(@RequestParam("orderStoreName") String orderStoreName,
+    public ReservationOrder addReservation(@RequestParam("orderStoreName") String orderStoreName,
     		@RequestParam("orderTime") String orderTime,
     		@RequestParam("orderDate") String orderDate,
     		@RequestParam("orderStorePop") Integer orderStorePop
             ) {
 		ReservationOrder newreS = new ReservationOrder();
+		
 		System.out.println(orderStoreName);
 		System.out.println(orderTime);
 		System.out.println(orderDate);
 		System.out.println(orderStorePop);
+
+		newreS.setOrderMemberEmail("123@gmail.com");
 		newreS.setOrderStoreName(orderStoreName);
 		newreS.setOrderTime(orderTime);
 		newreS.setOrderDate(orderDate);
 		newreS.setOrderStorePop(orderStorePop);
 		
 		
-		reservationOrderService.insert(newreS);
+		ReservationOrder result = reservationOrderService.insert(newreS);
 //
 //        if (!br.hasErrors()) {
 //        	reservationOrderService.insert(reS);
@@ -76,7 +82,20 @@ public class ReservationOrderController {
 //            mav.getModel().put("ReservationOrder", newreS);
 //        } 
 //        mav.setViewName("/FrontJsp/Re-Order"); //這段沒用?
-        return "新增成功";
+        return result;
 	}
 
+	
+
+	@PostMapping("/front/Re-OrderByName")
+	public ModelAndView ReservationStore(ModelAndView mav,@RequestParam("orderStoreName") String name,
+			@RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+		Page<ReservationStore> page = reservationOrderService.findByName(name,pageNumber);
+
+		mav.getModel().put("pageOrder1", page);
+		mav.setViewName("FrontJsp/Re-OrderByName"); // 目標jsp路徑
+
+		return mav;
+	}
+	
 }

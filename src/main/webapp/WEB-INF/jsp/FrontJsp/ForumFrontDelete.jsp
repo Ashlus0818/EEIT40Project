@@ -17,12 +17,13 @@
       <jsp:include page="IncludePage/topBar.jsp" />
     </div>
   </header>
-	<div class="container">
+	<div class="container" style="background-color:#FFE6FF">
 		<p />
 		<p />
+    <br>
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header">刪除文章</div>
+				<div class="card-header"></div>
 				<div class="card-body">
 					<form:form class="form" method="GET" modelAttribute="forumpost">
 						<form:errors path="title" />
@@ -32,13 +33,13 @@
 						<form:input type="hidden" path="date" />
 						<form:input type="hidden" path="title" />
 						<form:input type="hidden" path="context" />
-						<div class="imput-group">
+						<div class="imput-group" style="font-size:18px;font-weight:bolder">
 						<p />
 							<p />
 							驗證用密碼：<input type="password" name="password">
 						</div>
 						<p />
-						<input type="submit" name="submit" value="刪除">
+						<input type="submit" name="submit" value="刪除" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 					</form:form>
 				</div>
 			</div>
