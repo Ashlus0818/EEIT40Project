@@ -30,7 +30,7 @@ public class AppUser {
 	@Column(name="id")
 	private Integer id;
 	
-
+	
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_appUserAuthority_id")
@@ -86,6 +86,12 @@ public class AppUser {
 		this.userPwd = userPwd;
 	}
 
+	public AppUser(Integer id, String userName, String userPwd) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.userPwd = userPwd;
+	}
 	public AppUserAuthority getAppUserAuthority() {
 		return appUserAuthority;
 	}

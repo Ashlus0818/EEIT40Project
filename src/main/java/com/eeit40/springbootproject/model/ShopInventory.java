@@ -42,6 +42,14 @@ public class ShopInventory {
 	
 	
 	
+	public ShopInventory(Integer id) {
+		super();
+		this.id = id;
+	}
+
+
+
+
 	public ShopInventory(String iName, String iImg, String iPlace, String iprice) {
 		super();
 		this.iName = iName;

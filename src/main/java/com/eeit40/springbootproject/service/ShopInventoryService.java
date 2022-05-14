@@ -53,7 +53,8 @@ public class ShopInventoryService {
 		}
 	}
 	
-	public List<ShopInventory> findAllinventoryId(){
+	public List<ShopInventory> findAllinventory(){
+		System.out.println(sidao.findAll());
 		return sidao.findAll();
 	}
 	
@@ -65,4 +66,5 @@ public class ShopInventoryService {
 		
 		return page;
 	}
+	
 }

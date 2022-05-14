@@ -51,8 +51,8 @@
 								<li><a class="tab active" data-id='#tab-description'
 									href="#"><i class="  icon_bag" aria-hidden="true"></i>SHOPPING
 										CART</a></li>
-								
-								
+
+
 							</ul>
 							<div class="cart-wrap">
 								<div id="tab-description" class="tab-content">
@@ -62,78 +62,39 @@
 												<th>Image</th>
 												<th>Product Name</th>
 												<th>Price</th>
-												<th>Quantity</th>
-												<th>Total</th>
+												<!-- 												<th>Quantity</th> -->
+												<!-- 												<th>Total</th> -->
 												<th class="delete">×</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td class="text-center image"><img
-													src="${contextRoot}/FrontPage/image/homepage132.png"
-													alt="image"></td>
-												<td class="list text">Bougrier Rose d'Anjou</td>
-												<td class="text-center list price">$34.99</td>
-												<td class="text-center list quantity">
-													<ul class="quantity-menu">
-														<li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
-														<li>2</li>
-														<li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
-													</ul>
-												</td>
-												<td class="text-center list price">$69.98</td>
-												<td class="text-center delete">×</td>
-											</tr>
-											<tr>
-												<td class="text-center"><img
-													src="${contextRoot}/FrontPage/image/homepage133.png"
-													alt="image"></td>
-												<td class="list text">D'Autrefois Rose de Pinot Noir</td>
-												<td class="text-center list price">$28.99</td>
-												<td class="text-center list">
-													<ul>
-														<li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
-														<li>1</li>
-														<li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
-													</ul>
-												</td>
-												<td class="text-center list price">$28.99</td>
-												<td class="text-center delete">×</td>
-											</tr>
-											<tr>
-												<td class="text-center"><img
-													src="${contextRoot}/FrontPage/image/homepage134.png"
-													alt="image"></td>
-												<td class="list text">Chateau Vivonne Bandol Rose</td>
-												<td class="text-center list price">$46.99</td>
-												<td class="text-center list">
-													<ul>
-														<li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
-														<li>3</li>
-														<li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
-													</ul>
-												</td>
-												<td class="text-center list price">$40.97</td>
-												<td class="text-center delete">×</td>
-											</tr>
-											<tr>
-												<td class="text-center"><img
-													src="${contextRoot}/FrontPage/image/homepage135.png"
-													alt="image"></td>
-												<td class="list text">Olema Rose Cotes De</td>
-												<td class="text-center list price">$25.99</td>
-												<td class="text-center list">
-													<ul>
-														<li><i class="fa fa-minus-circle" aria-hidden="true"></i></li>
-														<li>1</li>
-														<li><i class="fa fa-plus-circle" aria-hidden="true"></i></li>
-													</ul>
-												</td>
-												<td class="text-center list price">$25.99</td>
-												<td class="text-center delete">×</td>
-											</tr>
+											<input value="dddddddd" />
+
+											<c:forEach var="inventortyList" items="${myList}">
+												<tr>
+													<td class="text-center"><img
+														src="${contextRoot}/FrontPage/image/ID${inventortyList.shopInventory.id}.jpg"
+														alt="image" style="width: 30px; height: 60px"></td>
+
+													<td class="list text">${inventortyList.shopInventory.iName}</td>
+													<td class="text-center list price subTotal">${inventortyList.shopInventory.iprice}</td>
+													<!-- 													<td class="text-center list"> -->
+													<!-- 														<ul> -->
+													<!-- 															<li><i class="fa fa-minus-circle" aria-hidden="true"></i></li> -->
+													<!-- 															<li>1</li> -->
+													<!-- 															<li><i class="fa fa-plus-circle" aria-hidden="true"></i></li> -->
+													<!-- 														</ul> -->
+													<!-- 													</td> -->
+													<!-- 													<td class="text-center list price">$25.99</td> -->
+													<td class="text-center delete">×</td>
+												</tr>
+
+											</c:forEach>
 										</tbody>
 									</table>
+
+
+
 									<div class="cart-btn">
 										<div class="btn-continue">
 											<div class="elm-btn">
@@ -149,7 +110,8 @@
 															class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">刪除商品</a>
 													</div>
 												</li>
-												<li>										
+												<li></li>
+											</ul>
 										</div>
 									</div>
 									<div id="tab-reviews" class="tab-content">
@@ -379,24 +341,24 @@
 
 				<div class="row">
 					<div class="wrap-discount-estimate-cart">
-						
-					
+
+
 						<div class="col-lg-4 col-md-4 cart">
 							<h2 class="cart-heading">
 								<a href="#">Cart Total</a>
 							</h2>
 							<div class="wrap-cart">
-								<div class="sub-total">
-									<span>SUB TOTAL</span>
-									<p class="price">$320.00</p>
-								</div>
-								<div class="shipping">
-									<span>SHIPPING</span>
-									<p class="price">Free</p>
-								</div>
+<!-- 								<div class="sub-total"> -->
+<!-- 									<span>SUB TOTAL</span> -->
+<!-- 									<p class="price">$320.00</p> -->
+<!-- 								</div> -->
+<!-- 								<div class="shipping"> -->
+<!-- 									<span>SHIPPING</span> -->
+<!-- 									<p class="price">Free</p> -->
+<!-- 								</div> -->
 								<div class="totall">
 									<span>TOTAL</span>
-									<p class="price">$320.00</p>
+									<p class="price" id="total">$320.00</p>
 								</div>
 							</div>
 							<div class="elm-btn">
@@ -454,6 +416,17 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
-</body> 
+
+	<script type="text/javascript">
+	let total=0;
+	for ( let item of $(".subTotal")){
+		total+= +item.innerHTML;
+		
+		}
+	
+	$("#total").html("$"+total)
+	
+	</script>
+</body>
 
 </html>

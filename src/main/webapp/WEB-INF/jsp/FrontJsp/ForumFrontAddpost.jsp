@@ -3,13 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
   <jsp:include page="IncludePage/head.jsp" />
   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<title>新增文章</title>
 </head>
 <body>
  <header class="style1">
@@ -33,18 +34,20 @@
 <p />
 標題：
 <p />
-<form:textarea path="title" class="form-control"></form:textarea>
+<form:textarea path="title" id="title" class="form-control"></form:textarea>
 <p />
 內容：
 <p />
-<form:textarea path="context" class="form-control"></form:textarea>
+<form:textarea path="context" id="context" class="form-control"></form:textarea>
 <p />
-驗證用密碼(編輯用)：<input type="password" name="password">
+驗證用密碼(編輯用)：<input type="password" id="password" name="password">
 <p />
+
 </div>
 <p />
 <input type="submit" name="submit" value="新增文章" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 </form:form>
+<button id="1" style="background-color:	#FFE6FF">.</button>
 </div>
 </div>
 </div>
@@ -73,5 +76,15 @@
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+
+
+<script>
+$('#1').on("click",function () {
+  $('#title').val("酒經");
+  $('#context').val("宋代制曲、釀酒工藝發達");
+  $('#password').val("1234");
+})
+
+  </script>
 </body>
 </html>

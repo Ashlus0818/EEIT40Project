@@ -23,9 +23,9 @@
 			<form
 				class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 				<div class="input-group">
-					<button type="button" class="btn btn-primary"
+					<a href="${contextRoot}/front"><button type="button" class="btn btn-primary"
 						value="前台" 
-						>前台&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
+						>前台&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button></a>
 					<div class="input-group-append">
 <!-- 						<i class="fas fa-search fa-sm"></i> -->
 					</div>

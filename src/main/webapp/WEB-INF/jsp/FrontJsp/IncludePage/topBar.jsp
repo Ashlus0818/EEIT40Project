@@ -32,7 +32,7 @@
                 <li><a href="${contextRoot}/front/Shop-fullwidth-grid" title="">全部商品</a></li>
                 <li><a href="${contextRoot}/front/Shop-details" title="">商品詳細</a></li>
               <li><a href="${contextRoot}/front/Shop-order-tracking" title="">客戶訂單</a></li>
-              <li><a href="${contextRoot}/front/Shop-cart" title="">購物車</a></li>
+              <li><a href="${contextRoot}/front/showCartList" title="">購物車</a></li>
             </ul><!-- /.sub-menu -->
           </li>
           <li class="active">
@@ -53,7 +53,9 @@
     </div>
     <div class="search clearfix">
       <ul>
-        <li></li>
+        <li><a href="${contextRoot}/"><button type="button" class=""
+						value="後台" 
+						>後台&nbsp;&nbsp;</button></a></li>
         <li><a href="#" class="header-search-icon"><i class="ti-search" aria-hidden="true"></i></a></li>
         <li><a href="#"> <i class="ti-align-justify" aria-hidden="true"></i> </a>
           <ul class="sub-menu">

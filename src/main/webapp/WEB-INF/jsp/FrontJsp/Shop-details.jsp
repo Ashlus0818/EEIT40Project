@@ -54,7 +54,8 @@
 										<div class="gallery-item">
 											<div class="inner">
 												<div class="thumb">
-													<img src="${contextRoot}/FrontPage/image/ID1.jpg"
+													<img
+														src="${contextRoot}/FrontPage/image/ID${liquorDetial.id}.jpg"
 														alt="Image">
 													<div class="search-images">
 														<a data-type="iframe"
@@ -65,7 +66,7 @@
 													</div>
 												</div>
 											</div>
-										</div>						
+										</div>
 									</div>
 								</div>
 								<!-- /.themesflat-cousel-box -->
@@ -75,38 +76,26 @@
 					<div class="col-lg-6 col-md-6">
 						<div class="content-wrap">
 							<h2 class="heading">
-								<a href="">三得利 響 Japanese Harmony威士忌 43% 0.7L</a>
+								<a href="">${liquorDetial.iName }</a>
 							</h2>
-						
-							<h2 class="dolar">$4000</h2>
+
+							<h2 class="dolar">${liquorDetial.iprice}</h2>
 							<div class="content-text">
-								<p>A New Generation of Winernakers Lorem ipsum dolor sit
-									amet sectetu adipiscing elit. Aenean commodo ligula eget dolor.</p>
+								<p>${liquorDetial.iPlace}</p>
 							</div>
-							<div class="info-content">
-								<ul>
-									<li><span> <span class="note">SKU: </span> 01NA55
-									</span></li>
-									<li><span> <span class="note">Categories:</span>
-											Wines, Grapes
-									</span></li>
-									<li><span> <span class="note">Tags:</span>
-											Champange, Wine, Red
-									</span></li>
-								</ul>
-							</div>
-						
+
 							<div class="content-cart clearfix">
 								<form class="cart clearfix" method="post">
 									<div class="quantity">
 										<input type="number" step="1" min="1" name="quantity"
-											value="1" title="Qty" class="input-text qty text" size="4">
+											value="1" title="Qty" class="input-text qty text" size="4"
+											id="quantity">
 									</div>
 									<div class="elm-btn">
-										<a href="${contextRoot}/front/Shop-cart"
+										<a href="${contextRoot}/front/showCartList" id="addProduct"
 											class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontall"><i
-											class="fa fa-shopping-cart" aria-hidden="true"></i> ADD TO
-											CART</a>
+											class="fa fa-shopping-cart" aria-hidden="true"></i>
+											ADD TO CART</a>
 									</div>
 									<div class="heart">
 										<i class="fa fa-heart" aria-hidden="true"></i>
@@ -115,42 +104,44 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-11">
-						<div class="woocommerce-tabs wc-tabs-wrapper">
-							<ul class="tabs">
-								<li><a class="tab active" data-id='#tab-description'
-									href="#">Description</a></li>
-									</ul>
-							<div id="tab-description" class="tab-content">
-								<p>This wine is deeply coloured and brightly scented with
-									intense aromas of cassis, dark cherries and dried herbs
-									underpinned by chocolate and mocha-like oak.</p>
-								<p>- Size: 500ml, 750ml, 1,5L</p>
-								<p>- Vintage: 1897, 1988</p>
-								<p>- Taste: Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit.</p>
-								<p>This wine was blended from two parcels of fruit grown by
-									a fourth-generation vigneron. The vines are aged from 10 to 15
-									years and are trained on a vertical shoot positioning trellis.</p>
-							</div>
-							
-									<!-- /post-bottom-second -->
-									
-									<!-- /comment-respond -->
-								</div>
-							</div>
-						</div>
-					</div>
+
+					<!-- 					<div class="col-lg-11"> -->
+					<!-- 						<div class="woocommerce-tabs wc-tabs-wrapper"> -->
+					<!-- 							<ul class="tabs"> -->
+					<!-- 								<li><a class="tab active" data-id='#tab-description' -->
+					<!-- 									href="#">Description</a></li> -->
+					<!-- 							</ul> -->
+					<!-- 							<div id="tab-description" class="tab-content"> -->
+					<!-- 								<p>This wine is deeply coloured and brightly scented with -->
+					<!-- 									intense aromas of cassis, dark cherries and dried herbs -->
+					<!-- 									underpinned by chocolate and mocha-like oak.</p> -->
+					<!-- 								<p>- Size: 500ml, 750ml, 1,5L</p> -->
+					<!-- 								<p>- Vintage: 1897, 1988</p> -->
+					<!-- 								<p>- Taste: Lorem ipsum dolor sit amet, consectetur -->
+					<!-- 									adipisicing elit.</p> -->
+					<!-- 								<p>This wine was blended from two parcels of fruit grown by -->
+					<!-- 									a fourth-generation vigneron. The vines are aged from 10 to 15 -->
+					<!-- 									years and are trained on a vertical shoot positioning trellis.</p> -->
+					<!-- 							</div> -->
+
+					<!-- 							/post-bottom-second -->
+
+					<!-- 							/comment-respond -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+
 				</div>
-				<!-- /row-->
 			</div>
+			<!-- /row-->
 			<!-- /container -->
 		</section>
-		
+	</div>
 	<jsp:include page="IncludePage/footer.jsp" />
 
 	<a id="scroll-top"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<!-- /#scroll-top -->
+
+
 
 	<script src="${contextRoot}/FrontPage/javascript/jquery.min.js"></script>
 	<script src="${contextRoot}/FrontPage/javascript/jquery.easing.js"></script>
@@ -187,6 +178,16 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+
+	<script type="text/javascript">
+		$("#addProduct").click(function(event) {
+			event.preventDefault();
+			let productId = "${liquorDetial.id}";
+			let quantity = $("#quantity").val();
+			location.replace("${contextRoot}/front/Shop-cart?productId="+productId+"&quantity="+quantity)
+			
+		})
+	</script>
 </body>
 
 </html>
