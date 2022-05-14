@@ -36,18 +36,20 @@
       /* background-color: aqua; */
     }
 
-    /* 調整ReservationStore的page頁數顯示 */
-    .totalpages {
+ 
+     .totalpages {
       position: relative;
       bottom: 5%;
       right: 0%;
       width: 55%;
       text-align: right;
-    }
+    } 
 
     .totalpages .col-9 {
       font-size: 20px;
     }
+
+ 
   </style>
 
 
@@ -68,7 +70,8 @@
 
     </div>
   </header>
-  <form id="insertOrder" method="POST" enctype="multipart/form-data" class="form" action="${contextRoot}/front/Re-OrderByName">
+  <form id="insertOrder" method="POST" enctype="multipart/form-data" class="form"
+    action="${contextRoot}/front/Re-OrderByName">
     <div class="main-event">
       <section class="flat-filter">
         <div class="container">
@@ -87,12 +90,13 @@
                   <input type="search" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
                 </div>
                 <div class="elm-btn">
-                  <button type="submit" id="searchStore" 
+                  <button type="submit" id="searchStore"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button>
-                    <a type="button" href="${contextRoot}/front/Re-Order"
+                </div>
+                <div class="cancelSearch">
+                  <a type="button" href="${contextRoot}/front/Re-Order"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a>
                 </div>
-                <!--           <a><button type="button" id="searchStore">新增</button></a> -->
               </div>
             </div>
           </div>
@@ -107,14 +111,11 @@
               <div class="featured-post">
                 <img src="${contextRoot}/Img/${pageOrder.storeImg}" alt="image">
                 <%--            ${contextRoot}/FrontPage/image/homepage120.png --%>
-                <!--               <div class="date-time"> -->
-                <!--                 <h2>02</h2> -->
-                <!--                 <h2>JULY</h2> -->
-                <!--               </div> -->
+
               </div>
               <div class="content-post">
                 <h2 class="content-title">
-                  <a href="">
+                  <a>
                     <span id="storeName${pageOrder.storeId}">${pageOrder.storeName}</span>
                   </a>
                 </h2>
@@ -151,32 +152,6 @@
                   </select>
                 </div>
 
-<!--                 <div>選擇酒</div> -->
-
-<!--                 <div class="st2"> -->
-<!--                   <label for="">產地</label> -->
-<!--                   <select name="" id="selectPlace"> -->
-<!--                     <option value="">英國</option> -->
-<!--                     <option value="">美國</option> -->
-<!--                     <option value="">日本</option> -->
-<!--                     <option value="">台灣</option> -->
-<!--                   </select> -->
-<!--                 </div> -->
-<!--                 <div class="st3"> -->
-<!--                   <label for="">酒</label> -->
-<!--                   <select name="" id="selectWhisky"> -->
-<!--                     <option value="">x</option> -->
-<!--                     <option value="">xx</option> -->
-<!--                     <option value="">xxx</option> -->
-<!--                     <option value="">xxxx</option> -->
-<!--                   </select> -->
-<!--                 </div> -->
-                <!--                          <h3 class="content-price"><a href="">施工中</a></h3> -->
-                <!--                 <div class="elm-btn"> -->
-                <!--                   <a href="#" -->
-                <!--                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</a> -->
-                <!--                 </div> -->
-                <!-- <form id='' action="" method=""> -->
                 <div class="elm-btn">
                   <button type="button" name="reservation"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">預約</button>
@@ -193,7 +168,7 @@
     <!--     不加上面這段會出403的原因->https://www.cnblogs.com/midworld/p/10996850.html ->SecurityConfig.java ->原因註解掉http.csrf().disable(); -->
   </form>
 
-  <!-- 顯示page頁數按鈕				 -->
+  <!-- 顯示page頁數按鈕 -->
   <div class="row totalpages">
     <div class="col-9">
       <c:forEach var="pageNumber" begin="1" end="${pageOrder1.totalPages}">
@@ -235,6 +210,7 @@
   <script src="${contextRoot}/FrontPage/javascript/main.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="${contextRoot}/FrontPage/javascript/re-order.js"></script>
+  <!--   上面本jsp跟Re-OrderByName.jsp兩個有相通的js都放在一起 -->
 
 
 

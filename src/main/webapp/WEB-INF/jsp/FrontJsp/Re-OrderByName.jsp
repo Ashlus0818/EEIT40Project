@@ -36,7 +36,6 @@
       /* background-color: aqua; */
     }
 
-    /* 調整ReservationStore的page頁數顯示 */
     .totalpages {
       position: relative;
       bottom: 5%;
@@ -87,8 +86,10 @@
                 </div>
                 <div class="elm-btn">
                   <button type="submit" id="searchStore" 
-                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button>
-                    <a type="button" href="${contextRoot}/front/Re-Order"
+                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button>                  
+                </div>
+                 <div class="cancelSearch">
+                  <a type="button" href="${contextRoot}/front/Re-Order"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a>
                 </div>
                 <!--           <a><button type="button" id="searchStore">新增</button></a> -->

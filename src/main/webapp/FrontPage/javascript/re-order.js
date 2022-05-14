@@ -32,7 +32,7 @@
             'select[name="selectTime"] > option');
 
           $.ajax({
-            url: '${contextRoot}/front/orderList?orderStoreName=' + storeName + '&orderDate=' +
+            url: '/myapp/front/orderList?orderStoreName=' + storeName + '&orderDate=' +
             searchDate,
             type: 'GET',
             success: function (res) {
