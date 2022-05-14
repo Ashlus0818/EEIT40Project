@@ -36,18 +36,20 @@
       /* background-color: aqua; */
     }
 
-    /* 調整ReservationStore的page頁數顯示 */
-    .totalpages {
+ 
+     .totalpages {
       position: relative;
       bottom: 5%;
       right: 0%;
       width: 55%;
       text-align: right;
-    }
+    } 
 
     .totalpages .col-9 {
       font-size: 20px;
     }
+
+ 
   </style>
 
 
@@ -68,7 +70,8 @@
 
     </div>
   </header>
-  <form id="insertOrder" method="POST" enctype="multipart/form-data" class="form" action="${contextRoot}/front/Re-OrderByName">
+  <form id="insertOrder" method="POST" enctype="multipart/form-data" class="form"
+    action="${contextRoot}/front/Re-OrderByName">
     <div class="main-event">
       <section class="flat-filter">
         <div class="container">
@@ -87,9 +90,11 @@
                   <input type="search" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
                 </div>
                 <div class="elm-btn">
-                  <button type="submit" id="searchStore" 
+                  <button type="submit" id="searchStore"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button>
-                    <a type="button" href="${contextRoot}/front/Re-Order"
+                </div>
+                <div class="cancelSearch">
+                  <a type="button" href="${contextRoot}/front/Re-Order"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a>
                 </div>
               </div>
@@ -106,11 +111,11 @@
               <div class="featured-post">
                 <img src="${contextRoot}/Img/${pageOrder.storeImg}" alt="image">
                 <%--            ${contextRoot}/FrontPage/image/homepage120.png --%>
-      
+
               </div>
               <div class="content-post">
                 <h2 class="content-title">
-                  <a href="">
+                  <a>
                     <span id="storeName${pageOrder.storeId}">${pageOrder.storeName}</span>
                   </a>
                 </h2>
@@ -205,7 +210,7 @@
   <script src="${contextRoot}/FrontPage/javascript/main.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="${contextRoot}/FrontPage/javascript/re-order.js"></script>
-<!--   上面本jsp跟Re-OrderByName.jsp兩個有相通的js都放在一起 -->
+  <!--   上面本jsp跟Re-OrderByName.jsp兩個有相通的js都放在一起 -->
 
 
 
