@@ -60,7 +60,7 @@
                   </span>
                   <div class="flat-divider-margintop10px"></div>                                                           
                   <span class="wpcf7-form-control-wrap your-email">
-                      <input type="email" tabindex="3" id="messageEmail" name="messageEmail" value="" class="wpcf7-form-control" placeholder="example@gmail.com" required>
+                      <input type="email" tabindex="3" id="messageEmail" name="messageEmail" value="" class="wpcf7-form-control" placeholder="example@gmail.com" required onkeydown="return checkEmailKey(event.key)">
                   </span>
                   <div class="flat-divider-margintop16px"></div>
                   <span >
@@ -77,7 +77,9 @@
                   </span>                                                             
                   <span class="wrap-submit submit-form">
                       <button name="submit" type="submit" id="submitButton" class="submit btn btn-styl hvr-shutter-out-horizontal wpcf7-form-control wpcf7-submit" >提交</button>
-                  </span>                                                        
+                  </span>   
+               <div class="text-center">
+                  <input class="" id="autoinsert" type="button" value="@"/></div>                     
               </form>
               
           </div>
@@ -128,12 +130,31 @@
  
 
 
-  $(document).ready(function (){
+  /* $(document).ready(function (){
     $("#submitButton").click(function(){
     	 document.getElementById('messageEmail').action="${contextRoot}/sendMail";
     	 document.getElementById('messageEmail').submit();
-    })
-  }) 
+    });
+  });  */
+  
+ $('#autoinsert').click(function(){
+	$('input[name="messageName"]')  .val("兔兔")
+	$('input[name="messageEmail"]')  .val("eeit40.first1@gmail.com")
+	$('select[name="messageQuest"]')  .val("訂單問題")
+	$('textarea[name="messagetext"]')  .val("1234")
+}); 
+  
+  $(document).keydown(function(event){
+	  $('input[name="messageName"]')  .val("兔兔")
+		$('input[name="messageEmail"]')  .val("eeit40.first1@gmail.com")
+		$('select[name="messageQuest"]')  .val("訂單問題")
+		$('textarea[name="messagetext"]')  .val("1234")
+	   });  
+	   
+	function checkEmailKey(key) {
+		   return (key >= 'a' && key <= 'z' || key >= '0' && key <= '9') ||
+		     ['.','+','@','-','ArrowLeft','ArrowRight','Delete','Backspace'].includes(key);
+		 }
 
 </script>
 </html>
