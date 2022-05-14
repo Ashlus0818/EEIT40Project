@@ -168,7 +168,7 @@
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        denyButtonText: `回去修改`,
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire('新增成功!', '', 'success')
