@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>No.${post.postID}</title>
 <jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
 </head>
 <body>

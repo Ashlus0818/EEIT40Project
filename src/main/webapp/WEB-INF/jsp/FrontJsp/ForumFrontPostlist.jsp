@@ -9,7 +9,7 @@
 <head>
   <jsp:include page="IncludePage/head.jsp" />
   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<title>文章列表</title>
 </head>
 <body>
  <header class="style1">
