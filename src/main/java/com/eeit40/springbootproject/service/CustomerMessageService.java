@@ -11,8 +11,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.eeit40.springbootproject.dao.CustomerMessageBackMailRepository;
 import com.eeit40.springbootproject.dao.CustomerMessageRepository;
 import com.eeit40.springbootproject.model.BackTaskes;
+import com.eeit40.springbootproject.model.CusMesBackMail;
 import com.eeit40.springbootproject.model.CustomerMessage;
 
 
@@ -22,6 +24,8 @@ import com.eeit40.springbootproject.model.CustomerMessage;
 @Service
 public class CustomerMessageService {
 	
+	@Autowired
+	private CustomerMessageBackMailRepository cmailmdao;
 	
 	@Autowired
 	private CustomerMessageRepository cmdao;
@@ -30,6 +34,9 @@ public class CustomerMessageService {
 	public void insert(CustomerMessage messages) {
 			cmdao.save(messages);
 	}
+	public void insertmail(CusMesBackMail mailmessage) {
+		cmailmdao.save( mailmessage);
+}
 	
 	public CustomerMessage findBymessagesId(Integer messageId) {
 		Optional<CustomerMessage> option = cmdao.findById(messageId);
@@ -50,7 +57,7 @@ public class CustomerMessageService {
 	}
 	
 	public Page<CustomerMessage> findByPage(Integer pageNumber){
-		Pageable pgb = PageRequest.of(pageNumber-1, 20, Sort.Direction.ASC, "messageId");
+		Pageable pgb = PageRequest.of(pageNumber-1, 20, Sort.Direction.DESC, "messageId");
 		
 		Page<CustomerMessage> page = cmdao.findAll(pgb);
 		
