@@ -52,7 +52,6 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -119,7 +118,7 @@
                   </a>
                 </h2>
                 <p class="content-meta">
-                  <a>
+                  <a href="">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                     ${pageOrder.storeOpendate}
                   </a>
@@ -235,9 +234,7 @@
   <script src="${contextRoot}/FrontPage/javascript/main.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="${contextRoot}/FrontPage/javascript/re-order.js"></script>
-
-
-
+ 
 </body>
 
 </html>
