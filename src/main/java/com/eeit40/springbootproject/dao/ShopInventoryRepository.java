@@ -7,5 +7,5 @@ import com.eeit40.springbootproject.model.ShopInventory;
 
 @Repository
 public interface ShopInventoryRepository extends JpaRepository<ShopInventory, Integer> {
-
+	
 }

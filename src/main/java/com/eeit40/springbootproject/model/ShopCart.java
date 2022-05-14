@@ -1,95 +1,96 @@
 package com.eeit40.springbootproject.model;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.servlet.annotation.MultipartConfig;
 
+import com.eeit40.springbootproject.loginTest.AppUser;
 
 //購物車
 @Entity
-@Table(name="ShopCart")
-@MultipartConfig
+@Table(name = "ShopCart")
 public class ShopCart {
-	
-	
+
 	public ShopCart() {
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JoinColumn(name = "fk_ShopLiquor_id")
-	private Integer id;
-	
-	@JoinColumn(name = "fk_ShopLiquor_cName")
-	private String cName;
-	
-	
-	//url路徑
-	@Column(name = "img")
-	private String img;
-	
-	@Column(name = "price")
-	private String price;
-	
-	@Column(name = "quantity")
-	private Integer quantity;
 
-	
-		public ShopCart(Integer id, String cName, String img, String price, Integer quantity) {
+
+	public ShopCart(Integer id, AppUser appUser, ShopInventory shopInventory, Integer quantity) {
 		super();
 		this.id = id;
-		this.cName = cName;
-		this.img = img;
-		this.price = price;
+		this.appUser = appUser;
+		this.shopInventory = shopInventory;
 		this.quantity = quantity;
 	}
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@ManyToOne
+	@JoinColumn(name = "appUserId")
+	private AppUser appUser;
+
+	@ManyToOne
+	@JoinColumn(name = "shopInventoryId")
+	private ShopInventory shopInventory;
+
+	@Column(name = "quantity")
+	private Integer quantity;
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getcName() {
-		return cName;
+
+	public AppUser getAppUser() {
+		return appUser;
 	}
 
-	public void setcName(String cName) {
-		this.cName = cName;
+
+	public void setAppUser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
-	public String getImg() {
-		return img;
+
+	public ShopInventory getShopInventory() {
+		return shopInventory;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+
+	public void setShopInventory(ShopInventory shopInventory) {
+		this.shopInventory = shopInventory;
 	}
 
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
 
 	public Integer getQuantity() {
 		return quantity;
 	}
 
+
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+
+
+	@Override
+	public String toString() {
+		return "ShopCart [id=" + id + ", appUser=" + appUser + ", shopInventory=" + shopInventory + ", quantity="
+				+ quantity + "]";
+	}
 	
 	
-	
+
 }
