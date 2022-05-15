@@ -8,7 +8,8 @@
 <jsp:include page="IncludePage/head.jsp" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<title>前台登入</title>
 </head>
 <body>
 	<header class="style1">
@@ -90,5 +91,17 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+	<script>
+		const link = document.getElementById("LoginRegister")
+	console.log(link.textContent = 'Replacement link text')
+	link.remove()
+	
+	Swal.fire({
+		  icon: 'error',
+		  title: '權限不足',
+		  text: '請先登入',
+// 		  footer: '<a href="">Why do I have this issue?</a>'
+		})
+	</script>
 </body>
 </html>
