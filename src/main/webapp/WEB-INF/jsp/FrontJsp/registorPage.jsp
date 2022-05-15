@@ -12,7 +12,7 @@
 <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
    <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<title>前台登入</title>
+<title>前台註冊</title>
 
 </head>
 
@@ -27,9 +27,9 @@
 		<div class="container">
 		
 		<br/>
-		<h1>Login in Page</h1><br>
+		<h1>Registor in Page</h1><span id="userNamespan" style="color:red">請輸入email</span><br>
 		
-			<form class="user" method="post" action="${contextRoot}/front/afterfrontlogin">
+			<form id="registorForm" class="user" method="post" action="${contextRoot}/front/registorNewUser">
 				<div class="form-group">
 					<input name="username" type="text"
 						class="form-control form-control-user" id="exampleInputEmail"
@@ -39,15 +39,27 @@
 					<input name="password" type="password" class=""
 						id="exampleInputPassword" placeholder="Password">
 				</div>
-				<div class="form-group">
-					<div class="custom-control custom-checkbox small">
-						<input type="checkbox" class="custom-control-input"
-							id="customCheck"> <label class="custom-control-label"
-							for="customCheck">Remember Me</label>
-					</div>
-          
-				</div>
-<!-- 				<div class="elm-btn"> -->
+			<div class="form-group">
+				<input name="userBirth" type="text"
+					class="form-control form-control-user" id="userBirth"
+					aria-describedby="emailHelp" placeholder="userBirth">
+			</div>
+			<div class="form-group">
+				<input name="userGender" type="text"
+					class="form-control form-control-user" id="userGender"
+					aria-describedby="emailHelp" placeholder="userGender">
+			</div>
+			<div class="form-group">
+				<input name="userAddress" type="text"
+					class="form-control form-control-user" id="userAddress"
+					aria-describedby="emailHelp" placeholder="userAddress">
+			</div>
+			<div class="form-group">
+				<input name="userPhone" type="text"
+					class="form-control form-control-user" id="userPhone"
+					aria-describedby="emailHelp" placeholder="userPhone">
+			</div>
+			<!-- 				<div class="elm-btn"> -->
 <!-- 				<input type="submit" value="Login" -->
 <!-- 					class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal"> -->
 <!-- 				</div> -->
@@ -55,10 +67,7 @@
 			<div class="main-event">
 				<section class="flat-filter">
 
-					<div class="Login">
-						<button type="submit" value="Login"
-							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">登入</button>
-					</div>
+
 					
 					<div class="oneclickLogin">
 						<button id="registorbtn" type="button" value="註冊"
@@ -92,7 +101,7 @@
 	<script src="${contextRoot}/FrontPage/javascript/bootstrap.min.js"></script>
 	<script src="${contextRoot}/FrontPage/javascript/jquery.easing.js"></script>
 	<script src="${contextRoot}/FrontPage/javascript/main.js"></script>
-
+<script src="${contextRoot}/FrontPage/javascript/jquery-ui.js"></script>
 	<!-- Slider -->
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/jquery.themepunch.tools.min.js"></script>
@@ -120,25 +129,77 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
 	<script>
 		const link = document.getElementById("LoginRegister")
-	console.log(link.textContent = 'Replacement link text')
-	link.remove()
+// 	console.log(link.textContent = 'Replacement link text')
+// 	link.remove()
 	
-	Swal.fire({
-		  icon: 'error',
-		  title: '權限不足',
-		  text: '請先登入',
+// 	Swal.fire({
+// 		  icon: 'error',
+// 		  title: '權限不足',
+// 		  text: '請先登入',
 // 		  footer: '<a href="">Why do I have this issue?</a>'
-		})
+// 		})
 	</script>
 <script>
 //一鍵輸入
 $('#autoinsert').mouseenter(function(){
 	$('input[name="username"]').val("customer@gmail.com")
 	$('input[name="password"]').val("1234")
+	$('input[name="userBirth"]').val("1970-10-25")
+	$('input[name="userAddress"]').val("台北市信義區信安街90號")
+	$('input[name="userGender"]').val("男")
+	$('input[name="userPhone"]').val("09-1020-3040")
 });
+$('#registorbtn').on("click",function(){
+	Swal.fire({
+		  title: 'Do you want to save the changes?',
+		  showDenyButton: true,
+		  confirmButtonText: 'Save',
+		  denyButtonText: `Don't save`,
+		}).then((result) => {
+		  /* Read more about isConfirmed, isDenied below */
+		  if (result.isConfirmed) {
+			  //   window.location.href = '${contextRoot}/front/registorPage';
+			  Swal.fire('Saved!', '', 'success')
+			  .then(function(){
+				  document.getElementById("registorForm").submit();
+			  })
+			  
+		  } else if (result.isDenied) {
+		  }
+		})
+})
 
-$('#registorbtn').click(function(){
-	window.location.href = '${contextRoot}/front/registorPage';
+$('#registorbtn').hide()
+$(document).click(function(){
+
+	let formdata = new FormData();
+	formdata.append("username", $('#exampleInputEmail').val());
+	console.log($('#exampleInputEmail').val().length)
+	$.ajax({
+		url:"${contextRoot}/back/checkAppUserUserName",
+		type:"POST",
+		data: formdata,
+        processData: false, //google這兩個
+        contentType: false,
+		success:function(res){
+			console.log("success")
+			if(res==='false'&& $('#exampleInputEmail').val().length>0){
+				console.log(res)
+				$('#registorbtn').show()
+				$('#userNamespan').remove()
+			}else if($('#exampleInputEmail').val().length==0){
+				console.log(res)
+				$('#registorbtn').hide()
+				$('#userNamespan').text("請輸入email")
+			}
+			else{
+				console.log(res)
+				$('#registorbtn').hide()
+				$('#userNamespan').text("請輸入其他email")
+			}
+			
+		}
+	})
 });
 </script>
 </body>

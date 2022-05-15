@@ -54,5 +54,18 @@ public class AppUserController {
 		PasswordEncoder encoder = new BCryptPasswordEncoder();
 		encoder.matches(pwd, "databasepwd");  
 	}
+	
+	@ResponseBody
+	@PostMapping("/back/checkAppUserUserName")
+	public String checkAppUserUserName(@RequestParam("username")String username) {
+		System.out.println(username);
+		if(aService.findByUserName(username)==null) {
+			System.out.println(aService.findByUserName(username));
+			return "false";
+		}else {
+			return "true";
+		}
+	}
+	
 }
 
