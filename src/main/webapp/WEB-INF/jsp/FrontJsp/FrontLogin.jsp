@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +22,14 @@
 		
 		<br/>
 		<h1>Login in Page</h1><br>
-			<form class="user" method="post" action="">
+			<form class="user" method="post" action="${contextRoot}/login">
 				<div class="form-group">
-					<input name="userName" type="text"
+					<input name="username" type="text"
 						class="form-control form-control-user" id="exampleInputEmail"
 						aria-describedby="emailHelp" placeholder="username">
 				</div>
 				<div class="form-group">
-					<input name="userPwd" type="password" class=""
+					<input name="password" type="password" class=""
 						id="exampleInputPassword" placeholder="Password">
 				</div>
 				<div class="form-group">
