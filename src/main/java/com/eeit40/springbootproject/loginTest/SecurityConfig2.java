@@ -18,6 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private  AppUserService userService;
+
     @Configuration
     @Order(1)
     public static class backConfigurationAdapter extends WebSecurityConfigurerAdapter {
@@ -31,8 +32,9 @@ public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
     		.antMatchers("/front/Shop-detail")
     		.antMatchers("/front/Shop-order-tracking")
     		.antMatchers("/front/Re-Order")
-    		.and().authorizeHttpRequests().antMatchers("/**").hasAnyRole("admin","manager")
-    		.and().formLogin().loginProcessingUrl("/login").loginPage("/front/login");
+    		.antMatchers("/front/afterfrontlogin")
+    		.and().authorizeHttpRequests().antMatchers("/**").hasAnyRole("admin","manager","customer")
+    		.and().formLogin().loginProcessingUrl("/front/afterfrontlogin").loginPage("/front/login");
     		http.csrf().disable();
     		
     		
@@ -46,13 +48,15 @@ public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
 
 		@Autowired
 		private UserDetailsService appUserService;
-		
+		@Autowired
+		private MyAccessDeniedHandler myAccessDeniedHandler;
     	@Override
     	protected void configure(HttpSecurity http) throws Exception {
     		http.authorizeHttpRequests()
     		.antMatchers("/BackLogin").permitAll()
     		.antMatchers("/loginFail").permitAll()
-    		.antMatchers("/error").permitAll().antMatchers("/").hasAnyRole("admin","manager")
+    		.antMatchers("/error").permitAll()
+    		.antMatchers("/").hasAnyRole("admin","manager")
     		.antMatchers("/index").hasAnyRole("admin","manager")
     		.antMatchers("/backTask").hasAnyRole("admin","manager")
     		.and().formLogin().loginProcessingUrl("/login").loginPage("/BackLogin");;
@@ -62,6 +66,8 @@ public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
     		.deleteCookies("JSESSIONID")
     		.logoutSuccessUrl("/front")
     		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+    		
+    		http.exceptionHandling().accessDeniedHandler(myAccessDeniedHandler);
     	}
 
     }

@@ -28,7 +28,8 @@
 		
 		<br/>
 		<h1>Login in Page</h1><br>
-			<form class="user" method="post" action="${contextRoot}/login">
+		
+			<form class="user" method="post" action="${contextRoot}/front/afterfrontlogin">
 				<div class="form-group">
 					<input name="username" type="text"
 						class="form-control form-control-user" id="exampleInputEmail"
@@ -60,7 +61,7 @@
 					</div>
 
 					<div class="oneclickLogin">
-						<button type="submit" value="一鍵登入"
+						<button id="autoinsert" type="button" value="一鍵登入"
 							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">一鍵輸入</button>
 					</div>
 				</section>
@@ -124,7 +125,13 @@
 // 		  footer: '<a href="">Why do I have this issue?</a>'
 		})
 	</script>
-
+<script>
+//一鍵輸入
+$('#autoinsert').mouseenter(function(){
+	$('input[name="username"]').val("ashleyashlus@gmail.com")
+	$('input[name="password"]').val("1234")
+});
+</script>
 </body>
 
 </html>
