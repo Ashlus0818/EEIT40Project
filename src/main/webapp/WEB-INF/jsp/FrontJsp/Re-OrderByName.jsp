@@ -7,7 +7,7 @@
 
 <head>
   <jsp:include page="IncludePage/head.jsp" />
-  <title>Event</title>
+  <title>預約</title>
 
   <style>
     .st1 {
@@ -68,31 +68,47 @@
   </header>
   <form id="insertOrder" method="POST" enctype="multipart/form-data" class="form" action="${contextRoot}/front/Re-OrderByName">
     <div class="main-event">
-      <section class="flat-filter">
+       <section class="flat-filter">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
               <div class="filter-border">
-                <div class="filter-date">
-                  <input type="date" id="inputDate" name="orderDate" placeholder="輸入日期">
-                  <i class="fa fa-calendar" aria-hidden="true"></i> <!--   這是欄位裡的icon -->
-                </div>
                 <div class="filter-location">
                   <input type="search" id="inputName" name="orderStoreName" placeholder="輸入店家名">
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </div>
-                <div class="filter-keywork">
-                  <input type="search" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
-                </div>
                 <div class="elm-btn">
-                  <button type="submit" id="searchStore" 
-                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button>                  
+                  <button type="submit" id="searchStore"
+                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button>
                 </div>
+<!--                 <div class="cancelSearch"> -->
+<%--                   <a type="button" href="${contextRoot}/front/Re-Order" --%>
+<!--                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a> -->
+<!--                 </div> -->
+
+              </div><br>
+              <div class="filter-border1">
+                <div class="filter-date">
+                  <label class="" for="inputDate">請輸入預約日期:</label>
+                  <input type="date" id="inputDate" name="orderDate" placeholder="輸入日期">
+                  <!-- <i class="fa fa-calendar" aria-hidden="true"></i> --> <!--   這是欄位裡的icon -->
+                </div>
+                <!--                 <div class="filter-location"> -->
+                <!--                   <input type="search" id="inputName" name="orderStoreName" placeholder="輸入店家名"> -->
+                <!--                   <i class="fa fa-map-marker" aria-hidden="true"></i> -->
+                <!--                 </div> -->
+                <div class="filter-keywork">
+                  <label class="" for="inputDate">請輸入人數:</label>
+                  <input type="text" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
+                </div>
+                <!--                 <div class="elm-btn"> -->
+                <!--                   <button type="submit" id="searchStore" -->
+                <!--                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button> -->
+                <!--                 </div> -->
                  <div class="cancelSearch">
                   <a type="button" href="${contextRoot}/front/Re-Order"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a>
-                </div>
-                <!--           <a><button type="button" id="searchStore">新增</button></a> -->
+                </div> 
               </div>
             </div>
           </div>
@@ -125,7 +141,7 @@
                   </a>
                 </p>
                 <p class="content-address">
-                  <a href="">
+                  <a>
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <c:out value="${pageOrder.storeAddress}" />
                   </a>
