@@ -2,14 +2,11 @@ package com.eeit40.springbootproject.controller.front;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -59,16 +56,18 @@ public class ReservationOrderController {
     public ReservationOrder addReservation(@RequestParam("orderStoreName") String orderStoreName,
     		@RequestParam("orderTime") String orderTime,
     		@RequestParam("orderDate") String orderDate,
-    		@RequestParam("orderStorePop") Integer orderStorePop
+    		@RequestParam("orderStorePop") Integer orderStorePop,
+    		Authentication authentication
             ) {
 		ReservationOrder newreS = new ReservationOrder();
+		System.out.println(authentication.getName());
 		
 //		System.out.println(orderStoreName);
 //		System.out.println(orderTime);
 //		System.out.println(orderDate);
 //		System.out.println(orderStorePop);
 
-		newreS.setOrderMemberEmail("123@gmail.com");
+		newreS.setOrderMemberEmail(authentication.getName());
 		newreS.setOrderStoreName(orderStoreName);
 		newreS.setOrderTime(orderTime);
 		newreS.setOrderDate(orderDate);

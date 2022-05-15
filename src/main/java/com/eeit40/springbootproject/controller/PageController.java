@@ -207,5 +207,20 @@ public class PageController {
 		mav.setViewName("ShopInventory");
 		return mav;
 	}
+	
+	/////未完成  想show出order
+	@GetMapping("/backstage/ReservationOrderList")
+	public ModelAndView Reservationorderlist(ModelAndView mav,
+			@RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+		Page<ReservationStore> page = ReStoreService.findByPage(pageNumber);
+
+		mav.getModel().put("pageStore1", page);
+		mav.setViewName("ReservationStore"); // 目標jsp名字
+
+		return mav;
+	}
+	
+	
+	
 
 }
