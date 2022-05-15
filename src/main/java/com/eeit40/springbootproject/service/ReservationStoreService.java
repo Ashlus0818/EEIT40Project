@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.eeit40.springbootproject.dao.ReservationOrderRepository;
 import com.eeit40.springbootproject.dao.ReservationStoreRepository;
+import com.eeit40.springbootproject.model.ReservationOrder;
 import com.eeit40.springbootproject.model.ReservationStore;
 
 @Service
@@ -68,4 +70,22 @@ public class ReservationStoreService {
 	public int find1(int text1) {
 		return ReservationStoreDao.find1(text1).size();
 	}
+	
+	
+	@Autowired
+	private ReservationOrderRepository ReservationOrderDao;
+	
+	// store showALL + PageController(showAll)
+	public Page<ReservationOrder> findOrderListByPage(Integer pageNumber) {
+		Pageable pgb = PageRequest.of(pageNumber - 1, 10, Sort.Direction.DESC, "orderId");
+		Page<ReservationOrder> page = ReservationOrderDao.findAll(pgb);
+		// List<ReservationStore> list = page.getContent();
+
+		return page;
+	}
+	
+	public void deleteByorderId(Integer orderId) {
+		ReservationOrderDao.deleteById(orderId);
+	}
+	
 }
