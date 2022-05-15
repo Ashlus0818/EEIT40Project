@@ -86,7 +86,7 @@
 
 	<div id="insertDialog" hidden="true">
 	
-		<form id="insertForm" method="post" action="${contextRoot}/message/send">
+		<form id="insertForm" method="get" action="${contextRoot}/message/send">
 			
 			<div class="modal-body">
 				收信人：&nbsp<input id="dialogBodyTo" name="email" readonly />
