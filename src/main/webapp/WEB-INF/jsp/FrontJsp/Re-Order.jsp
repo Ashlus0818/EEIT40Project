@@ -36,20 +36,18 @@
       /* background-color: aqua; */
     }
 
- 
-     .totalpages {
+
+    .totalpages {
       position: relative;
       bottom: 5%;
       right: 0%;
       width: 55%;
       text-align: right;
-    } 
-
-    .totalpages .col-9 {
-      font-size: 20px;
     }
 
- 
+    .totalpages .col-9 {
+      font-size: 30px;
+    }
   </style>
 
 
@@ -78,16 +76,9 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="filter-border">
-                <div class="filter-date">
-                  <input type="date" id="inputDate" name="orderDate" placeholder="輸入日期">
-                  <i class="fa fa-calendar" aria-hidden="true"></i> <!--   這是欄位裡的icon -->
-                </div>
                 <div class="filter-location">
                   <input type="search" id="inputName" name="orderStoreName" placeholder="輸入店家名">
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
-                </div>
-                <div class="filter-keywork">
-                  <input type="search" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
                 </div>
                 <div class="elm-btn">
                   <button type="submit" id="searchStore"
@@ -97,6 +88,29 @@
                   <a type="button" href="${contextRoot}/front/Re-Order"
                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a>
                 </div>
+
+              </div><br>
+              <div class="filter-border">
+                <label>請輸入預約日期:</label>
+                <div class="filter-date">
+                  <input type="date" id="inputDate" name="orderDate" placeholder="輸入日期">
+                  <i class="fa fa-calendar" aria-hidden="true"></i> <!--   這是欄位裡的icon -->
+                </div>
+                <!--                 <div class="filter-location"> -->
+                <!--                   <input type="search" id="inputName" name="orderStoreName" placeholder="輸入店家名"> -->
+                <!--                   <i class="fa fa-map-marker" aria-hidden="true"></i> -->
+                <!--                 </div> -->
+                <div class="filter-keywork">
+                  <input type="text" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
+                </div>
+                <!--                 <div class="elm-btn"> -->
+                <!--                   <button type="submit" id="searchStore" -->
+                <!--                     class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">查詢店家</button> -->
+                <!--                 </div> -->
+                <!-- <div class="cancelSearch">
+                  <a type="button" href="${contextRoot}/front/Re-Order"
+                    class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">取消查詢</a>
+                </div> -->
               </div>
             </div>
           </div>

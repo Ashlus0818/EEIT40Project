@@ -55,3 +55,4 @@ public class AppUserController {
 		encoder.matches(pwd, "databasepwd");  
 	}
 }
+

@@ -66,6 +66,7 @@ public class ReservationOrderController {
 		System.out.println(orderTime);
 		System.out.println(orderDate);
 		System.out.println(orderStorePop);
+
 		newreS.setOrderMemberEmail("123@gmail.com");
 		newreS.setOrderStoreName(orderStoreName);
 		newreS.setOrderTime(orderTime);
