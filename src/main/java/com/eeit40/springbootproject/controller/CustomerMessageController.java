@@ -65,7 +65,8 @@ public class CustomerMessageController {
 	}
 
 	// 新增留言＋送信
-	@PostMapping("/message/addCusMessage")
+	//@PostMapping("/message/addCusMessage")
+	@GetMapping("/message/addCusMessage")
 	public ModelAndView AddCusMessage(ModelAndView mav,
 			@Valid @ModelAttribute(name = "CustomerMessages") CustomerMessage cusmes, BindingResult br,
 			HttpServletRequest request, Model model) throws MessagingException {
@@ -128,8 +129,8 @@ public class CustomerMessageController {
 //		String to = email;
 //	String quest = mailQuest;
 //	String text = emailToMes;
-	
-	@PostMapping("/message/send")
+	//@PostMapping("/message/send")
+	@GetMapping("/message/send")
 	public ModelAndView sendEmail(ModelAndView mav,
 			@Valid @ModelAttribute(name = "CustomerMail") CusMesBackMail cusmail, BindingResult br,
 			HttpServletRequest request, Model model) throws MessagingException {
