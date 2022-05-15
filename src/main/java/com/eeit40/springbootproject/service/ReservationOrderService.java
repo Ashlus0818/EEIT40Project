@@ -37,7 +37,7 @@ public class ReservationOrderService {
 
 	}
 
-	
+	//搜尋店家後顯示輸入店家的單筆查詢
 	public Page<ReservationStore> findByName(String name,Integer pageNumber) {
 		Pageable pgb = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "storeId");
 		Page<ReservationStore> page = ReservationStoreDao.findByStoreNameContaining(name,pgb);
