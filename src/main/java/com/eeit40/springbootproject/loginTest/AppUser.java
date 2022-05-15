@@ -92,6 +92,19 @@ public class AppUser {
 		this.userName = userName;
 		this.userPwd = userPwd;
 	}
+	public AppUser(AppUserAuthority appUserAuthority, String userName, String userPwd, String userPhone,
+			String userAddress, String userGender, String userBirth, Date createAt, Date lastModified) {
+		super();
+		this.appUserAuthority = appUserAuthority;
+		this.userName = userName;
+		this.userPwd = userPwd;
+		this.userPhone = userPhone;
+		this.userAddress = userAddress;
+		this.userGender = userGender;
+		this.userBirth = userBirth;
+		this.createAt = createAt;
+		this.lastModified = lastModified;
+	}
 	public AppUserAuthority getAppUserAuthority() {
 		return appUserAuthority;
 	}

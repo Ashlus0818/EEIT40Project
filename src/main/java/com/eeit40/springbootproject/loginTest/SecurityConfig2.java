@@ -56,6 +56,7 @@ public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
     		.antMatchers("/BackLogin").permitAll()
     		.antMatchers("/loginFail").permitAll()
     		.antMatchers("/error").permitAll()
+    		.antMatchers("/back/checkAppUserUserName").permitAll()
     		.antMatchers("/").hasAnyRole("admin","manager")
     		.antMatchers("/index").hasAnyRole("admin","manager")
     		.antMatchers("/backTask").hasAnyRole("admin","manager")
