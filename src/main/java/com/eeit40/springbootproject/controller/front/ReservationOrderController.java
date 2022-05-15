@@ -29,12 +29,13 @@ public class ReservationOrderController {
 	@Autowired
 	private ReservationOrderService reservationOrderService;
 	
+	//搜尋日期時同時比較各店面時段剩餘空檔
 	@GetMapping("/front/orderList")
 	@ResponseBody
 	public List<ReservationOrder> text(@RequestParam("orderStoreName") String storeName,@RequestParam("orderDate") String day){
 		
-		System.out.println(storeName);
-		System.out.println(day);
+//		System.out.println(storeName);
+//		System.out.println(day);
 	
 		List<ReservationOrder> result=  dao.checkTime(storeName, day);
 		for(ReservationOrder  r : result) {
@@ -50,7 +51,7 @@ public class ReservationOrderController {
 	// postman   http://localhost:8080/myapp/front/orderList?orderStoreName=信義信安店&orderDate=2202-05-06  已改過不確定	
 	
 	
-	//接Ajax傳的日期、店名、人數
+	//預約頁面送出
 	@PostMapping("/re/saveReservation")
     @ResponseBody
 //    public String addReservation(ModelAndView mav,@Valid @ModelAttribute(name = "ReservationOrder") ReservationOrder reS,
@@ -62,10 +63,10 @@ public class ReservationOrderController {
             ) {
 		ReservationOrder newreS = new ReservationOrder();
 		
-		System.out.println(orderStoreName);
-		System.out.println(orderTime);
-		System.out.println(orderDate);
-		System.out.println(orderStorePop);
+//		System.out.println(orderStoreName);
+//		System.out.println(orderTime);
+//		System.out.println(orderDate);
+//		System.out.println(orderStorePop);
 
 		newreS.setOrderMemberEmail("123@gmail.com");
 		newreS.setOrderStoreName(orderStoreName);

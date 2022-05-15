@@ -7,7 +7,7 @@
 
 <head>
   <jsp:include page="IncludePage/head.jsp" />
-  <title>Event</title>
+  <title>預約</title>
 
   <style>
     .st1 {
@@ -141,7 +141,7 @@
                   </a>
                 </p>
                 <p class="content-address">
-                  <a href="">
+                  <a>
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <c:out value="${pageOrder.storeAddress}" />
                   </a>

@@ -9,7 +9,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Store Form</title>
+  <title>店面-編輯</title>
   <style>
     /* .st1disable {
   
