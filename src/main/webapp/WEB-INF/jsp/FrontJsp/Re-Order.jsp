@@ -91,10 +91,10 @@
 
               </div><br>
               <div class="filter-border">
-                <label>請輸入預約日期:</label>
                 <div class="filter-date">
+                  <label for="inputDate">請輸入預約日期:</label>
                   <input type="date" id="inputDate" name="orderDate" placeholder="輸入日期">
-                  <i class="fa fa-calendar" aria-hidden="true"></i> <!--   這是欄位裡的icon -->
+                  <!-- <i class="fa fa-calendar" aria-hidden="true"></i> --> <!--   這是欄位裡的icon -->
                 </div>
                 <!--                 <div class="filter-location"> -->
                 <!--                   <input type="search" id="inputName" name="orderStoreName" placeholder="輸入店家名"> -->

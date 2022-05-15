@@ -705,6 +705,33 @@
     letter-spacing: 1.3px;
 }
 
+/* °a»ôªºµn¿ý */
+.Login .margin-top-40 {
+    padding: 7px 30px;
+    margin-top: 38px;
+    font-family: Marcellus;
+    font-size: 14px;
+    line-height: 30px;
+    color: #c02323;
+    border: 1px solid #c02323;
+    display: inline-block;
+    letter-spacing: 1.3px;
+}
+
+/* °a»ôªºµn¿ý */
+.oneclickLogin .margin-top-40 {
+    padding: 7px 30px;
+    margin-top: 38px;
+    font-family: Marcellus;
+    font-size: 14px;
+    line-height: 30px;
+    color: #c02323;
+    border: 1px solid #c02323;
+    display: inline-block;
+    letter-spacing: 1.3px;
+}
+
+
 
 
 .hvr-shutter-out-horizontal {
