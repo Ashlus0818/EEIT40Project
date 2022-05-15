@@ -107,8 +107,8 @@ $(function () {
               url: "/myapp/re/saveReservation",
               type: "POST",
               data: formdata,
-              processData: false, //google這兩個
-              contentType: false,
+              processData: false, //google這兩個  //不加processData: false話controller無法接到formddata物件
+              contentType: false,  //有要傳檔案話這個contentType: false才要false
               success: function (result) {
                 console.log(result);
         
@@ -134,7 +134,7 @@ $(function () {
                 Swal.fire({
                   title: '預約成功',
                   icon: 'success',
-                  html: `<p>預約日期:${orderDate1}</p></br><p>預約地點:${orderStoreName1}</p></br><p>預約人數:${orderStorePop1}</p></br><p>預約時段:${timeStr}</p>`,
+                  html: `<p>您的預約表單</p></br><p>預約日期:${orderDate1}</p></br><p>預約地點:${orderStoreName1}</p></br><p>預約人數:${orderStorePop1}</p></br><p>預約時段:${timeStr}</p>`,
                   // html: `<p>預約日期:${orderDate1}</p></br><p>預約地點:${result.orderStoreName}</p></br><p>預約人數:${result.orderStorePop}</p></br><p>預約時段:${timeStr}</p>`,
                   //  text:`${result.orderStoreName}`,
                   //	text:`${result.orderStorePop}`,
