@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
@@ -25,11 +26,16 @@ public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
     	protected void configure(HttpSecurity http) throws Exception {
     		http.requestMatchers()
     		
-    		.antMatchers("/front")
+    		.antMatchers("/front/showCartList")
+    		.antMatchers("/front/Shop-cart")
+    		.antMatchers("/front/Shop-detail")
+    		.antMatchers("/front/Shop-order-tracking")
     		.antMatchers("/front/Re-Order")
     		.and().authorizeHttpRequests().antMatchers("/**").hasAnyRole("admin","manager")
     		.and().formLogin().loginProcessingUrl("/login").loginPage("/front/login");
     		http.csrf().disable();
+    		
+    		
     	}
 
     }
@@ -51,6 +57,11 @@ public class SecurityConfig2 {//extends WebSecurityConfigurerAdapter {
     		.antMatchers("/backTask").hasAnyRole("admin","manager")
     		.and().formLogin().loginProcessingUrl("/login").loginPage("/BackLogin");;
     		http.csrf().disable();
+    		
+    		http.logout()
+    		.deleteCookies("JSESSIONID")
+    		.logoutSuccessUrl("/front")
+    		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     	}
 
     }

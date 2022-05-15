@@ -1,6 +1,8 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <div class="container-fluid">
@@ -53,13 +55,20 @@
     </div>
     <div class="search clearfix">
       <ul>
+      <li><sec:authorize access="authenticated" var="authenticated">
+							<c:choose>
+								<c:when test="${authenticated}">
+									Hi, <sec:authentication property="name" />
+								</c:when>
+							</c:choose>
+						</sec:authorize></li>
         <li><a href="${contextRoot}/"><button type="button" class=""
 						value="後台" 
 						>後台&nbsp;&nbsp;</button></a></li>
         <li><a href="#" class="header-search-icon"><i class="ti-search" aria-hidden="true"></i></a></li>
         <li><a href="#"> <i class="ti-align-justify" aria-hidden="true"></i> </a>
           <ul class="sub-menu">
-            <li><a href="${contextRoot}/FrontPage/projects1.html" title="">Login/ Register</a></li>
+            <li><a id="LoginRegister" href="${contextRoot}/FrontPage/projects1.html" title="">Login/ Register</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Account</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Wishlist</a></li>
             <li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Cart</a></li>
