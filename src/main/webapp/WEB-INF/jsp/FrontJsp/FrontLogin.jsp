@@ -46,27 +46,27 @@
 					</div>
           
 				</div>
-				<div class="elm-btn">
-				<input type="submit" value="Login"
-					class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">
-				</div>
-				
-              <div class="main-event">
-        <section class="flat-filter">
+<!-- 				<div class="elm-btn"> -->
+<!-- 				<input type="submit" value="Login" -->
+<!-- 					class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal"> -->
+<!-- 				</div> -->
 
-          <div class="Login">
-            <button type="submit" value="Login"
-              class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">Login</button>
-          </div>
+			<div class="main-event">
+				<section class="flat-filter">
 
-          <div class="oneclickLogin">
-            <button type="submit" value="一鍵登入"
-              class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">一鍵輸入</button>
-          </div>
-        </section>
-      </div>
-        
-				<hr>
+					<div class="Login">
+						<button type="submit" value="Login"
+							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">Login</button>
+					</div>
+
+					<div class="oneclickLogin">
+						<button type="submit" value="一鍵登入"
+							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">一鍵輸入</button>
+					</div>
+				</section>
+			</div>
+
+			<hr>
 				
 			</form>
 		</div>
