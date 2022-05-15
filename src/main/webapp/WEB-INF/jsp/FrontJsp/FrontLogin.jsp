@@ -4,13 +4,18 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <jsp:include page="IncludePage/head.jsp" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
+   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <title>前台登入</title>
+
 </head>
+
 <body>
 	<header class="style1">
 		<div id="site-header">
@@ -39,12 +44,28 @@
 							id="customCheck"> <label class="custom-control-label"
 							for="customCheck">Remember Me</label>
 					</div>
+          
 				</div>
 				<div class="elm-btn">
 				<input type="submit" value="Login"
 					class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">
 				</div>
 				
+              <div class="main-event">
+        <section class="flat-filter">
+
+          <div class="Login">
+            <button type="submit" value="Login"
+              class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">Login</button>
+          </div>
+
+          <div class="oneclickLogin">
+            <button type="submit" value="一鍵登入"
+              class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">一鍵輸入</button>
+          </div>
+        </section>
+      </div>
+        
 				<hr>
 				
 			</form>
@@ -103,5 +124,7 @@
 // 		  footer: '<a href="">Why do I have this issue?</a>'
 		})
 	</script>
+
 </body>
+
 </html>
