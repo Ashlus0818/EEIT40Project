@@ -46,7 +46,7 @@
     }
 
     .totalpages .col-9 {
-      font-size: 20px;
+      font-size: 30px;
     }
   </style>
 
@@ -91,6 +91,7 @@
 
               </div><br>
               <div class="filter-border">
+                <label>請輸入預約日期:</label>
                 <div class="filter-date">
                   <input type="date" id="inputDate" name="orderDate" placeholder="輸入日期">
                   <i class="fa fa-calendar" aria-hidden="true"></i> <!--   這是欄位裡的icon -->
@@ -100,7 +101,7 @@
                 <!--                   <i class="fa fa-map-marker" aria-hidden="true"></i> -->
                 <!--                 </div> -->
                 <div class="filter-keywork">
-                  <input type="search" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
+                  <input type="text" id="inputNumber" name="orderStorePop" placeholder="輸入人數">
                 </div>
                 <!--                 <div class="elm-btn"> -->
                 <!--                   <button type="submit" id="searchStore" -->
