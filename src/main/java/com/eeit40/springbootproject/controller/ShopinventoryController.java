@@ -73,6 +73,8 @@ public class ShopinventoryController {
 		System.out.println("finidsh");
 		return "redirect:/addShopInventory";
 	}
+	
+	
 	@PostMapping(value="ShopInventoey/update")
 	public String updateById(ModelAndView mav,@RequestParam("InventoryId") Integer id, @RequestParam("InventoryName") String iName, @RequestParam("InventoryImg") String iImg, 
 			@RequestParam("InventoryPlace") String iPlace,@RequestParam("InventoryPrice") String iprice,@RequestParam("InventoryCategory") String category) {

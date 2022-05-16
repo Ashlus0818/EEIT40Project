@@ -39,10 +39,21 @@ public class ShopCartService {
 		return null;
 	}
 	
-	public void deleteByCartId(Integer cart) {
-		scdao.deleteById(cart);
-	}
+//	public void deleteByCartId(Integer cart) {
+//		scdao.deleteById(cart);
+//	}
 	
+	public boolean deleteByShopCartId(Integer id) {
+		System.out.println(id+"outside the loop");
+		Optional<ShopCart> option = scdao.findById(id);
+		if(option.isPresent()) {
+			System.out.println(id+"in the loop");
+			scdao.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+	}
 	public List<ShopCart> findAllCart(){
 		return scdao.findAll();
 	}

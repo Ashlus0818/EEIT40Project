@@ -7,7 +7,7 @@
 
 <head>
 <jsp:include page="IncludePage/head.jsp" />
-<title>Shop-cart</title>
+<title>購物車</title>
 </head>
 
 <body>
@@ -68,27 +68,21 @@
 											</tr>
 										</thead>
 										<tbody>
-											<input value="dddddddd" />
+
 
 											<c:forEach var="inventortyList" items="${myList}">
+												
 												<tr>
-													<td class="text-center"><img
-														src="${contextRoot}/FrontPage/image/ID${inventortyList.shopInventory.id}.jpg"
+													<td class="text-center"><img src="${contextRoot}/FrontPage/image/ID${inventortyList.shopInventory.id}.jpg"
 														alt="image" style="width: 30px; height: 60px"></td>
-
 													<td class="list text">${inventortyList.shopInventory.iName}</td>
 													<td class="text-center list price subTotal">${inventortyList.shopInventory.iprice}</td>
-													<!-- 													<td class="text-center list"> -->
-													<!-- 														<ul> -->
-													<!-- 															<li><i class="fa fa-minus-circle" aria-hidden="true"></i></li> -->
-													<!-- 															<li>1</li> -->
-													<!-- 															<li><i class="fa fa-plus-circle" aria-hidden="true"></i></li> -->
-													<!-- 														</ul> -->
-													<!-- 													</td> -->
-													<!-- 													<td class="text-center list price">$25.99</td> -->
-													<td class="text-center delete">×</td>
-												</tr>
-
+													<td><input
+								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+								id="deleteButton${inventortyList.shopInventory.id}" type="button" value="x"
+								onclick="deleteForm(${inventortyList.shopInventory.id})"></td>
+												</tr> 
+												
 											</c:forEach>
 										</tbody>
 									</table>
@@ -348,14 +342,14 @@
 								<a href="#">Cart Total</a>
 							</h2>
 							<div class="wrap-cart">
-<!-- 								<div class="sub-total"> -->
-<!-- 									<span>SUB TOTAL</span> -->
-<!-- 									<p class="price">$320.00</p> -->
-<!-- 								</div> -->
-<!-- 								<div class="shipping"> -->
-<!-- 									<span>SHIPPING</span> -->
-<!-- 									<p class="price">Free</p> -->
-<!-- 								</div> -->
+								<!-- 								<div class="sub-total"> -->
+								<!-- 									<span>SUB TOTAL</span> -->
+								<!-- 									<p class="price">$320.00</p> -->
+								<!-- 								</div> -->
+								<!-- 								<div class="shipping"> -->
+								<!-- 									<span>SHIPPING</span> -->
+								<!-- 									<p class="price">Free</p> -->
+								<!-- 								</div> -->
 								<div class="totall">
 									<span>TOTAL</span>
 									<p class="price" id="total">$320.00</p>
@@ -425,6 +419,19 @@
 		}
 	
 	$("#total").html("$"+total)
+	
+	
+	function deleteForm(number) {
+		console.log(number);
+		
+		var yes = confirm("是否刪除此筆紀錄?");
+		
+		if(yes){document.getElementById("taskForm"+number).action = 'front/showCartList';
+		
+		document.getElementById("taskForm"+number).submit();}
+		
+	}
+	
 	
 	</script>
 </body>

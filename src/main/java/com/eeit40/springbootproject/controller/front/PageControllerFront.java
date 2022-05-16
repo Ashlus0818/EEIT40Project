@@ -11,6 +11,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -143,7 +146,9 @@ public class PageControllerFront {
 	public String reservation() {
 		return "FrontJsp/Reservation";
 	}
-
+	
+	
+	//購物車頁面
 	@GetMapping("/front/Shop-cart")
 	public String shopCart(HttpSession session, @RequestParam(name = "productId") Integer productId,
 			@RequestParam(name = "quantity") Integer quantity) {
@@ -161,6 +166,7 @@ public class PageControllerFront {
 		return "redirect:/front/Shop-fullwidth-grid";
 	}
 	
+	//購物車
 	@GetMapping("/front/showCartList")
 	public ModelAndView getAllproduct(ModelAndView mav) {
 	List<ShopCart> list = scService.findAllCart();
@@ -169,7 +175,9 @@ public class PageControllerFront {
 	mav.setViewName("FrontJsp/Shop-cart");
 	return mav;
 	}
-
+	
+	
+	//商品詳細頁面
 	@GetMapping("/front/Shop-details")
 	public ModelAndView shopdetails(@RequestParam(name = "liquorId") String myLiquorId, ModelAndView mav) {
 
@@ -179,13 +187,23 @@ public class PageControllerFront {
 
 		return mav;
 	}
-
+	
+	//所有商品
 	@GetMapping("/front/Shop-fullwidth-grid")
 	public ModelAndView shopFullWidthGrid(ModelAndView mav) {
 		List<ShopInventory> inventortyList = siService.findAllinventory();
 		mav.getModel().put("inventortyList", inventortyList);
 		mav.setViewName("FrontJsp/Shop-fullwidth-grid");
 		return mav;
+	}
+	
+	//購物車刪除品項
+	@GetMapping("/front/delete/shopCartList")
+	public String deleteById(ModelAndView mav, @RequestParam("shopcartid") Integer shopcartid) {
+		System.out.println(shopcartid);
+		scService.deleteByShopCartId(shopcartid);
+		System.out.println("finidsh");
+		return "redirect:/front/showCartList";
 	}
 
 	@GetMapping("/front/Shop-order-tracking")
