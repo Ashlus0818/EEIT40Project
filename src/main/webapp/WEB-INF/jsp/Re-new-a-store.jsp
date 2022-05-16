@@ -166,8 +166,8 @@
       Swal.fire({
         title: '確定新增?',
         showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Save',
+        showCancelButton: false,
+        confirmButtonText: '確定',
         denyButtonText: `回去修改`,
       }).then((result) => {
         if (result.isConfirmed) {

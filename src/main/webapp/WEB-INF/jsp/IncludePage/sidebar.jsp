@@ -70,7 +70,7 @@
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="${contextRoot}/backstage/ReservationStore">店面管理</a>
-				<a class="collapse-item" href="${contextRoot}/backstage/ReservationOrderList">試喝預約訂單</a>	
+				<a class="collapse-item" href="${contextRoot}/backstage/ReservationOrderList">預約試喝訂單</a>	
 				</div>
 				</div>						
 		</li>
