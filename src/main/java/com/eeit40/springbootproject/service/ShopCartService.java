@@ -75,4 +75,8 @@ public class ShopCartService {
 		sB.setQuantity(quantity);
 		scdao.save(sB);
 	}
+	
+	public ShopCart findByshopInventoryId(Integer shopInventoryId) {
+		return scdao.findByshopInventoryId(shopInventoryId);
+	}
 }

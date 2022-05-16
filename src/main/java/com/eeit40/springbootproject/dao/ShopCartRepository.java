@@ -9,5 +9,5 @@ import com.eeit40.springbootproject.model.ShopCart;
 public interface ShopCartRepository  extends JpaRepository<ShopCart, Integer>{
 	
 //	public shopCart findFirstByOrderByAddedDesc();
-	
+	public ShopCart findByshopInventoryId(Integer shopInventoryId);
 }

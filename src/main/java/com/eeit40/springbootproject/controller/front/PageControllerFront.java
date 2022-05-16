@@ -201,9 +201,11 @@ public class PageControllerFront {
 	
 	//購物車刪除品項
 	@GetMapping("/front/delete/shopCartList")
-	public String deleteById(ModelAndView mav, @RequestParam("shopcartid") Integer shopcartid) {
+	public String deleteById(ModelAndView mav, @RequestParam("shopcartid") String shopcartid) {
 		System.out.println(shopcartid);
-		scService.deleteByShopCartId(shopcartid);
+		
+		Integer id = scService.findByshopInventoryId(Integer.valueOf(shopcartid)).getId();
+		scService.deleteByShopCartId(id);
 		System.out.println("finidsh");
 		return "redirect:/front/showCartList";
 	}
