@@ -27,7 +27,8 @@
 		<div class="container">
 		
 		<br/>
-		<h1>Registor in Page</h1><span id="userNamespan" style="color:red">請輸入email</span><br>
+		<h1>Registor in Page</h1><br/>
+<!-- 		<span id="userNamespan" style="color:red">請輸入email</span><br> -->
 		
 			<form id="registorForm" class="user" method="post" action="">
 				<div class="form-group">
@@ -267,9 +268,9 @@ $('#registorbtn').on('click',function(){
 		}if($('input[name="userPhone"]').val()<=0){
 			return alert("請輸入連絡電話")
 		}if(true){
-			console.log(ggg)
+// 			console.log(ggg)
 			document.getElementById("registorForm").action = '${contextRoot}/front/registorNewUser';
-// 			document.getElementById("registorForm").submit();
+			document.getElementById("registorForm").submit();
 		}
 		console.log(state+"this");
 	});

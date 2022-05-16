@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,7 +83,8 @@ public class PageControllerFront {
 			@RequestParam("userAddress")String userAddress,
 			@RequestParam("userPhone")String userPhone) {
 		AppUserAuthority appUserAuthority = appUserAuthorityRepository.getById(3);
-		AppUser newUser = new AppUser(appUserAuthority, username, password
+		String encodePwd = new BCryptPasswordEncoder().encode(password);
+		AppUser newUser = new AppUser(appUserAuthority, username, encodePwd
 				, userPhone, userAddress, userGender, userBirth, new Date(), new Date());
 		aDao.save(newUser);
 		return "/FrontJsp/index";

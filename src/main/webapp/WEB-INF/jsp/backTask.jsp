@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>查看任務</title>
 <jsp:include page="/WEB-INF/jsp/IncludePage/css.jsp" />
 <link href="${contextRoot}/BackPage/css/bootstrap.min.css"
 	rel="stylesheet" />
