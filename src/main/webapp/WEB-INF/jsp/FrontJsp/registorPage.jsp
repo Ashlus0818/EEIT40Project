@@ -29,9 +29,10 @@
 		<br/>
 		<h1>Registor in Page</h1><br/>
 <!-- 		<span id="userNamespan" style="color:red">請輸入email</span><br> -->
-		
+		<button id="checkusernamebtn" class="btn btn-primary">檢查密碼</button>
 			<form id="registorForm" class="user" method="post" action="">
 				<div class="form-group">
+					
 					<input name="username" type="text"
 						class="form-control form-control-user" id="exampleInputEmail"
 						aria-describedby="emailHelp" placeholder="username">
@@ -41,7 +42,7 @@
 						id="exampleInputPassword" placeholder="Password">
 				</div>
 			<div class="form-group">
-				<input name="userBirth" type="text"
+				<input name="userBirth" type="date"
 					class="form-control form-control-user" id="userBirth"
 					aria-describedby="emailHelp" placeholder="userBirth">
 			</div>
@@ -231,50 +232,63 @@ $('#autoinsert').mouseenter(function(){
 			
 // 		}
 // 	})
+
 </script>
 <script>
 var state="1";
-$('#registorbtn').on('click',function(){
+
+$('#checkusernamebtn').on('click',function(){
 	let formdata = new FormData();
 	formdata.append("username", $('#exampleInputEmail').val());
- 	$.ajax({
-		url:"${contextRoot}/back/checkAppUserUserName",
-		type:"POST",
-		data: formdata,
-    processData: false, //google這兩個
-    contentType: false,
-		success:function(res){
-			if(res=="true"){
-				var state="fff";
-				console.log("another");
-				alert("請輸入其他email");
+	$.ajax({
+			url : "${contextRoot}/back/checkAppUserUserName",
+			type : "POST",
+			data : formdata,
+			processData : false, //google這兩個
+			contentType : false,
+			success : function(res) {
+				if (res == "true") {
+					var state = "fff";
+					console.log("another");
+					alert("請輸入其他email");
+				}else{
+					alert("ok");
+				}
 			}
-			
-			
-			}
-		
 		});
-	const re = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
-		if(!re.test($('#exampleInputEmail').val())){	 	
-			return alert("請輸入email")	
-		}if($('input[name="password"]').val()<=0){
-			return alert("請輸入密碼(必須含有英文及數字)")
-		}if($('input[name="userBirth"]').val()<=0){
-			return alert("請輸入生日")
-		}if($('input[name="userAddress"]').val()<=0){
-			return alert("請輸入住址")
-		}if($('input[name="userGender"]').val()<=0){
-			return alert("請輸入性別")
-		}if($('input[name="userPhone"]').val()<=0){
-			return alert("請輸入連絡電話")
-		}if(true){
-// 			console.log(ggg)
-			document.getElementById("registorForm").action = '${contextRoot}/front/registorNewUser';
-			document.getElementById("registorForm").submit();
-		}
-		console.log(state+"this");
+
 	});
 	
+	console.log("this is after" + state)
+	$('#registorbtn').on('click',function() {
+						const re = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+						if (!re.test($('#exampleInputEmail').val())) {
+							return alert("請輸入email")
+						}
+						if ($('input[name="password"]').val() <= 0) {
+							return alert("請輸入密碼(必須含有英文及數字)")
+						}
+						if ($('input[name="userBirth"]').val() <= 0) {
+							return alert("請輸入生日")
+						}
+						if ($('input[name="userGender"]').val() <= 0) {
+							return alert("請輸入性別")
+						}
+						if ($('input[name="userAddress"]').val() <= 0) {
+							return alert("請輸入住址")
+						}
+						if ($('input[name="userPhone"]').val() <= 0) {
+							return alert("請輸入連絡電話")
+						}
+						if (state = 4) {
+							console.log(state)
+							document.getElementById("registorForm").action = '${contextRoot}/front/registorNewUser';
+							document.getElementById("registorForm").submit();
+						}
+						console.log(state + "this");
+	});
+</script>
+<script>
 
 </script>
 </body>

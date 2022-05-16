@@ -58,7 +58,7 @@
 				</c:forEach>
 	</table>
 	
-	<!-- insert Modal-->
+	<!-- insert dialog-->
 	<div id="insertDialog" hidden>
 		<form id="insertForm" method="post">
 			<div class="modal-body">
@@ -76,7 +76,7 @@
 			<input type="button" id="autoinsert" value="一鍵輸入"/>
 		</form>
 	</div>
-	<!--end of update Modal-->
+	<!--end of insert dialog-->
 
 	<!-- update Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
@@ -115,6 +115,13 @@
 			</div>
 		</div>
 	</div>
+	<!-- end of update Modal-->
+	
+
+
+
+
+
 
 	<jsp:include page="/WEB-INF/jsp/IncludePage/script.jsp" />
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"

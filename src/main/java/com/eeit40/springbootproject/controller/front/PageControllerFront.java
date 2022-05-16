@@ -82,11 +82,12 @@ public class PageControllerFront {
 			@RequestParam("userGender")String userGender,
 			@RequestParam("userAddress")String userAddress,
 			@RequestParam("userPhone")String userPhone) {
+		if(aDao.findByUserName(username)==null) {
 		AppUserAuthority appUserAuthority = appUserAuthorityRepository.getById(3);
 		String encodePwd = new BCryptPasswordEncoder().encode(password);
 		AppUser newUser = new AppUser(appUserAuthority, username, encodePwd
 				, userPhone, userAddress, userGender, userBirth, new Date(), new Date());
-		aDao.save(newUser);
+		aDao.save(newUser);}
 		return "/FrontJsp/index";
 	}
 	
