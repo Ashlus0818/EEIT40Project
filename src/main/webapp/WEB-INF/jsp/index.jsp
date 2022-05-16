@@ -16,6 +16,31 @@
 
 	<div>
 		<h1>Index page</h1>
+<!-- 圖片 -->
+<input data-toggle="modal" data-target="#testmod"
+								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+								id="" type="button" value="圖片"
+								onclick="">
+<div class="modal fade" id="testmod" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">圖片</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<form id="updateForm" method="post">
+					<div class="modal-body">
+						<img src="${contextRoot}/BackPage/img/HintPic1.png" style="width: 465px;height: 138px;"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- 圖片 -->
 	</div>
 <input id="qqq1" value="${pieNum1}" type="hidden"/>
 <input id="qqq2" value="${pieNum2}" type="hidden"/>
@@ -76,7 +101,7 @@
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: ${authorityNum}0%" aria-valuenow="50" aria-valuemin="0"
+                                                            style="width: ${authorityNum3}0%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
@@ -172,7 +197,7 @@
 
 	</div>
 	<!-- End of Content Wrapper -->
-<!-- <!-- Content Column --> -->
+ <!-- Content Column --> 
 <!--                         <div class="col-lg-6 mb-4"> -->
 
 <!--                             Project Card Example -->
@@ -217,7 +242,7 @@
                             
 
 <!--                         </div> -->
-<!-- <!-- Color System --> -->
+ <!-- Color System -->
 <!--                             <div class="row"> -->
 <!--                                 <div class="col-lg-6 mb-4"> -->
 <!--                                     <div class="card bg-primary text-white shadow"> -->

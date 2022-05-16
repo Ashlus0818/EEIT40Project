@@ -64,9 +64,16 @@
 					aria-hidden="true"></i></a>
 
 			<ul class="sub-menu">
-				<li><a href="${contextRoot}/front/login" title="">登入/註冊</a></li>
+			
+			<c:choose>
+				<c:when test="${authenticated}">
 				<li><a href="${contextRoot}/FrontPage/projects1.html" title="">My Account</a></li>
 				<li><a href="${contextRoot}/logout" title="">登出</a></li>
+				</c:when>
+				<c:otherwise><li><a href="${contextRoot}/front/login" title="">登入/註冊</a></li>
+				</c:otherwise>
+			</c:choose>
+				
 			</ul> <!-- /.sub-menu --></li>
 		</ul>
     </div>
