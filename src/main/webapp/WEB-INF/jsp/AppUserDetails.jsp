@@ -60,6 +60,31 @@
 			<div class="card-body">
 				輸入密碼來更新資料: <input />
 <%-- 				<form:input path="userPwd" value="" type="text" /> --%>
+<!-- 圖片 -->
+<input data-toggle="modal" data-target="#testmod"
+								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+								id="" type="button" value="圖片"
+								onclick="">
+<div class="modal fade" id="testmod" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">圖片</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<form id="updateForm" method="post">
+					<div class="modal-body">
+						<img src="${contextRoot}/BackPage/img/HintPic1.png" style="width: 465px;height: 138px;"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- 圖片 -->
 			</div>
 		</div>
 
