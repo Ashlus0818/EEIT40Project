@@ -47,10 +47,10 @@
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                            </div>
+<!--                                             <div class="custom-control custom-checkbox small"> -->
+<!--                                                 <input type="checkbox" class="custom-control-input" id="customCheck"> -->
+<!--                                                 <label class="custom-control-label" for="customCheck">Remember Me</label> -->
+<!--                                             </div> -->
                                         </div>
                                         <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                                         <hr>
@@ -60,11 +60,11 @@
 
                                     
                                     <hr>
+<!--                                     <div class="text-center"> -->
+<!--                                         <a class="small" href="forgot-password.html">Forgot Password?</a> -->
+<!--                                     </div> -->
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="${contextRoot}/front/">前台</a>
                                     </div>
                                     <div class="text-center">
                                     <input class="btn btn-primary" id="autoinsert" type="button" value="一鍵輸入"/></div>

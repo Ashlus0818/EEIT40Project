@@ -28,7 +28,6 @@
 		
 		<br/>
 		<h1>Login in Page</h1><br>
-		
 			<form class="user" method="post" action="${contextRoot}/front/afterfrontlogin">
 				<div class="form-group">
 					<input name="username" type="text"
@@ -140,6 +139,16 @@ $('#autoinsert').mouseenter(function(){
 $('#registorbtn').click(function(){
 	window.location.href = '${contextRoot}/front/registorPage';
 });
+
+//login error
+var xhr = new XMLHttpRequest();
+xhr.onload = function() {
+  if(this.status=401 && $(location).attr("href").includes("error")){
+	  alert('登入失敗');
+  }
+}
+xhr.open('HEAD', '/my/location', true);
+xhr.send();
 </script>
 </body>
 
