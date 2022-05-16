@@ -33,7 +33,6 @@ public class AppUserController {
 		return "AppUserDetails";
 	}
 
-	@ResponseBody
 	@PostMapping("/back/updateAppUser")
 	public String updateAppUser(@ModelAttribute("bean")AppUser appUser, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {

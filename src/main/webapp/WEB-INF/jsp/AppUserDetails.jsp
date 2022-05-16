@@ -15,8 +15,10 @@
 	<jsp:include page="/WEB-INF/jsp/IncludePage/topbar.jsp" />
 	<jsp:include page="/WEB-INF/jsp/IncludePage/pageheading.jsp" />
 
-	<form:form method="post" action="" modelAttribute="bean">
+	<form:form method="post" action="${contextRoot}/back/updateAppUser" modelAttribute="bean">
 	<div class="col-lg-6">
+				<form:label path="id">Id: </form:label>
+				<form:input path="id" value="${bean.getId()}" type="text" />
 		<div class="card mb-4 py-3 border-left-secondary">
 			<div class="card-body"> 
 				<form:label path="userName">帳號: </form:label>
@@ -58,8 +60,9 @@
 
 		<div class="card mb-4 py-3 border-left-secondary">
 			<div class="card-body">
-				輸入密碼來更新資料: <input />
-<%-- 				<form:input path="userPwd" value="" type="text" /> --%>
+				權限: <form:input path="appUserAuthority" value="${bean.getAppUserAuthority().getAuthority()}" type="text" />
+				<form:input path="userPwd" value="1234" type="text" />
+<input type="submit">
 <!-- 圖片 -->
 <input data-toggle="modal" data-target="#testmod"
 								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
