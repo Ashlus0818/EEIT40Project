@@ -332,7 +332,7 @@
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: '刪除!'
+        confirmButtonText: '確定!'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire('刪除成功!', '', 'success').then(function () {

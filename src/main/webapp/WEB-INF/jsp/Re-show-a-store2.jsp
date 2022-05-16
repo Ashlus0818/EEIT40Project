@@ -220,9 +220,9 @@
       Swal.fire({
         title: '確定更改?',
         showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        showCancelButton: false,
+        confirmButtonText: '確定',
+        denyButtonText: `回去修改`,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
