@@ -8,7 +8,7 @@
 <head>
 
 <jsp:include page="IncludePage/head.jsp" />
-<title>Shop-fullwidth-grid</title>
+<title>全部商品</title>
 
 <style type="text/css">
 .lquorImg {

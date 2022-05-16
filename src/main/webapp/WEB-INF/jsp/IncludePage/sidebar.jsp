@@ -55,7 +55,7 @@
 				<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="${contextRoot}/addShopCart">購物車管理</a>
 				<a class="collapse-item" href="${contextRoot}/addShopOrder">客戶訂單</a>
-				<a class="collapse-item" href="${contextRoot}/addShopLiquor">產品管理</a>
+				
 				<a class="collapse-item" href="${contextRoot}/addShopInventory">庫存管理</a>
 				</div>
 				</div>

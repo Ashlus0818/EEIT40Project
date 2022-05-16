@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
 <jsp:include page="IncludePage/head.jsp" />
-<title>Shop-details</title>
+<title>商品詳細頁面</title>
 </head>
 <body>
 	<header class="style1">
@@ -105,24 +105,24 @@
 						</div>
 					</div>
 
-					<!-- 					<div class="col-lg-11"> -->
-					<!-- 						<div class="woocommerce-tabs wc-tabs-wrapper"> -->
-					<!-- 							<ul class="tabs"> -->
-					<!-- 								<li><a class="tab active" data-id='#tab-description' -->
-					<!-- 									href="#">Description</a></li> -->
-					<!-- 							</ul> -->
-					<!-- 							<div id="tab-description" class="tab-content"> -->
-					<!-- 								<p>This wine is deeply coloured and brightly scented with -->
-					<!-- 									intense aromas of cassis, dark cherries and dried herbs -->
-					<!-- 									underpinned by chocolate and mocha-like oak.</p> -->
-					<!-- 								<p>- Size: 500ml, 750ml, 1,5L</p> -->
-					<!-- 								<p>- Vintage: 1897, 1988</p> -->
-					<!-- 								<p>- Taste: Lorem ipsum dolor sit amet, consectetur -->
-					<!-- 									adipisicing elit.</p> -->
-					<!-- 								<p>This wine was blended from two parcels of fruit grown by -->
-					<!-- 									a fourth-generation vigneron. The vines are aged from 10 to 15 -->
-					<!-- 									years and are trained on a vertical shoot positioning trellis.</p> -->
-					<!-- 							</div> -->
+										<div class="col-lg-11">
+											<div class="woocommerce-tabs wc-tabs-wrapper">
+												<ul class="tabs">
+													<li><a class="tab active" data-id='#tab-description'
+														href="#">Description</a></li>
+												</ul>
+												<div id="tab-description" class="tab-content">
+													<p>This wine is deeply coloured and brightly scented with
+														intense aromas of cassis, dark cherries and dried herbs
+														underpinned by chocolate and mocha-like oak.</p>
+													<p>- Size: 500ml, 750ml, 1,5L</p>
+													<p>- Vintage: 1897, 1988</p>
+													<p>- Taste: Lorem ipsum dolor sit amet, consectetur
+														adipisicing elit.</p>
+													<p>This wine was blended from two parcels of fruit grown by
+														a fourth-generation vigneron. The vines are aged from 10 to 15
+														years and are trained on a vertical shoot positioning trellis.</p>
+												</div>
 
 					<!-- 							/post-bottom-second -->
 
