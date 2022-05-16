@@ -139,7 +139,7 @@ $('#autoinsert').mouseenter(function(){
 $('#registorbtn').click(function(){
 	window.location.href = '${contextRoot}/front/registorPage';
 });
-
+//一鍵輸入
 //login error
 var xhr = new XMLHttpRequest();
 xhr.onload = function() {
@@ -149,6 +149,7 @@ xhr.onload = function() {
 }
 xhr.open('HEAD', '/my/location', true);
 xhr.send();
+//login error
 </script>
 </body>
 
