@@ -84,14 +84,13 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">修改資料?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
+				<div class="modal-body">修改完請按更新</div>
 				<form id="updateForm" method="post">
 					<div class="modal-body">
 						Id:&nbsp <input id="modalBodyId" name="taskId" readonly />
@@ -130,7 +129,7 @@
 $("input[id^='task']").prop('readonly', true);
 $("#insertDialog").dialog({
 		modal: true,
-		title: "Insert task",
+		title: "新增",
 		buttons: {
 			ok:function() {
 				var yes = confirm("確認新增此筆紀錄?");

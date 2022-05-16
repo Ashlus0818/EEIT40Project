@@ -9,7 +9,7 @@
 <head>
   <jsp:include page="IncludePage/head.jsp" />
   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+<title>新增檢舉</title>
 </head>
 <body>
  <header class="style1">
@@ -59,11 +59,11 @@
 							檢舉原因：
 							<p />
 							<p />
-							<form:textarea path="reportReason" class="form-control" />
+							<form:textarea path="reportReason" id="reportReason" class="form-control" />
 						</div>
-						<p />
 						<input type="submit" name="submit" value="新增檢舉" style="background-color:gray;font-family:新細明體;font-size:18px;font-weight:400">
 					</form:form>
+					<button id="1" style="background-color:	#FFE6FF">.</button>
 				</div>
 			</div>
 		</div>
@@ -91,5 +91,12 @@
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
   <script src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+
+  <script>
+$('#1').on("click",function () {
+  $('#reportReason').val("朋酒斯饗，曰殺羔羊");
+})
+
+  </script>
 </body>
 </html>

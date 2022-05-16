@@ -1,13 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <jsp:include page="IncludePage/head.jsp" />
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
-<title>Insert title here</title>
+   <jsp:include page="IncludePage/SliderRevolutionCSSFiles.jsp" />
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<title>前台登入</title>
+
 </head>
+
 <body>
 	<header class="style1">
 		<div id="site-header">
@@ -20,14 +28,15 @@
 		
 		<br/>
 		<h1>Login in Page</h1><br>
-			<form class="user" method="post" action="">
+		
+			<form class="user" method="post" action="${contextRoot}/front/afterfrontlogin">
 				<div class="form-group">
-					<input name="userName" type="text"
+					<input name="username" type="text"
 						class="form-control form-control-user" id="exampleInputEmail"
 						aria-describedby="emailHelp" placeholder="username">
 				</div>
 				<div class="form-group">
-					<input name="userPwd" type="password" class=""
+					<input name="password" type="password" class=""
 						id="exampleInputPassword" placeholder="Password">
 				</div>
 				<div class="form-group">
@@ -36,13 +45,34 @@
 							id="customCheck"> <label class="custom-control-label"
 							for="customCheck">Remember Me</label>
 					</div>
+          
 				</div>
-				<div class="elm-btn">
-				<input type="submit" value="Login"
-					class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">
-				</div>
-				
-				<hr>
+<!-- 				<div class="elm-btn"> -->
+<!-- 				<input type="submit" value="Login" -->
+<!-- 					class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal"> -->
+<!-- 				</div> -->
+
+			<div class="main-event">
+				<section class="flat-filter">
+
+					<div class="Login">
+						<button type="submit" value="Login"
+							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">登入</button>
+					</div>
+					
+					<div class="oneclickLogin">
+						<button id="registorbtn" type="button" value="註冊"
+							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">註冊</button>
+					</div>
+					
+					<div class="oneclickLogin">
+						<button id="autoinsert" type="button" value="一鍵登入"
+							class="themesflat-button outline ol-accent margin-top-40 hvr-shutter-out-horizontal">customer一鍵輸入</button>
+					</div>
+				</section>
+			</div>
+
+			<hr>
 				
 			</form>
 		</div>
@@ -88,5 +118,29 @@
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="${contextRoot}/FrontPage/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
+	<script>
+		const link = document.getElementById("LoginRegister")
+	console.log(link.textContent = 'Replacement link text')
+	link.remove()
+	
+	Swal.fire({
+		  icon: 'error',
+		  title: '權限不足',
+		  text: '請先登入',
+// 		  footer: '<a href="">Why do I have this issue?</a>'
+		})
+	</script>
+<script>
+//一鍵輸入
+$('#autoinsert').mouseenter(function(){
+	$('input[name="username"]').val("customer@gmail.com")
+	$('input[name="password"]').val("1234")
+});
+
+$('#registorbtn').click(function(){
+	window.location.href = '${contextRoot}/front/registorPage';
+});
+</script>
 </body>
+
 </html>

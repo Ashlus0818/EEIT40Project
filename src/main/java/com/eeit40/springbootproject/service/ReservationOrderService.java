@@ -37,6 +37,15 @@ public class ReservationOrderService {
 
 	}
 
+	//搜尋店家後顯示輸入店家的單筆查詢
+	public Page<ReservationStore> findByName(String name,Integer pageNumber) {
+		Pageable pgb = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "storeId");
+		Page<ReservationStore> page = ReservationStoreDao.findByStoreNameContaining(name,pgb);
+		// List<ReservationStore> list = page.getContent();
+
+		return page;
+
+	}	
 	
 	//根據id找整筆資料 from ReservationOrderController
 		public ReservationOrder findById(Integer storeId) {
@@ -49,9 +58,15 @@ public class ReservationOrderService {
 		}
 	
 	//修改資料 from ReservationStoreController		
-	public void insert(ReservationOrder reS) {
-		ReservationOrderDao.save(reS);
+	public ReservationOrder insert(ReservationOrder reS) {
+		ReservationOrder result = 	ReservationOrderDao.save(reS);
+		return result;
 	}
+	
+	//修改資料 from ReservationStoreController		
+//	public void insert(ReservationOrder reS) {
+//		ReservationOrderDao.save(reS);
+//	}
 
 	public void deleteById(Integer storeId) {
 		ReservationOrderDao.deleteById(storeId);

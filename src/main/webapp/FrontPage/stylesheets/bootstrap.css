@@ -1592,9 +1592,11 @@ pre code {
     width: 970px;
   }
 }
+
+/* §ï¹Lªº */
 @media (min-width: 1200px) {
   .container {
-    width: 1200px;
+    width: 1345px;
   }
 }
 .container-fluid {
@@ -2090,7 +2092,7 @@ pre code {
     float: left;
   }
   .col-lg-12 {
-    width: 100%;
+    width: 90%;
   }
   .col-lg-11 {
     width: 91.66666667%;

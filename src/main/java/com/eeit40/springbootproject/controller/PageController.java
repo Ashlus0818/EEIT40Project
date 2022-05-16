@@ -207,5 +207,7 @@ public class PageController {
 		mav.setViewName("ShopInventory");
 		return mav;
 	}
+		
+	
 
 }

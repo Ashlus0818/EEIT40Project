@@ -416,7 +416,30 @@ public class ReservationStoreController {
 //
 //  			return mav;
 //  		}
-     
+    
+        
+    	/////  show出order
+    	@GetMapping("/backstage/ReservationOrderList")
+    	public ModelAndView Reservationorderlist(ModelAndView mav,
+    			@RequestParam(name = "p", defaultValue = "1") Integer pageNumber) {
+    		Page<ReservationOrder> page = service.findOrderListByPage(pageNumber);
+
+    		mav.getModel().put("pageOrder1", page);
+    		mav.setViewName("ReservationOrderList"); // 目標jsp名字
+
+    		return mav;
+    	}
+        
+    	//刪除一筆資料
+  		@GetMapping("/backstage/ReservationOrderList/delAOrder")
+  		public ModelAndView deleteAorder(ModelAndView mav, @RequestParam(name="orderIDnumberDel") Integer orderId) {
+  			service.deleteByorderId(orderId);
+  			
+  			mav.setViewName("redirect:/backstage/ReservationOrderList");
+  			
+  			return mav;
+  		}
+        
 }
 
 

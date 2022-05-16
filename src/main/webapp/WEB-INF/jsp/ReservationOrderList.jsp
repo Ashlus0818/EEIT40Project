@@ -11,7 +11,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>實體店面</title>
+  <title>預約訂單</title>
 
   <style>
     .newData {
@@ -83,24 +83,24 @@
             <div class="card">
               <!-- 						<div class="card" style="overflow-x: scroll;">						 -->
               <div class="card-body">
-                <h4 class="card-title">實體店面</h4>
+                <h4 class="card-title">試喝預約訂單</h4>
                 <!-- <h3 class="title">實體店面</h3> -->
                 <div class="table-responsive">
                   <div>
 
-                    <div class="newData">
-                      <a href="${contextRoot}/backstage/ReservationStore/addAStore"> <input
-                          class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button"
-                          value="新增一筆"></a>
-                    </div><br>
+<!--                     <div class="newData"> -->
+<%--                       <a href="${contextRoot}/backstage/ReservationStore/addAStore"> <input --%>
+<!--                           class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button" -->
+<!--                           value="新增一筆"></a> -->
+<!--                     </div><br> -->
 
-                    <div class="deleteBatch">
-                      <form id='delData' action="" method="get">
-                        <input class="" name="" value="" type="hidden" />
-                        <input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="deleteBatchBtn"
-                          type="button" value="批次刪除" />
-                      </form>
-                    </div>
+<!--                     <div class="deleteBatch"> -->
+<!--                       <form id='delData' action="" method="get"> -->
+<!--                         <input class="" name="" value="" type="hidden" /> -->
+<!--                         <input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="deleteBatchBtn" -->
+<!--                           type="button" value="批次刪除" /> -->
+<!--                       </form> -->
+<!--                     </div> -->
 
 
 
@@ -114,72 +114,72 @@
                             </label>
 
                           </th>
-                          <th>店家編號</th>
-                          <th>部門編號</th>
-                          <th>店家名</th>
-                          <th>店家電話</th>
-                          <th>店家地址</th>
-                          <th>營業時間</th>
+                          <th>訂單編號</th>
+                          <th>會員帳號</th>
+                          <th>預約店家</th>
+                          <th>預約人數</th>
+                          <th>預約日期</th>
+                          <th>預約時間</th>
                           <th>建立日期</th>
                           <th>修改日期</th>
-                          <th>檢視</th>
+<!--                           <th>檢視</th> -->
                           <th>刪除</th>
                         </tr>
                       </thead>
                       <tbody>
                         <!-- 	pageStore是var值	//pageStore1連到PageController								 -->
                         <%-- var的值把${pageStore1.content}的物件塞進去   ${pageStore1.content}來自PageController的page物件 --%>
-                        <c:forEach var="pageStore" items="${pageStore1.content}" varStatus="vs">
-                          <tr id="Id${pageStore.storeId}">
+                        <c:forEach var="pageOrder" items="${pageOrder1.content}" varStatus="vs">
+                          <tr id="Id${pageOrder.orderId}">
 
                             <td class="checkbox-cell">
                               <label class="checkbox">
-                                <input type="checkbox" name="Checkbox[]" value="" id="check${pageStore.storeId}"><span
+                                <input type="checkbox" name="Checkbox[]" value="" id="check${pageOrder.orderId}"><span
                                   class="check"></span>
                               </label>
                             </td>
-                            <td id="storeId${pageStore.storeId}">
-                              <c:out value="${pageStore.storeId}" />
+                            <td id="storeId${pageOrder.orderId}">
+                              <c:out value="${pageOrder.orderId}" />
                             </td>
                             <td>
-                              <c:out value="${pageStore.storeDepartmentNumber}" />
+                              <c:out value="${pageOrder.orderMemberEmail}" />
                             </td>
                             <td>
-                              <c:out value="${pageStore.storeName}" />
+                              <c:out value="${pageOrder.orderStoreName}" />
                             </td>
                             <td>
-                              <c:out value="${pageStore.storePhone}" />
+                              <c:out value="${pageOrder.orderStorePop}" />
                             </td>
                             <td>
-                              <c:out value="${pageStore.storeAddress}" />
+                              <c:out value="${pageOrder.orderDate}" />
                             </td>
                             <td>
-                              <c:out value="${pageStore.storeOpendate}" />
+                              <c:out value="${pageOrder.orderTime}" />
                             </td>
                             <td>
-                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageStore.createdAt}" />
+                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageOrder.createdAt}" />
                             </td>
                             <td>
-                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageStore.modifiedAt}" />
+                              <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${pageOrder.modifiedAt}" />
                             </td>
 
                             <!--  storeIDnumberView和Del  連結 ReservationStoreController 第94行的getStoreById方法 -->
                             <%-- ${vs.count}的vs是69行varStatus="vs",count是計數,為了抓到第幾筆資料,但不是抓到id,只有ASC排序適用,因為是根據抓到的第幾筆代入storeId去找整筆資料 --%>
                             <%-- ${pageStore.storeId}就可以直接抓到該筆的id --%>
-                            <td>
-                              <form id='formStoreID${pageStore.storeId}'
-                                action="${contextRoot}/backstage/ReservationStore/editStore" method="get">
-                                <input class="" name="storeIDnumberView" value="${pageStore.storeId}" type="hidden" />
-                                <input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id=""
-                                  type="button" value="檢視" onclick="show(${pageStore.storeId})" />
-                              </form>
+<!--                             <td> -->
+<%--                               <form id='formStoreID${pageStore.storeId}' --%>
+<%--                                 action="${contextRoot}/backstage/ReservationStore/editStore" method="get"> --%>
+<%--                                 <input class="" name="storeIDnumberView" value="${pageStore.storeId}" type="hidden" /> --%>
+<!--                                 <input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="" -->
+<%--                                   type="button" value="檢視(X)" onclick="show(${pageStore.storeId})" /> --%>
+<!--                               </form> -->
 
                             <td>
-                              <form id='formStoreID1${pageStore.storeId}'
-                                action="${contextRoot}/backstage/ReservationStore/delAStore" method="get">
-                                <input class="" name="storeIDnumberDel" value="${pageStore.storeId}" type="hidden" />
+                              <form id='formOrderID1${pageOrder.orderId}'
+                                action="${contextRoot}/backstage/ReservationOrderList/delAOrder" method="get">
+                                <input class="" name="orderIDnumberDel" value="${pageOrder.orderId}" type="hidden" />
                                 <input class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id=""
-                                  type="button" value="刪除" onclick="del(${pageStore.storeId})" />
+                                  type="button" value="刪除" onclick="del(${pageOrder.orderId})" />
                               </form>
 
                           </tr>
@@ -194,15 +194,15 @@
                             </label>
                           </th>
 
-                          <th>店家編號</th>
-                          <th>部門編號</th>
-                          <th>店家名</th>
-                          <th>店家電話</th>
-                          <th>店家地址</th>
-                          <th>營業時間</th>
+                          <th>訂單編號</th>
+                          <th>會員帳號</th>
+                          <th>預約店家</th>
+                          <th>預約人數</th>
+                          <th>預約日期</th>
+                          <th>預約時間</th>
                           <th>建立日期</th>
                           <th>修改日期</th>
-                          <th>檢視</th>
+<!--                           <th>檢視</th> -->
                           <th>刪除</th>
                         </tr>
                       </tfoot>
@@ -217,11 +217,11 @@
         <!-- 顯示page頁數按鈕				 -->
         <div class="row totalpages">
           <div class="col-9">
-            <c:forEach var="pageNumber" begin="1" end="${pageStore1.totalPages}">
+            <c:forEach var="pageNumber" begin="1" end="${pageOrder1.totalPages}">
 
               <c:choose>
-                <c:when test="${pageStore1.number != pageNumber-1 }">
-                  <a href="${contextRoot}/backstage/ReservationStore?p=${pageNumber}">
+                <c:when test="${pageOrder1.number != pageNumber-1 }">
+                  <a href="${contextRoot}/backstage/ReservationOrderList?p=${pageNumber}">
                     <c:out value="${pageNumber}" /> </a>
                 </c:when>
 
@@ -231,7 +231,7 @@
 
               </c:choose>
 
-              <c:if test="${pageNumber != pageStore1.totalPages}">
+              <c:if test="${pageNumber != pageOrder1.totalPages}">
                 |
               </c:if>
 
@@ -253,7 +253,7 @@
     // 為了在檢視或刪除時根據"id"去刪除,要先抓到storeId的前置作業
     //formStoreID 連結 90行前後的form id欄位
 
-    //批次刪除
+    //批次刪除 未改成order用
     $('#deleteBatchBtn').on('click', function () {
       let dataList = []; //先給一個空的陣列，之後給裡面塞值
 
@@ -336,7 +336,7 @@
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire('刪除成功!', '', 'success').then(function () {
-            document.getElementById("formStoreID1" + count).submit()
+            document.getElementById("formOrderID1" + count).submit()
           })
         }
       })
@@ -344,7 +344,7 @@
     //注意! 要用then接下段要跑的程式 要先用function包起來,也就是要 .then(function(){要跑的程式})
 
 
-    //檢視單筆
+    //檢視單筆 未改成order用
     function show(count) {
       document.getElementById("formStoreID" + count).submit();
     }
