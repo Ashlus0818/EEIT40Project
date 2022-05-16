@@ -29,7 +29,7 @@
 		<br/>
 		<h1>Registor in Page</h1><br/>
 <!-- 		<span id="userNamespan" style="color:red">請輸入email</span><br> -->
-		<button id="checkusernamebtn" class="btn btn-primary">檢查密碼</button>
+		<button id="checkusernamebtn" class="btn btn-primary">檢查帳號</button>
 			<form id="registorForm" class="user" method="post" action="">
 				<div class="form-group">
 					
