@@ -46,7 +46,7 @@
 				</div>
 			</div></li>
 <%-- 			${contextRoot}/ShopCart/findPostById --%>
-		<li class="nav-item"><a class="nav-link" href="*"
+		<li class="nav-item"><a class="nav-link collapsed" href="*"
 		data-toggle="collapse" data-target="#ShopCart"
 			aria-expanded="true" aria-controls="ShopCart">
 			 <i class="fas fa-fw fa-chart-area"></i> <span>購物車</span></a>
@@ -62,7 +62,7 @@
 			 </li>
 
 
-		<li class="nav-item"><a class="nav-link" href="#"
+		<li class="nav-item"><a class="nav-link collapsed" href="#"
 		data-toggle="collapse" data-target="#store"
 			aria-expanded="true" aria-controls="store"> <i
 				class="fas fa-fw fa-table"></i> <span>實體店面</span></a>
