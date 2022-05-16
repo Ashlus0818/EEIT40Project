@@ -77,8 +77,7 @@
 														alt="image" style="width: 30px; height: 60px"></td>
 													<td class="list text">${inventortyList.shopInventory.iName}</td>
 													<td class="text-center list price subTotal">${inventortyList.shopInventory.iprice}</td>
-													<td><input
-								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+													<td><input	class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 								id="deleteButton${inventortyList.shopInventory.id}" type="button" value="x"
 								onclick="deleteForm(${inventortyList.shopInventory.id})"></td>
 												</tr> 
@@ -426,9 +425,12 @@
 		
 		var yes = confirm("是否刪除此筆紀錄?");
 		
-		if(yes){document.getElementById("taskForm"+number).action = 'front/showCartList';
-		
-		document.getElementById("taskForm"+number).submit();}
+		if(yes){
+			console.log()
+// 			document.getElementById("taskForm"+number).action = 'front/showCartList';
+			window.location.href = '${contextRoot}/front/delete/shopCartList?shopcartid='+number;
+// 		document.getElementById("taskForm"+number).submit();
+		}
 		
 	}
 	
