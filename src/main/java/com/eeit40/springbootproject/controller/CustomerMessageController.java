@@ -155,6 +155,7 @@ public class CustomerMessageController {
 		+"<br>我們是酒窖網的客服中心。"
 		+"<br>"
 		+"<br>感謝您耐心等候"
+		+"<br>"
 		+"回覆:"
 		+"<b>"+text
 		+"</b>"

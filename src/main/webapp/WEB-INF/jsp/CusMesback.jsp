@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>後台查看留言</title>
 <jsp:include page="IncludePage/css.jsp" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -142,7 +142,7 @@
 
   $("#insertDialog").dialog({
 		modal: true,
-		title: "ReplyEmail",
+		title: "回覆郵件",
 		buttons: {
 			/* ok:function() {
 				var yes = confirm("確認傳送郵件?");
