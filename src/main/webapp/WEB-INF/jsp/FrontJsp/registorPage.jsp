@@ -29,7 +29,7 @@
 		<br/>
 		<h1>Registor in Page</h1><span id="userNamespan" style="color:red">請輸入email</span><br>
 		
-			<form id="registorForm" class="user" method="post" action="${contextRoot}/front/registorNewUser">
+			<form id="registorForm" class="user" method="post" action="">
 				<div class="form-group">
 					<input name="username" type="text"
 						class="form-control form-control-user" id="exampleInputEmail"
@@ -149,58 +149,132 @@ $('#autoinsert').mouseenter(function(){
 	$('input[name="userGender"]').val("男")
 	$('input[name="userPhone"]').val("09-1020-3040")
 });
-$('#registorbtn').on("click",function(){
-	Swal.fire({
-		  title: 'Do you want to save the changes?',
-		  showDenyButton: true,
-		  confirmButtonText: 'Save',
-		  denyButtonText: `Don't save`,
-		}).then((result) => {
-		  /* Read more about isConfirmed, isDenied below */
-		  if (result.isConfirmed) {
-			  //   window.location.href = '${contextRoot}/front/registorPage';
-			  Swal.fire('Saved!', '', 'success')
-			  .then(function(){
-				  document.getElementById("registorForm").submit();
-			  })
+
+// $('#registorbtn').on("click",function(){
+// 	Swal.fire({
+// 		  title: 'Do you want to save the changes?',
+// 		  showDenyButton: true,
+// 		  confirmButtonText: 'Save',
+// 		  denyButtonText: `Don't save`,
+// 		}).then((result) => {
+// 		  /* Read more about isConfirmed, isDenied below */
+// 		  if (result.isConfirmed) {
+// 			  //   window.location.href = '${contextRoot}/front/registorPage';
+// 			  Swal.fire('Saved!', '', 'success')
+// 			  .then(function(){
+// 				  document.getElementById("registorForm").submit();
+// 			  })
 			  
-		  } else if (result.isDenied) {
-		  }
-		})
-})
+// 		  } else if (result.isDenied) {
+// 		  }
+// 		})
+// });
 
-$('#registorbtn').hide()
-$(document).click(function(){
 
+// $(document).click(function(){
+// 	let formdata = new FormData();
+// 	formdata.append("username", $('#exampleInputEmail').val());
+// 	console.log($('#exampleInputEmail').val().length)
+// 	$.ajax({
+// 		url:"${contextRoot}/back/checkAppUserUserName",
+// 		type:"POST",
+// 		data: formdata,
+//         processData: false, //google這兩個
+//         contentType: false,
+// 		success:function(res){
+// 			console.log("success")
+// 			if(res==='false'&& $('#exampleInputEmail').val().length>0){
+// 				console.log(res)
+// 				$('#registorbtn').show()
+// 				$('#userNamespan').remove()
+// 			}else if($('#exampleInputEmail').val().length==0){
+// 				console.log(res)
+// 				$('#registorbtn').hide()
+// 				$('#userNamespan').text("請輸入email")
+// 			}
+// 			else{
+// 				console.log(res)
+// 				$('#registorbtn').hide()
+// 				$('#userNamespan').text("請輸入其他email")
+// 			}
+			
+// 		}
+// 	})
+// });
+
+// 	let formdata = new FormData();
+// 	formdata.append("username", $('#exampleInputEmail').val());
+// 	console.log($('#exampleInputEmail').val().length)
+// 	$.ajax({
+// 		url:"${contextRoot}/back/checkAppUserUserName",
+// 		type:"POST",
+// 		data: formdata,
+//         processData: false, //google這兩個
+//         contentType: false,
+// 		success:function(res){
+// 			console.log("success")
+// 			if(res==='false'&& $('#exampleInputEmail').val().length>0){
+// 				console.log(res)
+// 				$('#registorbtn').show()
+// 				$('#userNamespan').remove()
+// 			}else if($('#exampleInputEmail').val().length==0){
+// 				console.log(res)
+// 				$('#registorbtn').hide()
+// 				$('#userNamespan').text("請輸入email")
+// 			}
+// 			else{
+// 				console.log(res)
+// 				$('#registorbtn').hide()
+// 				$('#userNamespan').text("請輸入其他email")
+// 			}
+			
+// 		}
+// 	})
+</script>
+<script>
+var state="1";
+$('#registorbtn').on('click',function(){
 	let formdata = new FormData();
 	formdata.append("username", $('#exampleInputEmail').val());
-	console.log($('#exampleInputEmail').val().length)
-	$.ajax({
+ 	$.ajax({
 		url:"${contextRoot}/back/checkAppUserUserName",
 		type:"POST",
 		data: formdata,
-        processData: false, //google這兩個
-        contentType: false,
+    processData: false, //google這兩個
+    contentType: false,
 		success:function(res){
-			console.log("success")
-			if(res==='false'&& $('#exampleInputEmail').val().length>0){
-				console.log(res)
-				$('#registorbtn').show()
-				$('#userNamespan').remove()
-			}else if($('#exampleInputEmail').val().length==0){
-				console.log(res)
-				$('#registorbtn').hide()
-				$('#userNamespan').text("請輸入email")
-			}
-			else{
-				console.log(res)
-				$('#registorbtn').hide()
-				$('#userNamespan').text("請輸入其他email")
+			if(res=="true"){
+				var state="fff";
+				console.log("another");
+				alert("請輸入其他email");
 			}
 			
+			
+			}
+		
+		});
+	const re = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+		if(!re.test($('#exampleInputEmail').val())){	 	
+			return alert("請輸入email")	
+		}if($('input[name="password"]').val()<=0){
+			return alert("請輸入密碼(必須含有英文及數字)")
+		}if($('input[name="userBirth"]').val()<=0){
+			return alert("請輸入生日")
+		}if($('input[name="userAddress"]').val()<=0){
+			return alert("請輸入住址")
+		}if($('input[name="userGender"]').val()<=0){
+			return alert("請輸入性別")
+		}if($('input[name="userPhone"]').val()<=0){
+			return alert("請輸入連絡電話")
+		}if(true){
+			console.log(ggg)
+			document.getElementById("registorForm").action = '${contextRoot}/front/registorNewUser';
+// 			document.getElementById("registorForm").submit();
 		}
-	})
-});
+		console.log(state+"this");
+	});
+	
+
 </script>
 </body>
 
