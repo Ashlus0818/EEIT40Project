@@ -62,8 +62,18 @@
 			 </li>
 
 
-		<li class="nav-item"><a class="nav-link" href="${contextRoot}/backstage/ReservationStore"> <i
-				class="fas fa-fw fa-table"></i> <span>實體店面</span></a></li>
+		<li class="nav-item"><a class="nav-link" href="#"
+		data-toggle="collapse" data-target="#store"
+			aria-expanded="true" aria-controls="store"> <i
+				class="fas fa-fw fa-table"></i> <span>實體店面</span></a>
+				<div id="store" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="${contextRoot}/backstage/ReservationStore">店面管理</a>
+				<a class="collapse-item" href="${contextRoot}/backstage/ReservationOrderList">試喝預約訂單</a>	
+				</div>
+				</div>						
+		</li>
 
 		
 	<li class="nav-item"><a class="nav-link collapsed" href="*"
